@@ -19,6 +19,8 @@
 			<array>
 				<string>com.veritas.ide.file.project</string>
 			</array>
+			<key>NSDocumentClass</key>
+			<string>NSDocument</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -33,6 +35,8 @@
 			<array>
 				<string>com.veritas.ide.file.source.v</string>
 			</array>
+			<key>NSDocumentClass</key>
+			<string>NSDocument</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>

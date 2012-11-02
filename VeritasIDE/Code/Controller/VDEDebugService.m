@@ -6,7 +6,7 @@
 //
 //
 
-#import "VDEDebugService.h"
+#import "VDEServices.h"
 #import "VDEProjectConfiguration.h"
 #import "VXDictObject.h"
 #import "VXFileReference.h"
@@ -28,17 +28,37 @@
     [self registerBlock: (^(VCallbackBlock callback, NSArray *arguments)
                           {
                               VDEProjectConfiguration *projectConfiguration = [arguments objectAtIndex: 0];
-                              BOOL stop = NO;
-                              VXGroup *mainGroup = [projectConfiguration mainGroup];
-                              [mainGroup enumerateChildrenUsingBlock: (^(id obj, BOOL *shouldStop)
-                                                                       {
-                                                                           if ([obj isKindOfClass: [VXFileReference class]])
-                                                                           {
-                                                                               
-                                                                           }
-                                                                       })
-                                                            recusive: YES
-                                                                stop: &stop];
+                              
+                              NSMutableArray *sourceCodes = [[NSMutableArray alloc] init];
+                              
+                              for (id objLooper in [projectConfiguration objects])
+                              {
+                                  
+                                  NSError *error = nil;
+                                  
+                                  if ([objLooper isKindOfClass: [VXFileReference class]])
+                                  {
+                                      NSString *fileContent = [NSString stringWithContentsOfFile: [objLooper absolutePath]
+                                                                                        encoding: NSUTF8StringEncoding
+                                                                                           error: &error];
+                                      if (error)
+                                      {
+                                          VDEExceptionServiceHandleError(error);
+                                          return ;
+                                      }else
+                                      {
+                                          [sourceCodes addObject: fileContent];
+                                      }
+                                  }
+                              };
+                              
+                              VSC(VMachineServiceID, VMachineServiceDebugSourceFilesAction,
+                                  (^(NSArray *debugArgument)
+                                   {
+                                       
+                                   }), @[ sourceCodes ]);
+                              
+                              [sourceCodes release];
                           })
               forAction: VDEDebugServiceBeginDebugSessionAction];
 }

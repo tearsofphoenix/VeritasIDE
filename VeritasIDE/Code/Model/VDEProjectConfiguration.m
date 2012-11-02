@@ -209,4 +209,9 @@ static void VDEProjectConfigratuonTagObjects(VDEProjectConfiguration *self, id g
 
 @synthesize workingPath = _workingPath;
 
+- (NSArray *)objects
+{
+    return [_projectObjects allValues];
+}
+
 @end

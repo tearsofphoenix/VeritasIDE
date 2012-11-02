@@ -93,10 +93,10 @@ static void VDEMainWindowControllerInitializeTabView(VDEMainWindowController *se
     
     
 #ifdef DEBUG
-//    NSString *fileURL = [[NSBundle mainBundle] pathForResource: @"Outline"
-//                                                        ofType: @"veritasproject"];
-//    
-//    VSC(VDEDataServiceID, VDEDataServiceLoadProjectFileAction, nil, @[ fileURL ]);
+    
+    NSString *fileURL = [NSHomeDirectory() stringByAppendingPathComponent: @"/VDETest/Outline.veritasproject"];
+    
+    VSC(VDEDataServiceID, VDEDataServiceLoadProjectFileAction, nil, @[ fileURL ]);
     
 #else
     
@@ -386,7 +386,9 @@ static void VDEMainWindowControllerSaveDocument(VDESourceScrollView *view, VXFil
                                                   NSURL *fileURL = [savePanel URL];
                                                   [[self class] _createProjectWithTemplateAtURL: fileURL];
                                                   
-                                                  VSC(VDEDataServiceID, VDEDataServiceLoadProjectFileAction, nil, @[ [fileURL path] ]);
+                                                  NSString *path = [[fileURL path] stringByAppendingPathComponent: @"Outline.veritasproject"];
+                                                  
+                                                  VSC(VDEDataServiceID, VDEDataServiceLoadProjectFileAction, nil, @[ path ]);
                                                   
                                               }else
                                               {
