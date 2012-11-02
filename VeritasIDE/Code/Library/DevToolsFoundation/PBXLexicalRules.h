@@ -8,31 +8,84 @@
 
 @class PBXSourceTokens;
 
+extern NSString * const PBXLexicalRuleCommentStartKey;
+extern NSString * const PBXLexicalRuleEndCommentStartKey;
+extern NSString * const PBXLexicalRuleSingleLineCommentStartKey;
+
+extern NSString * const PBXLexicalRuleStringStartKey;
+extern NSString * const PBXLexicalRuleEndStringStartKey;
+
+extern NSString * const PBXLexicalRuleCharStartKey;
+extern NSString * const PBXLexicalRuleEndCharStartKey;
+
+extern NSString * const PBXLexicalRuleIdentifierStartKey;
+extern NSString * const PBXLexicalRuleIdentifierKey;
+
+extern NSString * const PBXLexicalRuleNumericStartKey;
+extern NSString * const PBXLexicalRuleNumericKey;
+
+extern NSString * const PBXLexicalRuleEndOfLineKey;
+
+extern NSString * const PBXLexicalRuleWhitespaceKey;
+extern NSString * const PBXLexicalRuleKeywordsKey;
+extern NSString * const PBXLexicalRuleAltKeywordsKey;
+
+extern NSString * const PBXLexicalRuleDocCommentKeywordsKey;
+
+extern NSString * const PBXLexicalRulePreprocessorKeywordsKey;
+
+extern NSString * const PBXLexicalRuleStringDelimitersKey;
+
+extern NSString * const PBXLexicalRuleCommentDelimitersKey;
+
+extern NSString * const PBXLexicalRuleSingleLineCommentKey;
+
+extern NSString * const PBXLexicalRuleCharacterDelimitersKey;
+
+extern NSString * const PBXLexicalRuleLinkStartKey;
+extern NSString * const PBXLexicalRuleLinkPrefixKey;
+extern NSString * const PBXLexicalRuleURLLocationKey;
+extern NSString * const PBXLexicalRuleDomainNameStartKey;
+extern NSString * const PBXLexicalRuleDomainNameKey;
+extern NSString * const PBXLexicalRuleURLSchemeDelimiterKey;
+extern NSString * const PBXLexicalRuleMailLocalNameDelimiterKey;
+
+
 @interface PBXLexicalRules : NSObject
 {
     NSMutableCharacterSet *_commentStartChars;
     NSMutableCharacterSet *_endCommentStartChars;
     NSMutableCharacterSet *_singleLineCommentStartChars;
+    
     NSMutableCharacterSet *_stringStartChars;
     NSMutableCharacterSet *_endStringStartChars;
+    
     NSMutableCharacterSet *_charStartChars;
     NSMutableCharacterSet *_endCharStartChars;
+    
     NSMutableCharacterSet *_identifierStartChars;
     NSMutableCharacterSet *_identifierChars;
+    
     NSCharacterSet *_nonIdentifierCharacters;
+    
     NSMutableCharacterSet *_numericStartChars;
     NSMutableCharacterSet *_numericChars;
+    
     NSMutableCharacterSet *_endOfLineChars;
+    
     NSCharacterSet *_whitespaceChars;
     NSCharacterSet *_nonWhitespaceChars;
+    
     PBXSourceTokens *_keywords;
     PBXSourceTokens *_altKeywords;
     PBXSourceTokens *_docCommentKeywords;
     PBXSourceTokens *_preprocessorKeywords;
+    
     NSMutableArray *_stringDelimiters;
     NSMutableArray *_commentDelimiters;
     NSMutableArray *_singleLineComment;
     NSMutableArray *_characterDelimiters;
+    
     NSString *_docComment;
     unichar _docCommentKeywordStart;
     unichar _preprocessorKeywordStart;
@@ -44,6 +97,7 @@
     NSCharacterSet *_domainNameChars;
     NSString *_urlSchemeDelimiter;
     NSString *_mailLocalNameDelimiter;
+    
     BOOL _caseSensitive;
     BOOL _unicodeSymbols;
     BOOL _indexedSymbols;

@@ -9,6 +9,48 @@
 #import "PBXLexicalRules.h"
 #import "PBXSourceTokens.h"
 
+NSString * const PBXLexicalRuleCommentStartKey = @"commentStart";
+NSString * const PBXLexicalRuleEndCommentStartKey = @"endCommentStart";
+NSString * const PBXLexicalRuleSingleLineCommentStartKey = @"singleLineCommentStart";
+
+NSString * const PBXLexicalRuleStringStartKey = @"stringStart";
+NSString * const PBXLexicalRuleEndStringStartKey = @"endStringStart";
+
+NSString * const PBXLexicalRuleCharStartKey = @"charStart";
+NSString * const PBXLexicalRuleEndCharStartKey = @"endCharStart";
+
+NSString * const PBXLexicalRuleIdentifierStartKey = @"identifierStart";
+NSString * const PBXLexicalRuleIdentifierKey = @"identifier";
+
+NSString * const PBXLexicalRuleNumericStartKey = @"numericStart";
+NSString * const PBXLexicalRuleNumericKey = @"numeric";
+
+NSString * const PBXLexicalRuleEndOfLineKey = @"endOfLine";
+
+NSString * const PBXLexicalRuleWhitespaceKey = @"whiteSpace";
+NSString * const PBXLexicalRuleKeywordsKey = @"keywords";
+NSString * const PBXLexicalRuleAltKeywordsKey = @"altKeywords";
+
+NSString * const PBXLexicalRuleDocCommentKeywordsKey = @"docComment";
+
+NSString * const PBXLexicalRulePreprocessorKeywordsKey = @"preprocessorKeywords";
+
+NSString * const PBXLexicalRuleStringDelimitersKey = @"stringDelimiters";
+
+NSString * const PBXLexicalRuleCommentDelimitersKey = @"commentDelimiters";
+
+NSString * const PBXLexicalRuleSingleLineCommentKey = @"singleLineComment";
+
+NSString * const PBXLexicalRuleCharacterDelimitersKey = @"characterDelimiters";
+
+NSString * const PBXLexicalRuleLinkStartKey = @"linkStart";
+NSString * const PBXLexicalRuleLinkPrefixKey = @"linkPrefix";
+NSString * const PBXLexicalRuleURLLocationKey = @"URLLocation";
+NSString * const PBXLexicalRuleDomainNameStartKey = @"domainNameStart";
+NSString * const PBXLexicalRuleDomainNameKey = @"domainName";
+NSString * const PBXLexicalRuleURLSchemeDelimiterKey = @"URLSchemeDelimiter";
+NSString * const PBXLexicalRuleMailLocalNameDelimiterKey = @"mailLocalNameDelimiter";
+
 @implementation PBXLexicalRules
 
 - (BOOL)isNumber: (NSString *)arg1
@@ -18,9 +60,23 @@
     return NO;
 }
 
-- (NSInteger)tokenForString: (NSString *)arg1
+- (PBXTokenType)tokenForString: (NSString *)arg1
 {
+    PBXTokenType tokenType = PBXInvalidToken;
+    tokenType = [_keywords tokenForString: arg1];
+    if (tokenType != PBXInvalidToken)
+    {
+        return tokenType;
+    }
     
+    tokenType = [_altKeywords tokenForString: arg1];
+
+    if(tokenType != PBXInvalidToken)
+    {
+        return tokenType;
+    }
+
+    return tokenType;
 }
 
 - (BOOL)fortranStyleComments
@@ -223,11 +279,39 @@
     return [_commentStartChars characterIsMember: arg1];
 }
 
-- (void)addDictionary:(id)arg1
+- (void)addDictionary: (NSDictionary *)dict
 {
+    [_commentStartChars addCharactersInString: [dict objectForKey: PBXLexicalRuleCommentStartKey]];
+    [_endCommentStartChars addCharactersInString: [dict objectForKey: PBXLexicalRuleEndCommentStartKey]];
+    [_singleLineCommentStartChars addCharactersInString: [dict objectForKey: PBXLexicalRuleSingleLineCommentStartKey]];
+    [_stringStartChars addCharactersInString: [dict objectForKey: PBXLexicalRuleStringStartKey]];
+    [_endStringStartChars addCharactersInString: [dict objectForKey: PBXLexicalRuleEndStringStartKey]];
+    [_charStartChars addCharactersInString: [dict objectForKey: PBXLexicalRuleCharStartKey]];
+    [_endCharStartChars addCharactersInString: [dict objectForKey: PBXLexicalRuleEndCharStartKey]];
+    [_identifierStartChars addCharactersInString: [dict objectForKey: PBXLexicalRuleIdentifierStartKey]];
+    [_identifierChars addCharactersInString: [dict objectForKey: PBXLexicalRuleIdentifierKey]];
     
+    [_nonIdentifierCharacters release];
+    _nonIdentifierCharacters = [[_identifierChars invertedSet] retain];
+    
+    [_numericStartChars addCharactersInString: [dict objectForKey: PBXLexicalRuleNumericStartKey]];
+    [_numericChars addCharactersInString: [dict objectForKey: PBXLexicalRuleNumericKey]];
+    [_endOfLineChars addCharactersInString: [dict objectForKey: PBXLexicalRuleEndOfLineKey]];
+    
+    [_whitespaceChars release];
+    _whitespaceChars = [[NSCharacterSet characterSetWithCharactersInString: [dict objectForKey: PBXLexicalRuleWhitespaceKey]] retain];
+    
+    [_nonWhitespaceChars release];
+    _nonWhitespaceChars = [[_whitespaceChars invertedSet] retain];
+    
+    [_keywords addArrayOfStrings: [dict objectForKey: PBXLexicalRuleKeywordsKey]];
+    
+    [_altKeywords addArrayOfStrings: [dict objectForKey: PBXLexicalRuleAltKeywordsKey]];
+    [_docCommentKeywords addArrayOfStrings: [dict objectForKey: PBXLexicalRuleDocCommentKeywordsKey]];
+    [_preprocessorKeywords addArrayOfStrings: [dict objectForKey: PBXLexicalRulePreprocessorKeywordsKey]];
+
 }
-- (id)initWithDictionary: (id)arg1
+- (id)initWithDictionary: (NSDictionary *)dict
 {
     if ((self = [super init]))
     {
@@ -241,30 +325,40 @@
         _identifierStartChars = [[NSMutableCharacterSet alloc] init];
         _identifierChars = [[NSMutableCharacterSet alloc] init];
         
-        //_nonIdentifierCharacters;
-
+        //_nonIdentifierCharacters = nil;
+        
         _numericStartChars = [[NSMutableCharacterSet alloc] init];
         _numericChars = [[NSMutableCharacterSet alloc] init];
         _endOfLineChars = [[NSMutableCharacterSet alloc] init];
         
-        //_whitespaceChars;
-        //_nonWhitespaceChars;
+        //_whitespaceChars = [[NSCharacterSet alloc] init];
+        //_nonWhitespaceChars = nil;
         
-        //_keywords;
-        //_altKeywords;
-        //_docCommentKeywords;
-        //_preprocessorKeywords;
-        
-        _stringDelimiters = [[NSMutableArray alloc] init];
-        _commentDelimiters = [[NSMutableArray alloc] init];
-        _singleLineComment = [[NSMutableArray alloc] init];
-        _characterDelimiters = [[NSMutableArray alloc] init];
+        _keywords = [[PBXSourceTokens alloc] init];
+        _altKeywords = [[PBXSourceTokens alloc] init];
+        _docCommentKeywords = [[PBXSourceTokens alloc] init];
+        _preprocessorKeywords = [[PBXSourceTokens alloc] init];
 
-        //_linkStartChars;
-        //_linkPrefixChars;
-        //_urlLocationChars;
-        //_domainNameStartChars;
-        //_domainNameChars;
+        [self addDictionary: dict];
+        
+        _docComment = nil;
+        _docCommentKeywordStart = 0;
+        _preprocessorKeywordStart = '#';
+        _escapeCharacter = '\\';
+        
+        //NSCharacterSet *_linkStartChars;
+        //NSCharacterSet *_linkPrefixChars;
+        //NSCharacterSet *_urlLocationChars;
+        //NSCharacterSet *_domainNameStartChars;
+        //NSCharacterSet *_domainNameChars;
+        //NSString *_urlSchemeDelimiter;
+        //NSString *_mailLocalNameDelimiter;
+        
+        _caseSensitive = YES;
+        _unicodeSymbols = YES;
+        _indexedSymbols = YES;
+        _commentsCanBeNested = NO;
+
     }
     
     return self;

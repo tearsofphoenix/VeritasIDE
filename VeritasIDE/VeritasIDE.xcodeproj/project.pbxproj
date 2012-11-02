@@ -529,73 +529,30 @@
 			children = (
 				22BFE31C1641175700F07A98 /* NSString+RandomHexString.h */,
 				22BFE31D1641175700F07A98 /* NSString+RandomHexString.m */,
-				22BFE31E1641175700F07A98 /* PBXBreakpoint.h */,
-				22BFE31F1641175700F07A98 /* PBXBreakpoint.m */,
+				E1CCCE6A1643F431006696E0 /* Breakpoint */,
 				22BFE3201641175700F07A98 /* PBXBuildContext.h */,
 				22BFE3211641175700F07A98 /* PBXBuildMessage.h */,
 				22BFE3221641175700F07A98 /* PBXChangeNotification.h */,
 				22BFE3231641175700F07A98 /* PBXCodeCompletion.h */,
 				22BFE3241641175700F07A98 /* PBXCodeSenseManager.h */,
 				22BFE3251641175700F07A98 /* PBXCompletionItem.h */,
-				22BFE3261641175700F07A98 /* PBXContainer.h */,
-				22BFE3271641175700F07A98 /* PBXContainerItem.h */,
-				22BFE3281641175700F07A98 /* PBXContainerItem.m */,
-				22BFE3291641175700F07A98 /* PBXContainerItemChangeNotification.h */,
-				22BFE32A1641175700F07A98 /* PBXContainerItemProxy.h */,
-				22BFE32B1641175700F07A98 /* PBXCSourceScanner.h */,
-				22BFE32C1641175700F07A98 /* PBXCStringPool.h */,
-				22BFE32D1641175700F07A98 /* PBXCStringStorage.h */,
-				22BFE32E1641175700F07A98 /* PBXDevKitIndexingEngine.h */,
-				22BFE32F1641175700F07A98 /* PBXExecutable.h */,
-				22BFE3301641175700F07A98 /* PBXFileBreakpoint.h */,
-				22BFE3311641175700F07A98 /* PBXFileReference.h */,
-				22BFE3321641175700F07A98 /* PBXFileSystemLocation.h */,
-				22BFE3331641175700F07A98 /* PBXFileType.h */,
-				22BFE3341641175700F07A98 /* PBXFileTypePart.h */,
-				22BFE3351641175700F07A98 /* PBXFolder.h */,
-				22BFE3361641175700F07A98 /* PBXFramework.h */,
-				22BFE3371641175700F07A98 /* PBXFunctionSymbol.h */,
-				22BFE3381641175700F07A98 /* PBXGlobalID.h */,
-				22BFE3391641175700F07A98 /* PBXGlobalID.m */,
-				22BFE33A1641175700F07A98 /* PBXGroup.h */,
-				22BFE33B1641175700F07A98 /* PBXGroupEnumerator.h */,
+				E1CCCE691643F41D006696E0 /* Core */,
+				E1CCCE6B1643F451006696E0 /* Index */,
+				E1CCCE6C1643F460006696E0 /* Symbol */,
 				22BFE33C1641175700F07A98 /* PBXHeaderFileSearchContext.h */,
 				22BFE33D1641175700F07A98 /* PBXHeaderMap.h */,
-				22BFE33E1641175700F07A98 /* PBXIndexedFileList.h */,
-				22BFE33F1641175700F07A98 /* PBXIndexEntry.h */,
-				22BFE3401641175700F07A98 /* PBXIndexingEngine.h */,
 				22BFE3411641175700F07A98 /* PBXInterpretedExecutable.h */,
 				22BFE3421641175700F07A98 /* PBXLanguageSpecification.h */,
-				22BFE3431641175700F07A98 /* PBXLexicalRules.h */,
-				22BFE3441641175700F07A98 /* PBXLexicalRules.m */,
+				E1CCCE681643F3CA006696E0 /* LexnScan */,
 				22BFE3451641175700F07A98 /* PBXLogOutputString.h */,
 				22BFE3461641175700F07A98 /* PBXMarkerDelegateProtocol.h */,
-				22BFE3471641175700F07A98 /* PBXMemberContainerSymbol.h */,
-				22BFE3481641175700F07A98 /* PBXObject.h */,
-				22BFE3491641175700F07A98 /* PBXObject.m */,
-				22BFE34A1641175700F07A98 /* PBXProject.h */,
-				22BFE34B1641175700F07A98 /* PBXProjectIndex.h */,
-				22BFE34C1641175700F07A98 /* PBXProjectItem.h */,
-				22BFE34D1641175700F07A98 /* PBXProjectItem.m */,
 				22BFE34E1641175700F07A98 /* PBXProjectRenameFileCallback.h */,
 				22BFE34F1641175700F07A98 /* PBXRecordVector.h */,
-				22BFE3501641175700F07A98 /* PBXReference.h */,
-				22BFE3511641175700F07A98 /* PBXReferenceProxy.h */,
-				22BFE3521641175700F07A98 /* PBXScannerItem.h */,
 				22BFE3531641175700F07A98 /* PBXShellScriptBuildPhase.h */,
 				22BFE3541641175700F07A98 /* PBXSignatureSymbol-Protocol.h */,
-				22BFE3551641175700F07A98 /* PBXSourceLexer.h */,
-				22BFE3561641175700F07A98 /* PBXSourceLexer.m */,
-				22BFE3571641175700F07A98 /* PBXSourceScanner.h */,
-				22BFE3581641175700F07A98 /* PBXSourceScannerItem.h */,
-				22BFE3591641175700F07A98 /* PBXSourceTokens.h */,
-				22BFE35A1641175700F07A98 /* PBXSourceTokens.m */,
 				22BFE35B1641175700F07A98 /* PBXStringCompletionItem.h */,
-				22BFE35C1641175700F07A98 /* PBXStringLexer.h */,
 				22BFE35D1641175700F07A98 /* PBXStringTree.h */,
 				22BFE35E1641175700F07A98 /* PBXStringTreeNode.h */,
-				22BFE35F1641175700F07A98 /* PBXSymbol.h */,
-				22BFE3601641175700F07A98 /* PBXSymbolicBreakpoint.h */,
 				22BFE3611641175700F07A98 /* PBXTarget.h */,
 				22BFE3621641175700F07A98 /* PBXTargetBuildContext.h */,
 				22BFE3631641175700F07A98 /* PBXTargetDependency.h */,
@@ -824,6 +781,89 @@
 				E14B704E164206A300BCCDB4 /* VDEPushButton.m */,
 			);
 			name = Toolbar;
+			sourceTree = "<group>";
+		};
+		E1CCCE681643F3CA006696E0 /* LexnScan */ = {
+			isa = PBXGroup;
+			children = (
+				22BFE32B1641175700F07A98 /* PBXCSourceScanner.h */,
+				22BFE3431641175700F07A98 /* PBXLexicalRules.h */,
+				22BFE3441641175700F07A98 /* PBXLexicalRules.m */,
+				22BFE3521641175700F07A98 /* PBXScannerItem.h */,
+				22BFE3551641175700F07A98 /* PBXSourceLexer.h */,
+				22BFE3561641175700F07A98 /* PBXSourceLexer.m */,
+				22BFE3571641175700F07A98 /* PBXSourceScanner.h */,
+				22BFE3581641175700F07A98 /* PBXSourceScannerItem.h */,
+				22BFE3591641175700F07A98 /* PBXSourceTokens.h */,
+				22BFE35A1641175700F07A98 /* PBXSourceTokens.m */,
+				22BFE35C1641175700F07A98 /* PBXStringLexer.h */,
+			);
+			name = LexnScan;
+			sourceTree = "<group>";
+		};
+		E1CCCE691643F41D006696E0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				22BFE3261641175700F07A98 /* PBXContainer.h */,
+				22BFE3271641175700F07A98 /* PBXContainerItem.h */,
+				22BFE3281641175700F07A98 /* PBXContainerItem.m */,
+				22BFE3311641175700F07A98 /* PBXFileReference.h */,
+				22BFE32C1641175700F07A98 /* PBXCStringPool.h */,
+				22BFE32D1641175700F07A98 /* PBXCStringStorage.h */,
+				22BFE3291641175700F07A98 /* PBXContainerItemChangeNotification.h */,
+				22BFE32A1641175700F07A98 /* PBXContainerItemProxy.h */,
+				22BFE32F1641175700F07A98 /* PBXExecutable.h */,
+				22BFE3321641175700F07A98 /* PBXFileSystemLocation.h */,
+				22BFE3331641175700F07A98 /* PBXFileType.h */,
+				22BFE3341641175700F07A98 /* PBXFileTypePart.h */,
+				22BFE3351641175700F07A98 /* PBXFolder.h */,
+				22BFE3361641175700F07A98 /* PBXFramework.h */,
+				22BFE3381641175700F07A98 /* PBXGlobalID.h */,
+				22BFE33A1641175700F07A98 /* PBXGroup.h */,
+				22BFE3391641175700F07A98 /* PBXGlobalID.m */,
+				22BFE33B1641175700F07A98 /* PBXGroupEnumerator.h */,
+				22BFE3481641175700F07A98 /* PBXObject.h */,
+				22BFE3491641175700F07A98 /* PBXObject.m */,
+				22BFE34A1641175700F07A98 /* PBXProject.h */,
+				22BFE34C1641175700F07A98 /* PBXProjectItem.h */,
+				22BFE34D1641175700F07A98 /* PBXProjectItem.m */,
+				22BFE3501641175700F07A98 /* PBXReference.h */,
+				22BFE3511641175700F07A98 /* PBXReferenceProxy.h */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		E1CCCE6A1643F431006696E0 /* Breakpoint */ = {
+			isa = PBXGroup;
+			children = (
+				22BFE31E1641175700F07A98 /* PBXBreakpoint.h */,
+				22BFE31F1641175700F07A98 /* PBXBreakpoint.m */,
+				22BFE3301641175700F07A98 /* PBXFileBreakpoint.h */,
+				22BFE3601641175700F07A98 /* PBXSymbolicBreakpoint.h */,
+			);
+			name = Breakpoint;
+			sourceTree = "<group>";
+		};
+		E1CCCE6B1643F451006696E0 /* Index */ = {
+			isa = PBXGroup;
+			children = (
+				22BFE32E1641175700F07A98 /* PBXDevKitIndexingEngine.h */,
+				22BFE33E1641175700F07A98 /* PBXIndexedFileList.h */,
+				22BFE33F1641175700F07A98 /* PBXIndexEntry.h */,
+				22BFE3401641175700F07A98 /* PBXIndexingEngine.h */,
+				22BFE34B1641175700F07A98 /* PBXProjectIndex.h */,
+			);
+			name = Index;
+			sourceTree = "<group>";
+		};
+		E1CCCE6C1643F460006696E0 /* Symbol */ = {
+			isa = PBXGroup;
+			children = (
+				22BFE3371641175700F07A98 /* PBXFunctionSymbol.h */,
+				22BFE3471641175700F07A98 /* PBXMemberContainerSymbol.h */,
+				22BFE35F1641175700F07A98 /* PBXSymbol.h */,
+			);
+			name = Symbol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

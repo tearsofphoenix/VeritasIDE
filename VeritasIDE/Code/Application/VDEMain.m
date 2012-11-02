@@ -5,7 +5,7 @@
 
 int main(int argc, const char *argv[])
 {
-    //NSLog(@"%@", [NSString randomLowerAlphabetStringWithLength: 28]);
+    NSLog(@"%@", [NSMutableSet setWithArray: nil]);
     
     return NSApplicationMain(argc, argv);
 }

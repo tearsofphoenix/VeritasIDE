@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+#import <Foundation/Foundation.h>
 
 @class PBXSourceLexer;
 
@@ -14,11 +14,15 @@
 }
 
 - (id)parse;
-- (id)parseString:(id)arg1;
+
+- (id)parseString: (NSString *)str;
+
 - (void)initInterestingSymbols;
+
 - (void)initSourceLexerForSpecification:(id)arg1;
-- (id)lexer;
-- (void)dealloc;
+
+- (PBXSourceLexer *)lexer;
+
 - (id)initWithLanguageSpecification:(id)arg1;
 
 @end

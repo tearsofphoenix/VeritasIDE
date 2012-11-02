@@ -7,6 +7,7 @@
 //
 
 #import "PBXSourceLexer.h"
+#import "PBXLexicalRules.h"
 
 @implementation PBXSourceLexer
 

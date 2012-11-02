@@ -44,9 +44,11 @@
                 withEscape: (BOOL)arg3;
 
 - (NSRange)tokenRange;
-- (id)stringForRange:(NSRange)arg1;
+- (NSString *)stringForRange:(NSRange)arg1;
+
 - (void)setTokenStringToRange:(NSRange)arg1;
-- (id)tokenString;
+
+- (NSString *)tokenString;
 - (NSInteger)peekToken;
 
 - (NSInteger)cachedTokenTypeAtLocation: (NSUInteger)arg1

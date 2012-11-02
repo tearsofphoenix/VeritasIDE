@@ -10,25 +10,24 @@
 
 @implementation PBXSourceTokens
 
-
-+ (NSInteger)addTokenForString: (id)str
++ (PBXTokenType)addTokenForString: (NSString *)str
 {
-    
+    return PBXInvalidToken;
 }
 
-+ (NSInteger)_tokenForString: (id)str
++ (PBXTokenType)_tokenForString: (NSString *)str
 {
-    
+    return PBXInvalidToken;
 }
 
-- (id)allTokens
+- (NSSet *)allTokens
 {
-    
+    return _tokens;
 }
 
-- (NSInteger)tokenForString: (NSString *)str
+- (PBXTokenType)tokenForString: (NSString *)str
 {
-    
+    return PBXInvalidToken;
 }
 
 - (BOOL)containsToken: (NSString *)token
@@ -66,6 +65,12 @@
     }
     
     return self;
+}
+
+- (id)init
+{
+    return [self initWithArrayOfStrings: nil
+                          caseSensitive: YES];
 }
 
 @end

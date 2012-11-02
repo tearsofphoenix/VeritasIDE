@@ -8,6 +8,7 @@
 
 enum
 {
+    PBXInvalidToken = -1,
     PBXMailAddressToken,
     PBXURLToken,
     PBXPreprocessorToken,
@@ -23,7 +24,7 @@ enum
     PBXCharacterToken
 };
 
-typedef NSUInteger PBXTokenType;
+typedef NSInteger PBXTokenType;
 
 
 @interface PBXSourceTokens : NSObject
@@ -32,13 +33,13 @@ typedef NSUInteger PBXTokenType;
     BOOL _caseSensitive;
 }
 
-+ (NSInteger)addTokenForString: (id)str;
++ (PBXTokenType)addTokenForString: (NSString *)str;
 
-+ (NSInteger)_tokenForString: (id)str;
++ (PBXTokenType)_tokenForString: (NSString *)str;
 
-- (id)allTokens;
+- (NSSet *)allTokens;
 
-- (NSInteger)tokenForString: (NSString *)str;
+- (PBXTokenType)tokenForString: (NSString *)str;
 
 - (BOOL)containsToken: (NSString *)token;
 
