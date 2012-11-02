@@ -1,0 +1,51 @@
+{
+    "rootObject" : "TestVDE",
+    "objects" :
+    {
+        "TestVDE" : {
+            "isa" : "VXProject",
+            "mainGroup" : "29B97314FDCFA39411CA2CEA",
+            "projectDirPath" : "",
+            "projectRoot" : "",
+            "targets" : [ "8D1107260486CEB800E47090" ]
+        },
+        
+        "29B97314FDCFA39411CA2CEA" : {
+            "isa" : "VXGroup",
+            "children" : [ "22A7B7C81639183F0067B98A" ],
+            "name" : "TrackIt",
+            "sourceTree" : "<group>"
+        },
+        
+        "22A7B7C81639183F0067B98A" : {
+            "isa" : "VXGroup",
+            "children" : [ "22A7B7C91639183F0067B98A" ],
+            "path" : "Code",
+            "sourceTree" : "<group>"
+        },
+        
+        "22A7B7C91639183F0067B98A" : {
+            "isa" : "VXGroup",
+            "children" : ["22A7B7CA1639183F0067B98A", "22A7B7CB1639183F0067B98A"],
+            "path" : "Application",
+            "sourceTree" : "<group>"
+        },
+        
+        "22A7B7CA1639183F0067B98A" : {
+            "isa" : "VXFileReference",
+            "fileEncoding" : 4,
+            "lastKnownFileType" : "source.veritas.v",
+            "path" : "Test.v",
+            "sourceTree" : "<group>"
+        },
+        
+        "22A7B7CB1639183F0067B98A" :
+        {
+            "isa" : "VXFileReference",
+            "fileEncoding" : 4,
+            "lastKnownFileType" : "source.veritas.v",
+            "path" : "Main.v",
+            "sourceTree" : "<group>"
+        }
+    }
+}

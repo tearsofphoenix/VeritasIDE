@@ -1,0 +1,1180 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2287C167163A4A5500931399 /* VDEViewService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2287C166163A4A5500931399 /* VDEViewService.m */; };
+		22A7B7DB1639183F0067B98A /* VDEApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A7B7CB1639183F0067B98A /* VDEApplicationDelegate.m */; };
+		22A7B7DC1639183F0067B98A /* VDEMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A7B7CC1639183F0067B98A /* VDEMain.m */; };
+		22A7B7DD1639183F0067B98A /* VDEMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A7B7CF1639183F0067B98A /* VDEMainWindowController.m */; };
+		22A7B7E01639183F0067B98A /* NSArray+VDEExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A7B7D71639183F0067B98A /* NSArray+VDEExtensions.m */; };
+		22A7B7FF16392E160067B98A /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 22A7B7F416392E160067B98A /* Credits.rtf */; };
+		22A7B80016392E160067B98A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22A7B7F616392E160067B98A /* InfoPlist.strings */; };
+		22A7B80116392E160067B98A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A7B7F816392E160067B98A /* MainMenu.xib */; };
+		22A7B80216392E160067B98A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A7B7FA16392E160067B98A /* MainWindow.xib */; };
+		22A7B80B163936C90067B98A /* VDEProjectFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A7B80A163936C90067B98A /* VDEProjectFileParser.m */; };
+		22A7B8161639394A0067B98A /* VDEProjectConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A7B8151639394A0067B98A /* VDEProjectConfiguration.m */; };
+		22BFE24F16410C4200F07A98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BFE24E16410C4200F07A98 /* Foundation.framework */; };
+		22BFE3181641170400F07A98 /* Outline.veritasproject in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22A7B7FD16392E160067B98A /* Outline.veritasproject */; };
+		22BFE3191641170400F07A98 /* Test.v in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22A7B81D1639402E0067B98A /* Test.v */; };
+		22BFE31A1641170400F07A98 /* Main.v in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22A7B8291639435B0067B98A /* Main.v */; };
+		22BFE36A1641175700F07A98 /* NSString+RandomHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE31D1641175700F07A98 /* NSString+RandomHexString.m */; };
+		22BFE36B1641175700F07A98 /* PBXBreakpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE31F1641175700F07A98 /* PBXBreakpoint.m */; };
+		22BFE36C1641175700F07A98 /* PBXContainerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE3281641175700F07A98 /* PBXContainerItem.m */; };
+		22BFE36D1641175700F07A98 /* PBXGlobalID.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE3391641175700F07A98 /* PBXGlobalID.m */; };
+		22BFE36E1641175700F07A98 /* PBXLexicalRules.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE3441641175700F07A98 /* PBXLexicalRules.m */; };
+		22BFE36F1641175700F07A98 /* PBXObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE3491641175700F07A98 /* PBXObject.m */; };
+		22BFE3701641175700F07A98 /* PBXProjectItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE34D1641175700F07A98 /* PBXProjectItem.m */; };
+		22BFE3711641175700F07A98 /* PBXSourceLexer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE3561641175700F07A98 /* PBXSourceLexer.m */; };
+		22BFE3721641175700F07A98 /* PBXSourceTokens.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE35A1641175700F07A98 /* PBXSourceTokens.m */; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		E11D1C3A163B85AB004FCD5B /* VXProject.m in Sources */ = {isa = PBXBuildFile; fileRef = E11D1C39163B85AB004FCD5B /* VXProject.m */; };
+		E11D1C3E163B85EC004FCD5B /* VXGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = E11D1C3D163B85EC004FCD5B /* VXGroup.m */; };
+		E11D1C41163B87B1004FCD5B /* VXFileReference.m in Sources */ = {isa = PBXBuildFile; fileRef = E11D1C40163B87B1004FCD5B /* VXFileReference.m */; };
+		E11D1C44163B87E6004FCD5B /* VXDictObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E11D1C43163B87E5004FCD5B /* VXDictObject.m */; };
+		E11D1C4F163BAC7D004FCD5B /* VDEResourceService.m in Sources */ = {isa = PBXBuildFile; fileRef = E11D1C4E163BAC7D004FCD5B /* VDEResourceService.m */; };
+		E12EDFA8163F6A960009C048 /* VDEMainDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E12EDFA7163F6A960009C048 /* VDEMainDataSource.m */; };
+		E12EDFDA16402CA20009C048 /* icon.navigator.group.icns in Resources */ = {isa = PBXBuildFile; fileRef = E12EDFD916402CA20009C048 /* icon.navigator.group.icns */; };
+		E12EDFDD16402D870009C048 /* VXBreakPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E12EDFDC16402D860009C048 /* VXBreakPoint.m */; };
+		E12EDFE016402D9E0009C048 /* VXLineBreakPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E12EDFDF16402D9D0009C048 /* VXLineBreakPoint.m */; };
+		E13F18F6163E10F8009D41A7 /* DMTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E13F18F3163E10F8009D41A7 /* DMTabBar.m */; };
+		E13F18F7163E10F8009D41A7 /* DMTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E13F18F5163E10F8009D41A7 /* DMTabBarItem.m */; };
+		E13F18FA163E2E70009D41A7 /* FolderRef.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E13F18F9163E2E70009D41A7 /* FolderRef.tiff */; };
+		E13F18FC163E2F73009D41A7 /* hud_buttonDebug_TurnOffBreakpoints.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E13F18FB163E2F73009D41A7 /* hud_buttonDebug_TurnOffBreakpoints.tiff */; };
+		E13F18FF163E3892009D41A7 /* VDEMainWindowControllerPrivateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E13F18FE163E3892009D41A7 /* VDEMainWindowControllerPrivateHandler.m */; };
+		E14A34D91643A72500B8EB6E /* VeritasMachineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14A34D21643A70900B8EB6E /* VeritasMachineKit.framework */; };
+		E14B704F164206A300BCCDB4 /* VDEPushButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E14B704E164206A300BCCDB4 /* VDEPushButton.m */; };
+		E14B7057164207FE00BCCDB4 /* hud_buttonDebug_TurnOnBreakpoints.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E14B7056164207FE00BCCDB4 /* hud_buttonDebug_TurnOnBreakpoints.tiff */; };
+		E14B706716421C1300BCCDB4 /* NSMutableArray+BlockExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E14B706616421C1300BCCDB4 /* NSMutableArray+BlockExtension.m */; };
+		E14B706A16421C5900BCCDB4 /* NSMutableDictionary+BlockExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E14B706916421C5900BCCDB4 /* NSMutableDictionary+BlockExtension.m */; };
+		E14B7071164237D900BCCDB4 /* VDEDebugService.m in Sources */ = {isa = PBXBuildFile; fileRef = E14B7070164237D900BCCDB4 /* VDEDebugService.m */; };
+		E16FC4AD164252E200A47A8D /* Selene.icns in Resources */ = {isa = PBXBuildFile; fileRef = E16FC4AC164252E200A47A8D /* Selene.icns */; };
+		E16FC4B41642540000A47A8D /* source.veritas.lua.icns in Resources */ = {isa = PBXBuildFile; fileRef = E16FC4B01642540000A47A8D /* source.veritas.lua.icns */; };
+		E16FC4B51642540000A47A8D /* source.veritasproject.icns in Resources */ = {isa = PBXBuildFile; fileRef = E16FC4B11642540000A47A8D /* source.veritasproject.icns */; };
+		E16FC4B61642540000A47A8D /* source.veritas.v.icns in Resources */ = {isa = PBXBuildFile; fileRef = E16FC4B21642540000A47A8D /* source.veritas.v.icns */; };
+		E16FC4C9164279E900A47A8D /* source.c.c.icns in Resources */ = {isa = PBXBuildFile; fileRef = E16FC4AE1642540000A47A8D /* source.c.c.icns */; };
+		E16FC4CA164279E900A47A8D /* source.c.h.icns in Resources */ = {isa = PBXBuildFile; fileRef = E16FC4AF1642540000A47A8D /* source.c.h.icns */; };
+		E18632F7163CF9340027EF15 /* VDEResourceLoadList.plist in Resources */ = {isa = PBXBuildFile; fileRef = E18632F6163CF9340027EF15 /* VDEResourceLoadList.plist */; };
+		E1863312163D34D50027EF15 /* VDENotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = E1863311163D34D50027EF15 /* VDENotificationService.m */; };
+		E1863315163D3A0C0027EF15 /* VDESourceCodeEditorViewPrivateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E1863314163D3A0B0027EF15 /* VDESourceCodeEditorViewPrivateHandler.m */; };
+		E1863382163D85180027EF15 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = E186337F163D85180027EF15 /* NoodleLineNumberMarker.m */; };
+		E1863383163D85180027EF15 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1863381163D85180027EF15 /* NoodleLineNumberView.m */; };
+		E1863386163D899E0027EF15 /* VDESourceScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1863385163D899E0027EF15 /* VDESourceScrollView.m */; };
+		E1A23758164124540067B047 /* DVTRunButtonPause.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A2373E164124540067B047 /* DVTRunButtonPause.png */; };
+		E1A23759164124540067B047 /* DVTRunButtonPause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A2373F164124540067B047 /* DVTRunButtonPause@2x.png */; };
+		E1A2375A164124540067B047 /* DVTRunButtonPauseD.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23740164124540067B047 /* DVTRunButtonPauseD.png */; };
+		E1A2375B164124540067B047 /* DVTRunButtonPauseD@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23741164124540067B047 /* DVTRunButtonPauseD@2x.png */; };
+		E1A2375C164124540067B047 /* DVTRunButtonPauseP.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23742164124540067B047 /* DVTRunButtonPauseP.png */; };
+		E1A2375D164124540067B047 /* DVTRunButtonPauseP@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23743164124540067B047 /* DVTRunButtonPauseP@2x.png */; };
+		E1A2375E164124540067B047 /* DVTRunButtonRun.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23744164124540067B047 /* DVTRunButtonRun.png */; };
+		E1A2375F164124540067B047 /* DVTRunButtonRun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23745164124540067B047 /* DVTRunButtonRun@2x.png */; };
+		E1A23760164124540067B047 /* DVTRunButtonRunD.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23746164124540067B047 /* DVTRunButtonRunD.png */; };
+		E1A23761164124540067B047 /* DVTRunButtonRunD@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23747164124540067B047 /* DVTRunButtonRunD@2x.png */; };
+		E1A23762164124540067B047 /* DVTRunButtonRunDI.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23748164124540067B047 /* DVTRunButtonRunDI.png */; };
+		E1A23763164124540067B047 /* DVTRunButtonRunDI@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23749164124540067B047 /* DVTRunButtonRunDI@2x.png */; };
+		E1A23764164124540067B047 /* DVTRunButtonRunI.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A2374A164124540067B047 /* DVTRunButtonRunI.png */; };
+		E1A23765164124540067B047 /* DVTRunButtonRunI@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A2374B164124540067B047 /* DVTRunButtonRunI@2x.png */; };
+		E1A23766164124540067B047 /* DVTRunButtonRunP.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A2374C164124540067B047 /* DVTRunButtonRunP.png */; };
+		E1A23767164124540067B047 /* DVTRunButtonRunP@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A2374D164124540067B047 /* DVTRunButtonRunP@2x.png */; };
+		E1A23768164124540067B047 /* DVTRunButtonStop.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A2374E164124540067B047 /* DVTRunButtonStop.png */; };
+		E1A23769164124540067B047 /* DVTRunButtonStop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A2374F164124540067B047 /* DVTRunButtonStop@2x.png */; };
+		E1A2376A164124540067B047 /* DVTRunButtonStopD.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23750164124540067B047 /* DVTRunButtonStopD.png */; };
+		E1A2376B164124540067B047 /* DVTRunButtonStopD@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23751164124540067B047 /* DVTRunButtonStopD@2x.png */; };
+		E1A2376C164124540067B047 /* DVTRunButtonStopDI.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23752164124540067B047 /* DVTRunButtonStopDI.png */; };
+		E1A2376D164124540067B047 /* DVTRunButtonStopDI@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23753164124540067B047 /* DVTRunButtonStopDI@2x.png */; };
+		E1A2376E164124540067B047 /* DVTRunButtonStopI.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23754164124540067B047 /* DVTRunButtonStopI.png */; };
+		E1A2376F164124540067B047 /* DVTRunButtonStopI@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23755164124540067B047 /* DVTRunButtonStopI@2x.png */; };
+		E1A23770164124540067B047 /* DVTRunButtonStopP.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23756164124540067B047 /* DVTRunButtonStopP.png */; };
+		E1A23771164124540067B047 /* DVTRunButtonStopP@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A23757164124540067B047 /* DVTRunButtonStopP@2x.png */; };
+		E1A23775164126E10067B047 /* VDEToolBarItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A23774164126E10067B047 /* VDEToolBarItemView.m */; };
+		E1A289071642CD1F009FCA36 /* VDENewFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A289051642CD1F009FCA36 /* VDENewFileViewController.m */; };
+		E1A289081642CD1F009FCA36 /* VDENewFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A289061642CD1F009FCA36 /* VDENewFileViewController.xib */; };
+		E1A400C016439C2000F8AE92 /* LuaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A400BE16439C2000F8AE92 /* LuaKit.framework */; };
+		E1A4FDF21643688500F8AE92 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A4FDF11643688500F8AE92 /* IOKit.framework */; };
+		E1A4FDF6164372E400F8AE92 /* VDEExceptionService.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A4FDF5164372E400F8AE92 /* VDEExceptionService.m */; };
+		E1BC6E63163E7B540075F3B0 /* NSIndexPath+GCJumpBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BC6E57163E7B540075F3B0 /* NSIndexPath+GCJumpBar.m */; };
+		E1BC6E64163E7B540075F3B0 /* NSMenu+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BC6E59163E7B540075F3B0 /* NSMenu+IndexPath.m */; };
+		E1BC6E65163E7B540075F3B0 /* GCJumpBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BC6E5B163E7B540075F3B0 /* GCJumpBar.m */; };
+		E1BC6E66163E7B540075F3B0 /* GCJumpBarLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BC6E5D163E7B540075F3B0 /* GCJumpBarLabel.m */; };
+		E1BC6E67163E7B540075F3B0 /* GCJumpBarAccessorySeparator.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BC6E5F163E7B540075F3B0 /* GCJumpBarAccessorySeparator.png */; };
+		E1BC6E68163E7B540075F3B0 /* GCJumpBarAccessorySeparator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BC6E60163E7B540075F3B0 /* GCJumpBarAccessorySeparator@2x.png */; };
+		E1BC6E69163E7B540075F3B0 /* GCJumpBarSeparator.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BC6E61163E7B540075F3B0 /* GCJumpBarSeparator.png */; };
+		E1BC6E6A163E7B540075F3B0 /* GCJumpBarSeparator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BC6E62163E7B540075F3B0 /* GCJumpBarSeparator@2x.png */; };
+		E1BC6E71163EBBF10075F3B0 /* NSMenu+VDEProjectConfigurationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BC6E70163EBBF00075F3B0 /* NSMenu+VDEProjectConfigurationExtension.m */; };
+		E1BF3C3916397C35001570DF /* VDEDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF3C3816397C35001570DF /* VDEDataService.m */; };
+		E1BF3C4816397F2C001570DF /* VDEImageTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF3C4516397F2C001570DF /* VDEImageTextCell.m */; };
+		E1BF3C4916397F2C001570DF /* VDEProjectNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF3C4716397F2C001570DF /* VDEProjectNavigatorView.m */; };
+		E1BF3C4C16397F46001570DF /* VDEProjectNavigatorPrivateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF3C4B16397F46001570DF /* VDEProjectNavigatorPrivateHandler.m */; };
+		E1BF3C4F16398F0E001570DF /* VDESourceCodeEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF3C4E16398F0E001570DF /* VDESourceCodeEditorView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E14A34D11643A70900B8EB6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E14A34C51643A70800B8EB6E /* VeritasMachineKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E1A400371643996C00F8AE92;
+			remoteInfo = VeritasMachineKit;
+		};
+		E14A34D31643A70900B8EB6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E14A34C51643A70800B8EB6E /* VeritasMachineKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E1A4005416439A1D00F8AE92;
+			remoteInfo = VeritasMachineKitiOS;
+		};
+		E14A34D71643A71000B8EB6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E14A34C51643A70800B8EB6E /* VeritasMachineKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E1A400361643996C00F8AE92;
+			remoteInfo = VeritasMachineKit;
+		};
+		E14A35631643AA2900B8EB6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E14A34C51643A70800B8EB6E /* VeritasMachineKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E14A34DE1643A77F00B8EB6E;
+			remoteInfo = VeritasMahineIOSDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		22BFE317164116F200F07A98 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				22BFE3181641170400F07A98 /* Outline.veritasproject in CopyFiles */,
+				22BFE3191641170400F07A98 /* Test.v in CopyFiles */,
+				22BFE31A1641170400F07A98 /* Main.v in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1BF3C4016397D59001570DF /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		2287C165163A4A5500931399 /* VDEViewService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEViewService.h; sourceTree = "<group>"; };
+		2287C166163A4A5500931399 /* VDEViewService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEViewService.m; sourceTree = "<group>"; };
+		22A7B7CA1639183F0067B98A /* VDEApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEApplicationDelegate.h; sourceTree = "<group>"; };
+		22A7B7CB1639183F0067B98A /* VDEApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEApplicationDelegate.m; sourceTree = "<group>"; };
+		22A7B7CC1639183F0067B98A /* VDEMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEMain.m; sourceTree = "<group>"; };
+		22A7B7CE1639183F0067B98A /* VDEMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEMainWindowController.h; sourceTree = "<group>"; };
+		22A7B7CF1639183F0067B98A /* VDEMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEMainWindowController.m; sourceTree = "<group>"; };
+		22A7B7D61639183F0067B98A /* NSArray+VDEExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+VDEExtensions.h"; sourceTree = "<group>"; };
+		22A7B7D71639183F0067B98A /* NSArray+VDEExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+VDEExtensions.m"; sourceTree = "<group>"; };
+		22A7B7F516392E160067B98A /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		22A7B7F716392E160067B98A /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		22A7B7F916392E160067B98A /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		22A7B7FB16392E160067B98A /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		22A7B7FD16392E160067B98A /* Outline.veritasproject */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Outline.veritasproject; sourceTree = "<group>"; };
+		22A7B80516392E240067B98A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22A7B809163936C90067B98A /* VDEProjectFileParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEProjectFileParser.h; sourceTree = "<group>"; };
+		22A7B80A163936C90067B98A /* VDEProjectFileParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEProjectFileParser.m; sourceTree = "<group>"; };
+		22A7B8141639394A0067B98A /* VDEProjectConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEProjectConfiguration.h; sourceTree = "<group>"; };
+		22A7B8151639394A0067B98A /* VDEProjectConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEProjectConfiguration.m; sourceTree = "<group>"; };
+		22A7B81D1639402E0067B98A /* Test.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test.v; sourceTree = "<group>"; };
+		22A7B8291639435B0067B98A /* Main.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Main.v; sourceTree = "<group>"; };
+		22BFE24E16410C4200F07A98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		22BFE31C1641175700F07A98 /* NSString+RandomHexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RandomHexString.h"; sourceTree = "<group>"; };
+		22BFE31D1641175700F07A98 /* NSString+RandomHexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+RandomHexString.m"; sourceTree = "<group>"; };
+		22BFE31E1641175700F07A98 /* PBXBreakpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXBreakpoint.h; sourceTree = "<group>"; };
+		22BFE31F1641175700F07A98 /* PBXBreakpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXBreakpoint.m; sourceTree = "<group>"; };
+		22BFE3201641175700F07A98 /* PBXBuildContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXBuildContext.h; sourceTree = "<group>"; };
+		22BFE3211641175700F07A98 /* PBXBuildMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXBuildMessage.h; sourceTree = "<group>"; };
+		22BFE3221641175700F07A98 /* PBXChangeNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXChangeNotification.h; sourceTree = "<group>"; };
+		22BFE3231641175700F07A98 /* PBXCodeCompletion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCodeCompletion.h; sourceTree = "<group>"; };
+		22BFE3241641175700F07A98 /* PBXCodeSenseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCodeSenseManager.h; sourceTree = "<group>"; };
+		22BFE3251641175700F07A98 /* PBXCompletionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCompletionItem.h; sourceTree = "<group>"; };
+		22BFE3261641175700F07A98 /* PBXContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXContainer.h; sourceTree = "<group>"; };
+		22BFE3271641175700F07A98 /* PBXContainerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXContainerItem.h; sourceTree = "<group>"; };
+		22BFE3281641175700F07A98 /* PBXContainerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXContainerItem.m; sourceTree = "<group>"; };
+		22BFE3291641175700F07A98 /* PBXContainerItemChangeNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXContainerItemChangeNotification.h; sourceTree = "<group>"; };
+		22BFE32A1641175700F07A98 /* PBXContainerItemProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXContainerItemProxy.h; sourceTree = "<group>"; };
+		22BFE32B1641175700F07A98 /* PBXCSourceScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCSourceScanner.h; sourceTree = "<group>"; };
+		22BFE32C1641175700F07A98 /* PBXCStringPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCStringPool.h; sourceTree = "<group>"; };
+		22BFE32D1641175700F07A98 /* PBXCStringStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCStringStorage.h; sourceTree = "<group>"; };
+		22BFE32E1641175700F07A98 /* PBXDevKitIndexingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXDevKitIndexingEngine.h; sourceTree = "<group>"; };
+		22BFE32F1641175700F07A98 /* PBXExecutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXExecutable.h; sourceTree = "<group>"; };
+		22BFE3301641175700F07A98 /* PBXFileBreakpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFileBreakpoint.h; sourceTree = "<group>"; };
+		22BFE3311641175700F07A98 /* PBXFileReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFileReference.h; sourceTree = "<group>"; };
+		22BFE3321641175700F07A98 /* PBXFileSystemLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFileSystemLocation.h; sourceTree = "<group>"; };
+		22BFE3331641175700F07A98 /* PBXFileType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFileType.h; sourceTree = "<group>"; };
+		22BFE3341641175700F07A98 /* PBXFileTypePart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFileTypePart.h; sourceTree = "<group>"; };
+		22BFE3351641175700F07A98 /* PBXFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFolder.h; sourceTree = "<group>"; };
+		22BFE3361641175700F07A98 /* PBXFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFramework.h; sourceTree = "<group>"; };
+		22BFE3371641175700F07A98 /* PBXFunctionSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFunctionSymbol.h; sourceTree = "<group>"; };
+		22BFE3381641175700F07A98 /* PBXGlobalID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXGlobalID.h; sourceTree = "<group>"; };
+		22BFE3391641175700F07A98 /* PBXGlobalID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXGlobalID.m; sourceTree = "<group>"; };
+		22BFE33A1641175700F07A98 /* PBXGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXGroup.h; sourceTree = "<group>"; };
+		22BFE33B1641175700F07A98 /* PBXGroupEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXGroupEnumerator.h; sourceTree = "<group>"; };
+		22BFE33C1641175700F07A98 /* PBXHeaderFileSearchContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXHeaderFileSearchContext.h; sourceTree = "<group>"; };
+		22BFE33D1641175700F07A98 /* PBXHeaderMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXHeaderMap.h; sourceTree = "<group>"; };
+		22BFE33E1641175700F07A98 /* PBXIndexedFileList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXIndexedFileList.h; sourceTree = "<group>"; };
+		22BFE33F1641175700F07A98 /* PBXIndexEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXIndexEntry.h; sourceTree = "<group>"; };
+		22BFE3401641175700F07A98 /* PBXIndexingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXIndexingEngine.h; sourceTree = "<group>"; };
+		22BFE3411641175700F07A98 /* PBXInterpretedExecutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXInterpretedExecutable.h; sourceTree = "<group>"; };
+		22BFE3421641175700F07A98 /* PBXLanguageSpecification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXLanguageSpecification.h; sourceTree = "<group>"; };
+		22BFE3431641175700F07A98 /* PBXLexicalRules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXLexicalRules.h; sourceTree = "<group>"; };
+		22BFE3441641175700F07A98 /* PBXLexicalRules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXLexicalRules.m; sourceTree = "<group>"; };
+		22BFE3451641175700F07A98 /* PBXLogOutputString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXLogOutputString.h; sourceTree = "<group>"; };
+		22BFE3461641175700F07A98 /* PBXMarkerDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXMarkerDelegateProtocol.h; sourceTree = "<group>"; };
+		22BFE3471641175700F07A98 /* PBXMemberContainerSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXMemberContainerSymbol.h; sourceTree = "<group>"; };
+		22BFE3481641175700F07A98 /* PBXObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXObject.h; sourceTree = "<group>"; };
+		22BFE3491641175700F07A98 /* PBXObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXObject.m; sourceTree = "<group>"; };
+		22BFE34A1641175700F07A98 /* PBXProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXProject.h; sourceTree = "<group>"; };
+		22BFE34B1641175700F07A98 /* PBXProjectIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXProjectIndex.h; sourceTree = "<group>"; };
+		22BFE34C1641175700F07A98 /* PBXProjectItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXProjectItem.h; sourceTree = "<group>"; };
+		22BFE34D1641175700F07A98 /* PBXProjectItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXProjectItem.m; sourceTree = "<group>"; };
+		22BFE34E1641175700F07A98 /* PBXProjectRenameFileCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXProjectRenameFileCallback.h; sourceTree = "<group>"; };
+		22BFE34F1641175700F07A98 /* PBXRecordVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXRecordVector.h; sourceTree = "<group>"; };
+		22BFE3501641175700F07A98 /* PBXReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXReference.h; sourceTree = "<group>"; };
+		22BFE3511641175700F07A98 /* PBXReferenceProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXReferenceProxy.h; sourceTree = "<group>"; };
+		22BFE3521641175700F07A98 /* PBXScannerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXScannerItem.h; sourceTree = "<group>"; };
+		22BFE3531641175700F07A98 /* PBXShellScriptBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXShellScriptBuildPhase.h; sourceTree = "<group>"; };
+		22BFE3541641175700F07A98 /* PBXSignatureSymbol-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PBXSignatureSymbol-Protocol.h"; sourceTree = "<group>"; };
+		22BFE3551641175700F07A98 /* PBXSourceLexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXSourceLexer.h; sourceTree = "<group>"; };
+		22BFE3561641175700F07A98 /* PBXSourceLexer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXSourceLexer.m; sourceTree = "<group>"; };
+		22BFE3571641175700F07A98 /* PBXSourceScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXSourceScanner.h; sourceTree = "<group>"; };
+		22BFE3581641175700F07A98 /* PBXSourceScannerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXSourceScannerItem.h; sourceTree = "<group>"; };
+		22BFE3591641175700F07A98 /* PBXSourceTokens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXSourceTokens.h; sourceTree = "<group>"; };
+		22BFE35A1641175700F07A98 /* PBXSourceTokens.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXSourceTokens.m; sourceTree = "<group>"; };
+		22BFE35B1641175700F07A98 /* PBXStringCompletionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXStringCompletionItem.h; sourceTree = "<group>"; };
+		22BFE35C1641175700F07A98 /* PBXStringLexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXStringLexer.h; sourceTree = "<group>"; };
+		22BFE35D1641175700F07A98 /* PBXStringTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXStringTree.h; sourceTree = "<group>"; };
+		22BFE35E1641175700F07A98 /* PBXStringTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXStringTreeNode.h; sourceTree = "<group>"; };
+		22BFE35F1641175700F07A98 /* PBXSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXSymbol.h; sourceTree = "<group>"; };
+		22BFE3601641175700F07A98 /* PBXSymbolicBreakpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXSymbolicBreakpoint.h; sourceTree = "<group>"; };
+		22BFE3611641175700F07A98 /* PBXTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXTarget.h; sourceTree = "<group>"; };
+		22BFE3621641175700F07A98 /* PBXTargetBuildContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXTargetBuildContext.h; sourceTree = "<group>"; };
+		22BFE3631641175700F07A98 /* PBXTargetDependency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXTargetDependency.h; sourceTree = "<group>"; };
+		22BFE3641641175700F07A98 /* PBXTSByteStreamConsuming-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PBXTSByteStreamConsuming-Protocol.h"; sourceTree = "<group>"; };
+		22BFE3651641175700F07A98 /* PBXTSCharacterStreamConsuming-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PBXTSCharacterStreamConsuming-Protocol.h"; sourceTree = "<group>"; };
+		22BFE3661641175700F07A98 /* PBXTSLineStreamConsuming-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PBXTSLineStreamConsuming-Protocol.h"; sourceTree = "<group>"; };
+		22BFE3671641175700F07A98 /* PBXTSStreamConsuming-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PBXTSStreamConsuming-Protocol.h"; sourceTree = "<group>"; };
+		22BFE3681641175700F07A98 /* PBXTypeDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXTypeDescriptor.h; sourceTree = "<group>"; };
+		22BFE3691641175700F07A98 /* PBXVariantGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXVariantGroup.h; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* VeritasIDE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VeritasIDE.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11D1C38163B85AB004FCD5B /* VXProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VXProject.h; sourceTree = "<group>"; };
+		E11D1C39163B85AB004FCD5B /* VXProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VXProject.m; sourceTree = "<group>"; };
+		E11D1C3C163B85EC004FCD5B /* VXGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VXGroup.h; sourceTree = "<group>"; };
+		E11D1C3D163B85EC004FCD5B /* VXGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VXGroup.m; sourceTree = "<group>"; };
+		E11D1C3F163B87B1004FCD5B /* VXFileReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VXFileReference.h; sourceTree = "<group>"; };
+		E11D1C40163B87B1004FCD5B /* VXFileReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VXFileReference.m; sourceTree = "<group>"; };
+		E11D1C42163B87E5004FCD5B /* VXDictObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VXDictObject.h; sourceTree = "<group>"; };
+		E11D1C43163B87E5004FCD5B /* VXDictObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VXDictObject.m; sourceTree = "<group>"; };
+		E11D1C4D163BAC7D004FCD5B /* VDEResourceService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDEResourceService.h; path = Service/VDEResourceService.h; sourceTree = "<group>"; };
+		E11D1C4E163BAC7D004FCD5B /* VDEResourceService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDEResourceService.m; path = Service/VDEResourceService.m; sourceTree = "<group>"; };
+		E12EDFA6163F6A960009C048 /* VDEMainDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEMainDataSource.h; sourceTree = "<group>"; };
+		E12EDFA7163F6A960009C048 /* VDEMainDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEMainDataSource.m; sourceTree = "<group>"; };
+		E12EDFD916402CA20009C048 /* icon.navigator.group.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.navigator.group.icns; sourceTree = "<group>"; };
+		E12EDFDB16402D860009C048 /* VXBreakPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VXBreakPoint.h; sourceTree = "<group>"; };
+		E12EDFDC16402D860009C048 /* VXBreakPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VXBreakPoint.m; sourceTree = "<group>"; };
+		E12EDFDE16402D9D0009C048 /* VXLineBreakPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VXLineBreakPoint.h; sourceTree = "<group>"; };
+		E12EDFDF16402D9D0009C048 /* VXLineBreakPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VXLineBreakPoint.m; sourceTree = "<group>"; };
+		E13F18F2163E10F8009D41A7 /* DMTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTabBar.h; sourceTree = "<group>"; };
+		E13F18F3163E10F8009D41A7 /* DMTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTabBar.m; sourceTree = "<group>"; };
+		E13F18F4163E10F8009D41A7 /* DMTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMTabBarItem.h; sourceTree = "<group>"; };
+		E13F18F5163E10F8009D41A7 /* DMTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMTabBarItem.m; sourceTree = "<group>"; };
+		E13F18F9163E2E70009D41A7 /* FolderRef.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = FolderRef.tiff; sourceTree = "<group>"; };
+		E13F18FB163E2F73009D41A7 /* hud_buttonDebug_TurnOffBreakpoints.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = hud_buttonDebug_TurnOffBreakpoints.tiff; sourceTree = "<group>"; };
+		E13F18FD163E3891009D41A7 /* VDEMainWindowControllerPrivateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEMainWindowControllerPrivateHandler.h; sourceTree = "<group>"; };
+		E13F18FE163E3892009D41A7 /* VDEMainWindowControllerPrivateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEMainWindowControllerPrivateHandler.m; sourceTree = "<group>"; };
+		E14A34C51643A70800B8EB6E /* VeritasMachineKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VeritasMachineKit.xcodeproj; path = ../VeritasMachineKit/VeritasMachineKit.xcodeproj; sourceTree = "<group>"; };
+		E14B704D164206A300BCCDB4 /* VDEPushButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDEPushButton.h; path = Toolbar/VDEPushButton.h; sourceTree = "<group>"; };
+		E14B704E164206A300BCCDB4 /* VDEPushButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDEPushButton.m; path = Toolbar/VDEPushButton.m; sourceTree = "<group>"; };
+		E14B7056164207FE00BCCDB4 /* hud_buttonDebug_TurnOnBreakpoints.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = hud_buttonDebug_TurnOnBreakpoints.tiff; sourceTree = "<group>"; };
+		E14B706516421C1300BCCDB4 /* NSMutableArray+BlockExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+BlockExtension.h"; sourceTree = "<group>"; };
+		E14B706616421C1300BCCDB4 /* NSMutableArray+BlockExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+BlockExtension.m"; sourceTree = "<group>"; };
+		E14B706816421C5900BCCDB4 /* NSMutableDictionary+BlockExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+BlockExtension.h"; sourceTree = "<group>"; };
+		E14B706916421C5900BCCDB4 /* NSMutableDictionary+BlockExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+BlockExtension.m"; sourceTree = "<group>"; };
+		E14B706B16421CC000BCCDB4 /* VDEFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VDEFoundation.h; sourceTree = "<group>"; };
+		E14B706F164237D900BCCDB4 /* VDEDebugService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEDebugService.h; sourceTree = "<group>"; };
+		E14B7070164237D900BCCDB4 /* VDEDebugService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEDebugService.m; sourceTree = "<group>"; };
+		E16FC49816423F1700A47A8D /* VDEServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VDEServices.h; path = Service/VDEServices.h; sourceTree = "<group>"; };
+		E16FC4AC164252E200A47A8D /* Selene.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Selene.icns; sourceTree = "<group>"; };
+		E16FC4AE1642540000A47A8D /* source.c.c.icns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = image.icns; path = source.c.c.icns; sourceTree = "<group>"; };
+		E16FC4AF1642540000A47A8D /* source.c.h.icns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = image.icns; path = source.c.h.icns; sourceTree = "<group>"; };
+		E16FC4B01642540000A47A8D /* source.veritas.lua.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = source.veritas.lua.icns; sourceTree = "<group>"; };
+		E16FC4B11642540000A47A8D /* source.veritasproject.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = source.veritasproject.icns; sourceTree = "<group>"; };
+		E16FC4B21642540000A47A8D /* source.veritas.v.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = source.veritas.v.icns; sourceTree = "<group>"; };
+		E18632F6163CF9340027EF15 /* VDEResourceLoadList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = VDEResourceLoadList.plist; sourceTree = "<group>"; };
+		E1863310163D34D50027EF15 /* VDENotificationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDENotificationService.h; path = Service/VDENotificationService.h; sourceTree = "<group>"; };
+		E1863311163D34D50027EF15 /* VDENotificationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDENotificationService.m; path = Service/VDENotificationService.m; sourceTree = "<group>"; };
+		E1863313163D3A0B0027EF15 /* VDESourceCodeEditorViewPrivateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDESourceCodeEditorViewPrivateHandler.h; path = Editor/VDESourceCodeEditorViewPrivateHandler.h; sourceTree = "<group>"; };
+		E1863314163D3A0B0027EF15 /* VDESourceCodeEditorViewPrivateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDESourceCodeEditorViewPrivateHandler.m; path = Editor/VDESourceCodeEditorViewPrivateHandler.m; sourceTree = "<group>"; };
+		E186337E163D85180027EF15 /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberMarker.h; sourceTree = "<group>"; };
+		E186337F163D85180027EF15 /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberMarker.m; sourceTree = "<group>"; };
+		E1863380163D85180027EF15 /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberView.h; sourceTree = "<group>"; };
+		E1863381163D85180027EF15 /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberView.m; sourceTree = "<group>"; };
+		E1863384163D899D0027EF15 /* VDESourceScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDESourceScrollView.h; path = Editor/VDESourceScrollView.h; sourceTree = "<group>"; };
+		E1863385163D899E0027EF15 /* VDESourceScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDESourceScrollView.m; path = Editor/VDESourceScrollView.m; sourceTree = "<group>"; };
+		E1A2373E164124540067B047 /* DVTRunButtonPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DVTRunButtonPause.png; sourceTree = "<group>"; };
+		E1A2373F164124540067B047 /* DVTRunButtonPause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DVTRunButtonPause@2x.png"; sourceTree = "<group>"; };
+		E1A23740164124540067B047 /* DVTRunButtonPauseD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DVTRunButtonPauseD.png; sourceTree = "<group>"; };
+		E1A23741164124540067B047 /* DVTRunButtonPauseD@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DVTRunButtonPauseD@2x.png"; sourceTree = "<group>"; };
+		E1A23742164124540067B047 /* DVTRunButtonPauseP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DVTRunButtonPauseP.png; sourceTree = "<group>"; };
+		E1A23743164124540067B047 /* DVTRunButtonPauseP@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DVTRunButtonPauseP@2x.png"; sourceTree = "<group>"; };
+		E1A23744164124540067B047 /* DVTRunButtonRun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DVTRunButtonRun.png; sourceTree = "<group>"; };
+		E1A23745164124540067B047 /* DVTRunButtonRun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DVTRunButtonRun@2x.png"; sourceTree = "<group>"; };
+		E1A23746164124540067B047 /* DVTRunButtonRunD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DVTRunButtonRunD.png; sourceTree = "<group>"; };
+		E1A23747164124540067B047 /* DVTRunButtonRunD@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DVTRunButtonRunD@2x.png"; sourceTree = "<group>"; };
+		E1A23748164124540067B047 /* DVTRunButtonRunDI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DVTRunButtonRunDI.png; sourceTree = "<group>"; };
+		E1A23749164124540067B047 /* DVTRunButtonRunDI@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DVTRunButtonRunDI@2x.png"; sourceTree = "<group>"; };
+		E1A2374A164124540067B047 /* DVTRunButtonRunI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DVTRunButtonRunI.png; sourceTree = "<group>"; };
+		E1A2374B164124540067B047 /* DVTRunButtonRunI@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DVTRunButtonRunI@2x.png"; sourceTree = "<group>"; };
+		E1A2374C164124540067B047 /* DVTRunButtonRunP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DVTRunButtonRunP.png; sourceTree = "<group>"; };
+		E1A2374D164124540067B047 /* DVTRunButtonRunP@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DVTRunButtonRunP@2x.png"; sourceTree = "<group>"; };
+		E1A2374E164124540067B047 /* DVTRunButtonStop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DVTRunButtonStop.png; sourceTree = "<group>"; };
+		E1A2374F164124540067B047 /* DVTRunButtonStop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DVTRunButtonStop@2x.png"; sourceTree = "<group>"; };
+		E1A23750164124540067B047 /* DVTRunButtonStopD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DVTRunButtonStopD.png; sourceTree = "<group>"; };
+		E1A23751164124540067B047 /* DVTRunButtonStopD@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DVTRunButtonStopD@2x.png"; sourceTree = "<group>"; };
+		E1A23752164124540067B047 /* DVTRunButtonStopDI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DVTRunButtonStopDI.png; sourceTree = "<group>"; };
+		E1A23753164124540067B047 /* DVTRunButtonStopDI@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DVTRunButtonStopDI@2x.png"; sourceTree = "<group>"; };
+		E1A23754164124540067B047 /* DVTRunButtonStopI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DVTRunButtonStopI.png; sourceTree = "<group>"; };
+		E1A23755164124540067B047 /* DVTRunButtonStopI@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DVTRunButtonStopI@2x.png"; sourceTree = "<group>"; };
+		E1A23756164124540067B047 /* DVTRunButtonStopP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DVTRunButtonStopP.png; sourceTree = "<group>"; };
+		E1A23757164124540067B047 /* DVTRunButtonStopP@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DVTRunButtonStopP@2x.png"; sourceTree = "<group>"; };
+		E1A23773164126E10067B047 /* VDEToolBarItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDEToolBarItemView.h; path = Toolbar/VDEToolBarItemView.h; sourceTree = "<group>"; };
+		E1A23774164126E10067B047 /* VDEToolBarItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDEToolBarItemView.m; path = Toolbar/VDEToolBarItemView.m; sourceTree = "<group>"; };
+		E1A289041642CD1F009FCA36 /* VDENewFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDENewFileViewController.h; path = File/VDENewFileViewController.h; sourceTree = "<group>"; };
+		E1A289051642CD1F009FCA36 /* VDENewFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDENewFileViewController.m; path = File/VDENewFileViewController.m; sourceTree = "<group>"; };
+		E1A289061642CD1F009FCA36 /* VDENewFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VDENewFileViewController.xib; path = File/VDENewFileViewController.xib; sourceTree = "<group>"; };
+		E1A400BE16439C2000F8AE92 /* LuaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LuaKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/VeritasIDE-hflewhzfrdqtowfhbiyrhapippyf/Build/Products/Debug/LuaKit.framework"; sourceTree = "<group>"; };
+		E1A4FDF11643688500F8AE92 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		E1A4FDF4164372E400F8AE92 /* VDEExceptionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDEExceptionService.h; path = Service/VDEExceptionService.h; sourceTree = "<group>"; };
+		E1A4FDF5164372E400F8AE92 /* VDEExceptionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDEExceptionService.m; path = Service/VDEExceptionService.m; sourceTree = "<group>"; };
+		E1BC6E56163E7B540075F3B0 /* NSIndexPath+GCJumpBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+GCJumpBar.h"; sourceTree = "<group>"; };
+		E1BC6E57163E7B540075F3B0 /* NSIndexPath+GCJumpBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+GCJumpBar.m"; sourceTree = "<group>"; };
+		E1BC6E58163E7B540075F3B0 /* NSMenu+IndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMenu+IndexPath.h"; sourceTree = "<group>"; };
+		E1BC6E59163E7B540075F3B0 /* NSMenu+IndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMenu+IndexPath.m"; sourceTree = "<group>"; };
+		E1BC6E5A163E7B540075F3B0 /* GCJumpBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCJumpBar.h; sourceTree = "<group>"; };
+		E1BC6E5B163E7B540075F3B0 /* GCJumpBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCJumpBar.m; sourceTree = "<group>"; };
+		E1BC6E5C163E7B540075F3B0 /* GCJumpBarLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCJumpBarLabel.h; sourceTree = "<group>"; };
+		E1BC6E5D163E7B540075F3B0 /* GCJumpBarLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCJumpBarLabel.m; sourceTree = "<group>"; };
+		E1BC6E5F163E7B540075F3B0 /* GCJumpBarAccessorySeparator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GCJumpBarAccessorySeparator.png; sourceTree = "<group>"; };
+		E1BC6E60163E7B540075F3B0 /* GCJumpBarAccessorySeparator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GCJumpBarAccessorySeparator@2x.png"; sourceTree = "<group>"; };
+		E1BC6E61163E7B540075F3B0 /* GCJumpBarSeparator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GCJumpBarSeparator.png; sourceTree = "<group>"; };
+		E1BC6E62163E7B540075F3B0 /* GCJumpBarSeparator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GCJumpBarSeparator@2x.png"; sourceTree = "<group>"; };
+		E1BC6E6F163EBBF00075F3B0 /* NSMenu+VDEProjectConfigurationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMenu+VDEProjectConfigurationExtension.h"; path = "Editor/NSMenu+VDEProjectConfigurationExtension.h"; sourceTree = "<group>"; };
+		E1BC6E70163EBBF00075F3B0 /* NSMenu+VDEProjectConfigurationExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMenu+VDEProjectConfigurationExtension.m"; path = "Editor/NSMenu+VDEProjectConfigurationExtension.m"; sourceTree = "<group>"; };
+		E1BF3C3716397C35001570DF /* VDEDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDEDataService.h; path = Service/VDEDataService.h; sourceTree = "<group>"; };
+		E1BF3C3816397C35001570DF /* VDEDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDEDataService.m; path = Service/VDEDataService.m; sourceTree = "<group>"; };
+		E1BF3C4416397F2C001570DF /* VDEImageTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEImageTextCell.h; sourceTree = "<group>"; };
+		E1BF3C4516397F2C001570DF /* VDEImageTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEImageTextCell.m; sourceTree = "<group>"; };
+		E1BF3C4616397F2C001570DF /* VDEProjectNavigatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEProjectNavigatorView.h; sourceTree = "<group>"; };
+		E1BF3C4716397F2C001570DF /* VDEProjectNavigatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEProjectNavigatorView.m; sourceTree = "<group>"; };
+		E1BF3C4A16397F46001570DF /* VDEProjectNavigatorPrivateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEProjectNavigatorPrivateHandler.h; sourceTree = "<group>"; };
+		E1BF3C4B16397F46001570DF /* VDEProjectNavigatorPrivateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEProjectNavigatorPrivateHandler.m; sourceTree = "<group>"; };
+		E1BF3C4D16398F0E001570DF /* VDESourceCodeEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDESourceCodeEditorView.h; path = Editor/VDESourceCodeEditorView.h; sourceTree = "<group>"; };
+		E1BF3C4E16398F0E001570DF /* VDESourceCodeEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDESourceCodeEditorView.m; path = Editor/VDESourceCodeEditorView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E14A34D91643A72500B8EB6E /* VeritasMachineKit.framework in Frameworks */,
+				E1A400C016439C2000F8AE92 /* LuaKit.framework in Frameworks */,
+				E1A4FDF21643688500F8AE92 /* IOKit.framework in Frameworks */,
+				22BFE24F16410C4200F07A98 /* Foundation.framework in Frameworks */,
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* VeritasIDE.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2287C169163A4A5A00931399 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2287C165163A4A5500931399 /* VDEViewService.h */,
+				2287C166163A4A5500931399 /* VDEViewService.m */,
+				E14B706F164237D900BCCDB4 /* VDEDebugService.h */,
+				E14B7070164237D900BCCDB4 /* VDEDebugService.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		22A7B7C81639183F0067B98A /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				E1BF3C3316397BDD001570DF /* Library */,
+				22A7B7C91639183F0067B98A /* Application */,
+				22A7B7CD1639183F0067B98A /* Controller */,
+				22A7B7D01639183F0067B98A /* Model */,
+				22A7B7D51639183F0067B98A /* Shared */,
+				22A7B7D81639183F0067B98A /* View */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
+		22A7B7C91639183F0067B98A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				22A7B7CA1639183F0067B98A /* VDEApplicationDelegate.h */,
+				22A7B7CB1639183F0067B98A /* VDEApplicationDelegate.m */,
+				22A7B7CC1639183F0067B98A /* VDEMain.m */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		22A7B7CD1639183F0067B98A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E1A288EF1642A419009FCA36 /* FileActions */,
+				2287C169163A4A5A00931399 /* Service */,
+				22A7B7CE1639183F0067B98A /* VDEMainWindowController.h */,
+				22A7B7CF1639183F0067B98A /* VDEMainWindowController.m */,
+				E13F18FD163E3891009D41A7 /* VDEMainWindowControllerPrivateHandler.h */,
+				E13F18FE163E3892009D41A7 /* VDEMainWindowControllerPrivateHandler.m */,
+				E12EDFA6163F6A960009C048 /* VDEMainDataSource.h */,
+				E12EDFA7163F6A960009C048 /* VDEMainDataSource.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		22A7B7D01639183F0067B98A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1BF3C3A16397C3B001570DF /* Service */,
+				22A7B8141639394A0067B98A /* VDEProjectConfiguration.h */,
+				22A7B8151639394A0067B98A /* VDEProjectConfiguration.m */,
+				E11D1C38163B85AB004FCD5B /* VXProject.h */,
+				E11D1C39163B85AB004FCD5B /* VXProject.m */,
+				E11D1C3C163B85EC004FCD5B /* VXGroup.h */,
+				E11D1C3D163B85EC004FCD5B /* VXGroup.m */,
+				E11D1C3F163B87B1004FCD5B /* VXFileReference.h */,
+				E11D1C40163B87B1004FCD5B /* VXFileReference.m */,
+				E11D1C42163B87E5004FCD5B /* VXDictObject.h */,
+				E11D1C43163B87E5004FCD5B /* VXDictObject.m */,
+				E12EDFDB16402D860009C048 /* VXBreakPoint.h */,
+				E12EDFDC16402D860009C048 /* VXBreakPoint.m */,
+				E12EDFDE16402D9D0009C048 /* VXLineBreakPoint.h */,
+				E12EDFDF16402D9D0009C048 /* VXLineBreakPoint.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		22A7B7D51639183F0067B98A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				22A7B7D61639183F0067B98A /* NSArray+VDEExtensions.h */,
+				22A7B7D71639183F0067B98A /* NSArray+VDEExtensions.m */,
+				22A7B809163936C90067B98A /* VDEProjectFileParser.h */,
+				22A7B80A163936C90067B98A /* VDEProjectFileParser.m */,
+				E14B706516421C1300BCCDB4 /* NSMutableArray+BlockExtension.h */,
+				E14B706616421C1300BCCDB4 /* NSMutableArray+BlockExtension.m */,
+				E14B706816421C5900BCCDB4 /* NSMutableDictionary+BlockExtension.h */,
+				E14B706916421C5900BCCDB4 /* NSMutableDictionary+BlockExtension.m */,
+				E14B706B16421CC000BCCDB4 /* VDEFoundation.h */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		22A7B7D81639183F0067B98A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1BF3C4316397F2C001570DF /* Navigator */,
+				E1BF3C5016398F14001570DF /* Editor */,
+				E1BF3C6016399402001570DF /* Toolbar */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		22A7B7F116392E160067B98A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E18632F8163CF9BF0027EF15 /* icons */,
+				22A7B80516392E240067B98A /* Info.plist */,
+				22A7B7F416392E160067B98A /* Credits.rtf */,
+				22A7B7F616392E160067B98A /* InfoPlist.strings */,
+				22A7B7F816392E160067B98A /* MainMenu.xib */,
+				22A7B7FA16392E160067B98A /* MainWindow.xib */,
+				22A7B7FD16392E160067B98A /* Outline.veritasproject */,
+				22A7B81D1639402E0067B98A /* Test.v */,
+				22A7B8291639435B0067B98A /* Main.v */,
+				E18632F6163CF9340027EF15 /* VDEResourceLoadList.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		22BFE31B1641175700F07A98 /* DevToolsFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				22BFE31C1641175700F07A98 /* NSString+RandomHexString.h */,
+				22BFE31D1641175700F07A98 /* NSString+RandomHexString.m */,
+				22BFE31E1641175700F07A98 /* PBXBreakpoint.h */,
+				22BFE31F1641175700F07A98 /* PBXBreakpoint.m */,
+				22BFE3201641175700F07A98 /* PBXBuildContext.h */,
+				22BFE3211641175700F07A98 /* PBXBuildMessage.h */,
+				22BFE3221641175700F07A98 /* PBXChangeNotification.h */,
+				22BFE3231641175700F07A98 /* PBXCodeCompletion.h */,
+				22BFE3241641175700F07A98 /* PBXCodeSenseManager.h */,
+				22BFE3251641175700F07A98 /* PBXCompletionItem.h */,
+				22BFE3261641175700F07A98 /* PBXContainer.h */,
+				22BFE3271641175700F07A98 /* PBXContainerItem.h */,
+				22BFE3281641175700F07A98 /* PBXContainerItem.m */,
+				22BFE3291641175700F07A98 /* PBXContainerItemChangeNotification.h */,
+				22BFE32A1641175700F07A98 /* PBXContainerItemProxy.h */,
+				22BFE32B1641175700F07A98 /* PBXCSourceScanner.h */,
+				22BFE32C1641175700F07A98 /* PBXCStringPool.h */,
+				22BFE32D1641175700F07A98 /* PBXCStringStorage.h */,
+				22BFE32E1641175700F07A98 /* PBXDevKitIndexingEngine.h */,
+				22BFE32F1641175700F07A98 /* PBXExecutable.h */,
+				22BFE3301641175700F07A98 /* PBXFileBreakpoint.h */,
+				22BFE3311641175700F07A98 /* PBXFileReference.h */,
+				22BFE3321641175700F07A98 /* PBXFileSystemLocation.h */,
+				22BFE3331641175700F07A98 /* PBXFileType.h */,
+				22BFE3341641175700F07A98 /* PBXFileTypePart.h */,
+				22BFE3351641175700F07A98 /* PBXFolder.h */,
+				22BFE3361641175700F07A98 /* PBXFramework.h */,
+				22BFE3371641175700F07A98 /* PBXFunctionSymbol.h */,
+				22BFE3381641175700F07A98 /* PBXGlobalID.h */,
+				22BFE3391641175700F07A98 /* PBXGlobalID.m */,
+				22BFE33A1641175700F07A98 /* PBXGroup.h */,
+				22BFE33B1641175700F07A98 /* PBXGroupEnumerator.h */,
+				22BFE33C1641175700F07A98 /* PBXHeaderFileSearchContext.h */,
+				22BFE33D1641175700F07A98 /* PBXHeaderMap.h */,
+				22BFE33E1641175700F07A98 /* PBXIndexedFileList.h */,
+				22BFE33F1641175700F07A98 /* PBXIndexEntry.h */,
+				22BFE3401641175700F07A98 /* PBXIndexingEngine.h */,
+				22BFE3411641175700F07A98 /* PBXInterpretedExecutable.h */,
+				22BFE3421641175700F07A98 /* PBXLanguageSpecification.h */,
+				22BFE3431641175700F07A98 /* PBXLexicalRules.h */,
+				22BFE3441641175700F07A98 /* PBXLexicalRules.m */,
+				22BFE3451641175700F07A98 /* PBXLogOutputString.h */,
+				22BFE3461641175700F07A98 /* PBXMarkerDelegateProtocol.h */,
+				22BFE3471641175700F07A98 /* PBXMemberContainerSymbol.h */,
+				22BFE3481641175700F07A98 /* PBXObject.h */,
+				22BFE3491641175700F07A98 /* PBXObject.m */,
+				22BFE34A1641175700F07A98 /* PBXProject.h */,
+				22BFE34B1641175700F07A98 /* PBXProjectIndex.h */,
+				22BFE34C1641175700F07A98 /* PBXProjectItem.h */,
+				22BFE34D1641175700F07A98 /* PBXProjectItem.m */,
+				22BFE34E1641175700F07A98 /* PBXProjectRenameFileCallback.h */,
+				22BFE34F1641175700F07A98 /* PBXRecordVector.h */,
+				22BFE3501641175700F07A98 /* PBXReference.h */,
+				22BFE3511641175700F07A98 /* PBXReferenceProxy.h */,
+				22BFE3521641175700F07A98 /* PBXScannerItem.h */,
+				22BFE3531641175700F07A98 /* PBXShellScriptBuildPhase.h */,
+				22BFE3541641175700F07A98 /* PBXSignatureSymbol-Protocol.h */,
+				22BFE3551641175700F07A98 /* PBXSourceLexer.h */,
+				22BFE3561641175700F07A98 /* PBXSourceLexer.m */,
+				22BFE3571641175700F07A98 /* PBXSourceScanner.h */,
+				22BFE3581641175700F07A98 /* PBXSourceScannerItem.h */,
+				22BFE3591641175700F07A98 /* PBXSourceTokens.h */,
+				22BFE35A1641175700F07A98 /* PBXSourceTokens.m */,
+				22BFE35B1641175700F07A98 /* PBXStringCompletionItem.h */,
+				22BFE35C1641175700F07A98 /* PBXStringLexer.h */,
+				22BFE35D1641175700F07A98 /* PBXStringTree.h */,
+				22BFE35E1641175700F07A98 /* PBXStringTreeNode.h */,
+				22BFE35F1641175700F07A98 /* PBXSymbol.h */,
+				22BFE3601641175700F07A98 /* PBXSymbolicBreakpoint.h */,
+				22BFE3611641175700F07A98 /* PBXTarget.h */,
+				22BFE3621641175700F07A98 /* PBXTargetBuildContext.h */,
+				22BFE3631641175700F07A98 /* PBXTargetDependency.h */,
+				22BFE3641641175700F07A98 /* PBXTSByteStreamConsuming-Protocol.h */,
+				22BFE3651641175700F07A98 /* PBXTSCharacterStreamConsuming-Protocol.h */,
+				22BFE3661641175700F07A98 /* PBXTSLineStreamConsuming-Protocol.h */,
+				22BFE3671641175700F07A98 /* PBXTSStreamConsuming-Protocol.h */,
+				22BFE3681641175700F07A98 /* PBXTypeDescriptor.h */,
+				22BFE3691641175700F07A98 /* PBXVariantGroup.h */,
+			);
+			path = DevToolsFoundation;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* TrackIt */ = {
+			isa = PBXGroup;
+			children = (
+				E14A34C51643A70800B8EB6E /* VeritasMachineKit.xcodeproj */,
+				22A7B7C81639183F0067B98A /* Code */,
+				22A7B7F116392E160067B98A /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = TrackIt;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1A400BE16439C2000F8AE92 /* LuaKit.framework */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				22BFE24E16410C4200F07A98 /* Foundation.framework */,
+				E1A4FDF11643688500F8AE92 /* IOKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E13F18F1163E10F8009D41A7 /* DMTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E13F18F2163E10F8009D41A7 /* DMTabBar.h */,
+				E13F18F3163E10F8009D41A7 /* DMTabBar.m */,
+				E13F18F4163E10F8009D41A7 /* DMTabBarItem.h */,
+				E13F18F5163E10F8009D41A7 /* DMTabBarItem.m */,
+			);
+			path = DMTabBar;
+			sourceTree = "<group>";
+		};
+		E14A34C61643A70800B8EB6E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E14A34D21643A70900B8EB6E /* VeritasMachineKit.framework */,
+				E14A34D41643A70900B8EB6E /* VeritasMachineKit.framework */,
+				E14A35641643AA2900B8EB6E /* VeritasMahineIOSDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E18632F8163CF9BF0027EF15 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				E16FC4AE1642540000A47A8D /* source.c.c.icns */,
+				E16FC4AF1642540000A47A8D /* source.c.h.icns */,
+				E16FC4B01642540000A47A8D /* source.veritas.lua.icns */,
+				E16FC4B11642540000A47A8D /* source.veritasproject.icns */,
+				E16FC4B21642540000A47A8D /* source.veritas.v.icns */,
+				E1A2373D164124540067B047 /* Toolbar */,
+				E16FC4AC164252E200A47A8D /* Selene.icns */,
+				E14B7056164207FE00BCCDB4 /* hud_buttonDebug_TurnOnBreakpoints.tiff */,
+				E12EDFD916402CA20009C048 /* icon.navigator.group.icns */,
+				E13F18FB163E2F73009D41A7 /* hud_buttonDebug_TurnOffBreakpoints.tiff */,
+				E13F18F9163E2E70009D41A7 /* FolderRef.tiff */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+		E186337D163D85180027EF15 /* LineNumberView */ = {
+			isa = PBXGroup;
+			children = (
+				E186337E163D85180027EF15 /* NoodleLineNumberMarker.h */,
+				E186337F163D85180027EF15 /* NoodleLineNumberMarker.m */,
+				E1863380163D85180027EF15 /* NoodleLineNumberView.h */,
+				E1863381163D85180027EF15 /* NoodleLineNumberView.m */,
+			);
+			path = LineNumberView;
+			sourceTree = "<group>";
+		};
+		E1A2373D164124540067B047 /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				E1A2373E164124540067B047 /* DVTRunButtonPause.png */,
+				E1A2373F164124540067B047 /* DVTRunButtonPause@2x.png */,
+				E1A23740164124540067B047 /* DVTRunButtonPauseD.png */,
+				E1A23741164124540067B047 /* DVTRunButtonPauseD@2x.png */,
+				E1A23742164124540067B047 /* DVTRunButtonPauseP.png */,
+				E1A23743164124540067B047 /* DVTRunButtonPauseP@2x.png */,
+				E1A23744164124540067B047 /* DVTRunButtonRun.png */,
+				E1A23745164124540067B047 /* DVTRunButtonRun@2x.png */,
+				E1A23746164124540067B047 /* DVTRunButtonRunD.png */,
+				E1A23747164124540067B047 /* DVTRunButtonRunD@2x.png */,
+				E1A23748164124540067B047 /* DVTRunButtonRunDI.png */,
+				E1A23749164124540067B047 /* DVTRunButtonRunDI@2x.png */,
+				E1A2374A164124540067B047 /* DVTRunButtonRunI.png */,
+				E1A2374B164124540067B047 /* DVTRunButtonRunI@2x.png */,
+				E1A2374C164124540067B047 /* DVTRunButtonRunP.png */,
+				E1A2374D164124540067B047 /* DVTRunButtonRunP@2x.png */,
+				E1A2374E164124540067B047 /* DVTRunButtonStop.png */,
+				E1A2374F164124540067B047 /* DVTRunButtonStop@2x.png */,
+				E1A23750164124540067B047 /* DVTRunButtonStopD.png */,
+				E1A23751164124540067B047 /* DVTRunButtonStopD@2x.png */,
+				E1A23752164124540067B047 /* DVTRunButtonStopDI.png */,
+				E1A23753164124540067B047 /* DVTRunButtonStopDI@2x.png */,
+				E1A23754164124540067B047 /* DVTRunButtonStopI.png */,
+				E1A23755164124540067B047 /* DVTRunButtonStopI@2x.png */,
+				E1A23756164124540067B047 /* DVTRunButtonStopP.png */,
+				E1A23757164124540067B047 /* DVTRunButtonStopP@2x.png */,
+			);
+			path = Toolbar;
+			sourceTree = "<group>";
+		};
+		E1A288EF1642A419009FCA36 /* FileActions */ = {
+			isa = PBXGroup;
+			children = (
+				E1A289041642CD1F009FCA36 /* VDENewFileViewController.h */,
+				E1A289051642CD1F009FCA36 /* VDENewFileViewController.m */,
+				E1A289061642CD1F009FCA36 /* VDENewFileViewController.xib */,
+			);
+			name = FileActions;
+			sourceTree = "<group>";
+		};
+		E1BC6E54163E7B540075F3B0 /* GCJumpBar */ = {
+			isa = PBXGroup;
+			children = (
+				E1BC6E55163E7B540075F3B0 /* Categories */,
+				E1BC6E5A163E7B540075F3B0 /* GCJumpBar.h */,
+				E1BC6E5B163E7B540075F3B0 /* GCJumpBar.m */,
+				E1BC6E5C163E7B540075F3B0 /* GCJumpBarLabel.h */,
+				E1BC6E5D163E7B540075F3B0 /* GCJumpBarLabel.m */,
+				E1BC6E5E163E7B540075F3B0 /* Image */,
+			);
+			path = GCJumpBar;
+			sourceTree = "<group>";
+		};
+		E1BC6E55163E7B540075F3B0 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E1BC6E56163E7B540075F3B0 /* NSIndexPath+GCJumpBar.h */,
+				E1BC6E57163E7B540075F3B0 /* NSIndexPath+GCJumpBar.m */,
+				E1BC6E58163E7B540075F3B0 /* NSMenu+IndexPath.h */,
+				E1BC6E59163E7B540075F3B0 /* NSMenu+IndexPath.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		E1BC6E5E163E7B540075F3B0 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				E1BC6E5F163E7B540075F3B0 /* GCJumpBarAccessorySeparator.png */,
+				E1BC6E60163E7B540075F3B0 /* GCJumpBarAccessorySeparator@2x.png */,
+				E1BC6E61163E7B540075F3B0 /* GCJumpBarSeparator.png */,
+				E1BC6E62163E7B540075F3B0 /* GCJumpBarSeparator@2x.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		E1BF3C3316397BDD001570DF /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				22BFE31B1641175700F07A98 /* DevToolsFoundation */,
+				E1BC6E54163E7B540075F3B0 /* GCJumpBar */,
+				E13F18F1163E10F8009D41A7 /* DMTabBar */,
+				E186337D163D85180027EF15 /* LineNumberView */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		E1BF3C3A16397C3B001570DF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E1863310163D34D50027EF15 /* VDENotificationService.h */,
+				E1863311163D34D50027EF15 /* VDENotificationService.m */,
+				E1BF3C3716397C35001570DF /* VDEDataService.h */,
+				E1BF3C3816397C35001570DF /* VDEDataService.m */,
+				E11D1C4D163BAC7D004FCD5B /* VDEResourceService.h */,
+				E11D1C4E163BAC7D004FCD5B /* VDEResourceService.m */,
+				E16FC49816423F1700A47A8D /* VDEServices.h */,
+				E1A4FDF4164372E400F8AE92 /* VDEExceptionService.h */,
+				E1A4FDF5164372E400F8AE92 /* VDEExceptionService.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		E1BF3C4316397F2C001570DF /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				E1BF3C4416397F2C001570DF /* VDEImageTextCell.h */,
+				E1BF3C4516397F2C001570DF /* VDEImageTextCell.m */,
+				E1BF3C4616397F2C001570DF /* VDEProjectNavigatorView.h */,
+				E1BF3C4716397F2C001570DF /* VDEProjectNavigatorView.m */,
+				E1BF3C4A16397F46001570DF /* VDEProjectNavigatorPrivateHandler.h */,
+				E1BF3C4B16397F46001570DF /* VDEProjectNavigatorPrivateHandler.m */,
+			);
+			path = Navigator;
+			sourceTree = "<group>";
+		};
+		E1BF3C5016398F14001570DF /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				E1BF3C4D16398F0E001570DF /* VDESourceCodeEditorView.h */,
+				E1BF3C4E16398F0E001570DF /* VDESourceCodeEditorView.m */,
+				E1863313163D3A0B0027EF15 /* VDESourceCodeEditorViewPrivateHandler.h */,
+				E1863314163D3A0B0027EF15 /* VDESourceCodeEditorViewPrivateHandler.m */,
+				E1863384163D899D0027EF15 /* VDESourceScrollView.h */,
+				E1863385163D899E0027EF15 /* VDESourceScrollView.m */,
+				E1BC6E6F163EBBF00075F3B0 /* NSMenu+VDEProjectConfigurationExtension.h */,
+				E1BC6E70163EBBF00075F3B0 /* NSMenu+VDEProjectConfigurationExtension.m */,
+			);
+			name = Editor;
+			sourceTree = "<group>";
+		};
+		E1BF3C6016399402001570DF /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				E1A23773164126E10067B047 /* VDEToolBarItemView.h */,
+				E1A23774164126E10067B047 /* VDEToolBarItemView.m */,
+				E14B704D164206A300BCCDB4 /* VDEPushButton.h */,
+				E14B704E164206A300BCCDB4 /* VDEPushButton.m */,
+			);
+			name = Toolbar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* VeritasIDE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "VeritasIDE" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+				E1BF3C4016397D59001570DF /* Copy Frameworks */,
+				22BFE317164116F200F07A98 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E14A34D81643A71000B8EB6E /* PBXTargetDependency */,
+			);
+			name = VeritasIDE;
+			productInstallPath = "$(HOME)/Applications";
+			productName = TrackIt;
+			productReference = 8D1107320486CEB800E47090 /* VeritasIDE.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "VeritasIDE" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+				English,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* TrackIt */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E14A34C61643A70800B8EB6E /* Products */;
+					ProjectRef = E14A34C51643A70800B8EB6E /* VeritasMachineKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* VeritasIDE */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E14A34D21643A70900B8EB6E /* VeritasMachineKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = VeritasMachineKit.framework;
+			remoteRef = E14A34D11643A70900B8EB6E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E14A34D41643A70900B8EB6E /* VeritasMachineKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = VeritasMachineKit.framework;
+			remoteRef = E14A34D31643A70900B8EB6E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E14A35641643AA2900B8EB6E /* VeritasMahineIOSDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = VeritasMahineIOSDemo.app;
+			remoteRef = E14A35631643AA2900B8EB6E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E16FC4C9164279E900A47A8D /* source.c.c.icns in Resources */,
+				E16FC4CA164279E900A47A8D /* source.c.h.icns in Resources */,
+				22A7B7FF16392E160067B98A /* Credits.rtf in Resources */,
+				22A7B80016392E160067B98A /* InfoPlist.strings in Resources */,
+				22A7B80116392E160067B98A /* MainMenu.xib in Resources */,
+				22A7B80216392E160067B98A /* MainWindow.xib in Resources */,
+				E18632F7163CF9340027EF15 /* VDEResourceLoadList.plist in Resources */,
+				E13F18FA163E2E70009D41A7 /* FolderRef.tiff in Resources */,
+				E13F18FC163E2F73009D41A7 /* hud_buttonDebug_TurnOffBreakpoints.tiff in Resources */,
+				E1BC6E67163E7B540075F3B0 /* GCJumpBarAccessorySeparator.png in Resources */,
+				E1BC6E68163E7B540075F3B0 /* GCJumpBarAccessorySeparator@2x.png in Resources */,
+				E1BC6E69163E7B540075F3B0 /* GCJumpBarSeparator.png in Resources */,
+				E1BC6E6A163E7B540075F3B0 /* GCJumpBarSeparator@2x.png in Resources */,
+				E12EDFDA16402CA20009C048 /* icon.navigator.group.icns in Resources */,
+				E1A23758164124540067B047 /* DVTRunButtonPause.png in Resources */,
+				E1A23759164124540067B047 /* DVTRunButtonPause@2x.png in Resources */,
+				E1A2375A164124540067B047 /* DVTRunButtonPauseD.png in Resources */,
+				E1A2375B164124540067B047 /* DVTRunButtonPauseD@2x.png in Resources */,
+				E1A2375C164124540067B047 /* DVTRunButtonPauseP.png in Resources */,
+				E1A2375D164124540067B047 /* DVTRunButtonPauseP@2x.png in Resources */,
+				E1A2375E164124540067B047 /* DVTRunButtonRun.png in Resources */,
+				E1A2375F164124540067B047 /* DVTRunButtonRun@2x.png in Resources */,
+				E1A23760164124540067B047 /* DVTRunButtonRunD.png in Resources */,
+				E1A23761164124540067B047 /* DVTRunButtonRunD@2x.png in Resources */,
+				E1A23762164124540067B047 /* DVTRunButtonRunDI.png in Resources */,
+				E1A23763164124540067B047 /* DVTRunButtonRunDI@2x.png in Resources */,
+				E1A23764164124540067B047 /* DVTRunButtonRunI.png in Resources */,
+				E1A23765164124540067B047 /* DVTRunButtonRunI@2x.png in Resources */,
+				E1A23766164124540067B047 /* DVTRunButtonRunP.png in Resources */,
+				E1A23767164124540067B047 /* DVTRunButtonRunP@2x.png in Resources */,
+				E1A23768164124540067B047 /* DVTRunButtonStop.png in Resources */,
+				E1A23769164124540067B047 /* DVTRunButtonStop@2x.png in Resources */,
+				E1A2376A164124540067B047 /* DVTRunButtonStopD.png in Resources */,
+				E1A2376B164124540067B047 /* DVTRunButtonStopD@2x.png in Resources */,
+				E1A2376C164124540067B047 /* DVTRunButtonStopDI.png in Resources */,
+				E1A2376D164124540067B047 /* DVTRunButtonStopDI@2x.png in Resources */,
+				E1A2376E164124540067B047 /* DVTRunButtonStopI.png in Resources */,
+				E1A2376F164124540067B047 /* DVTRunButtonStopI@2x.png in Resources */,
+				E1A23770164124540067B047 /* DVTRunButtonStopP.png in Resources */,
+				E1A23771164124540067B047 /* DVTRunButtonStopP@2x.png in Resources */,
+				E14B7057164207FE00BCCDB4 /* hud_buttonDebug_TurnOnBreakpoints.tiff in Resources */,
+				E16FC4AD164252E200A47A8D /* Selene.icns in Resources */,
+				E16FC4B41642540000A47A8D /* source.veritas.lua.icns in Resources */,
+				E16FC4B51642540000A47A8D /* source.veritasproject.icns in Resources */,
+				E16FC4B61642540000A47A8D /* source.veritas.v.icns in Resources */,
+				E1A289081642CD1F009FCA36 /* VDENewFileViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22A7B7DB1639183F0067B98A /* VDEApplicationDelegate.m in Sources */,
+				22A7B7DC1639183F0067B98A /* VDEMain.m in Sources */,
+				22A7B7DD1639183F0067B98A /* VDEMainWindowController.m in Sources */,
+				22A7B7E01639183F0067B98A /* NSArray+VDEExtensions.m in Sources */,
+				22A7B80B163936C90067B98A /* VDEProjectFileParser.m in Sources */,
+				22A7B8161639394A0067B98A /* VDEProjectConfiguration.m in Sources */,
+				E1BF3C3916397C35001570DF /* VDEDataService.m in Sources */,
+				E1BF3C4816397F2C001570DF /* VDEImageTextCell.m in Sources */,
+				E1BF3C4916397F2C001570DF /* VDEProjectNavigatorView.m in Sources */,
+				E1BF3C4C16397F46001570DF /* VDEProjectNavigatorPrivateHandler.m in Sources */,
+				E1BF3C4F16398F0E001570DF /* VDESourceCodeEditorView.m in Sources */,
+				2287C167163A4A5500931399 /* VDEViewService.m in Sources */,
+				E11D1C3A163B85AB004FCD5B /* VXProject.m in Sources */,
+				E11D1C3E163B85EC004FCD5B /* VXGroup.m in Sources */,
+				E11D1C41163B87B1004FCD5B /* VXFileReference.m in Sources */,
+				E11D1C44163B87E6004FCD5B /* VXDictObject.m in Sources */,
+				E11D1C4F163BAC7D004FCD5B /* VDEResourceService.m in Sources */,
+				E1863312163D34D50027EF15 /* VDENotificationService.m in Sources */,
+				E1863315163D3A0C0027EF15 /* VDESourceCodeEditorViewPrivateHandler.m in Sources */,
+				E1863382163D85180027EF15 /* NoodleLineNumberMarker.m in Sources */,
+				E1863383163D85180027EF15 /* NoodleLineNumberView.m in Sources */,
+				E1863386163D899E0027EF15 /* VDESourceScrollView.m in Sources */,
+				E13F18F6163E10F8009D41A7 /* DMTabBar.m in Sources */,
+				E13F18F7163E10F8009D41A7 /* DMTabBarItem.m in Sources */,
+				E13F18FF163E3892009D41A7 /* VDEMainWindowControllerPrivateHandler.m in Sources */,
+				E1BC6E63163E7B540075F3B0 /* NSIndexPath+GCJumpBar.m in Sources */,
+				E1BC6E64163E7B540075F3B0 /* NSMenu+IndexPath.m in Sources */,
+				E1BC6E65163E7B540075F3B0 /* GCJumpBar.m in Sources */,
+				E1BC6E66163E7B540075F3B0 /* GCJumpBarLabel.m in Sources */,
+				E1BC6E71163EBBF10075F3B0 /* NSMenu+VDEProjectConfigurationExtension.m in Sources */,
+				E12EDFA8163F6A960009C048 /* VDEMainDataSource.m in Sources */,
+				E12EDFDD16402D870009C048 /* VXBreakPoint.m in Sources */,
+				E12EDFE016402D9E0009C048 /* VXLineBreakPoint.m in Sources */,
+				22BFE36A1641175700F07A98 /* NSString+RandomHexString.m in Sources */,
+				22BFE36B1641175700F07A98 /* PBXBreakpoint.m in Sources */,
+				22BFE36C1641175700F07A98 /* PBXContainerItem.m in Sources */,
+				22BFE36D1641175700F07A98 /* PBXGlobalID.m in Sources */,
+				22BFE36E1641175700F07A98 /* PBXLexicalRules.m in Sources */,
+				22BFE36F1641175700F07A98 /* PBXObject.m in Sources */,
+				22BFE3701641175700F07A98 /* PBXProjectItem.m in Sources */,
+				22BFE3711641175700F07A98 /* PBXSourceLexer.m in Sources */,
+				22BFE3721641175700F07A98 /* PBXSourceTokens.m in Sources */,
+				E1A23775164126E10067B047 /* VDEToolBarItemView.m in Sources */,
+				E14B704F164206A300BCCDB4 /* VDEPushButton.m in Sources */,
+				E14B706716421C1300BCCDB4 /* NSMutableArray+BlockExtension.m in Sources */,
+				E14B706A16421C5900BCCDB4 /* NSMutableDictionary+BlockExtension.m in Sources */,
+				E14B7071164237D900BCCDB4 /* VDEDebugService.m in Sources */,
+				E1A289071642CD1F009FCA36 /* VDENewFileViewController.m in Sources */,
+				E1A4FDF6164372E400F8AE92 /* VDEExceptionService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E14A34D81643A71000B8EB6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VeritasMachineKit;
+			targetProxy = E14A34D71643A71000B8EB6E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		22A7B7F416392E160067B98A /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22A7B7F516392E160067B98A /* English */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		22A7B7F616392E160067B98A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22A7B7F716392E160067B98A /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		22A7B7F816392E160067B98A /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22A7B7F916392E160067B98A /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		22A7B7FA16392E160067B98A /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22A7B7FB16392E160067B98A /* English */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Code/Library\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/VeritasIDE-hflewhzfrdqtowfhbiyrhapippyf/Build/Products/Debug\"",
+				);
+				GCC_PREFIX_HEADER = Code/Application/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = VeritasIDE;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Code/Library\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/VeritasIDE-hflewhzfrdqtowfhbiyrhapippyf/Build/Products/Debug\"",
+				);
+				GCC_FAST_OBJC_DISPATCH = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREFIX_HEADER = Code/Application/Prefix.pch;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = VeritasIDE;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_FAST_OBJC_DISPATCH = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "VeritasIDE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "VeritasIDE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
