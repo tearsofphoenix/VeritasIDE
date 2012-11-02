@@ -121,37 +121,55 @@ static void VDEMainWindowControllerInitializeTabView(VDEMainWindowController *se
     NSString *fileIdentity = [fileReference identity];
     
     VDESourceScrollView *scrollView = [_textScrollViews objectForKey: fileIdentity];
-    
-    if (!scrollView)
+    if (_currentDocumentScrollView == nil || _currentDocumentScrollView != scrollView)
     {
-        NSError *error = nil;
         
-        NSString *fileContent = [NSString stringWithContentsOfFile: [fileReference absolutePath]
-                                                          encoding: NSUTF8StringEncoding
-                                                             error: &error];
-        if (error)
+        if (!scrollView)
         {
-            VDEExceptionServiceHandleError(error);
-        }else
-        {
-            CGRect frame = [_contentView bounds];
-            frame.size.height -= [_filePathJumpBar frame].size.height;
+            NSError *error = nil;
             
-            scrollView = [[VDESourceScrollView alloc] initWithFrame: frame];
-            [[scrollView editorView] setString: fileContent];
-            
-            [_textScrollViews setObject: scrollView
-                                 forKey: fileIdentity];
-            
-            [scrollView release];
+            NSString *fileContent = [NSString stringWithContentsOfFile: [fileReference absolutePath]
+                                                              encoding: NSUTF8StringEncoding
+                                                                 error: &error];
+            if (error)
+            {
+                VDEExceptionServiceHandleError(error);
+            }else
+            {
+                CGRect frame = [_contentView bounds];
+                frame.size.height -= [_filePathJumpBar frame].size.height;
+                
+                scrollView = [[VDESourceScrollView alloc] initWithFrame: frame];
+                [[scrollView editorView] setString: fileContent];
+                
+                [_textScrollViews setObject: scrollView
+                                     forKey: fileIdentity];
+                
+                [scrollView release];
+            }
         }
+        
+        VSC(VMachineServiceID,
+            VMachineServiceParseSourceCodeAction,
+            (^(NSArray *callbackArguments)
+             {
+                 BOOL success = [[callbackArguments objectAtIndex: 0] boolValue];
+                 if (!success)
+                 {
+                     NSString *errorInfo = [callbackArguments objectAtIndex: 1];
+                     
+                     ///TODO
+                     NSLog(@"error: %@", errorInfo);
+                 }
+                 
+             }), @[ [[scrollView editorView] string] ]);
+        
+        [_contentView addSubview: scrollView
+                      positioned: NSWindowAbove
+                      relativeTo: nil];
+        
+        _currentDocumentScrollView = scrollView;
     }
-    
-    [_contentView addSubview: scrollView
-                  positioned: NSWindowAbove
-                  relativeTo: nil];
-    
-    _currentDocumentScrollView = scrollView;
 }
 
 - (void)notificationForDidSelectSingleFile: (NSNotification *)notification
@@ -364,7 +382,7 @@ static void VDEMainWindowControllerSaveDocument(VDESourceScrollView *view, VXFil
         VDEExceptionServiceHandleError(error);
         return;
     }
-
+    
     [fileManager copyItemAtPath: [resourcePath stringByAppendingPathComponent: @"/Main.v"]
                          toPath: [filePath stringByAppendingPathComponent: @"/Main.v"]
                           error: &error];
