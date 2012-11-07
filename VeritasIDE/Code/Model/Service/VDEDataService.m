@@ -9,7 +9,7 @@
 #import "VDEServices.h"
 #import "VDEProjectConfiguration.h"
 #import "VDEProjectNavigatorPrivateHandler.h"
-#import "NSString+RandomHexString.h"
+#import <DevToolsFoundation/DevToolsFoundation.h>
 
 @interface VDEDataService ()
 {

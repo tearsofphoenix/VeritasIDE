@@ -22,15 +22,6 @@
 		22BFE3181641170400F07A98 /* Outline.veritasproject in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22A7B7FD16392E160067B98A /* Outline.veritasproject */; };
 		22BFE3191641170400F07A98 /* Test.v in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22A7B81D1639402E0067B98A /* Test.v */; };
 		22BFE31A1641170400F07A98 /* Main.v in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22A7B8291639435B0067B98A /* Main.v */; };
-		22BFE36A1641175700F07A98 /* NSString+RandomHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE31D1641175700F07A98 /* NSString+RandomHexString.m */; };
-		22BFE36B1641175700F07A98 /* PBXBreakpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE31F1641175700F07A98 /* PBXBreakpoint.m */; };
-		22BFE36C1641175700F07A98 /* PBXContainerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE3281641175700F07A98 /* PBXContainerItem.m */; };
-		22BFE36D1641175700F07A98 /* PBXGlobalID.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE3391641175700F07A98 /* PBXGlobalID.m */; };
-		22BFE36E1641175700F07A98 /* PBXLexicalRules.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE3441641175700F07A98 /* PBXLexicalRules.m */; };
-		22BFE36F1641175700F07A98 /* PBXObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE3491641175700F07A98 /* PBXObject.m */; };
-		22BFE3701641175700F07A98 /* PBXProjectItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE34D1641175700F07A98 /* PBXProjectItem.m */; };
-		22BFE3711641175700F07A98 /* PBXSourceLexer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE3561641175700F07A98 /* PBXSourceLexer.m */; };
-		22BFE3721641175700F07A98 /* PBXSourceTokens.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BFE35A1641175700F07A98 /* PBXSourceTokens.m */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		E11D1C3A163B85AB004FCD5B /* VXProject.m in Sources */ = {isa = PBXBuildFile; fileRef = E11D1C39163B85AB004FCD5B /* VXProject.m */; };
 		E11D1C3E163B85EC004FCD5B /* VXGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = E11D1C3D163B85EC004FCD5B /* VXGroup.m */; };
@@ -52,6 +43,7 @@
 		E14B706716421C1300BCCDB4 /* NSMutableArray+BlockExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E14B706616421C1300BCCDB4 /* NSMutableArray+BlockExtension.m */; };
 		E14B706A16421C5900BCCDB4 /* NSMutableDictionary+BlockExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E14B706916421C5900BCCDB4 /* NSMutableDictionary+BlockExtension.m */; };
 		E14B7071164237D900BCCDB4 /* VDEDebugService.m in Sources */ = {isa = PBXBuildFile; fileRef = E14B7070164237D900BCCDB4 /* VDEDebugService.m */; };
+		E161E4181646E5D500C4CBF4 /* OakAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E161E4141646E5C900C4CBF4 /* OakAppKit.framework */; };
 		E16FC4AD164252E200A47A8D /* Selene.icns in Resources */ = {isa = PBXBuildFile; fileRef = E16FC4AC164252E200A47A8D /* Selene.icns */; };
 		E16FC4B41642540000A47A8D /* source.veritas.lua.icns in Resources */ = {isa = PBXBuildFile; fileRef = E16FC4B01642540000A47A8D /* source.veritas.lua.icns */; };
 		E16FC4B51642540000A47A8D /* source.veritasproject.icns in Resources */ = {isa = PBXBuildFile; fileRef = E16FC4B11642540000A47A8D /* source.veritasproject.icns */; };
@@ -110,6 +102,7 @@
 		E1BF3C4916397F2C001570DF /* VDEProjectNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF3C4716397F2C001570DF /* VDEProjectNavigatorView.m */; };
 		E1BF3C4C16397F46001570DF /* VDEProjectNavigatorPrivateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF3C4B16397F46001570DF /* VDEProjectNavigatorPrivateHandler.m */; };
 		E1BF3C4F16398F0E001570DF /* VDESourceCodeEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF3C4E16398F0E001570DF /* VDESourceCodeEditorView.m */; };
+		E1CCCF5E1644EE0D006696E0 /* DevToolsFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CCCEBE1644ED60006696E0 /* DevToolsFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +133,34 @@
 			proxyType = 2;
 			remoteGlobalIDString = E14A34DE1643A77F00B8EB6E;
 			remoteInfo = VeritasMahineIOSDemo;
+		};
+		E161E4131646E5C900C4CBF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E161E4081646E5C800C4CBF4 /* OakAppKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E1CCCF6E1644F48C006696E0;
+			remoteInfo = OakAppKit;
+		};
+		E161E4161646E5CF00C4CBF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E161E4081646E5C800C4CBF4 /* OakAppKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E1CCCF6D1644F48C006696E0;
+			remoteInfo = OakAppKit;
+		};
+		E1CCCEBD1644ED60006696E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1CCCEB61644ED5F006696E0 /* DevToolsFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E1CCCE9B1644ED37006696E0;
+			remoteInfo = DevToolsFoundation;
+		};
+		E1CCCF5C1644EE08006696E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1CCCEB61644ED5F006696E0 /* DevToolsFoundation.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E1CCCE9A1644ED37006696E0;
+			remoteInfo = DevToolsFoundation;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -192,84 +213,6 @@
 		22A7B81D1639402E0067B98A /* Test.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Test.v; sourceTree = "<group>"; };
 		22A7B8291639435B0067B98A /* Main.v */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Main.v; sourceTree = "<group>"; };
 		22BFE24E16410C4200F07A98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		22BFE31C1641175700F07A98 /* NSString+RandomHexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RandomHexString.h"; sourceTree = "<group>"; };
-		22BFE31D1641175700F07A98 /* NSString+RandomHexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+RandomHexString.m"; sourceTree = "<group>"; };
-		22BFE31E1641175700F07A98 /* PBXBreakpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXBreakpoint.h; sourceTree = "<group>"; };
-		22BFE31F1641175700F07A98 /* PBXBreakpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXBreakpoint.m; sourceTree = "<group>"; };
-		22BFE3201641175700F07A98 /* PBXBuildContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXBuildContext.h; sourceTree = "<group>"; };
-		22BFE3211641175700F07A98 /* PBXBuildMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXBuildMessage.h; sourceTree = "<group>"; };
-		22BFE3221641175700F07A98 /* PBXChangeNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXChangeNotification.h; sourceTree = "<group>"; };
-		22BFE3231641175700F07A98 /* PBXCodeCompletion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCodeCompletion.h; sourceTree = "<group>"; };
-		22BFE3241641175700F07A98 /* PBXCodeSenseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCodeSenseManager.h; sourceTree = "<group>"; };
-		22BFE3251641175700F07A98 /* PBXCompletionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCompletionItem.h; sourceTree = "<group>"; };
-		22BFE3261641175700F07A98 /* PBXContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXContainer.h; sourceTree = "<group>"; };
-		22BFE3271641175700F07A98 /* PBXContainerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXContainerItem.h; sourceTree = "<group>"; };
-		22BFE3281641175700F07A98 /* PBXContainerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXContainerItem.m; sourceTree = "<group>"; };
-		22BFE3291641175700F07A98 /* PBXContainerItemChangeNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXContainerItemChangeNotification.h; sourceTree = "<group>"; };
-		22BFE32A1641175700F07A98 /* PBXContainerItemProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXContainerItemProxy.h; sourceTree = "<group>"; };
-		22BFE32B1641175700F07A98 /* PBXCSourceScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCSourceScanner.h; sourceTree = "<group>"; };
-		22BFE32C1641175700F07A98 /* PBXCStringPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCStringPool.h; sourceTree = "<group>"; };
-		22BFE32D1641175700F07A98 /* PBXCStringStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCStringStorage.h; sourceTree = "<group>"; };
-		22BFE32E1641175700F07A98 /* PBXDevKitIndexingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXDevKitIndexingEngine.h; sourceTree = "<group>"; };
-		22BFE32F1641175700F07A98 /* PBXExecutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXExecutable.h; sourceTree = "<group>"; };
-		22BFE3301641175700F07A98 /* PBXFileBreakpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFileBreakpoint.h; sourceTree = "<group>"; };
-		22BFE3311641175700F07A98 /* PBXFileReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFileReference.h; sourceTree = "<group>"; };
-		22BFE3321641175700F07A98 /* PBXFileSystemLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFileSystemLocation.h; sourceTree = "<group>"; };
-		22BFE3331641175700F07A98 /* PBXFileType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFileType.h; sourceTree = "<group>"; };
-		22BFE3341641175700F07A98 /* PBXFileTypePart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFileTypePart.h; sourceTree = "<group>"; };
-		22BFE3351641175700F07A98 /* PBXFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFolder.h; sourceTree = "<group>"; };
-		22BFE3361641175700F07A98 /* PBXFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFramework.h; sourceTree = "<group>"; };
-		22BFE3371641175700F07A98 /* PBXFunctionSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFunctionSymbol.h; sourceTree = "<group>"; };
-		22BFE3381641175700F07A98 /* PBXGlobalID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXGlobalID.h; sourceTree = "<group>"; };
-		22BFE3391641175700F07A98 /* PBXGlobalID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXGlobalID.m; sourceTree = "<group>"; };
-		22BFE33A1641175700F07A98 /* PBXGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXGroup.h; sourceTree = "<group>"; };
-		22BFE33B1641175700F07A98 /* PBXGroupEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXGroupEnumerator.h; sourceTree = "<group>"; };
-		22BFE33C1641175700F07A98 /* PBXHeaderFileSearchContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXHeaderFileSearchContext.h; sourceTree = "<group>"; };
-		22BFE33D1641175700F07A98 /* PBXHeaderMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXHeaderMap.h; sourceTree = "<group>"; };
-		22BFE33E1641175700F07A98 /* PBXIndexedFileList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXIndexedFileList.h; sourceTree = "<group>"; };
-		22BFE33F1641175700F07A98 /* PBXIndexEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXIndexEntry.h; sourceTree = "<group>"; };
-		22BFE3401641175700F07A98 /* PBXIndexingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXIndexingEngine.h; sourceTree = "<group>"; };
-		22BFE3411641175700F07A98 /* PBXInterpretedExecutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXInterpretedExecutable.h; sourceTree = "<group>"; };
-		22BFE3421641175700F07A98 /* PBXLanguageSpecification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXLanguageSpecification.h; sourceTree = "<group>"; };
-		22BFE3431641175700F07A98 /* PBXLexicalRules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXLexicalRules.h; sourceTree = "<group>"; };
-		22BFE3441641175700F07A98 /* PBXLexicalRules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXLexicalRules.m; sourceTree = "<group>"; };
-		22BFE3451641175700F07A98 /* PBXLogOutputString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXLogOutputString.h; sourceTree = "<group>"; };
-		22BFE3461641175700F07A98 /* PBXMarkerDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXMarkerDelegateProtocol.h; sourceTree = "<group>"; };
-		22BFE3471641175700F07A98 /* PBXMemberContainerSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXMemberContainerSymbol.h; sourceTree = "<group>"; };
-		22BFE3481641175700F07A98 /* PBXObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXObject.h; sourceTree = "<group>"; };
-		22BFE3491641175700F07A98 /* PBXObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXObject.m; sourceTree = "<group>"; };
-		22BFE34A1641175700F07A98 /* PBXProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXProject.h; sourceTree = "<group>"; };
-		22BFE34B1641175700F07A98 /* PBXProjectIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXProjectIndex.h; sourceTree = "<group>"; };
-		22BFE34C1641175700F07A98 /* PBXProjectItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXProjectItem.h; sourceTree = "<group>"; };
-		22BFE34D1641175700F07A98 /* PBXProjectItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXProjectItem.m; sourceTree = "<group>"; };
-		22BFE34E1641175700F07A98 /* PBXProjectRenameFileCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXProjectRenameFileCallback.h; sourceTree = "<group>"; };
-		22BFE34F1641175700F07A98 /* PBXRecordVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXRecordVector.h; sourceTree = "<group>"; };
-		22BFE3501641175700F07A98 /* PBXReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXReference.h; sourceTree = "<group>"; };
-		22BFE3511641175700F07A98 /* PBXReferenceProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXReferenceProxy.h; sourceTree = "<group>"; };
-		22BFE3521641175700F07A98 /* PBXScannerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXScannerItem.h; sourceTree = "<group>"; };
-		22BFE3531641175700F07A98 /* PBXShellScriptBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXShellScriptBuildPhase.h; sourceTree = "<group>"; };
-		22BFE3541641175700F07A98 /* PBXSignatureSymbol-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PBXSignatureSymbol-Protocol.h"; sourceTree = "<group>"; };
-		22BFE3551641175700F07A98 /* PBXSourceLexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXSourceLexer.h; sourceTree = "<group>"; };
-		22BFE3561641175700F07A98 /* PBXSourceLexer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXSourceLexer.m; sourceTree = "<group>"; };
-		22BFE3571641175700F07A98 /* PBXSourceScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXSourceScanner.h; sourceTree = "<group>"; };
-		22BFE3581641175700F07A98 /* PBXSourceScannerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXSourceScannerItem.h; sourceTree = "<group>"; };
-		22BFE3591641175700F07A98 /* PBXSourceTokens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXSourceTokens.h; sourceTree = "<group>"; };
-		22BFE35A1641175700F07A98 /* PBXSourceTokens.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXSourceTokens.m; sourceTree = "<group>"; };
-		22BFE35B1641175700F07A98 /* PBXStringCompletionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXStringCompletionItem.h; sourceTree = "<group>"; };
-		22BFE35C1641175700F07A98 /* PBXStringLexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXStringLexer.h; sourceTree = "<group>"; };
-		22BFE35D1641175700F07A98 /* PBXStringTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXStringTree.h; sourceTree = "<group>"; };
-		22BFE35E1641175700F07A98 /* PBXStringTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXStringTreeNode.h; sourceTree = "<group>"; };
-		22BFE35F1641175700F07A98 /* PBXSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXSymbol.h; sourceTree = "<group>"; };
-		22BFE3601641175700F07A98 /* PBXSymbolicBreakpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXSymbolicBreakpoint.h; sourceTree = "<group>"; };
-		22BFE3611641175700F07A98 /* PBXTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXTarget.h; sourceTree = "<group>"; };
-		22BFE3621641175700F07A98 /* PBXTargetBuildContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXTargetBuildContext.h; sourceTree = "<group>"; };
-		22BFE3631641175700F07A98 /* PBXTargetDependency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXTargetDependency.h; sourceTree = "<group>"; };
-		22BFE3641641175700F07A98 /* PBXTSByteStreamConsuming-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PBXTSByteStreamConsuming-Protocol.h"; sourceTree = "<group>"; };
-		22BFE3651641175700F07A98 /* PBXTSCharacterStreamConsuming-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PBXTSCharacterStreamConsuming-Protocol.h"; sourceTree = "<group>"; };
-		22BFE3661641175700F07A98 /* PBXTSLineStreamConsuming-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PBXTSLineStreamConsuming-Protocol.h"; sourceTree = "<group>"; };
-		22BFE3671641175700F07A98 /* PBXTSStreamConsuming-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PBXTSStreamConsuming-Protocol.h"; sourceTree = "<group>"; };
-		22BFE3681641175700F07A98 /* PBXTypeDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXTypeDescriptor.h; sourceTree = "<group>"; };
-		22BFE3691641175700F07A98 /* PBXVariantGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXVariantGroup.h; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* VeritasIDE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VeritasIDE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11D1C38163B85AB004FCD5B /* VXProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VXProject.h; sourceTree = "<group>"; };
 		E11D1C39163B85AB004FCD5B /* VXProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VXProject.m; sourceTree = "<group>"; };
@@ -307,6 +250,7 @@
 		E14B706B16421CC000BCCDB4 /* VDEFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VDEFoundation.h; sourceTree = "<group>"; };
 		E14B706F164237D900BCCDB4 /* VDEDebugService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEDebugService.h; sourceTree = "<group>"; };
 		E14B7070164237D900BCCDB4 /* VDEDebugService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEDebugService.m; sourceTree = "<group>"; };
+		E161E4081646E5C800C4CBF4 /* OakAppKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OakAppKit.xcodeproj; path = ../OakAppKit/OakAppKit.xcodeproj; sourceTree = "<group>"; };
 		E16FC49816423F1700A47A8D /* VDEServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VDEServices.h; path = Service/VDEServices.h; sourceTree = "<group>"; };
 		E16FC4AC164252E200A47A8D /* Selene.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Selene.icns; sourceTree = "<group>"; };
 		E16FC4AE1642540000A47A8D /* source.c.c.icns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = image.icns; path = source.c.c.icns; sourceTree = "<group>"; };
@@ -384,6 +328,7 @@
 		E1BF3C4B16397F46001570DF /* VDEProjectNavigatorPrivateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEProjectNavigatorPrivateHandler.m; sourceTree = "<group>"; };
 		E1BF3C4D16398F0E001570DF /* VDESourceCodeEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDESourceCodeEditorView.h; path = Editor/VDESourceCodeEditorView.h; sourceTree = "<group>"; };
 		E1BF3C4E16398F0E001570DF /* VDESourceCodeEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDESourceCodeEditorView.m; path = Editor/VDESourceCodeEditorView.m; sourceTree = "<group>"; };
+		E1CCCEB61644ED5F006696E0 /* DevToolsFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DevToolsFoundation.xcodeproj; path = ../DevToolsFoundation/DevToolsFoundation.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +336,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E161E4181646E5D500C4CBF4 /* OakAppKit.framework in Frameworks */,
+				E1CCCF5E1644EE0D006696E0 /* DevToolsFoundation.framework in Frameworks */,
 				E14A34D91643A72500B8EB6E /* VeritasMachineKit.framework in Frameworks */,
 				E1A400C016439C2000F8AE92 /* LuaKit.framework in Frameworks */,
 				E1A4FDF21643688500F8AE92 /* IOKit.framework in Frameworks */,
@@ -524,51 +471,11 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		22BFE31B1641175700F07A98 /* DevToolsFoundation */ = {
-			isa = PBXGroup;
-			children = (
-				22BFE31C1641175700F07A98 /* NSString+RandomHexString.h */,
-				22BFE31D1641175700F07A98 /* NSString+RandomHexString.m */,
-				E1CCCE6A1643F431006696E0 /* Breakpoint */,
-				22BFE3201641175700F07A98 /* PBXBuildContext.h */,
-				22BFE3211641175700F07A98 /* PBXBuildMessage.h */,
-				22BFE3221641175700F07A98 /* PBXChangeNotification.h */,
-				22BFE3231641175700F07A98 /* PBXCodeCompletion.h */,
-				22BFE3241641175700F07A98 /* PBXCodeSenseManager.h */,
-				22BFE3251641175700F07A98 /* PBXCompletionItem.h */,
-				E1CCCE691643F41D006696E0 /* Core */,
-				E1CCCE6B1643F451006696E0 /* Index */,
-				E1CCCE6C1643F460006696E0 /* Symbol */,
-				22BFE33C1641175700F07A98 /* PBXHeaderFileSearchContext.h */,
-				22BFE33D1641175700F07A98 /* PBXHeaderMap.h */,
-				22BFE3411641175700F07A98 /* PBXInterpretedExecutable.h */,
-				22BFE3421641175700F07A98 /* PBXLanguageSpecification.h */,
-				E1CCCE681643F3CA006696E0 /* LexnScan */,
-				22BFE3451641175700F07A98 /* PBXLogOutputString.h */,
-				22BFE3461641175700F07A98 /* PBXMarkerDelegateProtocol.h */,
-				22BFE34E1641175700F07A98 /* PBXProjectRenameFileCallback.h */,
-				22BFE34F1641175700F07A98 /* PBXRecordVector.h */,
-				22BFE3531641175700F07A98 /* PBXShellScriptBuildPhase.h */,
-				22BFE3541641175700F07A98 /* PBXSignatureSymbol-Protocol.h */,
-				22BFE35B1641175700F07A98 /* PBXStringCompletionItem.h */,
-				22BFE35D1641175700F07A98 /* PBXStringTree.h */,
-				22BFE35E1641175700F07A98 /* PBXStringTreeNode.h */,
-				22BFE3611641175700F07A98 /* PBXTarget.h */,
-				22BFE3621641175700F07A98 /* PBXTargetBuildContext.h */,
-				22BFE3631641175700F07A98 /* PBXTargetDependency.h */,
-				22BFE3641641175700F07A98 /* PBXTSByteStreamConsuming-Protocol.h */,
-				22BFE3651641175700F07A98 /* PBXTSCharacterStreamConsuming-Protocol.h */,
-				22BFE3661641175700F07A98 /* PBXTSLineStreamConsuming-Protocol.h */,
-				22BFE3671641175700F07A98 /* PBXTSStreamConsuming-Protocol.h */,
-				22BFE3681641175700F07A98 /* PBXTypeDescriptor.h */,
-				22BFE3691641175700F07A98 /* PBXVariantGroup.h */,
-			);
-			path = DevToolsFoundation;
-			sourceTree = "<group>";
-		};
 		29B97314FDCFA39411CA2CEA /* TrackIt */ = {
 			isa = PBXGroup;
 			children = (
+				E161E4081646E5C800C4CBF4 /* OakAppKit.xcodeproj */,
+				E1CCCEB61644ED5F006696E0 /* DevToolsFoundation.xcodeproj */,
 				E14A34C51643A70800B8EB6E /* VeritasMachineKit.xcodeproj */,
 				22A7B7C81639183F0067B98A /* Code */,
 				22A7B7F116392E160067B98A /* Resources */,
@@ -606,6 +513,14 @@
 				E14A34D21643A70900B8EB6E /* VeritasMachineKit.framework */,
 				E14A34D41643A70900B8EB6E /* VeritasMachineKit.framework */,
 				E14A35641643AA2900B8EB6E /* VeritasMahineIOSDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E161E4091646E5C800C4CBF4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E161E4141646E5C900C4CBF4 /* OakAppKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -720,7 +635,6 @@
 		E1BF3C3316397BDD001570DF /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				22BFE31B1641175700F07A98 /* DevToolsFoundation */,
 				E1BC6E54163E7B540075F3B0 /* GCJumpBar */,
 				E13F18F1163E10F8009D41A7 /* DMTabBar */,
 				E186337D163D85180027EF15 /* LineNumberView */,
@@ -783,87 +697,12 @@
 			name = Toolbar;
 			sourceTree = "<group>";
 		};
-		E1CCCE681643F3CA006696E0 /* LexnScan */ = {
+		E1CCCEB71644ED5F006696E0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				22BFE32B1641175700F07A98 /* PBXCSourceScanner.h */,
-				22BFE3431641175700F07A98 /* PBXLexicalRules.h */,
-				22BFE3441641175700F07A98 /* PBXLexicalRules.m */,
-				22BFE3521641175700F07A98 /* PBXScannerItem.h */,
-				22BFE3551641175700F07A98 /* PBXSourceLexer.h */,
-				22BFE3561641175700F07A98 /* PBXSourceLexer.m */,
-				22BFE3571641175700F07A98 /* PBXSourceScanner.h */,
-				22BFE3581641175700F07A98 /* PBXSourceScannerItem.h */,
-				22BFE3591641175700F07A98 /* PBXSourceTokens.h */,
-				22BFE35A1641175700F07A98 /* PBXSourceTokens.m */,
-				22BFE35C1641175700F07A98 /* PBXStringLexer.h */,
+				E1CCCEBE1644ED60006696E0 /* DevToolsFoundation.framework */,
 			);
-			name = LexnScan;
-			sourceTree = "<group>";
-		};
-		E1CCCE691643F41D006696E0 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				22BFE3261641175700F07A98 /* PBXContainer.h */,
-				22BFE3271641175700F07A98 /* PBXContainerItem.h */,
-				22BFE3281641175700F07A98 /* PBXContainerItem.m */,
-				22BFE3311641175700F07A98 /* PBXFileReference.h */,
-				22BFE32C1641175700F07A98 /* PBXCStringPool.h */,
-				22BFE32D1641175700F07A98 /* PBXCStringStorage.h */,
-				22BFE3291641175700F07A98 /* PBXContainerItemChangeNotification.h */,
-				22BFE32A1641175700F07A98 /* PBXContainerItemProxy.h */,
-				22BFE32F1641175700F07A98 /* PBXExecutable.h */,
-				22BFE3321641175700F07A98 /* PBXFileSystemLocation.h */,
-				22BFE3331641175700F07A98 /* PBXFileType.h */,
-				22BFE3341641175700F07A98 /* PBXFileTypePart.h */,
-				22BFE3351641175700F07A98 /* PBXFolder.h */,
-				22BFE3361641175700F07A98 /* PBXFramework.h */,
-				22BFE3381641175700F07A98 /* PBXGlobalID.h */,
-				22BFE33A1641175700F07A98 /* PBXGroup.h */,
-				22BFE3391641175700F07A98 /* PBXGlobalID.m */,
-				22BFE33B1641175700F07A98 /* PBXGroupEnumerator.h */,
-				22BFE3481641175700F07A98 /* PBXObject.h */,
-				22BFE3491641175700F07A98 /* PBXObject.m */,
-				22BFE34A1641175700F07A98 /* PBXProject.h */,
-				22BFE34C1641175700F07A98 /* PBXProjectItem.h */,
-				22BFE34D1641175700F07A98 /* PBXProjectItem.m */,
-				22BFE3501641175700F07A98 /* PBXReference.h */,
-				22BFE3511641175700F07A98 /* PBXReferenceProxy.h */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		E1CCCE6A1643F431006696E0 /* Breakpoint */ = {
-			isa = PBXGroup;
-			children = (
-				22BFE31E1641175700F07A98 /* PBXBreakpoint.h */,
-				22BFE31F1641175700F07A98 /* PBXBreakpoint.m */,
-				22BFE3301641175700F07A98 /* PBXFileBreakpoint.h */,
-				22BFE3601641175700F07A98 /* PBXSymbolicBreakpoint.h */,
-			);
-			name = Breakpoint;
-			sourceTree = "<group>";
-		};
-		E1CCCE6B1643F451006696E0 /* Index */ = {
-			isa = PBXGroup;
-			children = (
-				22BFE32E1641175700F07A98 /* PBXDevKitIndexingEngine.h */,
-				22BFE33E1641175700F07A98 /* PBXIndexedFileList.h */,
-				22BFE33F1641175700F07A98 /* PBXIndexEntry.h */,
-				22BFE3401641175700F07A98 /* PBXIndexingEngine.h */,
-				22BFE34B1641175700F07A98 /* PBXProjectIndex.h */,
-			);
-			name = Index;
-			sourceTree = "<group>";
-		};
-		E1CCCE6C1643F460006696E0 /* Symbol */ = {
-			isa = PBXGroup;
-			children = (
-				22BFE3371641175700F07A98 /* PBXFunctionSymbol.h */,
-				22BFE3471641175700F07A98 /* PBXMemberContainerSymbol.h */,
-				22BFE35F1641175700F07A98 /* PBXSymbol.h */,
-			);
-			name = Symbol;
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -882,6 +721,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				E161E4171646E5CF00C4CBF4 /* PBXTargetDependency */,
+				E1CCCF5D1644EE08006696E0 /* PBXTargetDependency */,
 				E14A34D81643A71000B8EB6E /* PBXTargetDependency */,
 			);
 			name = VeritasIDE;
@@ -909,6 +750,14 @@
 			mainGroup = 29B97314FDCFA39411CA2CEA /* TrackIt */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = E1CCCEB71644ED5F006696E0 /* Products */;
+					ProjectRef = E1CCCEB61644ED5F006696E0 /* DevToolsFoundation.xcodeproj */;
+				},
+				{
+					ProductGroup = E161E4091646E5C800C4CBF4 /* Products */;
+					ProjectRef = E161E4081646E5C800C4CBF4 /* OakAppKit.xcodeproj */;
+				},
 				{
 					ProductGroup = E14A34C61643A70800B8EB6E /* Products */;
 					ProjectRef = E14A34C51643A70800B8EB6E /* VeritasMachineKit.xcodeproj */;
@@ -941,6 +790,20 @@
 			fileType = wrapper.application;
 			path = VeritasMahineIOSDemo.app;
 			remoteRef = E14A35631643AA2900B8EB6E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E161E4141646E5C900C4CBF4 /* OakAppKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OakAppKit.framework;
+			remoteRef = E161E4131646E5C900C4CBF4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E1CCCEBE1644ED60006696E0 /* DevToolsFoundation.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DevToolsFoundation.framework;
+			remoteRef = E1CCCEBD1644ED60006696E0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1039,15 +902,6 @@
 				E12EDFA8163F6A960009C048 /* VDEMainDataSource.m in Sources */,
 				E12EDFDD16402D870009C048 /* VXBreakPoint.m in Sources */,
 				E12EDFE016402D9E0009C048 /* VXLineBreakPoint.m in Sources */,
-				22BFE36A1641175700F07A98 /* NSString+RandomHexString.m in Sources */,
-				22BFE36B1641175700F07A98 /* PBXBreakpoint.m in Sources */,
-				22BFE36C1641175700F07A98 /* PBXContainerItem.m in Sources */,
-				22BFE36D1641175700F07A98 /* PBXGlobalID.m in Sources */,
-				22BFE36E1641175700F07A98 /* PBXLexicalRules.m in Sources */,
-				22BFE36F1641175700F07A98 /* PBXObject.m in Sources */,
-				22BFE3701641175700F07A98 /* PBXProjectItem.m in Sources */,
-				22BFE3711641175700F07A98 /* PBXSourceLexer.m in Sources */,
-				22BFE3721641175700F07A98 /* PBXSourceTokens.m in Sources */,
 				E1A23775164126E10067B047 /* VDEToolBarItemView.m in Sources */,
 				E14B704F164206A300BCCDB4 /* VDEPushButton.m in Sources */,
 				E14B706716421C1300BCCDB4 /* NSMutableArray+BlockExtension.m in Sources */,
@@ -1065,6 +919,16 @@
 			isa = PBXTargetDependency;
 			name = VeritasMachineKit;
 			targetProxy = E14A34D71643A71000B8EB6E /* PBXContainerItemProxy */;
+		};
+		E161E4171646E5CF00C4CBF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OakAppKit;
+			targetProxy = E161E4161646E5CF00C4CBF4 /* PBXContainerItemProxy */;
+		};
+		E1CCCF5D1644EE08006696E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DevToolsFoundation;
+			targetProxy = E1CCCF5C1644EE08006696E0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

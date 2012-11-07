@@ -1,0 +1,381 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E15246DF16498F4C004C2CC8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15246DE16498F4C004C2CC8 /* Cocoa.framework */; };
+		E152470F16498F99004C2CC8 /* OakSCMInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = E152470216498F99004C2CC8 /* OakSCMInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E152471016498F99004C2CC8 /* OakSCMInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E152470316498F99004C2CC8 /* OakSCMInfo.m */; };
+		E152471316498F99004C2CC8 /* OakSCMSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = E152470616498F99004C2CC8 /* OakSCMSnapshot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E152471416498F99004C2CC8 /* OakSCMSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = E152470716498F99004C2CC8 /* OakSCMSnapshot.m */; };
+		E1524722164A22CC004C2CC8 /* OakSCMHgDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = E1524720164A22CC004C2CC8 /* OakSCMHgDriver.m */; };
+		E1524723164A22CC004C2CC8 /* OakSCMSVNDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = E1524721164A22CC004C2CC8 /* OakSCMSVNDriver.m */; };
+		E1524727164A22D7004C2CC8 /* OakSCMDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = E1524724164A22D6004C2CC8 /* OakSCMDriver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1524728164A22D7004C2CC8 /* OakSCMDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = E1524725164A22D6004C2CC8 /* OakSCMDriver.m */; };
+		E1524729164A22D7004C2CC8 /* OakSCMGitDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = E1524726164A22D7004C2CC8 /* OakSCMGitDriver.m */; };
+		E1524730164A24C5004C2CC8 /* OakSCMWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E152472E164A24C4004C2CC8 /* OakSCMWatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1524731164A24C5004C2CC8 /* OakSCMWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E152472F164A24C4004C2CC8 /* OakSCMWatcher.m */; };
+		E1524737164A24EC004C2CC8 /* svn_status.xslt in Resources */ = {isa = PBXBuildFile; fileRef = E1524734164A24EC004C2CC8 /* svn_status.xslt */; };
+		E1524738164A2C06004C2CC8 /* OakSCM.h in Headers */ = {isa = PBXBuildFile; fileRef = E15246EB16498F4C004C2CC8 /* OakSCM.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E152473A164A2CC2004C2CC8 /* OakSCMGitDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = E1524739164A2CC1004C2CC8 /* OakSCMGitDriver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E152473C164A2D03004C2CC8 /* OakSCMHgDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = E152473B164A2D03004C2CC8 /* OakSCMHgDriver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E152473E164A2D5E004C2CC8 /* OakSCMSVNDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = E152473D164A2D5D004C2CC8 /* OakSCMSVNDriver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E152471E1649904D004C2CC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E152471A1649904C004C2CC8 /* OakFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E1CCD12F1644F65F006696E0;
+			remoteInfo = OakFoundation;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E15246DB16498F4C004C2CC8 /* OakSCM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OakSCM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E15246DE16498F4C004C2CC8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		E15246E116498F4C004C2CC8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		E15246E216498F4C004C2CC8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E15246E316498F4C004C2CC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E15246E616498F4C004C2CC8 /* OakSCM-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OakSCM-Info.plist"; sourceTree = "<group>"; };
+		E15246EA16498F4C004C2CC8 /* OakSCM-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OakSCM-Prefix.pch"; sourceTree = "<group>"; };
+		E15246EB16498F4C004C2CC8 /* OakSCM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OakSCM.h; sourceTree = "<group>"; };
+		E152470216498F99004C2CC8 /* OakSCMInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakSCMInfo.h; sourceTree = "<group>"; };
+		E152470316498F99004C2CC8 /* OakSCMInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakSCMInfo.m; sourceTree = "<group>"; };
+		E152470616498F99004C2CC8 /* OakSCMSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakSCMSnapshot.h; sourceTree = "<group>"; };
+		E152470716498F99004C2CC8 /* OakSCMSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakSCMSnapshot.m; sourceTree = "<group>"; };
+		E152471A1649904C004C2CC8 /* OakFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OakFoundation.xcodeproj; path = ../../OakFoundation/OakFoundation.xcodeproj; sourceTree = "<group>"; };
+		E1524720164A22CC004C2CC8 /* OakSCMHgDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakSCMHgDriver.m; sourceTree = "<group>"; };
+		E1524721164A22CC004C2CC8 /* OakSCMSVNDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakSCMSVNDriver.m; sourceTree = "<group>"; };
+		E1524724164A22D6004C2CC8 /* OakSCMDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakSCMDriver.h; sourceTree = "<group>"; };
+		E1524725164A22D6004C2CC8 /* OakSCMDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakSCMDriver.m; sourceTree = "<group>"; };
+		E1524726164A22D7004C2CC8 /* OakSCMGitDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakSCMGitDriver.m; sourceTree = "<group>"; };
+		E152472E164A24C4004C2CC8 /* OakSCMWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakSCMWatcher.h; sourceTree = "<group>"; };
+		E152472F164A24C4004C2CC8 /* OakSCMWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakSCMWatcher.m; sourceTree = "<group>"; };
+		E1524735164A24EC004C2CC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = en; path = en.lproj/svn_status.xslt; sourceTree = "<group>"; };
+		E1524739164A2CC1004C2CC8 /* OakSCMGitDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakSCMGitDriver.h; sourceTree = "<group>"; };
+		E152473B164A2D03004C2CC8 /* OakSCMHgDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakSCMHgDriver.h; sourceTree = "<group>"; };
+		E152473D164A2D5D004C2CC8 /* OakSCMSVNDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakSCMSVNDriver.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E15246D716498F4C004C2CC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E15246DF16498F4C004C2CC8 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E15246CF16498F4C004C2CC8 = {
+			isa = PBXGroup;
+			children = (
+				E152471A1649904C004C2CC8 /* OakFoundation.xcodeproj */,
+				E15246E416498F4C004C2CC8 /* OakSCM */,
+				E15246DD16498F4C004C2CC8 /* Frameworks */,
+				E15246DC16498F4C004C2CC8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E15246DC16498F4C004C2CC8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E15246DB16498F4C004C2CC8 /* OakSCM.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E15246DD16498F4C004C2CC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E15246DE16498F4C004C2CC8 /* Cocoa.framework */,
+				E15246E016498F4C004C2CC8 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E15246E016498F4C004C2CC8 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E15246E116498F4C004C2CC8 /* AppKit.framework */,
+				E15246E216498F4C004C2CC8 /* CoreData.framework */,
+				E15246E316498F4C004C2CC8 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		E15246E416498F4C004C2CC8 /* OakSCM */ = {
+			isa = PBXGroup;
+			children = (
+				E15246EB16498F4C004C2CC8 /* OakSCM.h */,
+				E1524724164A22D6004C2CC8 /* OakSCMDriver.h */,
+				E1524725164A22D6004C2CC8 /* OakSCMDriver.m */,
+				E1524739164A2CC1004C2CC8 /* OakSCMGitDriver.h */,
+				E1524726164A22D7004C2CC8 /* OakSCMGitDriver.m */,
+				E152473B164A2D03004C2CC8 /* OakSCMHgDriver.h */,
+				E1524720164A22CC004C2CC8 /* OakSCMHgDriver.m */,
+				E152470216498F99004C2CC8 /* OakSCMInfo.h */,
+				E152470316498F99004C2CC8 /* OakSCMInfo.m */,
+				E152470616498F99004C2CC8 /* OakSCMSnapshot.h */,
+				E152470716498F99004C2CC8 /* OakSCMSnapshot.m */,
+				E152473D164A2D5D004C2CC8 /* OakSCMSVNDriver.h */,
+				E1524721164A22CC004C2CC8 /* OakSCMSVNDriver.m */,
+				E152472E164A24C4004C2CC8 /* OakSCMWatcher.h */,
+				E152472F164A24C4004C2CC8 /* OakSCMWatcher.m */,
+				E15246E516498F4C004C2CC8 /* Supporting Files */,
+			);
+			path = OakSCM;
+			sourceTree = "<group>";
+		};
+		E15246E516498F4C004C2CC8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1524734164A24EC004C2CC8 /* svn_status.xslt */,
+				E15246E616498F4C004C2CC8 /* OakSCM-Info.plist */,
+				E15246EA16498F4C004C2CC8 /* OakSCM-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E152471B1649904C004C2CC8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E152471F1649904D004C2CC8 /* OakFoundation.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E15246D816498F4C004C2CC8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E152473A164A2CC2004C2CC8 /* OakSCMGitDriver.h in Headers */,
+				E152473C164A2D03004C2CC8 /* OakSCMHgDriver.h in Headers */,
+				E152473E164A2D5E004C2CC8 /* OakSCMSVNDriver.h in Headers */,
+				E1524738164A2C06004C2CC8 /* OakSCM.h in Headers */,
+				E152470F16498F99004C2CC8 /* OakSCMInfo.h in Headers */,
+				E152471316498F99004C2CC8 /* OakSCMSnapshot.h in Headers */,
+				E1524727164A22D7004C2CC8 /* OakSCMDriver.h in Headers */,
+				E1524730164A24C5004C2CC8 /* OakSCMWatcher.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E15246DA16498F4C004C2CC8 /* OakSCM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E15246F016498F4C004C2CC8 /* Build configuration list for PBXNativeTarget "OakSCM" */;
+			buildPhases = (
+				E15246D616498F4C004C2CC8 /* Sources */,
+				E15246D716498F4C004C2CC8 /* Frameworks */,
+				E15246D816498F4C004C2CC8 /* Headers */,
+				E15246D916498F4C004C2CC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OakSCM;
+			productName = OakSCM;
+			productReference = E15246DB16498F4C004C2CC8 /* OakSCM.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E15246D116498F4C004C2CC8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = tearsofphoenix;
+			};
+			buildConfigurationList = E15246D416498F4C004C2CC8 /* Build configuration list for PBXProject "OakSCM" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E15246CF16498F4C004C2CC8;
+			productRefGroup = E15246DC16498F4C004C2CC8 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E152471B1649904C004C2CC8 /* Products */;
+					ProjectRef = E152471A1649904C004C2CC8 /* OakFoundation.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				E15246DA16498F4C004C2CC8 /* OakSCM */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E152471F1649904D004C2CC8 /* OakFoundation.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OakFoundation.framework;
+			remoteRef = E152471E1649904D004C2CC8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E15246D916498F4C004C2CC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1524737164A24EC004C2CC8 /* svn_status.xslt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E15246D616498F4C004C2CC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E152471016498F99004C2CC8 /* OakSCMInfo.m in Sources */,
+				E152471416498F99004C2CC8 /* OakSCMSnapshot.m in Sources */,
+				E1524722164A22CC004C2CC8 /* OakSCMHgDriver.m in Sources */,
+				E1524723164A22CC004C2CC8 /* OakSCMSVNDriver.m in Sources */,
+				E1524728164A22D7004C2CC8 /* OakSCMDriver.m in Sources */,
+				E1524729164A22D7004C2CC8 /* OakSCMGitDriver.m in Sources */,
+				E1524731164A24C5004C2CC8 /* OakSCMWatcher.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E1524734164A24EC004C2CC8 /* svn_status.xslt */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1524735164A24EC004C2CC8 /* en */,
+			);
+			name = svn_status.xslt;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E15246EE16498F4C004C2CC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E15246EF16498F4C004C2CC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E15246F116498F4C004C2CC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OakSCM/OakSCM-Prefix.pch";
+				INFOPLIST_FILE = "OakSCM/OakSCM-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		E15246F216498F4C004C2CC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OakSCM/OakSCM-Prefix.pch";
+				INFOPLIST_FILE = "OakSCM/OakSCM-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E15246D416498F4C004C2CC8 /* Build configuration list for PBXProject "OakSCM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E15246EE16498F4C004C2CC8 /* Debug */,
+				E15246EF16498F4C004C2CC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E15246F016498F4C004C2CC8 /* Build configuration list for PBXNativeTarget "OakSCM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E15246F116498F4C004C2CC8 /* Debug */,
+				E15246F216498F4C004C2CC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E15246D116498F4C004C2CC8 /* Project object */;
+}

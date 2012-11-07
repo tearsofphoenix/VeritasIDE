@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'DevToolsFoundation' target in the 'DevToolsFoundation' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+    #import <Foundation/Foundation.h>
+#endif

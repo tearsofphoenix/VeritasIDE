@@ -1,0 +1,506 @@
+(
+{
+name = "Arabic \U2013 AIX";
+code = CP1046;
+},
+{
+name = "Arabic \U2013 DOS";
+code = CP864;
+},
+{
+name = "Arabic \U2013 ISO 8859-6";
+code = "ISO-8859-6";
+},
+{
+name = "Arabic \U2013 Mac OS";
+code = MACARABIC;
+},
+{
+name = "Arabic \U2013 Windows";
+code = CP1256;
+},
+{
+name = "Armenian \U2013 ARMSCII-8";
+code = "ARMSCII-8";
+},
+{
+name = "Baltic Rim \U2013 AIX";
+code = CP922;
+},
+{
+name = "Baltic Rim \U2013 DOS";
+code = CP775;
+},
+{
+name = "Baltic Rim \U2013 ISO Latin 7";
+code = "ISO-8859-13";
+},
+{
+name = "Baltic Rim \U2013 Windows";
+code = CP1257;
+},
+{
+name = "Belarusian \U2013 FreeBSD, Mac OS X";
+code = CP1131;
+},
+{
+name = "Belarusian \U2013 KOI8-RU";
+code = "KOI8-RU";
+},
+{
+name = "Celtic \U2013 ISO Latin 8";
+code = "ISO-8859-14";
+},
+{
+name = "Central European \U2013 ISO Latin 2";
+code = "ISO-8859-2";
+},
+{
+name = "Central European \U2013 ISO Latin 4";
+code = "ISO-8859-4";
+},
+{
+name = "Central European \U2013 Mac OS";
+code = MACCENTRALEUROPE;
+},
+{
+name = "Central European \U2013 Windows Latin 2";
+code = CP1250;
+},
+{
+name = "Chinese \U2013 GB18030";
+code = GB18030;
+},
+{
+name = "Chinese \U2013 GBK";
+code = GBK;
+},
+{
+name = "Chinese \U2013 ISO-2022-CN";
+code = "ISO-2022-CN";
+},
+{
+name = "Chinese \U2013 ISO-2022-CN-EXT";
+code = "ISO-2022-CN-EXT";
+},
+{
+name = "Chinese, Simplified \U2013 GB 2312";
+code = "CN-GB";
+},
+{
+name = "Chinese, Simplified \U2013 GB 2312-80";
+code = CHINESE;
+},
+{
+name = "Chinese, Simplified \U2013 GB_1988-80";
+code = "CN GB_1988-80";
+},
+{
+name = "Chinese, Simplified \U2013 HZ-GB-2312";
+code = "HZ HZ-GB-2312";
+},
+{
+name = "Chinese, Simplified \U2013 ISO-IR-165";
+code = "CN-GB-ISOIR165";
+},
+{
+name = "Chinese, Simplified \U2013 Windows, DOS GBK";
+code = CP936;
+},
+{
+name = "Chinese, Traditional \U2013 BIG5";
+code = BIG5;
+},
+{
+name = "Chinese, Traditional \U2013 BIG5-2003";
+code = "BIG5-2003";
+},
+{
+name = "Chinese, Traditional \U2013 BIG5-HKSCS:1999";
+code = "BIG5-HKSCS:1999";
+},
+{
+name = "Chinese, Traditional \U2013 BIG5-HKSCS:2001";
+code = "BIG5-HKSCS:2001";
+},
+{
+name = "Chinese, Traditional \U2013 BIG5-HKSCS:2004";
+code = "BIG5-HKSCS:2004";
+},
+{
+name = "Chinese, Traditional \U2013 EUC-TW";
+code = "EUC-TW";
+},
+{
+name = "Chinese, Traditional \U2013 Tru64";
+code = "DEC-HANYU";
+},
+{
+name = "Chinese, Traditional \U2013 Windows, DOS";
+code = CP950;
+},
+{
+name = "Croatian \U2013 Mac OS";
+code = MACCROATIAN;
+},
+{
+name = "Cyrillic \U2013 CP154";
+code = CP154;
+},
+{
+name = "Cyrillic \U2013 DOS Cyrillic 1";
+code = CP855;
+},
+{
+name = "Cyrillic \U2013 DOS Cyrillic 2";
+code = CP866;
+},
+{
+name = "Cyrillic \U2013 ISO";
+code = "ISO-8859-5";
+},
+{
+name = "Cyrillic \U2013 KOI8-R";
+code = "KOI8-R";
+},
+{
+name = "Cyrillic \U2013 Mac OS";
+code = MACCYRILLIC;
+},
+{
+name = "Cyrillic \U2013 Windows";
+code = CP1251;
+},
+{
+name = "Georgian \U2013 Academy";
+code = "GEORGIAN-ACADEMY";
+},
+{
+name = "Georgian \U2013 PS";
+code = "GEORGIAN-PS";
+},
+{
+name = "Greek \U2013 DOS Greek 1";
+code = CP737;
+},
+{
+name = "Greek \U2013 DOS Greek 2";
+code = CP869;
+},
+{
+name = "Greek \U2013 ISO 8859-7";
+code = "ISO-8859-7";
+},
+{
+name = "Greek \U2013 Mac OS";
+code = MACGREEK;
+},
+{
+name = "Greek \U2013 Windows";
+code = CP1253;
+},
+{
+name = "Hebrew \U2013 ISO 8859-8";
+code = "ISO-8859-8";
+},
+{
+name = "Hebrew \U2013 Mac OS";
+code = MACHEBREW;
+},
+{
+name = "Hebrew \U2013 MS-DOS";
+code = CP862;
+},
+{
+name = "Hebrew \U2013 PC-DOS";
+code = CP856;
+},
+{
+name = "Hebrew \U2013 Windows";
+code = CP1255;
+},
+{
+name = "Icelandic \U2013 DOS";
+code = CP861;
+},
+{
+name = "Icelandic \U2013 Mac OS";
+code = MACICELAND;
+},
+{
+name = "Japanese \U2013 EUC-JP";
+code = "EUC-JP";
+},
+{
+name = "Japanese \U2013 ISO-2022-JP";
+code = "ISO-2022-JP";
+},
+{
+name = "Japanese \U2013 ISO-2022-JP-1";
+code = "ISO-2022-JP-1";
+},
+{
+name = "Japanese \U2013 ISO-2022-JP-2";
+code = "ISO-2022-JP-2";
+},
+{
+name = "Japanese \U2013 ISO-2022-JP-2004";
+code = "ISO-2022-JP-2004";
+},
+{
+name = "Japanese \U2013 ISO646-JP";
+code = "ISO-IR-14";
+},
+{
+name = "Japanese \U2013 JIS X 0201";
+code = "JISX0201-1976";
+},
+{
+name = "Japanese \U2013 JIS X 0208";
+code = "ISO-IR-87";
+},
+{
+name = "Japanese \U2013 JIS X 0212";
+code = "ISO-IR-159";
+},
+{
+name = "Japanese \U2013 JIS X 0213";
+code = "EUC-JIS-2004";
+},
+{
+name = "Japanese \U2013 Shift JIS";
+code = "SHIFT_JIS";
+},
+{
+name = "Japanese \U2013 Shift JIS-2004";
+code = "SHIFT_JIS-2004";
+},
+{
+name = "Japanese \U2013 Tru64";
+code = "DEC-KANJI";
+},
+{
+name = "Japanese \U2013 Windows Shift-JIS CP932";
+code = CP932;
+},
+{
+name = "Japanese \U2013 Windows Shift-JIS CP943";
+code = CP943;
+},
+{
+name = "Kazakh \U2013 KZ-1048";
+code = "KZ-1048";
+},
+{
+name = "Korean \U2013 EUC-KR";
+code = "EUC-KR";
+},
+{
+name = "Korean \U2013 ISO-2022-JP";
+code = "ISO-2022-KR";
+},
+{
+name = "Korean \U2013 ISO-IR-149";
+code = "ISO-IR-149";
+},
+{
+name = "Korean \U2013 JOHAB";
+code = CP1361;
+},
+{
+name = "Korean \U2013 Windows, DOS";
+code = CP949;
+},
+{
+name = "Laothian \U2013 CP1133";
+code = CP1133;
+},
+{
+name = "Laothian \U2013 MULELAO-1";
+code = "MULELAO-1";
+},
+{
+name = "Nordic \U2013 DOS";
+code = CP865;
+},
+{
+name = "Nordic \U2013 ISO Latin 6";
+code = "ISO-8859-10";
+},
+{
+name = "Portuguese \U2013 DOS";
+code = CP860;
+},
+{
+name = "Romanian \U2013 ISO Latin 10";
+code = "ISO-8859-16";
+},
+{
+name = "Romanian \U2013 Mac OS";
+code = MACROMANIA;
+},
+{
+name = "Tajik \U2013 KOI8-T";
+code = "KOI8-T";
+},
+{
+name = "Thai \U2013 CP1161";
+code = CP1161;
+},
+{
+name = "Thai \U2013 CP1162";
+code = CP1162;
+},
+{
+name = "Thai \U2013 ISO 8859-11";
+code = "ISO-8859-11";
+},
+{
+name = "Thai \U2013 Mac OS";
+code = MACTHAI;
+},
+{
+name = "Thai \U2013 TIS-620";
+code = "ISO-IR-166";
+},
+{
+name = "Thai \U2013 Windows, DOS";
+code = CP874;
+},
+{
+name = "Turkish \U2013 DOS";
+code = CP857;
+},
+{
+name = "Turkish \U2013 ISO Latin 5";
+code = "ISO-8859-9";
+},
+{
+name = "Turkish \U2013 Mac OS";
+code = MACTURKISH;
+},
+{
+name = "Turkish \U2013 Windows";
+code = CP1254;
+},
+{
+name = "Turkmen \U2013 TDS565";
+code = "ISO-IR-230";
+},
+{
+name = "Ukrainian \U2013 AIX";
+code = CP1124;
+},
+{
+name = "Ukrainian \U2013 DOS";
+code = CP1125;
+},
+{
+name = "Ukrainian \U2013 KOI8-U";
+code = "KOI8-U";
+},
+{
+name = "Ukrainian \U2013 Mac OS";
+code = MACUKRAINE;
+},
+{
+name = "Unicode \U2013 UTF-8";
+code = "UTF-8";
+},
+{
+name = "Unicode \U2013 UTF-16BE";
+code = "UTF-16BE";
+},
+{
+name = "Unicode \U2013 UTF-16LE";
+code = "UTF-16LE";
+},
+{
+name = "Unicode \U2013 UTF-32BE";
+code = "UTF-32BE";
+},
+{
+name = "Unicode \U2013 UTF-32LE";
+code = "UTF-32LE";
+},
+{
+name = "Vietnamese \U2013 AIX";
+code = CP1129;
+},
+{
+name = "Vietnamese \U2013 CP1163";
+code = CP1163;
+},
+{
+name = "Vietnamese \U2013 TCVN";
+code = TCVN;
+},
+{
+name = "Vietnamese \U2013 VISCII";
+code = VISCII;
+},
+{
+name = "Vietnamese \U2013 Windows";
+code = CP1258;
+},
+{
+name = "Western \U2013 Atari ST";
+code = "ATARI ATARIST";
+},
+{
+name = "Western \U2013 DOS CP858";
+code = CP858;
+},
+{
+name = "Western \U2013 DOS French Canadian";
+code = CP863;
+},
+{
+name = "Western \U2013 DOS Latin 1";
+code = CP850;
+},
+{
+name = "Western \U2013 DOS Latin 2";
+code = CP852;
+},
+{
+name = "Western \U2013 DOS Latin 3";
+code = CP853;
+},
+{
+name = "Western \U2013 DOS Latin US";
+code = CP437;
+},
+{
+name = "Western \U2013 HP-Roman8";
+code = "HP-ROMAN8";
+},
+{
+name = "Western \U2013 ISO Latin 1";
+code = "ISO-8859-1";
+},
+{
+name = "Western \U2013 ISO Latin 3";
+code = "ISO-8859-3";
+},
+{
+name = "Western \U2013 ISO Latin 9";
+code = "ISO-8859-15";
+},
+{
+name = "Western \U2013 Mac OS Roman";
+code = MACROMAN;
+},
+{
+name = "Western \U2013 NeXTSTEP";
+code = NEXTSTEP;
+},
+{
+name = "Western \U2013 RISC OS Latin 1";
+code = "RISCOS-LATIN1";
+},
+{
+name = "Western \U2013 Windows";
+code = "WINDOWS-1252";
+},
+)

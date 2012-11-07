@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'OakSCM' target in the 'OakSCM' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
