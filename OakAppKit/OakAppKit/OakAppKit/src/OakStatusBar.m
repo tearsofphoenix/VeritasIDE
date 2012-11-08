@@ -290,7 +290,7 @@ static NSArray* layout (CGFloat frameWidth, NSArray * cells)
 		[newLayout addObject: topBorder];
 	}
     
-	NSArray *cellLayout = ::layout(self.bounds.size.width, _cells);
+	NSArray *cellLayout = layout(self.bounds.size.width, _cells);
     
 	for(NSUInteger cellIndex = 0; cellIndex < [_cells count]; ++cellIndex)
 	{

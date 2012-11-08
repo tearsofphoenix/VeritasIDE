@@ -1,7 +1,6 @@
 #import "OakPopOutAnimation.h"
 #import "NSImage+Additions.h"
-
-#import "OakFunctions.h"
+#import <OakFoundation/OakFoundation.h>
 
 static CGFloat const kExtendWidth  = 6;
 static CGFloat const kExtendHeight = 1;

@@ -1,9 +1,6 @@
 #import "OakKeyEquivalentView.h"
 #import "NSImage+Additions.h"
 #import <OakFoundation/OakFoundation.h>
-#import "event.h"
-#import "ns.h"
-#import "utf8.h"
 
 #import <Carbon/Carbon.h>
 
@@ -48,7 +45,7 @@ static NSString* const kRecordingPlaceholderString = @"…";
 	eventString = [aString retain];
 
 	self.showClearButton = eventString && !recording;
-	self.displayString = recording ? kRecordingPlaceholderString : OakGlyphsForEventString(eventString);
+	self.displayString = recording ? kRecordingPlaceholderString : OakGlyphsForEventString(eventString, NULL);
 
 	for(NSDictionary* info in observers)
 	{
@@ -109,7 +106,7 @@ static NSString* const kRecordingPlaceholderString = @"…";
 
 	recording = flag;
 	self.showClearButton = eventString && !recording;
-	self.displayString = recording ? kRecordingPlaceholderString : OakGlyphsForEventString(eventString);
+	self.displayString = recording ? kRecordingPlaceholderString : OakGlyphsForEventString(eventString, NULL);
 
 	if(disableGlobalHotkeys)
 	{

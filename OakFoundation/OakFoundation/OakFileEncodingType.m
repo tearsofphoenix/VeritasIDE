@@ -30,7 +30,7 @@
 id OakFileEncodingTypeMake(NSString *newLines, NSString *charsetName, BOOL BOMSupported)
 {
     OakFileEncodingType *type = [[OakFileEncodingType alloc] init];
-    [type setNewLines: newLines];
+    [type setNewlines: newLines];
     [type setCharsetName: charsetName];
     [type setByteOrderMarkSupported: BOMSupported];
     

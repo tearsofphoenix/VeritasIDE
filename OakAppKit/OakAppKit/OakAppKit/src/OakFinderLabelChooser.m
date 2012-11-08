@@ -57,15 +57,22 @@ static const CGFloat LabelNameHeight = 15;
 		for(NSString* path in [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSAllDomainsMask, YES) reverseObjectEnumerator])
 		{
 			path = [path stringByAppendingPathComponent:@"Preferences/com.apple.Labels.plist"];
-			if(NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:path])
-				[customLabels addEntriesFromDictionary:dict];
+            NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:path];
+			if(dict)
+            {
+				[customLabels addEntriesFromDictionary: dict];
+            }
 		}
 
 		labelNames = [[NSMutableArray alloc] initWithObjects:@"None", @"Gray", @"Green", @"Purple", @"Blue", @"Yellow", @"Red", @"Orange", nil];
 		for(NSUInteger i = 1; i <= labelNames.count; ++i)
 		{
-			if(NSString* label = [customLabels objectForKey:[NSString stringWithFormat:@"Label_Name_%lu", i]])
-				[labelNames replaceObjectAtIndex:i withObject:label];
+            NSString* label = [customLabels objectForKey:[NSString stringWithFormat:@"Label_Name_%lu", i]];
+			if(label)
+            {
+				[labelNames replaceObjectAtIndex: i
+                                      withObject: label];
+            }
 		}
 	}
 
@@ -86,7 +93,12 @@ static const CGFloat LabelNameHeight = 15;
 
 - (void)drawRect:(NSRect)rect
 {
-	static struct swatch_t { struct { CGFloat red, green, blue; } from, to; } const swatches[] =
+	static struct swatch_t
+    {
+        struct {
+            CGFloat red, green, blue;
+        } from, to;
+    } const swatches[] =
 	{
 		{{   0,   0,   0}, {   0,   0,   0}},
 		{{ 205, 205, 206}, { 169, 169, 169}}, // Gray
@@ -131,7 +143,7 @@ static const CGFloat LabelNameHeight = 15;
 			[[NSColor whiteColor] set];
 			[[NSBezierPath bezierPathWithRect:swatchRect] fill];
 
-			swatch_t  swatch = swatches[i];
+			struct swatch_t  swatch = swatches[i];
 			NSColor* startColor = [NSColor colorWithCalibratedRed:swatch.from.red/255.0 green:swatch.from.green/255.0 blue:swatch.from.blue/255.0 alpha:1];
 			NSColor* endColor   = [NSColor colorWithCalibratedRed:swatch.to.red/255.0 green:swatch.to.green/255.0 blue:swatch.to.blue/255.0 alpha:1];
 			if(!enabled)

@@ -1,8 +1,6 @@
 #import "OakControl Private.h"
 #import "NSView+Additions.h"
-
-#import "OakAttributedString.h"
-#import "OakFunctions.h"
+#import <OakFoundation/OakFoundation.h>
 
 @implementation OakLayer
 
@@ -33,7 +31,7 @@
 // The lineBreakMode parameter is here to work around a crash in CoreText <rdar://6940427> — fixed in 10.6
 static CFAttributedStringRef AttributedStringWithOptions (NSString* string,
                                                           OakLayerTextOption options,
-                                                          NSLineBreakMode lineBreakMode = NSLineBreakByTruncatingTail)
+                                                          NSLineBreakMode lineBreakMode)
 {
 	OakAttributedString *text = [[OakAttributedString alloc] init];
     [text appendFont: [NSFont controlContentFontOfSize:[NSFont smallSystemFontSize]]];
@@ -57,7 +55,7 @@ double WidthOfText (NSString* string)
 {
 	double width = 0;
     
-	CTLineRef line = CTLineCreateWithAttributedString(AttributedStringWithOptions(string, 0));
+	CTLineRef line = CTLineCreateWithAttributedString(AttributedStringWithOptions(string, 0,  NSLineBreakByTruncatingTail));
 	width          = CTLineGetTypographicBounds(line, NULL, NULL, NULL);
 	CFRelease(line);
     
@@ -153,7 +151,10 @@ static void DrawTextWithOptions (NSString* string, NSRect bounds, OakLayerTextOp
         {
 			coveredRect = NSUnionRect(coveredRect, [layer rect]);
         }
-		if(NSView* view = [layer view])
+
+        NSView* view = [layer view];
+        
+		if(view)
 		{
 			if([view superview] != self)
             {
@@ -260,7 +261,7 @@ static void DrawTextWithOptions (NSString* string, NSRect bounds, OakLayerTextOp
 	};
     
 	uint32_t res = 0;
-	for(NSUInteger i = 0; i < sizeofA(states); ++i)
+	for(NSUInteger i = 0; i < sizeof(states) / sizeof(states[0]); ++i)
 	{
 		if(states[i].active)
         {

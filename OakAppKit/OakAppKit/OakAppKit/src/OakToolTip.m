@@ -1,5 +1,5 @@
 #import "OakToolTip.h"
-#import "OakFunctions.h"
+#import <OakFoundation/OakFoundation.h>
 
 void OakShowToolTip (NSString* msg, NSPoint location)
 {
@@ -45,7 +45,7 @@ void OakShowToolTip (NSString* msg, NSPoint location)
 		[self setLevel: NSStatusWindowLevel];
 		[self setHidesOnDeactivate: YES];
 		[self setIgnoresMouseEvents: YES];
-
+        
 		field = [[[NSTextField alloc] initWithFrame:NSZeroRect] autorelease];
 		[field setEditable:NO];
 		[field setSelectable:NO];
@@ -54,10 +54,10 @@ void OakShowToolTip (NSString* msg, NSPoint location)
 		[field setDrawsBackground:NO];
 		[field setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
 		[field setStringValue:@"This is a nice little code block"];
-
+        
 		[self setContentView:field];
 		[self setFrame:[self frameRectForContentRect:[field frame]] display:NO];
-
+        
 		enforceMouseThreshold = YES;
 	}
 	return self;
@@ -98,23 +98,23 @@ void OakShowToolTip (NSString* msg, NSPoint location)
 {
 	if(!enforceMouseThreshold)
 		return YES;
-
+    
 	CGFloat ignorePeriod = [[NSUserDefaults standardUserDefaults] floatForKey:@"OakToolTipMouseMoveIgnorePeriod"];
 	if(-[didOpenAtDate timeIntervalSinceNow] < ignorePeriod)
 		return NO;
-
+    
 	if(NSEqualPoints(mousePositionWhenOpened, NSZeroPoint))
 	{
 		mousePositionWhenOpened = aPoint;
 		return NO;
 	}
-
+    
 	if(NSPointInRect(aPoint, NSInsetRect([self frame], 5, 5)))
 		return NO;
-
+    
 	NSPoint  p = mousePositionWhenOpened;
 	CGFloat dist = sqrt(OakSquare(p.x - aPoint.x) + OakSquare(p.y - aPoint.y));
-
+    
 	CGFloat moveThreshold = [[NSUserDefaults standardUserDefaults] floatForKey:@"OakToolTipMouseDistanceThreshold"];
 	return dist > moveThreshold;
 }
@@ -130,46 +130,47 @@ void OakShowToolTip (NSString* msg, NSPoint location)
 - (void)showUntilUserActivityDelayed:(id)sender
 {
 	[self orderFront:self];
-
+    
 	[self setValue:[NSDate date] forKey:@"didOpenAtDate"];
 	mousePositionWhenOpened = NSZeroPoint;
-
+    
 	NSWindow* keyWindow = [[NSApp keyWindow] retain];
 	if(!keyWindow)
 	{
 		keyWindow = [self retain];
 		[self makeKeyWindow];
 	}
-
+    
 	BOOL didAcceptMouseMovedEvents = [keyWindow acceptsMouseMovedEvents];
 	[keyWindow setAcceptsMouseMovedEvents:YES];
-
-	while(NSEvent* event = [NSApp nextEventMatchingMask: NSAnyEventMask
-                                              untilDate: [NSDate distantFuture]
-                                                 inMode: NSDefaultRunLoopMode
-                                                dequeue: YES])
+    
+    NSEvent* event = nil;
+	while(event = [NSApp nextEventMatchingMask: NSAnyEventMask
+                                     untilDate: [NSDate distantFuture]
+                                        inMode: NSDefaultRunLoopMode
+                                       dequeue: YES])
 	{
-		[NSApp sendEvent:event];
-
-		static NSArray * orderOutEvents = (@[
-                                           @(NSLeftMouseDown),
-                                           @(NSRightMouseDown),
-                                           @(NSOtherMouseDown),
-                                           @(NSKeyDown), @(NSScrollWheel)
-                                           ]);
+		[NSApp sendEvent: event];
+        
+        NSArray * orderOutEvents = (@[
+                                    @(NSLeftMouseDown),
+                                    @(NSRightMouseDown),
+                                    @(NSOtherMouseDown),
+                                    @(NSKeyDown), @(NSScrollWheel)
+                                    ]);
         
 		if([orderOutEvents containsObject: @([event type])])
 		{
 			NSLog(@"close because of key/mouse down event\n");
 			break;
 		}
-
+        
 		if([event type] == NSMouseMoved && [self shouldCloseForMousePosition:[NSEvent mouseLocation]])
 		{
 			NSLog(@"close because mouse was moved\n");
 			break;
 		}
-
+        
 		if(keyWindow != [NSApp keyWindow] || ![NSApp isActive])
 		{
 			NSLog(@"close because focus lost (%@ → %@) / app gone inactive (%s)\\\\n",
@@ -177,10 +178,10 @@ void OakShowToolTip (NSString* msg, NSPoint location)
 			break;
 		}
 	}
-
+    
 	[keyWindow setAcceptsMouseMovedEvents:didAcceptMouseMovedEvents];
 	[keyWindow release];
-
+    
 	[self orderOut:nil];
 }
 
@@ -189,19 +190,19 @@ void OakShowToolTip (NSString* msg, NSPoint location)
 	NSLog(@"%@\n", NSStringFromPoint(aPoint));
     
 	aScreen = aScreen ?: [NSScreen mainScreen];
-
+    
 	[self stopAnimation:self];
-
+    
 	[field sizeToFit];
 	NSRect r = [aScreen visibleFrame];
 	NSRect frame = [self frameRectForContentRect:[field frame]];
 	frame.size.width = MIN(NSWidth(frame), NSWidth(r));
 	frame.size.height = MIN(NSHeight(frame), NSHeight(r));
 	[self setFrame:frame display:NO];
-
+    
 	aPoint.x = MAX(NSMinX(r), MIN(aPoint.x, NSMaxX(r)-NSWidth(frame)));
 	aPoint.y = MIN(MAX(NSMinY(r)+NSHeight(frame), aPoint.y), NSMaxY(r));
-
+    
 	[self setFrameTopLeftPoint:aPoint];
 	[self showUntilUserActivity];
 }
@@ -210,7 +211,7 @@ void OakShowToolTip (NSString* msg, NSPoint location)
 {
 	if(![self isVisible] || animationTimer)
 		return;
-
+    
 	[self stopAnimation: self];
     
 	[self setValue: [NSDate date]

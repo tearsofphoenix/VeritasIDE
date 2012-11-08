@@ -5,8 +5,7 @@
 */
 
 #import "OakPasteboardSelector.h"
-#import "OakFunctions.h"
-
+#import <OakFoundation/OakFoundation.h>
 
 static NSUInteger line_count (NSString * text)
 {
@@ -45,21 +44,30 @@ static NSUInteger line_count (NSString * text)
 	return cell;
 }
 
+static NSMutableParagraphStyle*  style = nil;
+static NSDictionary* highlightedAttributes = nil;
+static NSDictionary* attributes = nil;
++ (void)initialize
+{
+    style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    highlightedAttributes = [(@{
+                              NSForegroundColorAttributeName : [NSColor alternateSelectedControlTextColor],
+                              NSParagraphStyleAttributeName : style
+                              }) retain];
+    
+    attributes = [(@{ NSParagraphStyleAttributeName : style}) retain];
+
+}
+
 - (NSDictionary*)textAttributes;
 {
-	static NSMutableParagraphStyle* const style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
 	[style setLineBreakMode:NSLineBreakByTruncatingTail];
 	if([self isHighlighted])
 	{
-		static NSDictionary* const highlightedAttributes = [[NSDictionary alloc] initWithObjectsAndKeys:
-			[NSColor alternateSelectedControlTextColor], NSForegroundColorAttributeName,
-			style, NSParagraphStyleAttributeName,
-			nil];
 		return highlightedAttributes;
 	}
 	else
 	{
-		static NSDictionary* const attributes = [[NSDictionary alloc] initWithObjectsAndKeys:style, NSParagraphStyleAttributeName, nil];
 		return attributes;
 	}
 }
@@ -325,13 +333,14 @@ static OakPasteboardSelector* SharedInstance;
 	[window orderFront:self];
 	[tableView scrollRowToVisible:tableView.selectedRow];
 
-	while(NSEvent* event = [NSApp nextEventMatchingMask: NSAnyEventMask
+    NSEvent* event = nil;
+	while((event = [NSApp nextEventMatchingMask: NSAnyEventMask
                                               untilDate: [NSDate distantFuture]
                                                  inMode: NSDefaultRunLoopMode
-                                                dequeue: YES])
+                                                dequeue: YES]))
 	{
-		static NSArray * keyEvent   = @[ @(NSKeyDown), @(NSKeyUp) ];
-		static NSArray * mouseEvent = (@[  @(NSLeftMouseDown),
+		 NSArray * keyEvent   = @[ @(NSKeyDown), @(NSKeyUp) ];
+		 NSArray * mouseEvent = (@[  @(NSLeftMouseDown),
                                            @(NSLeftMouseUp),
                                            @(NSRightMouseDown),
                                             @(NSRightMouseUp),

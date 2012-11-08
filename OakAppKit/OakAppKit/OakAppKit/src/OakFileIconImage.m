@@ -102,16 +102,24 @@ static NSArray* ImageStackForPath (NSString* path)
 	struct stat buf;
 	if(lstat([path fileSystemRepresentation], &buf) == 0)
 	{
-		if(NSImage* customImage = CustomIconForPath(path, buf))
+        NSImage* customImage = CustomIconForPath(path, buf);
+		if(customImage)
 		{
 			[res addObject:customImage];
-			if(NSImage* imageBadge = IconBadgeForPath(path, buf))
-				[res addObject:imageBadge];
+            NSImage* imageBadge = IconBadgeForPath(path, buf);
+			if(imageBadge)
+            {
+				[res addObject: imageBadge];
+            }
 		}
-		else if(NSImage* image = SystemIconForPath(path, buf))
-		{
-			[res addObject:image];
-		}
+		else
+        {
+            NSImage* image = SystemIconForPath(path, buf);
+            if(image)
+            {
+                [res addObject:image];
+            }
+        }
 	}
 
 	if([res count] == 0)

@@ -1,8 +1,6 @@
 #import "OakSubmenuController.h"
 #import "NSMenu+Additions.h"
-#import <OakFoundation/NSString+Additions.h>
-#import "ns.h"
-
+#import <OakFoundation/OakFoundation.h>
 
 static OakSubmenuController* SharedInstance = nil;
 
@@ -21,7 +19,7 @@ static OakSubmenuController* SharedInstance = nil;
 - (id)init
 {
 	if(SharedInstance)
-			[self release];
+        [self release];
 	else	self = SharedInstance = [[super init] retain];
 	return SharedInstance;
 }
@@ -36,17 +34,18 @@ static OakSubmenuController* SharedInstance = nil;
 {
 	[aMenu removeAllItems];
     
-	if(id delegate = [NSApp targetForAction:aSelector])
+    id delegate = [NSApp targetForAction:aSelector];
+	if(delegate)
     {
-			[delegate performSelector: aSelector
-                           withObject: aMenu];
+        [delegate performSelector: aSelector
+                       withObject: aMenu];
     }else
     {
         [aMenu addItemWithTitle: @"no items"
                          action: NULL
                   keyEquivalent: @""];
     }
-
+    
 }
 
 - (void)menuNeedsUpdate:(NSMenu*)aMenu
@@ -61,13 +60,13 @@ static OakSubmenuController* SharedInstance = nil;
                       action: (SEL *)aSEL
 {
 	//D(DBF_OakSubmenuController, bug("%@ %s\n", to_s(anEvent), [[aMenu description] UTF8String]););
-
+    
 	if(aMenu != goToMenu)
 		return NO;
-
+    
 	self.representedObject = nil;
 	NSString * eventString = OakStringFromEventAndFlag(anEvent, NO);
-
+    
 	NSMenu* dummy = [[NSMenu new] autorelease];
 	[self updateMenu:dummy withSelector:@selector(updateGoToMenu:)];
 	for(NSMenuItem* item in [dummy itemArray])

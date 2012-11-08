@@ -119,63 +119,63 @@ NSString*  kUserDefaultsDisablePersistentClipboardHistory = @"disablePersistentC
 // ============================
 // = Event Loop Idle Callback =
 // ============================
-
-namespace
-{
-	struct event_loop_idle_callback_t;
-	static event_loop_idle_callback_t& idle_callback ();
-
-	struct event_loop_idle_callback_t
-	{
-		event_loop_idle_callback_t () : _running(false) { _observer = CFRunLoopObserverCreate(kCFAllocatorDefault, kCFRunLoopBeforeWaiting, true, 100, &callback, NULL); start(); }
-		~event_loop_idle_callback_t ()                  { stop(); CFRelease(_observer); }
-
-		void start ()
-		{
-			if(_running)
-				return;
-			_running = true;
-			CFRunLoopAddObserver(CFRunLoopGetCurrent(), _observer, kCFRunLoopCommonModes);
-		}
-
-		void stop ()
-		{
-			if(!_running)
-				return;
-			_running = false;
-			CFRunLoopRemoveObserver(CFRunLoopGetCurrent(), _observer, kCFRunLoopCommonModes);
-		}
-
-		void add (OakPasteboard* aPasteboard)
-        {
-            [_pasteboards addObject: aPasteboard];
-        }
-        
-		void remove (OakPasteboard* aPasteboard)
-        {
-            [_pasteboards removeObject: aPasteboard];
-        }
-
-	private:
-		static void callback (CFRunLoopObserverRef observer, CFRunLoopActivity activity, void* info)
-		{
-			for(id it in idle_callback()._pasteboards)
-            {
-				[it checkForExternalPasteboardChanges];
-            }
-		}
-
-		BOOL _running;
-		CFRunLoopObserverRef _observer;
-		NSMutableSet *_pasteboards;
-	};
-
-	static event_loop_idle_callback_t& idle_callback ()
-	{
-		static event_loop_idle_callback_t res;
-		return res;
-	}
-}
+//
+//namespace
+//{
+//	struct event_loop_idle_callback_t;
+//	static event_loop_idle_callback_t& idle_callback ();
+//
+//	struct event_loop_idle_callback_t
+//	{
+//		event_loop_idle_callback_t () : _running(false) { _observer = CFRunLoopObserverCreate(kCFAllocatorDefault, kCFRunLoopBeforeWaiting, true, 100, &callback, NULL); start(); }
+//		~event_loop_idle_callback_t ()                  { stop(); CFRelease(_observer); }
+//
+//		void start ()
+//		{
+//			if(_running)
+//				return;
+//			_running = true;
+//			CFRunLoopAddObserver(CFRunLoopGetCurrent(), _observer, kCFRunLoopCommonModes);
+//		}
+//
+//		void stop ()
+//		{
+//			if(!_running)
+//				return;
+//			_running = false;
+//			CFRunLoopRemoveObserver(CFRunLoopGetCurrent(), _observer, kCFRunLoopCommonModes);
+//		}
+//
+//		void add (OakPasteboard* aPasteboard)
+//        {
+//            [_pasteboards addObject: aPasteboard];
+//        }
+//        
+//		void remove (OakPasteboard* aPasteboard)
+//        {
+//            [_pasteboards removeObject: aPasteboard];
+//        }
+//
+//	private:
+//		static void callback (CFRunLoopObserverRef observer, CFRunLoopActivity activity, void* info)
+//		{
+//			for(id it in idle_callback()._pasteboards)
+//            {
+//				[it checkForExternalPasteboardChanges];
+//            }
+//		}
+//
+//		BOOL _running;
+//		CFRunLoopObserverRef _observer;
+//		NSMutableSet *_pasteboards;
+//	};
+//
+//	static event_loop_idle_callback_t& idle_callback ()
+//	{
+//		static event_loop_idle_callback_t res;
+//		return res;
+//	}
+//}
 
 @implementation OakPasteboard
 
@@ -219,12 +219,12 @@ namespace
 - (void)applicationDidBecomeActiveNotification:(id)sender
 {
 	[self checkForExternalPasteboardChanges];
-	idle_callback().start();
+	//idle_callback().start();
 }
 
 - (void)applicationDidResignActiveNotification:(id)sender
 {
-	idle_callback().stop();
+	//idle_callback().stop();
 }
 
 - (void)setIndex:(NSUInteger)newIndex
@@ -233,14 +233,20 @@ namespace
 	{
 		index = newIndex;
 		self.auxiliaryOptionsForCurrent = nil;
-		if(OakPasteboardEntry* current = [entries count] == 0 ? nil : [entries objectAtIndex:index])
+        OakPasteboardEntry* current = [entries count] == 0 ? nil : [entries objectAtIndex:index];
+		if(current)
 		{
-			[[self pasteboard] declareTypes:@[ NSStringPboardType, OakPasteboardOptionsPboardType ] owner:nil];
-			[[self pasteboard] setString:[current string] forType:NSStringPboardType];
-			[[self pasteboard] setPropertyList:[current options] forType:OakPasteboardOptionsPboardType];
+			[[self pasteboard] declareTypes: @[ NSStringPboardType, OakPasteboardOptionsPboardType ]
+                                      owner: nil];
+			[[self pasteboard] setString: [current string]
+                                 forType: NSStringPboardType];
+            
+			[[self pasteboard] setPropertyList: [current options]
+                                       forType: OakPasteboardOptionsPboardType];
 			changeCount = [[self pasteboard] changeCount];
 
-			[[NSNotificationCenter defaultCenter] postNotificationName:OakPasteboardDidChangeNotification object:self];
+			[[NSNotificationCenter defaultCenter] postNotificationName: OakPasteboardDidChangeNotification
+                                                                object: self];
 		}
 	}
 }
@@ -254,14 +260,19 @@ namespace
 		entries = [NSMutableArray new];
 		if(![[[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsDisablePersistentClipboardHistory] boolValue])
 		{
-			if(NSArray* history = [[NSUserDefaults standardUserDefaults] arrayForKey:pasteboardName])
+            NSArray* history = [[NSUserDefaults standardUserDefaults] arrayForKey:pasteboardName];
+			if(history)
 			{
 				for(NSDictionary* entry in history)
 				{
 					NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithDictionary:entry];
 					[dict removeObjectForKey:@"string"];
-					if(NSString* str = [entry objectForKey:@"string"])
-						[entries addObject:[OakPasteboardEntry pasteboardEntryWithString:str andOptions:dict]];
+                    NSString* str = [entry objectForKey:@"string"];
+					if(str)
+                    {
+						[entries addObject: [OakPasteboardEntry pasteboardEntryWithString: str
+                                                                               andOptions: dict]];
+                    }
 				}
 
 				index = [entries count]-1;
@@ -272,7 +283,7 @@ namespace
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActiveNotification:) name:NSApplicationDidBecomeActiveNotification object:NSApp];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidResignActiveNotification:) name:NSApplicationDidResignActiveNotification object:NSApp];
 		[self checkForExternalPasteboardChanges];
-		idle_callback().add(self);
+		//idle_callback().add(self);
 	}
 	return self;
 }
@@ -284,7 +295,7 @@ namespace
 
 - (void)dealloc
 {
-	idle_callback().remove(self);
+	//idle_callback().remove(self);
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidBecomeActiveNotification object:NSApp];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidResignActiveNotification object:NSApp];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationWillTerminateNotification object:NSApp];
@@ -294,9 +305,15 @@ namespace
 	[super dealloc];
 }
 
+static NSMutableDictionary* SharedInstances = nil;
+
++ (void)initialize
+{
+    SharedInstances = [NSMutableDictionary new];
+}
+
 + (OakPasteboard*)pasteboardWithName:(NSString*)aName
 {
-	static NSMutableDictionary* SharedInstances = [NSMutableDictionary new];
 	if(![SharedInstances objectForKey:aName])
 	{
 		[SharedInstances setObject:[[[self alloc] initWithName:aName] autorelease] forKey:aName];

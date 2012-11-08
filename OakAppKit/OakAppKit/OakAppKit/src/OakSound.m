@@ -11,7 +11,7 @@ void OakPlayUISound (OakSoundIdentifier aSound)
 		SystemSoundID sound;
 	};
 
-	static sound_info_t sounds[] =
+	static struct sound_info_t sounds[] =
 	{
 		{ OakSoundDidTrashItemUISound,         @"dock/drag to trash.aif"   },
 		{ OakSoundDidMoveItemUISound,          @"system/Volume Mount.aif"  },

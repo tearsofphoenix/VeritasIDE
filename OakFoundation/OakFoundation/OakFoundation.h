@@ -13,3 +13,7 @@
 #import <OakFoundation/OakTextSelection.h>
 #import <OakFoundation/NSTask+Executecommand.h>
 #import <OakFoundation/OakDependencyGraph.h>
+#import <OakFoundation/OakAttributedString.h>
+#import <OakFoundation/OakFileEncodingType.h>
+#import <OakFoundation/OakNSEventFunctions.h>
+#import <OakFoundation/OakFunctions.h>

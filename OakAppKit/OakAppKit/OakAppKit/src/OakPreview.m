@@ -65,11 +65,14 @@
 {
 	return [items objectAtIndex:index];
 }
+
 @end
 
-extern void OakShowPreviewForURLs (NSArray* someURLs)
+void OakShowPreviewForURLs (NSArray* someURLs)
 {
-	if(QLPreviewPanel* panel = [QLPreviewPanel sharedPreviewPanel])
+    QLPreviewPanel* panel = [QLPreviewPanel sharedPreviewPanel];
+    
+	if(panel)
 	{
 		// FIXME one is not allowed to set datasource/delegate — instead we need to be “first responder” when the QL preview panel opens
 		OakPreviewDelegateHelper* helper = [[OakPreviewDelegateHelper alloc] initWithItems:someURLs];

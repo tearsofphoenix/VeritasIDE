@@ -3,9 +3,6 @@
 #import "NSSavePanel+Additions.h"
 #import <OakFoundation/OakFoundation.h>
 
-
-#import "OakFileEncodingType.h"
-
 @interface OakEncodingSaveOptionsViewController : NSViewController
 {
 	IBOutlet OakEncodingPopUpButton* encodingPopUpButton;
@@ -58,7 +55,7 @@
 
 - (NSString*)lineEndings
 {
-    return [encodingOptions newLines];
+    return [encodingOptions newlines];
 }
 
 - (NSString*)encoding
@@ -73,7 +70,7 @@
 
 - (void)setLineEndings:(NSString*)newLineEndings
 {
-    [encodingOptions setNewLines: newLineEndings];
+    [encodingOptions setNewlines: newLineEndings];
 }
 
 - (void)setEncoding:(NSString*)newEncoding

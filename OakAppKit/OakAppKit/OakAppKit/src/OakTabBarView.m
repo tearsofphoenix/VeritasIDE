@@ -3,8 +3,6 @@
 #import "NSColor+Additions.h"
 #import "NSImage+Additions.h"
 #import <OakFoundation/OakFoundation.h>
-#import "OakFunctions.h"
-#import "ns.h"
 
 NSString* const kUserDefaultsDisableTabBarCollapsingKey = @"disableTabBarCollapsing";
 NSString* const OakTabBarViewTabType                    = @"OakTabBarViewTabType";
@@ -130,6 +128,37 @@ typedef NSInteger OakTabBarRequisite;
 - (void)setPadding: (NSArray *)padding;
 
 - (NSMutableArray *)padding;
+
+@end
+
+@implementation OakRawLayer
+
+- (id)init
+{
+    if ((self = [super init]))
+    {
+        _padding = [[NSMutableArray alloc] init];
+    }
+    
+    return self;
+}
+
+- (void)dealloc
+{
+    [_padding release];
+    [_layer release];
+    [super dealloc];
+}
+
+- (NSMutableArray *)padding
+{
+    return _padding;
+}
+
+- (void)setPadding: (NSArray *)padding
+{
+    [_padding setArray: padding];
+}
 
 @end
 
@@ -334,7 +363,8 @@ void AddItemsForKeyToArray (NSDictionary* dict, NSString* key, NSDictionary *val
 {
 	for(NSDictionary* item in [dict objectForKey:key])
 	{
-		if(NSString* includeKey = [item objectForKey:@"include"])
+        NSString* includeKey = [item objectForKey:@"include"];
+		if(includeKey)
 		{
 			NSMutableDictionary *tmp = [NSMutableDictionary dictionaryWithDictionary: values];
             
@@ -347,6 +377,7 @@ void AddItemsForKeyToArray (NSDictionary* dict, NSString* key, NSDictionary *val
                         forKey: key];
                 //format_string::expand([values[key] UTF8String], tmp);
             }
+            
 			AddItemsForKeyToArray(dict, includeKey, tmp, array);
 		}
 		else
@@ -407,23 +438,28 @@ OakRawLayer * parse_layer (NSDictionary* item)
 {
 	OakRawLayer * res = [[OakRawLayer alloc] init];
 
-	if(NSString* color = [item objectForKey: @"color"])
+    NSString* color = [item objectForKey: @"color"];
+	if(color)
     {
 		res.layer.color = [NSColor colorWithString: color];
     }
-	if(NSString* requisite = [item objectForKey: @"requisite"])
+    
+    NSString* requisite = [item objectForKey: @"requisite"];
+	if(requisite)
     {
 		res.layer.requisite = parse_requisite([requisite UTF8String]);
     }
 	
     res.layer.requisiteMask = res.layer.requisite;
 	
-    if(NSString* requisiteMask = [item objectForKey:@"requisiteMask"])
+    NSString* requisiteMask = [item objectForKey:@"requisiteMask"];
+    if(requisiteMask)
     {
 		res.layer.requisiteMask = parse_requisite([requisiteMask UTF8String]);
     }
     
-	if(NSString* action = [item objectForKey:@"action"])
+    NSString* action = [item objectForKey:@"action"];
+	if(action)
     {
 		res.layer.action = NSSelectorFromString(action);
     }
@@ -432,7 +468,8 @@ OakRawLayer * parse_layer (NSDictionary* item)
 		res.layer.preventWindowOrdering = YES;
     }
 	
-    if(NSDictionary* textOptions = [item objectForKey:@"text"]) // TODO we probably want to read some text options…
+    NSDictionary* textOptions = [item objectForKey:@"text"];
+    if(textOptions) // TODO we probably want to read some text options…
 	{
 		res.hasLabel = YES;
 		if([[textOptions objectForKey:@"shadow"] boolValue])
@@ -446,9 +483,11 @@ OakRawLayer * parse_layer (NSDictionary* item)
 		res.hasToolTip = YES;
     }
     
-	if(NSString* imageName = [item objectForKey:@"image"]) // TODO we probably want to read some image options…
+    NSString* imageName = [item objectForKey:@"image"];
+	if(imageName) // TODO we probably want to read some image options…
     {
-		res.layer.image = [NSImage imageNamed:imageName inSameBundleAsClass:[OakTabBarView class]];
+		res.layer.image = [NSImage imageNamed: imageName
+                          inSameBundleAsClass: [OakTabBarView class]];
     }
 
 	for(NSString* pos in [item objectForKey:@"rect"])
