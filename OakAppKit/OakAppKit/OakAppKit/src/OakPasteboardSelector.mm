@@ -325,15 +325,34 @@ static OakPasteboardSelector* SharedInstance;
 	[window orderFront:self];
 	[tableView scrollRowToVisible:tableView.selectedRow];
 
-	while(NSEvent* event = [NSApp nextEventMatchingMask:NSAnyEventMask untilDate:[NSDate distantFuture] inMode:NSDefaultRunLoopMode dequeue:YES])
+	while(NSEvent* event = [NSApp nextEventMatchingMask: NSAnyEventMask
+                                              untilDate: [NSDate distantFuture]
+                                                 inMode: NSDefaultRunLoopMode
+                                                dequeue: YES])
 	{
-		static std::set<NSEventType> const keyEvent   = { NSKeyDown, NSKeyUp };
-		static std::set<NSEventType> const mouseEvent = { NSLeftMouseDown, NSLeftMouseUp, NSRightMouseDown, NSRightMouseUp, NSOtherMouseDown, NSOtherMouseUp };
+		static NSArray * keyEvent   = @[ @(NSKeyDown), @(NSKeyUp) ];
+		static NSArray * mouseEvent = (@[  @(NSLeftMouseDown),
+                                           @(NSLeftMouseUp),
+                                           @(NSRightMouseDown),
+                                            @(NSRightMouseUp),
+                                            @(NSOtherMouseDown),
+                                           @(NSOtherMouseUp)]);
 
-		bool orderOutEvent = (keyEvent.find([event type]) != keyEvent.end() && [event window] != parentWindow) || (mouseEvent.find([event type]) != mouseEvent.end() && [event window] != window);
-		if(!orderOutEvent && keyEvent.find([event type]) != keyEvent.end() && !([event modifierFlags] & NSCommandKeyMask))
+		bool orderOutEvent = (([keyEvent containsObject: @([event type])]
+                              && [event window] != parentWindow)
+                              || ([mouseEvent containsObject: @([event type])]
+                                  && [event window] != window));
+        
+		if(!orderOutEvent
+           && [keyEvent containsObject: @([event type]) ]
+           && !([event modifierFlags] & NSCommandKeyMask))
+        {
 				[window sendEvent:event];
-		else	[NSApp sendEvent:event];
+            
+        }else
+        {
+            [NSApp sendEvent:event];
+        }
 
 		if(orderOutEvent || [tableViewHelper shouldClose])
 			break;

@@ -749,7 +749,7 @@ namespace ng
 		};
 	}
 
-	void layout_t::draw (ng::context_t  context, CGRect visibleRect, bool isFlipped, bool showInvisibles, OakSelectionRanges *  selection, OakSelectionRanges *  highlightRanges, bool drawBackground, CGColorRef textColor)
+	void layout_t::draw (OakLayoutContext *  context, CGRect visibleRect, bool isFlipped, bool showInvisibles, OakSelectionRanges *  selection, OakSelectionRanges *  highlightRanges, bool drawBackground, CGColorRef textColor)
 	{
 		update_metrics(visibleRect);
 

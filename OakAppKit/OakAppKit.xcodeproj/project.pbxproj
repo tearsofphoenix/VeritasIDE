@@ -143,7 +143,7 @@
 		E181BDC51646BA8F002EC9E0 /* path.cc in Sources */ = {isa = PBXBuildFile; fileRef = E181BA0B1646BA8E002EC9E0 /* path.cc */; };
 		E181BDD21646BA8F002EC9E0 /* layout.cc in Sources */ = {isa = PBXBuildFile; fileRef = E181BA191646BA8E002EC9E0 /* layout.cc */; };
 		E181BDD31646BA8F002EC9E0 /* layout.h in Headers */ = {isa = PBXBuildFile; fileRef = E181BA1A1646BA8E002EC9E0 /* layout.h */; };
-		E181BDD41646BA8F002EC9E0 /* paragraph.cc in Sources */ = {isa = PBXBuildFile; fileRef = E181BA1B1646BA8E002EC9E0 /* paragraph.cc */; };
+		E181BDD41646BA8F002EC9E0 /* paragraph.mm in Sources */ = {isa = PBXBuildFile; fileRef = E181BA1B1646BA8E002EC9E0 /* paragraph.mm */; };
 		E181BDD51646BA8F002EC9E0 /* paragraph.h in Headers */ = {isa = PBXBuildFile; fileRef = E181BA1C1646BA8E002EC9E0 /* paragraph.h */; };
 		E181BDF21646BA8F002EC9E0 /* event.h in Headers */ = {isa = PBXBuildFile; fileRef = E181BA3C1646BA8E002EC9E0 /* event.h */; };
 		E181BDF31646BA8F002EC9E0 /* event.mm in Sources */ = {isa = PBXBuildFile; fileRef = E181BA3D1646BA8E002EC9E0 /* event.mm */; };
@@ -179,6 +179,8 @@
 		E181C04C1646BA91002EC9E0 /* utf8.h in Headers */ = {isa = PBXBuildFile; fileRef = E181BCCD1646BA8E002EC9E0 /* utf8.h */; };
 		E181C04D1646BA91002EC9E0 /* theme.m in Sources */ = {isa = PBXBuildFile; fileRef = E181BCCF1646BA8E002EC9E0 /* theme.m */; };
 		E181C04E1646BA91002EC9E0 /* theme.h in Headers */ = {isa = PBXBuildFile; fileRef = E181BCD01646BA8E002EC9E0 /* theme.h */; };
+		E1A2705B164B5727003660A3 /* OakLayoutParagraph.h in Headers */ = {isa = PBXBuildFile; fileRef = E1A27059164B5727003660A3 /* OakLayoutParagraph.h */; };
+		E1A2705C164B5727003660A3 /* OakLayoutParagraph.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A2705A164B5727003660A3 /* OakLayoutParagraph.m */; };
 		E1A7BF771647667E00483373 /* OakBasicTree.h in Headers */ = {isa = PBXBuildFile; fileRef = E1A7BF751647667E00483373 /* OakBasicTree.h */; };
 		E1A7BF781647667E00483373 /* OakBasicTree.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A7BF761647667E00483373 /* OakBasicTree.m */; };
 		E1A7BF7B16476A0C00483373 /* OakDocumentWatch.h in Headers */ = {isa = PBXBuildFile; fileRef = E1A7BF7916476A0C00483373 /* OakDocumentWatch.h */; };
@@ -475,7 +477,7 @@
 		E181BA0B1646BA8E002EC9E0 /* path.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = path.cc; sourceTree = "<group>"; };
 		E181BA191646BA8E002EC9E0 /* layout.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = layout.cc; sourceTree = "<group>"; };
 		E181BA1A1646BA8E002EC9E0 /* layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = layout.h; sourceTree = "<group>"; };
-		E181BA1B1646BA8E002EC9E0 /* paragraph.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = paragraph.cc; sourceTree = "<group>"; };
+		E181BA1B1646BA8E002EC9E0 /* paragraph.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = paragraph.mm; sourceTree = "<group>"; };
 		E181BA1C1646BA8E002EC9E0 /* paragraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = paragraph.h; sourceTree = "<group>"; };
 		E181BA3C1646BA8E002EC9E0 /* event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event.h; sourceTree = "<group>"; };
 		E181BA3D1646BA8E002EC9E0 /* event.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = event.mm; sourceTree = "<group>"; };
@@ -511,6 +513,8 @@
 		E181BCCD1646BA8E002EC9E0 /* utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf8.h; sourceTree = "<group>"; };
 		E181BCCF1646BA8E002EC9E0 /* theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = theme.m; sourceTree = "<group>"; };
 		E181BCD01646BA8E002EC9E0 /* theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = theme.h; sourceTree = "<group>"; };
+		E1A27059164B5727003660A3 /* OakLayoutParagraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakLayoutParagraph.h; sourceTree = "<group>"; };
+		E1A2705A164B5727003660A3 /* OakLayoutParagraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakLayoutParagraph.m; sourceTree = "<group>"; };
 		E1A7BF751647667E00483373 /* OakBasicTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakBasicTree.h; sourceTree = "<group>"; };
 		E1A7BF761647667E00483373 /* OakBasicTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakBasicTree.m; sourceTree = "<group>"; };
 		E1A7BF7916476A0C00483373 /* OakDocumentWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakDocumentWatch.h; sourceTree = "<group>"; };
@@ -891,7 +895,7 @@
 			children = (
 				E181BA191646BA8E002EC9E0 /* layout.cc */,
 				E181BA1A1646BA8E002EC9E0 /* layout.h */,
-				E181BA1B1646BA8E002EC9E0 /* paragraph.cc */,
+				E181BA1B1646BA8E002EC9E0 /* paragraph.mm */,
 				E181BA1C1646BA8E002EC9E0 /* paragraph.h */,
 				E149601E164A4CC3004907DE /* OakLayoutContext.h */,
 				E149601F164A4CC3004907DE /* OakLayoutContext.m */,
@@ -901,6 +905,8 @@
 				E1496027164A511D004907DE /* OakLayoutLine.m */,
 				E1B93110164A5C4600B0DE8D /* OakLayoutFolds.h */,
 				E1B93111164A5C4600B0DE8D /* OakLayoutFolds.m */,
+				E1A27059164B5727003660A3 /* OakLayoutParagraph.h */,
+				E1A2705A164B5727003660A3 /* OakLayoutParagraph.m */,
 			);
 			name = layout;
 			path = ../layout;
@@ -1378,6 +1384,7 @@
 				E1B93112164A5C4600B0DE8D /* OakLayoutFolds.h in Headers */,
 				2279FEF4164B426200E31A27 /* OakGrammar.h in Headers */,
 				2279FEF8164B43FD00E31A27 /* OakIntermediate.h in Headers */,
+				E1A2705B164B5727003660A3 /* OakLayoutParagraph.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1603,7 +1610,7 @@
 				E181BDC01646BA8F002EC9E0 /* intermediate.cc in Sources */,
 				E181BDC51646BA8F002EC9E0 /* path.cc in Sources */,
 				E181BDD21646BA8F002EC9E0 /* layout.cc in Sources */,
-				E181BDD41646BA8F002EC9E0 /* paragraph.cc in Sources */,
+				E181BDD41646BA8F002EC9E0 /* paragraph.mm in Sources */,
 				E181BDF31646BA8F002EC9E0 /* event.mm in Sources */,
 				E181BDF51646BA8F002EC9E0 /* ns.mm in Sources */,
 				E181BE831646BA8F002EC9E0 /* parse.cc in Sources */,
@@ -1654,6 +1661,7 @@
 				E1B93113164A5C4600B0DE8D /* OakLayoutFolds.m in Sources */,
 				2279FEF5164B426200E31A27 /* OakGrammar.m in Sources */,
 				2279FEF9164B43FD00E31A27 /* OakIntermediate.m in Sources */,
+				E1A2705C164B5727003660A3 /* OakLayoutParagraph.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

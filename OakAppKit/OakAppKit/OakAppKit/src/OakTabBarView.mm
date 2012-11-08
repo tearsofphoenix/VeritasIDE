@@ -269,7 +269,7 @@ static NSInteger requisite_from_string (char const* str);
         }
         
 		CGFloat values[4] = { };
-		for(NSUInteger i = 0; i < sizeofA(values); ++i)
+		for(NSUInteger i = 0; i < sizeof(values) / sizeof(values[0]); ++i)
 		{
 			NSString * str = [[it padding] objectAtIndex: i];
             
@@ -381,7 +381,7 @@ NSInteger requisite_from_string (char const* str)
 		{ "dragged",             OakTabBarRequisiteDragged },
 	};
 
-	for(NSUInteger i = 0; i < sizeofA(mapping); ++i)
+	for(NSUInteger i = 0; i < sizeof(mapping) / sizeof(mapping[0]); ++i)
 	{
 		if(strcmp(mapping[i].name, str) == 0)
         {

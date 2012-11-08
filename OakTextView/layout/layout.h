@@ -71,7 +71,7 @@ namespace ng
 
 		// ======================
 
-		void draw (ng::context_t  context, CGRect rectangle, bool isFlipped, bool showInvisibles, OakSelectionRanges *  selection, OakSelectionRanges *  highlightRanges = OakSelectionRanges *(), bool drawBackground = true, CGColorRef textColor = NULL);
+		void draw (OakLayoutContext *  context, CGRect rectangle, bool isFlipped, bool showInvisibles, OakSelectionRanges *  selection, OakSelectionRanges *  highlightRanges = OakSelectionRanges *(), bool drawBackground = true, CGColorRef textColor = NULL);
 		ng::index_t index_at_point (CGPoint point) const;
 		CGRect rect_at_index (ng::index_t  index) const;
 		CGRect rect_for_range (NSUInteger first, NSUInteger last) const;

@@ -18,7 +18,7 @@ void OakPlayUISound (OakSoundIdentifier aSound)
 		{ OakSoundDidCompleteSomethingUISound, @"system/burn complete.aif" }
 	};
 
-	for(NSUInteger i = 0; i < sizeofA(sounds); ++i)
+	for(NSUInteger i = 0; i < sizeof(sounds) / sizeof(sounds[0]); ++i)
 	{
 		if(sounds[i].name == aSound)
 		{

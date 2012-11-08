@@ -70,7 +70,7 @@
     return CTLineGetOffsetForStringIndex(_line, utf16::distance(_text.begin(), _text.begin() + index), NULL);
 }
 
-static void draw_spelling_dot (ng::context_t  context, CGRect  rect, bool isFlipped)
+static void draw_spelling_dot (OakLayoutContext *  context, CGRect  rect, bool isFlipped)
 {
     if(CGImageRef spellingDot = context.spelling_dot())
     {
