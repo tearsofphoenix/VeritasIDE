@@ -6,7 +6,7 @@
 //  Copyright (c) 2012年 tearsofphoenix. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 enum
 {

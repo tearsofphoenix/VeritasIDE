@@ -109,7 +109,7 @@ static NSString * glyphs_for_key (NSString * key, BOOL numpad)
 	return res;
 }
 
-static NSString * string_for (NSUInteger flags)
+static NSString * s_OakStringForKeyMask (NSEventMask flags)
 {
 	static struct EventFlag_t
     {
@@ -133,7 +133,7 @@ static NSString * string_for (NSUInteger flags)
 	return res;
 }
 
-static NSUInteger ns_flag_for_char (char ch)
+static NSUInteger s_OakEventFlagFromChar (char ch)
 {
 	switch(ch)
 	{
@@ -162,9 +162,9 @@ static NSString * parse_event_string (NSString * eventString, NSUInteger * flags
             const unichar ch = [eventString characterAtIndex: iLooper];
             
 
-			if((scanningFlags = scanningFlags && ns_flag_for_char(ch) != 0))
+			if((scanningFlags = scanningFlags && s_OakEventFlagFromChar(ch) != 0))
             {
-				*flags |= ns_flag_for_char(ch);
+				*flags |= s_OakEventFlagFromChar(ch);
                 
 			}else if((real = (!real || ch != '\\')))
             {
@@ -185,7 +185,7 @@ static NSString * parse_event_string (NSString * eventString, NSUInteger * flags
         const char* cString = [eventString UTF8String];
 		for(const char* charLooper = cString; *charLooper; ++charLooper)
         {
-            *flags |= ns_flag_for_char(*charLooper);
+            *flags |= s_OakEventFlagFromChar(*charLooper);
         }
         
 		[key setString: [eventString substringFromIndex: i]];
@@ -196,7 +196,7 @@ static NSString * parse_event_string (NSString * eventString, NSUInteger * flags
 
 NSString * OakCreateEventString (NSString* key, NSUInteger flags)
 {
-    return [string_for(flags) stringByAppendingString: key];
+    return [s_OakStringForKeyMask(flags) stringByAppendingString: key];
 }
 
 NSString * OakNormalizeEventString (NSString * eventString, NSUInteger* startOfKey)
@@ -204,7 +204,7 @@ NSString * OakNormalizeEventString (NSString * eventString, NSUInteger* startOfK
     NSUInteger flags;
     NSString * key = parse_event_string(eventString, &flags, true);
     
-    NSString * modifierString = [key length] == 0 ? @"" : string_for(flags);
+    NSString * modifierString = ([key length] == 0) ? @"" : s_OakStringForKeyMask(flags);
     
     if(startOfKey)
     {
@@ -268,49 +268,6 @@ NSString * OakGlyphsForEventString (NSString * eventString, NSUInteger* startOfK
 }
 
 
-static NSString * string_forWithEventFlag (CGKeyCode key, CGEventFlags flags)
-{
-	CGEventRef event = CGEventCreateKeyboardEvent(NULL, key, true);
-	CGEventSetFlags(event, flags);
-	NSString * tmp = to_s([[NSEvent eventWithCGEvent:event] characters]);
-    
-	NSString * res = tmp;
-	citerate(str, diacritics::make_range(tmp.data(), tmp.data() + tmp.size()))
-    {
-		res = NSString *(&str, &str + str.length());
-    }
-    
-	CFRelease(event);
-    
-	return res;
-}
-
-static NSString * string_for (CGEventFlags flags)
-{
-	static struct EventFlag_t { CGEventFlags flag; NSString * symbol; } const EventFlags[] =
-	{
-		{ kCGEventFlagMaskNumericPad, @"#" },
-		{ kCGEventFlagMaskControl,    @"^" },
-		{ kCGEventFlagMaskAlternate,  @"~" },
-		{ kCGEventFlagMaskShift,      @"$" },
-		{ kCGEventFlagMaskCommand,    @"@" }
-	};
-    
-	NSMutableString * res = [NSMutableString string];
-	for(NSUInteger i = 0; i < sizeof(EventFlags) / sizeof(EventFlags[0]); ++i)
-    {
-		[res appendString: (flags & EventFlags[i].flag) ? EventFlags[i].symbol : @""];
-    }
-    
-	return res;
-}
-
-static BOOL is_ascii (NSString * str)
-{
-	char ch = [str length] == 1 ? [str UTF8String][0] : 0;
-	return 0x20 < ch && ch < 0x7F;
-}
-
 /*
  The “simple” heuristic is the following:
  
@@ -325,83 +282,128 @@ static BOOL is_ascii (NSString * str)
  end if
  */
 
-NSString * to_s (NSEvent* anEvent, BOOL preserveNumPadFlag)
-{
-	CGEventRef cgEvent = [anEvent CGEvent];
-	CGKeyCode key      = (CGKeyCode)[anEvent keyCode];
-	CGEventFlags flags = CGEventGetFlags(cgEvent);
-	flags &= kCGEventFlagMaskCommand | kCGEventFlagMaskShift | kCGEventFlagMaskAlternate | kCGEventFlagMaskControl | kCGEventFlagMaskNumericPad;
-    
-	NSString * keyString              = nil;
-	NSString * keyStringNoFlags = string_for(key, 0);
-	CGEventFlags newFlags              = flags & (kCGEventFlagMaskControl|kCGEventFlagMaskCommand);
-	flags &= ~kCGEventFlagMaskControl;
-    
-	if(flags & kCGEventFlagMaskNumericPad)
-	{
-		NSString * numPadKeys = @"0123456789=/*-+.,";
-		if(preserveNumPadFlag && [numPadKeys rangeOfCharacterFromSet: [NSCharacterSet decimalDigitCharacterSet]].location != NSNotFound)
-        {
-			newFlags |= kCGEventFlagMaskNumericPad;
-        }
-        
-		flags &= ~kCGEventFlagMaskControl;
-	}
-    
-	NSString * keyStringCommand = string_for(key, kCGEventFlagMaskCommand);
-	if((flags & kCGEventFlagMaskCommand) && keyStringNoFlags != keyStringCommand)
-	{
-		D(DBF_NSEvent, bug("command (⌘) changes key\n"););
-        
-		newFlags |= flags & kCGEventFlagMaskAlternate;
-		flags    &= ~kCGEventFlagMaskAlternate;
-        
-		if(flags & kCGEventFlagMaskShift)
-		{
-			if(keyStringCommand.size() == 1 && isalpha(keyStringCommand[0]))
-			{
-				D(DBF_NSEvent, bug("manually upcase key\n"););
-				keyString = NSString *(1, toupper(keyStringCommand[0]));
-			}
-			else
-			{
-				D(DBF_NSEvent, bug("shift (⇧) is literal\n"););
-				newFlags |= kCGEventFlagMaskShift;
-			}
-		}
-	}
-	else
-	{
-		if(flags & kCGEventFlagMaskAlternate)
-		{
-			NSString * keyStringAlternate = string_for(key, flags & (kCGEventFlagMaskAlternate
-                                                                     | kCGEventFlagMaskShift));
-			if(!is_ascii(keyStringAlternate) || keyStringNoFlags == keyStringAlternate)
-			{
-				NSLog(@"option (⌥) is literal\n");
-                
-				newFlags |= kCGEventFlagMaskAlternate;
-				flags    &= ~kCGEventFlagMaskAlternate;
-			}
-		}
-        
-		if(flags & kCGEventFlagMaskShift)
-		{
-			NSString * keyStringShift = string_for(key, flags & (kCGEventFlagMaskAlternate|kCGEventFlagMaskShift));
-			if(!is_ascii(keyStringShift) || keyStringNoFlags == keyStringShift)
-			{
-				NSLog(@"shift (⇧) is literal\n");
-				newFlags |= kCGEventFlagMaskShift;
-				flags    &= ~kCGEventFlagMaskShift;
-			}
-			else
-			{
-				D(DBF_NSEvent, bug("use NSEvent’s uppercased version\n"););
-				keyString = keyStringShift;
-			}
-		}
-	}
-    
-	return string_for(newFlags) + (keyString == NULL_STR ? string_for(key, flags) : keyString);
-}
+//static NSString * string_forWithEventFlag (CGKeyCode key, CGEventFlags flags)
+//{
+//	CGEventRef event = CGEventCreateKeyboardEvent(NULL, key, true);
+//	CGEventSetFlags(event, flags);
+//	NSString * tmp = to_s([[NSEvent eventWithCGEvent:event] characters]);
+//    
+//	NSString * res = tmp;
+//	citerate(str, diacritics::make_range(tmp.data(), tmp.data() + tmp.size()))
+//    {
+//		res = NSString *(&str, &str + str.length());
+//    }
+//    
+//	CFRelease(event);
+//    
+//	return res;
+//}
+//
+//
+//NSString * to_s (NSEvent* anEvent, BOOL preserveNumPadFlag)
+//{
+//	CGEventRef cgEvent = [anEvent CGEvent];
+//	CGKeyCode key      = (CGKeyCode)[anEvent keyCode];
+//	CGEventFlags flags = CGEventGetFlags(cgEvent);
+//	flags &= kCGEventFlagMaskCommand | kCGEventFlagMaskShift | kCGEventFlagMaskAlternate | kCGEventFlagMaskControl | kCGEventFlagMaskNumericPad;
+//    
+//	NSString * keyString              = nil;
+//	NSString * keyStringNoFlags = string_for(key, 0);
+//	CGEventFlags newFlags              = flags & (kCGEventFlagMaskControl|kCGEventFlagMaskCommand);
+//	flags &= ~kCGEventFlagMaskControl;
+//    
+//	if(flags & kCGEventFlagMaskNumericPad)
+//	{
+//		NSString * numPadKeys = @"0123456789=/*-+.,";
+//		if(preserveNumPadFlag && [numPadKeys rangeOfCharacterFromSet: [NSCharacterSet decimalDigitCharacterSet]].location != NSNotFound)
+//        {
+//			newFlags |= kCGEventFlagMaskNumericPad;
+//        }
+//        
+//		flags &= ~kCGEventFlagMaskControl;
+//	}
+//    
+//	NSString * keyStringCommand = string_for(key, kCGEventFlagMaskCommand);
+//	if((flags & kCGEventFlagMaskCommand) && keyStringNoFlags != keyStringCommand)
+//	{
+//		D(DBF_NSEvent, bug("command (⌘) changes key\n"););
+//        
+//		newFlags |= flags & kCGEventFlagMaskAlternate;
+//		flags    &= ~kCGEventFlagMaskAlternate;
+//        
+//		if(flags & kCGEventFlagMaskShift)
+//		{
+//			if(keyStringCommand.size() == 1 && isalpha(keyStringCommand[0]))
+//			{
+//				D(DBF_NSEvent, bug("manually upcase key\n"););
+//				keyString = NSString *(1, toupper(keyStringCommand[0]));
+//			}
+//			else
+//			{
+//				D(DBF_NSEvent, bug("shift (⇧) is literal\n"););
+//				newFlags |= kCGEventFlagMaskShift;
+//			}
+//		}
+//	}
+//	else
+//	{
+//		if(flags & kCGEventFlagMaskAlternate)
+//		{
+//			NSString * keyStringAlternate = string_for(key, flags & (kCGEventFlagMaskAlternate
+//                                                                     | kCGEventFlagMaskShift));
+//			if(!is_ascii(keyStringAlternate) || keyStringNoFlags == keyStringAlternate)
+//			{
+//				NSLog(@"option (⌥) is literal\n");
+//                
+//				newFlags |= kCGEventFlagMaskAlternate;
+//				flags    &= ~kCGEventFlagMaskAlternate;
+//			}
+//		}
+//        
+//		if(flags & kCGEventFlagMaskShift)
+//		{
+//			NSString * keyStringShift = string_for(key, flags & (kCGEventFlagMaskAlternate|kCGEventFlagMaskShift));
+//			if(!is_ascii(keyStringShift) || keyStringNoFlags == keyStringShift)
+//			{
+//				NSLog(@"shift (⇧) is literal\n");
+//				newFlags |= kCGEventFlagMaskShift;
+//				flags    &= ~kCGEventFlagMaskShift;
+//			}
+//			else
+//			{
+//				D(DBF_NSEvent, bug("use NSEvent’s uppercased version\n"););
+//				keyString = keyStringShift;
+//			}
+//		}
+//	}
+//    
+//	return string_for(newFlags) + (keyString == NULL_STR ? string_for(key, flags) : keyString);
+//}
+//
+//
+//static NSString * string_for (CGEventFlags flags)
+//{
+//	static struct EventFlag_t { CGEventFlags flag; NSString * symbol; } const EventFlags[] =
+//	{
+//		{ kCGEventFlagMaskNumericPad, @"#" },
+//		{ kCGEventFlagMaskControl,    @"^" },
+//		{ kCGEventFlagMaskAlternate,  @"~" },
+//		{ kCGEventFlagMaskShift,      @"$" },
+//		{ kCGEventFlagMaskCommand,    @"@" }
+//	};
+//    
+//	NSMutableString * res = [NSMutableString string];
+//	for(NSUInteger i = 0; i < sizeof(EventFlags) / sizeof(EventFlags[0]); ++i)
+//    {
+//		[res appendString: (flags & EventFlags[i].flag) ? EventFlags[i].symbol : @""];
+//    }
+//    
+//	return res;
+//}
+//
+//static BOOL is_ascii (NSString * str)
+//{
+//	char ch = [str length] == 1 ? [str UTF8String][0] : 0;
+//	return 0x20 < ch && ch < 0x7F;
+//}
 
