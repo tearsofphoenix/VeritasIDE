@@ -1,9 +1,5 @@
-#ifndef FILE_STATUS_H_CIXQCEQO
-#define FILE_STATUS_H_CIXQCEQO
 
-
-
-enum file_status_t
+enum 
 {
 	kFileTestWritable,
 	kFileTestWritableByRoot,
@@ -14,10 +10,6 @@ enum file_status_t
 	kFileTestUnhandled,
 };
 
-namespace file
-{
-	extern file_status_t status (NSString * path);
+typedef NSInteger file_status_t;
 
-} /* file */
-
-#endif /* end of include guard: FILE_STATUS_H_CIXQCEQO */
+extern file_status_t OakFileStatus (NSString * path);

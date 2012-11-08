@@ -4,7 +4,7 @@
 #include "paragraph.h"
 
 #include <selection/selection.h>
-#include <theme/theme.h>
+
 
 
 
@@ -55,7 +55,7 @@ namespace ng
 		NSUInteger tab_size () const                { return _tab_size; }
 		margin_t  margin () const         { return _margin; }
 		bool wrapping () const                  { return _wrapping; }
-		NSUInteger effective_wrap_column () const;
+		NSUInteger effective_wrap_column () ;
 
 		// ======================
 		// = Display Attributes =
@@ -64,7 +64,7 @@ namespace ng
 		void set_is_key (bool isKey);
 		void set_draw_caret (bool drawCaret);
 		void set_draw_wrap_column (bool drawWrapColumn);
-		void set_drop_marker (ng::index_t dropMarkerIndex);
+		void set_drop_marker (OakSelectionIndex * dropMarkerIndex);
 		void set_viewport_size (CGSize size);
 
 		bool draw_wrap_column () const          { return _draw_wrap_column; }
@@ -72,53 +72,53 @@ namespace ng
 		// ======================
 
 		void draw (OakLayoutContext *  context, CGRect rectangle, bool isFlipped, bool showInvisibles, OakSelectionRanges *  selection, OakSelectionRanges *  highlightRanges = OakSelectionRanges *(), bool drawBackground = true, CGColorRef textColor = NULL);
-		ng::index_t index_at_point (CGPoint point) const;
-		CGRect rect_at_index (ng::index_t  index) const;
-		CGRect rect_for_range (NSUInteger first, NSUInteger last) const;
-		std::vector<CGRect> rects_for_ranges (OakSelectionRanges *  ranges, kRectsIncludeMode mode = kRectsIncludeAll) const;
+		OakSelectionIndex * index_at_point (CGPoint point) ;
+		CGRect rect_at_index (OakSelectionIndex *  index) ;
+		CGRect rect_for_range (NSUInteger first, NSUInteger last) ;
+		std::vector<CGRect> rects_for_ranges (OakSelectionRanges *  ranges, kRectsIncludeMode mode = kRectsIncludeAll) ;
 
-		CGFloat width () const;
-		CGFloat height () const;
+		CGFloat width () ;
+		CGFloat height () ;
 
 		void begin_refresh_cycle (OakSelectionRanges *  selection, OakSelectionRanges *  highlightRanges = OakSelectionRanges *());
 		std::vector<CGRect> end_refresh_cycle (OakSelectionRanges *  selection, CGRect visibleRect, OakSelectionRanges *  highlightRanges = OakSelectionRanges *());
 		void did_update_scopes (NSUInteger from, NSUInteger to);
 
-		ng::index_t index_above (ng::index_t  index) const;
-		ng::index_t index_right_of (ng::index_t  index) const;
-		ng::index_t index_below (ng::index_t  index) const;
-		ng::index_t index_left_of (ng::index_t  index) const;
-		ng::index_t index_at_bol_for (ng::index_t  index) const;
-		ng::index_t index_at_eol_for (ng::index_t  index) const;
-		ng::index_t page_up_for (index_t  index) const;
-		ng::index_t page_down_for (index_t  index) const;
+		OakSelectionIndex * index_above (OakSelectionIndex *  index) ;
+		OakSelectionIndex * index_right_of (OakSelectionIndex *  index) ;
+		OakSelectionIndex * index_below (OakSelectionIndex *  index) ;
+		OakSelectionIndex * index_left_of (OakSelectionIndex *  index) ;
+		OakSelectionIndex * index_at_bol_for (OakSelectionIndex *  index) ;
+		OakSelectionIndex * index_at_eol_for (OakSelectionIndex *  index) ;
+		OakSelectionIndex * page_up_for (index_t  index) ;
+		OakSelectionIndex * page_down_for (index_t  index) ;
 
 		// ===================
 		// = Folding Support =
 		// ===================
 
-		bool is_line_folded (NSUInteger n) const;
-		bool is_line_fold_start_marker (NSUInteger n) const;
-		bool is_line_fold_stop_marker (NSUInteger n) const;
+		bool is_line_folded (NSUInteger n) ;
+		bool is_line_fold_start_marker (NSUInteger n) ;
+		bool is_line_fold_stop_marker (NSUInteger n) ;
 		void fold (NSUInteger from, NSUInteger to);
 		void remove_enclosing_folds (NSUInteger from, NSUInteger to);
 		void toggle_fold_at_line (NSUInteger n, bool recursive);
 		void toggle_all_folds_at_level (NSUInteger level);
-		NSString * folded_as_string () const;
+		NSString * folded_as_string () ;
 
 		// =======================
 		// = Gutter view support =
 		// =======================
 
-		line_record_t line_record_for (CGFloat y) const;
-		line_record_t line_record_for (text::pos_t  pos) const;
+		line_record_t line_record_for (CGFloat y) ;
+		line_record_t line_record_for (text::pos_t  pos) ;
 
 		// =================
 		// = Debug support =
 		// =================
 
-		bool structural_integrity () const;
-		NSString * to_s () const;
+		bool structural_integrity () ;
+		NSString * to_s () ;
 
 	private:
 		struct row_key_t
@@ -126,7 +126,7 @@ namespace ng
 			row_key_t (NSUInteger length = 0, CGFloat height = 0, CGFloat width = 0) : _length(length), _height(height), _width(width) { }
 
 			bool operator==     (row_key_t  rhs) const { return _length == rhs._length && _height == rhs._height && _width == rhs._width; }
-			row_key_t operator+ (row_key_t  rhs) const { return row_key_t(_length + rhs._length, _height + rhs._height, std::max(_width, rhs._width)); }
+			row_key_t operator+ (row_key_t  rhs) const { return row_key_t(_length + rhs._length, _height + rhs._height, MAX(_width, rhs._width)); }
 			row_key_t operator- (row_key_t  rhs) const { return row_key_t(_length - rhs._length, _height - rhs._height, MIN(_width, rhs._width)); }
 
 			NSUInteger _length;
@@ -136,15 +136,15 @@ namespace ng
 
 		typedef oak::basic_tree_t<row_key_t, paragraph_t> row_tree_t;
 
-		CGFloat content_width () const         { return ceil(std::max(_rows.aggregated()._width, _viewport_size.width - _margin.left - _margin.right)); }
-		CGFloat content_height () const        { return ceil(std::max(_rows.aggregated()._height, _viewport_size.height - _margin.top - _margin.bottom)); }
+		CGFloat content_width () const         { return ceil(MAX(_rows.aggregated()._width, _viewport_size.width - _margin.left - _margin.right)); }
+		CGFloat content_height () const        { return ceil(MAX(_rows.aggregated()._height, _viewport_size.height - _margin.top - _margin.bottom)); }
 
-		row_tree_t::iterator row_for_offset (NSUInteger i) const;
-		CGFloat default_line_height (CGFloat minAscent = 0, CGFloat minDescent = 0, CGFloat minLeading = 0) const;
-		CGRect rect_for (row_tree_t::iterator rowIter) const;
-		CGRect full_width (CGRect  rect) const;
-		CGRect full_height (CGRect  rect) const;
-		bool effective_soft_wrap (row_tree_t::iterator rowIter) const;
+		row_tree_t::iterator row_for_offset (NSUInteger i) ;
+		CGFloat default_line_height (CGFloat minAscent = 0, CGFloat minDescent = 0, CGFloat minLeading = 0) ;
+		CGRect rect_for (row_tree_t::iterator rowIter) ;
+		CGRect full_width (CGRect  rect) ;
+		CGRect full_height (CGRect  rect) ;
+		bool effective_soft_wrap (row_tree_t::iterator rowIter) ;
 
 		void set_tab_size (NSUInteger tabSize);
 		void did_insert (NSUInteger first, NSUInteger last);
@@ -182,9 +182,9 @@ namespace ng
 
 		bool               _is_key = false;
 		bool               _draw_caret = false;
-		ng::index_t        _drop_marker;
+		OakSelectionIndex *        _drop_marker;
 
-		std::shared_ptr<ct::metrics_t> _metrics;
+		std::shared_ptr<OakLayoutMetrics *> _metrics;
 
 		NSUInteger _pre_refresh_revision;
 		NSUInteger _pre_refresh_caret;

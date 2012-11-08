@@ -60,6 +60,10 @@ typedef NSInteger OakStatusBarBorderType;
             target: (id)target
             action: (SEL)action;
 
+- (void)noPadding;
+
+- (void)noSeparator;
+
 @end
 
 

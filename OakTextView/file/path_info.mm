@@ -35,7 +35,7 @@ static NSArray *attribute_specifiers (void)
     "	{ attribute = 'attr.project.scons'; glob = 'SConstruct';     group = 'build'; },"
     "); }";
     
-    std::vector<attribute_rule_t> res;
+    NSArray *res = [NSArray array];
     ///TODO
     //
     //parse_rules(plist::load(path::join(path::home(), "Library/Application Support/TextMate/ScopeAttributes.plist")), back_inserter(res));

@@ -64,7 +64,7 @@ namespace ng
 
 	void layout_t::setup_font_metrics ()
 	{
-		_metrics.reset(new ct::metrics_t(_font_name, _font_size));
+		_metrics.reset(new OakLayoutMetrics *(_font_name, _font_size));
 	}
 
 	void layout_t::clear_text_widths ()
@@ -157,7 +157,7 @@ namespace ng
 		_dirty_rects.push_back(OakRectMake(0, 0, width(), height()));
 	}
 
-	void layout_t::set_drop_marker (ng::index_t dropMarkerIndex)
+	void layout_t::set_drop_marker (OakSelectionIndex * dropMarkerIndex)
 	{
 		if(dropMarkerIndex == _drop_marker)
 			return;
@@ -240,14 +240,14 @@ namespace ng
 
 	NSUInteger layout_t::effective_wrap_column () const
 	{
-		return _wrap_column > 0 ? _wrap_column : std::max(floor((_viewport_size.width - _margin.left - _margin.right) / _metrics->column_width()), 10.0);
+		return _wrap_column > 0 ? _wrap_column : MAX(floor((_viewport_size.width - _margin.left - _margin.right) / _metrics->column_width()), 10.0);
 	}
 
 	// ================
 	// = Measurements =
 	// ================
 
-	CGRect layout_t::rect_at_index (ng::index_t  index) const
+	CGRect layout_t::rect_at_index (OakSelectionIndex *  index) const
 	{
 		auto row = row_for_offset(index.index);
 		return row->value.rect_at_index(index, *_metrics, _buffer, row->offset._length, CGPointMake(_margin.left, _margin.top + row->offset._height));
@@ -273,7 +273,7 @@ namespace ng
 			auto firstIter = row_for_offset(first), lastIter = row_for_offset(last);
 			for(auto it = firstIter; ; ++it)
 			{
-				width = std::max(width, it->value.width()); // TODO paragraph_t::width covers the entire paragraph which is too much when wrapped or when “last” is not at end of the paragraph.
+				width = MAX(width, it->value.width()); // TODO paragraph_t::width covers the entire paragraph which is too much when wrapped or when “last” is not at end of the paragraph.
 				if(it == lastIter)
 					break;
 			}
@@ -292,8 +292,8 @@ namespace ng
 				continue;
 
 			bool includeCarry = range->freehanded;
-			auto r1 = rect_at_index(ng::index_t(range->first.index, includeCarry ? range->first.carry : 0));
-			auto r2 = rect_at_index(ng::index_t(range->last.index,  includeCarry ? range->last.carry  : 0));
+			auto r1 = rect_at_index(OakSelectionIndex *(range->first.index, includeCarry ? range->first.carry : 0));
+			auto r2 = rect_at_index(OakSelectionIndex *(range->last.index,  includeCarry ? range->last.carry  : 0));
 
 			if(CGRectEqualToRect(r1, r2))
 			{
@@ -323,7 +323,7 @@ namespace ng
 		return res;
 	}
 
-	ng::index_t layout_t::index_at_point (CGPoint point) const
+	OakSelectionIndex * layout_t::index_at_point (CGPoint point) const
 	{
 		CGFloat clickedY = point.y - _margin.top;
 		auto rowIter = _rows.upper_bound(clickedY, &row_y_comp);
@@ -338,23 +338,23 @@ namespace ng
 			return rowIter->offset._length + rowIter->key._length;
 	}
 
-	ng::line_record_t layout_t::line_record_for (CGFloat y) const
+	OakLineRecord * layout_t::line_record_for (CGFloat y) const
 	{
 		NSUInteger index = index_at_point(CGPointMake(0, y)).index;
 		auto row = row_for_offset(index);
 		if(row != _rows.end())
 			return row->value.line_record_for(_buffer.convert(index).line, index, *_metrics, _buffer, row->offset._length, CGPointMake(_margin.left, _margin.top + row->offset._height));
-		return ng::line_record_t(0, 0, 0, 0, 0);
+		return OakLineRecord *(0, 0, 0, 0, 0);
 	}
 
-	ng::line_record_t layout_t::line_record_for (text::pos_t  pos) const
+	OakLineRecord * layout_t::line_record_for (text::pos_t  pos) const
 	{
 		NSUInteger n = MIN(pos.line, _buffer.lines()-1);
 		NSUInteger index = _buffer.convert(text::pos_t(n, 0)) + MIN(pos.column, _buffer.end(n) - _buffer.begin(n));
 		auto row = row_for_offset(index);
 		if(row != _rows.end())
 			return row->value.line_record_for(n, index, *_metrics, _buffer, row->offset._length, CGPointMake(_margin.left, _margin.top + row->offset._height));
-		return ng::line_record_t(0, 0, 0, 0, 0);
+		return OakLineRecord *(0, 0, 0, 0, 0);
 	}
 
 	CGFloat layout_t::width () const  { return _margin.left + content_width() + _margin.right; }
@@ -631,20 +631,20 @@ namespace ng
 		return index_t(caret + str.size(), column - len);
 	}
 
-	ng::index_t layout_t::index_above (ng::index_t  index) const
+	OakSelectionIndex * layout_t::index_above (OakSelectionIndex *  index) const
 	{
 		CGRect r = rect_at_index(index);
-		ng::index_t const indexAbove = index_at_point(CGPointMake(CGRectGetMinX(r), CGRectGetMinY(r)-1));
+		OakSelectionIndex * const indexAbove = index_at_point(CGPointMake(CGRectGetMinX(r), CGRectGetMinY(r)-1));
 		if(_buffer.convert(index.index).line == 0)
 			return indexAbove;
 
-		ng::index_t const bol      = std::max(_buffer.begin(_buffer.convert(index.index).line),      index_at_bol_for(index).index);
-		ng::index_t const bolAbove = std::max(_buffer.begin(_buffer.convert(indexAbove.index).line), index_at_bol_for(indexAbove).index);
-		ng::index_t const eolAbove = index_at_eol_for(bolAbove).index;
+		OakSelectionIndex * const bol      = MAX(_buffer.begin(_buffer.convert(index.index).line),      index_at_bol_for(index).index);
+		OakSelectionIndex * const bolAbove = MAX(_buffer.begin(_buffer.convert(indexAbove.index).line), index_at_bol_for(indexAbove).index);
+		OakSelectionIndex * const eolAbove = index_at_eol_for(bolAbove).index;
 		return advance(_buffer, bolAbove.index, count_columns(_buffer, bol.index, index.index) + index.carry, eolAbove.index);
 	}
 
-	ng::index_t layout_t::index_right_of (ng::index_t  index) const
+	OakSelectionIndex * layout_t::index_right_of (OakSelectionIndex *  index) const
 	{
 		auto row = row_for_offset(index.index);
 		NSUInteger res = row->value.index_right_of(index.index, _buffer, row->offset._length);
@@ -653,20 +653,20 @@ namespace ng
 		return res;
 	}
 
-	ng::index_t layout_t::index_below (ng::index_t  index) const
+	OakSelectionIndex * layout_t::index_below (OakSelectionIndex *  index) const
 	{
 		CGRect r = rect_at_index(index);
-		ng::index_t const indexBelow = index_at_point(CGPointMake(CGRectGetMinX(r), CGRectGetMaxY(r)));
+		OakSelectionIndex * const indexBelow = index_at_point(CGPointMake(CGRectGetMinX(r), CGRectGetMaxY(r)));
 		if(_buffer.convert(index.index).line+1 == _buffer.lines())
 			return indexBelow;
 
-		ng::index_t const bol      = std::max(_buffer.begin(_buffer.convert(index.index).line),      index_at_bol_for(index).index);
-		ng::index_t const bolBelow = std::max(_buffer.begin(_buffer.convert(indexBelow.index).line), index_at_bol_for(indexBelow).index);
-		ng::index_t const eolBelow = index_at_eol_for(bolBelow).index;
+		OakSelectionIndex * const bol      = MAX(_buffer.begin(_buffer.convert(index.index).line),      index_at_bol_for(index).index);
+		OakSelectionIndex * const bolBelow = MAX(_buffer.begin(_buffer.convert(indexBelow.index).line), index_at_bol_for(indexBelow).index);
+		OakSelectionIndex * const eolBelow = index_at_eol_for(bolBelow).index;
 		return advance(_buffer, bolBelow.index, count_columns(_buffer, bol.index, index.index) + index.carry, eolBelow.index);
 	}
 
-	ng::index_t layout_t::index_left_of (ng::index_t  index) const
+	OakSelectionIndex * layout_t::index_left_of (OakSelectionIndex *  index) const
 	{
 		auto row = row_for_offset(index.index);
 		NSUInteger res = row->value.index_left_of(index.index, _buffer, row->offset._length);
@@ -675,41 +675,41 @@ namespace ng
 		return res;
 	}
 
-	ng::index_t layout_t::index_at_bol_for (ng::index_t  index) const
+	OakSelectionIndex * layout_t::index_at_bol_for (OakSelectionIndex *  index) const
 	{
 		auto row = row_for_offset(index.index);
 		return row->value.bol(index.index, _buffer, row->offset._length);
 	}
 
-	ng::index_t layout_t::index_at_eol_for (ng::index_t  index) const
+	OakSelectionIndex * layout_t::index_at_eol_for (OakSelectionIndex *  index) const
 	{
 		auto row = row_for_offset(index.index);
 		return row->value.eol(index.index, _buffer, row->offset._length);
 	}
 
-	ng::index_t layout_t::page_up_for (index_t  index) const
+	OakSelectionIndex * layout_t::page_up_for (index_t  index) const
 	{
 		CGRect r = rect_at_index(index);
-		ng::index_t const indexPageUp = index_at_point(CGPointMake(CGRectGetMinX(r), CGRectGetMinY(r) - _viewport_size.height));
+		OakSelectionIndex * const indexPageUp = index_at_point(CGPointMake(CGRectGetMinX(r), CGRectGetMinY(r) - _viewport_size.height));
 		if(_buffer.convert(index.index).line == 0)
 			return indexPageUp;
 
-		ng::index_t const bol       = std::max(_buffer.begin(_buffer.convert(index.index).line),       index_at_bol_for(index).index);
-		ng::index_t const bolPageUp = std::max(_buffer.begin(_buffer.convert(indexPageUp.index).line), index_at_bol_for(indexPageUp).index);
-		ng::index_t const eolPageUp = index_at_eol_for(bolPageUp).index;
+		OakSelectionIndex * const bol       = MAX(_buffer.begin(_buffer.convert(index.index).line),       index_at_bol_for(index).index);
+		OakSelectionIndex * const bolPageUp = MAX(_buffer.begin(_buffer.convert(indexPageUp.index).line), index_at_bol_for(indexPageUp).index);
+		OakSelectionIndex * const eolPageUp = index_at_eol_for(bolPageUp).index;
 		return advance(_buffer, bolPageUp.index, count_columns(_buffer, bol.index, index.index) + index.carry, eolPageUp.index);
 	}
 
-	ng::index_t layout_t::page_down_for (index_t  index) const
+	OakSelectionIndex * layout_t::page_down_for (index_t  index) const
 	{
 		CGRect r = rect_at_index(index);
-		ng::index_t const indexPageDown = index_at_point(CGPointMake(CGRectGetMinX(r), CGRectGetMinY(r) + _viewport_size.height));
+		OakSelectionIndex * const indexPageDown = index_at_point(CGPointMake(CGRectGetMinX(r), CGRectGetMinY(r) + _viewport_size.height));
 		if(_buffer.convert(index.index).line+1 == _buffer.lines())
 			return indexPageDown;
 
-		ng::index_t const bol         = std::max(_buffer.begin(_buffer.convert(index.index).line),         index_at_bol_for(index).index);
-		ng::index_t const bolPageDown = std::max(_buffer.begin(_buffer.convert(indexPageDown.index).line), index_at_bol_for(indexPageDown).index);
-		ng::index_t const eolPageDown = index_at_eol_for(bolPageDown).index;
+		OakSelectionIndex * const bol         = MAX(_buffer.begin(_buffer.convert(index.index).line),         index_at_bol_for(index).index);
+		OakSelectionIndex * const bolPageDown = MAX(_buffer.begin(_buffer.convert(indexPageDown.index).line), index_at_bol_for(indexPageDown).index);
+		OakSelectionIndex * const eolPageDown = index_at_eol_for(bolPageDown).index;
 		return advance(_buffer, bolPageDown.index, count_columns(_buffer, bol.index, index.index) + index.carry, eolPageDown.index);
 	}
 

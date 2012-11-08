@@ -66,7 +66,7 @@ static double calculate_rank (NSString * lhs, NSString * rhs, std::vector< std::
 			{
 				matrix[i][j] = i == 0 || j == 0 ? 1 : matrix[i-1][j-1] + 1;
 				first[i]     = MIN(j, first[i]);
-				last[i]      = std::max(j+1, last[i]);
+				last[i]      = MAX(j+1, last[i]);
 			}
 		}
 	}
@@ -142,7 +142,7 @@ static double calculate_rank (NSString * lhs, NSString * rhs, std::vector< std::
 		do {
 
 			++i; ++len;
-			first[i] = std::max(bestJIndex + len, first[i]);
+			first[i] = MAX(bestJIndex + len, first[i]);
 			if(len < bestJLength && n < 4)
 			{
 				if(capitals[first[i]])

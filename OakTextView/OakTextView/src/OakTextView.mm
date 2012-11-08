@@ -79,7 +79,7 @@ static std::vector<OakBundleItem *> items_for_tab_expansion (NSString *  buffer,
 	for(NSUInteger i = bol; i < caret; i += buffer[i].size())
 	{
 		// we don’t use text::is_word_char because that function treats underscores as word characters, which is undesired, see <issue://157>.
-		bool isWordChar = CFCharacterSetIsLongCharacterMember(CFCharacterSetGetPredefined(kCFCharacterSetAlphaNumeric), utf8::to_ch(buffer[i]));
+		bool isWordChar = CFCharacterSetIsLongCharacterMember(CFCharacterSetGetPredefined(kCFCharacterSetAlphaNumeric), OakUTF8StringToChar(buffer[i]));
 		NSString * characterClass = character_class(buffer, i);
 
 		if(i == bol || lastWasWordChar != isWordChar || lastCharacterClass != characterClass)
@@ -165,7 +165,7 @@ struct refresh_helper_t
 				auto damagedRects = layout->end_refresh_cycle(merge(_editor->ranges(), [_self markedRanges]), [_self visibleRect], [_self liveSearchRanges]);
 
 				NSRect r = [[_self enclosingScrollView] documentVisibleRect];
-				NSSize newSize = NSMakeSize(std::max(NSWidth(r), layout->width()), std::max(NSHeight(r), layout->height()));
+				NSSize newSize = NSMakeSize(MAX(NSWidth(r), layout->width()), MAX(NSHeight(r), layout->height()));
 				if(!NSEqualSizes([_self frame].size, newSize))
 					[_self setFrameSize:newSize];
 
@@ -349,7 +349,7 @@ enum find_operation_t {
 	citerate(rect, layout->rects_for_ranges(ranges))
 		[clip appendBezierPath:[NSBezierPath bezierPathWithRect:NSOffsetRect(*rect, -NSMinX(srcRect), -NSMinY(srcRect))]];
 
-	NSImage* image = [[[NSImage alloc] initWithSize:NSMakeSize(std::max<CGFloat>(NSWidth(srcRect), 1), std::max<CGFloat>(NSHeight(srcRect), 1))] autorelease];
+	NSImage* image = [[[NSImage alloc] initWithSize:NSMakeSize(MAX<CGFloat>(NSWidth(srcRect), 1), MAX<CGFloat>(NSHeight(srcRect), 1))] autorelease];
 	[image setFlipped:[self isFlipped]];
 	[image lockFocus];
 	[clip addClip];
@@ -512,7 +512,7 @@ enum find_operation_t {
 	{
 		NSRect r = [[self enclosingScrollView] documentVisibleRect];
 		layout->set_viewport_size(r.size);
-		NSSize newSize = NSMakeSize(std::max(NSWidth(r), layout->width()), std::max(NSHeight(r), layout->height()));
+		NSSize newSize = NSMakeSize(MAX(NSWidth(r), layout->width()), MAX(NSHeight(r), layout->height()));
 		if(!NSEqualSizes([self frame].size, newSize))
 			[self setFrameSize:newSize];
 	}
@@ -1334,7 +1334,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 - (NSMenu*)menuForEvent:(NSEvent*)anEvent
 {
 	NSPoint point = [self convertPoint:[anEvent locationInWindow] fromView:nil];
-	ng::index_t  click = layout->index_at_point(point);
+	OakSelectionIndex *  click = layout->index_at_point(point);
 	return [self contextMenuWithMisspelledWord:[self selectAndReturnMisspelledWordAtIndex:click.index]];
 }
 
@@ -1849,7 +1849,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 	if(returnCode == NSAlertDefaultReturn)
 	{
 		NSTextField* textField = (NSTextField*)[alert accessoryView];
-		[self setWrapColumn:std::max<NSInteger>([textField integerValue], 10)];
+		[self setWrapColumn:MAX<NSInteger>([textField integerValue], 10)];
 	}
 	[alert release];
 }
@@ -2061,7 +2061,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 {
 	assert(layout);
 	AUTO_REFRESH;
-	dropPosition = NSEqualPoints(aPoint, NSZeroPoint) ? ng::index_t() : layout->index_at_point(aPoint).index;
+	dropPosition = NSEqualPoints(aPoint, NSZeroPoint) ? OakSelectionIndex *() : layout->index_at_point(aPoint).index;
 	layout->set_drop_marker(dropPosition);
 }
 
@@ -2238,8 +2238,8 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 	D(DBF_OakTextView_DragNDrop, bug("\n"););
 	assert(dropPosition);
 	AUTO_REFRESH;
-	ng::index_t pos = dropPosition;
-	layout->set_drop_marker(dropPosition = ng::index_t());
+	OakSelectionIndex * pos = dropPosition;
+	layout->set_drop_marker(dropPosition = OakSelectionIndex *());
 
 	BOOL res = YES;
 	NSPasteboard* pboard  = [info draggingPasteboard];
@@ -2341,11 +2341,11 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 
 	OakSelectionRanges * s = editor->ranges();
 
-	ng::index_t index = layout->index_at_point(mouseDownPos);
+	OakSelectionIndex * index = layout->index_at_point(mouseDownPos);
 	if(!optionDown)
 		index.carry = 0;
 
-	ng::index_t min = s.last().min(), max = s.last().max();
+	OakSelectionIndex * min = s.last().min(), max = s.last().max();
 	mouseDownIndex = shiftDown ? (index <= min ? max : (max <= index ? min : s.last().first)) : index;
 	OakSelectionRanges * range(ng::range_t(mouseDownIndex, index));
 

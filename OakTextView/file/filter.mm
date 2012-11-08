@@ -13,7 +13,7 @@ static std::vector<OakBundleItem *> binary_filters (NSString * event, NSString *
 	NSUInteger contentMatchSize = 256;
 	foreach(ch, content->begin(), content->end())
 	{
-		contentAsString += utf8::to_s(*ch);
+		contentAsString += OakUTF8CharToString(*ch);
 		if(--contentMatchSize == 0)
 			break;
 	}

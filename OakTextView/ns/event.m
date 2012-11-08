@@ -1,6 +1,6 @@
 #import "event.h"
 #import "ns.h"
-
+#import "utf8.h"
 
 
 static NSString * glyph_named (NSString * name)
@@ -45,7 +45,7 @@ static NSString * glyph_named (NSString * name)
 		{ @"space",        @"␣" }
 	};
     
-	for(NSUInteger i = 0; i != sizeofA(KeyGlyphs); ++i)
+	for(NSUInteger i = 0; i != sizeof(KeyGlyphs) / sizeof(KeyGlyphs[0]); ++i)
 	{
 		if(name == KeyGlyphs[i].name)
 			return KeyGlyphs[i].glyph;
@@ -54,7 +54,7 @@ static NSString * glyph_named (NSString * name)
 	return @"�";
 }
 
-static NSString * glyphs_for_key (NSString * key, bool numpad = false)
+static NSString * glyphs_for_key (NSString * key, BOOL numpad)
 {
 	static struct
     {
@@ -85,8 +85,8 @@ static NSString * glyphs_for_key (NSString * key, bool numpad = false)
 	NSString * res = key;
     
 	bool didMatch = false;
-	uint32_t code = utf8::to_ch(key);
-	for(NSUInteger i = 0; i < sizeofA(Keys) && !didMatch; ++i)
+	uint32_t code = OakUTF8StringToChar(key);
+	for(NSUInteger i = 0; i < sizeof(Keys) / sizeof(Keys[0]) && !didMatch; ++i)
 	{
 		if((didMatch = (code == Keys[i].code)))
         {
@@ -127,7 +127,7 @@ static NSString * string_for (NSUInteger flags)
 	};
     
 	NSMutableString * res = [NSMutableString string];
-	for(NSUInteger i = 0; i < sizeofA(EventFlags); ++i)
+	for(NSUInteger i = 0; i < sizeof(EventFlags) / sizeof(EventFlags[0]); ++i)
     {
 		[res appendString: (flags & EventFlags[i].flag) ? EventFlags[i].symbol : @""];
     }
@@ -148,19 +148,27 @@ static NSUInteger ns_flag_for_char (uint32_t ch)
 	return 0;
 }
 
-static void parse_event_string (NSString * eventString, NSString *& key, NSUInteger& flags, bool legacy = false)
+static NSString * parse_event_string (NSString * eventString, NSUInteger * flags, BOOL legacy)
 {
 	flags = 0;
+    
+    NSMutableString *key = [NSMutableString string];
+    
 	if(legacy)
 	{
-		key = "";
-		bool scanningFlags = true, real = true;
+		BOOL scanningFlags = YES;
+        BOOL real = YES;
+        
 		foreach(ch, utf8::make(eventString.data()), utf8::make(eventString.data() + eventString.size()))
 		{
 			if(scanningFlags = scanningFlags && ns_flag_for_char(*ch) != 0)
+            {
 				flags |= ns_flag_for_char(*ch);
-			else if(real = (!real || *ch != '\\'))
-				key.append(&ch, ch.length());
+                
+			}else if(real = (!real || *ch != '\\'))
+            {
+				[key append(&ch, ch.length());
+            }
 		}
 	}
 	else
@@ -187,23 +195,37 @@ NSString * OakNormalizeEventString (NSString * eventString, NSUInteger* startOfK
     NSString * key; NSUInteger flags;
     parse_event_string(eventString, key, flags, true);
     
-    NSString * modifierString = key.empty() ? "" : string_for(flags);
+    NSString * modifierString = [key length] == 0 ? @"" : string_for(flags);
     if(startOfKey)
-        *startOfKey = modifierString.size();
-    return modifierString + key;
+    {
+        *startOfKey = [modifierString length];
+    }
+    return [modifierString stringByAppendingString: key];
 }
 
 NSString * OakGlyphsForFlags (NSUInteger flags)
 {
-    NSString * res = "";
+    NSMutableString * res = [NSMutableString string];
+    
     if(flags & NSControlKeyMask)
-        res += glyph_named("control");
+    {
+        [res appendString: glyph_named("control")];
+    }
     if(flags & NSAlternateKeyMask)
-        res += glyph_named("modifier");
+    {
+        [res  appendString: glyph_named("modifier")];
+    }
+    
     if(flags & NSShiftKeyMask)
-        res += glyph_named("shift");
+    {
+        [res  appendString: glyph_named("shift")];
+    }
+    
     if(flags & NSCommandKeyMask)
-        res += glyph_named("command");
+    {
+        [res  appendString: glyph_named("command")];
+    }
+    
     return res;
 }
 

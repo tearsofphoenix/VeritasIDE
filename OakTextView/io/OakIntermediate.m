@@ -8,17 +8,35 @@
 
 #import "OakIntermediate.h"
 #import <OakFoundation/OakFoundation.h>
+#import "OakFunctions.h"
 
 @implementation OakIntermediate
 
 static NSString * create_path (NSString * path)
 {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
 	if(![path existsAsPath])
     {
-		return path::make_dir(path::parent(path)), path;
-    }
-	else if(path::device(path) != path::device(path::temp()) && access(path::parent(path).c_str(), W_OK) == 0)
+        NSError *error = nil;
+        
+        [fileManager createDirectoryAtPath: [path stringByDeletingLastPathComponent]
+               withIntermediateDirectories: YES
+                                attributes: nil
+                                     error: &error];
+        if (error)
+        {
+            OakLogError(error);
+        }
+        
+		return path;
+        
+    }else if(path::device(path) != path::device(path::temp())
+             && access(path::parent(path).c_str(), W_OK) == 0)
+    {
 		return path + "~";
+    }
+    
 	return path::temp("atomic_save");
 }
 

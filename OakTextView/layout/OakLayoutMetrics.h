@@ -20,4 +20,13 @@
 @property (nonatomic)       CGFloat ascentDelta;
 @property (nonatomic)       CGFloat leadingDelta;
 
+- (id)initWithFontName: (NSString *)fontName
+              fontSize: (CGFloat)size;
+
+- (CGFloat)baseline: (CGFloat)minAscent;
+
+- (CGFloat)lineHeightWithMinAscent: (CGFloat) minAscent
+                        minDescent: (CGFloat) minDescent
+                        minLeading: (CGFloat) minLeading;
+
 @end

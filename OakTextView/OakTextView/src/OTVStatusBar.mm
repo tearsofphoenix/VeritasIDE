@@ -1,10 +1,15 @@
 #import "OTVStatusBar.h"
 #import <OakAppKit/OakAppKit.h>
+#import "OakFunctions.h"
 
 @interface OTVStatusBar ()
+
 - (void)update;
+
 @property (nonatomic, retain) NSTimer* recordingTimer;
+
 @property (nonatomic, retain) NSImage* pulsedRecordingIndicator;
+
 @end
 
 const NSInteger BundleItemSelector = 1;
@@ -15,24 +20,76 @@ const NSInteger BundleItemSelector = 1;
 
 - (void)update
 {
-	NSUInteger line = caretPosition.min().line, column = caretPosition.min().column;
+	NSUInteger line = [[caretPosition minPosition] line];
+    NSUInteger column = [[caretPosition minPosition] column];
 
-	NSString * lineNumberText = "Line: " + text::pad(line+1, 4) + "\u2003" /* Em Space */ + "Column: " + text::pad(column+1, 3);
-	NSString * tabSizeText    = NSString *(softTabs ? "Soft Tabs:" : "Tab Size:") + "\u2003" /* Em Space */ + text::pad(tabSize, 4);
-	static NSImage* gearImage        = [[NSImage imageNamed:@"Statusbar Gear" inSameBundleAsClass:[self class]] retain];
-	static NSImage* languageIcon     = [[NSImage imageNamed:@"Languages" inSameBundleAsClass:[self class]] retain];
+	//NSString * lineNumberText = [NSString stringWithFormat: @"Line: %@\u2003Column: %@", OakTextPad(line+1, 4), OakTextPad(column+1, 3)];
+    
+	NSString * tabSizeText    = [NSString stringWithFormat: @"%s\u2003%@", (softTabs ? "Soft Tabs:" : "Tab Size:"), OakTextPad(tabSize, 4)];
+    
+	static NSImage* gearImage        = [[NSImage imageNamed: @"Statusbar Gear"
+                                        inSameBundleAsClass: [self class]] retain];
+	static NSImage* languageIcon     = [[NSImage imageNamed: @"Languages"
+                                        inSameBundleAsClass: [self class]] retain];
+    
+    NSMutableArray *cells = [NSMutableArray array];
+    
+    OakStatusBarCell *infoCell = [OakStatusBarCell cellWithType: OakStatusBarInfo
+                                                     target: nil action: NULL];
+    [cells addObject: infoCell];
+    
+    OakStatusBarCell *popUp = [OakStatusBarCell cellWithType: OakStatusBarPopup
+                                                      target: [self delegate]
+                                                      action: @selector(showLanguageSelector:)];
+    
+    [popUp setText: (grammarName ?: @"-")];
+    [popUp setImage: languageIcon];
+    [popUp setMinSize: 110];
 
-	struct sb::cell_t const cellList[] =
-	{
-		sb::cell_t::info(lineNumberText),
-		sb::cell_t::popup([grammarName UTF8String] ?: "-",     @selector(showLanguageSelector:),    self.delegate).set_image(languageIcon).size(110),
-		sb::cell_t::popup(gearImage,                           @selector(showBundleItemSelector:),  self.delegate).set_tag(BundleItemSelector),
-		sb::cell_t::popup(tabSizeText,                         @selector(showTabSizeSelector:),     self.delegate),
-		sb::cell_t::popup([symbolName UTF8String] ?: "Symbol", @selector(showSymbolSelector:),      self.delegate).size(200, CGFLOAT_MAX),
-		sb::cell_t::button(pulsedRecordingIndicator,           @selector(toggleMacroRecording:),    self.delegate).no_padding().size(17),
-		sb::cell_t::info().size(15),
-	};
-	SetCells(self, cellList);
+    [cells addObject: popUp];
+    
+    popUp = [OakStatusBarCell cellWithType: OakStatusBarPopup
+                                    target: [self delegate]
+                                    action: @selector(showBundleItemSelector:)];
+    [popUp setImage: gearImage];
+    [popUp setTag: BundleItemSelector];
+    
+    [cells addObject: popUp];
+    
+    popUp = [OakStatusBarCell cellWithType: OakStatusBarPopup
+                                    target: [self delegate]
+                                    action: @selector(showTabSizeSelector:)];
+    [popUp setText: tabSizeText];
+
+    [cells addObject: popUp];
+    
+    
+    popUp = [OakStatusBarCell cellWithType: OakStatusBarPopup
+                                    target: [self delegate]
+                                    action: @selector(showSymbolSelector:)];
+    [popUp setText: (symbolName ?: @"Symbol")];
+    [popUp setMinSize: 200];
+    [popUp setMaxSize: CGFLOAT_MAX];
+
+    [cells addObject: popUp];
+    
+    OakStatusBarCell *buttonCell = [OakStatusBarCell cellWithType: OakStatusBarButton
+                                                           target: [self delegate]
+                                                           action: @selector(toggleMacroRecording:)];
+    [buttonCell setImage: pulsedRecordingIndicator];
+    [buttonCell noPadding];
+    [buttonCell setMinSize: 17];
+    
+    [cells addObject: buttonCell];
+    
+    infoCell = [OakStatusBarCell cellWithType: OakStatusBarInfo
+                                       target: nil
+                                       action: NULL];
+    [infoCell setMinSize: 15];
+    
+    [cells addObject: infoCell];
+
+    [self setCells: cells];
 }
 
 - (void)updateMacroRecordingAnimation:(NSTimer*)aTimer
@@ -42,7 +99,10 @@ const NSInteger BundleItemSelector = 1;
 
 	[pulsedRecordingIndicator lockFocus];
 	CGFloat fraction = OakCap(0.00, 0.50 + 0.50 * sin(recordingTime), 1.0);
-	[startImage drawAtPoint:NSZeroPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:fraction];
+	[startImage drawAtPoint: NSZeroPoint
+                   fromRect: NSZeroRect
+                  operation: NSCompositeSourceOver
+                   fraction: fraction];
 	[pulsedRecordingIndicator unlockFocus];
 
 	[self update];
@@ -95,7 +155,9 @@ const NSInteger BundleItemSelector = 1;
 
 - (void)setCaretPosition:(NSString *)range
 {
-	caretPosition = range;
+    [caretPosition release];
+	caretPosition = [[OakTextRange alloc] initWithString: range];
+    
 	[self update];
 }
 

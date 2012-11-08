@@ -540,7 +540,7 @@ namespace ng
 							continue;
 						NSUInteger indent = fsm.scan_line(NSString *(it->first, it->second));
 						int oldIndent = indent::leading_whitespace(it->first, it->second, tabSize);
-						transform::shift shifter(std::max(((int)indent)-oldIndent, -minIndent), buffer.indent());
+						transform::shift shifter(MAX(((int)indent)-oldIndent, -minIndent), buffer.indent());
 						str = shifter(str);
 						break;
 					}
@@ -690,7 +690,7 @@ namespace ng
 		}
 	}
 
-	void editor_t::move_selection_to (ng::index_t  index, bool selectInsertion)
+	void editor_t::move_selection_to (OakSelectionIndex *  index, bool selectInsertion)
 	{
 		std::vector<NSString *> v;
 		std::multimap<range_t, NSString *> insertions;
@@ -954,7 +954,7 @@ namespace ng
 				{
 					_buffer.remove_all_marks(kSingleMarkType);
 					_buffer.set_mark(_selections.last().last.index, kSingleMarkType);
-					_selections = ng::index_t(marks.begin()->first);
+					_selections = OakSelectionIndex *(marks.begin()->first);
 				}
 			}
 			break;
@@ -1077,7 +1077,7 @@ namespace ng
 					else if(fromCol == toCol && toCol != 0)
 						fromCol = 0;
 					else if(fromCol == toCol)
-						toCol = std::max(fromCol + 10, wrapColumn);
+						toCol = MAX(fromCol + 10, wrapColumn);
 
 					NSUInteger const from = _buffer.begin(fromPos.line);
 					NSUInteger const to   = _buffer.eol(toPos.line);
@@ -1164,7 +1164,7 @@ namespace ng
 					indent::fsm_t fsm       = indent::create_fsm(buffer, indent::patterns_for_scope(buffer.scope(from)), firstLine, buffer.indent().indent_size(), buffer.indent().tab_size());
 					NSString * line = leftOfCaret + rightOfCaret;
 					NSUInteger existingIndent   = indent::leading_whitespace(line.data(), line.data() + line.size(), buffer.indent().tab_size());
-					NSUInteger newIndent        = std::max(fsm.scan_line(line), existingIndent + buffer.indent().indent_size());
+					NSUInteger newIndent        = MAX(fsm.scan_line(line), existingIndent + buffer.indent().indent_size());
 
 					estimatedIndent = indent::create(newIndent - indent::leading_whitespace(leftOfCaret.data(), leftOfCaret.data() + leftOfCaret.size(), buffer.indent().tab_size()), buffer.indent().tab_size(), buffer.indent().soft_tabs());
 				}
@@ -1234,7 +1234,7 @@ namespace ng
 			int col         = visual_distance(_buffer, _buffer.begin(line), pair->first, false);
 
 			line = OakCap(0, line + deltaY, int(_buffer.lines()-1));
-			col  = std::max(col + deltaX, 0);
+			col  = MAX(col + deltaX, 0);
 			replacements.insert(std::make_pair(visual_advance(_buffer, _buffer.begin(line), col, false), pair->second));
 		}
 		_selections = this->replace(replacements, true);

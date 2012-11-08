@@ -1,14 +1,5 @@
 #include "transform.h"
 #include "indent.h"
-#include <regexp/format_string.h>
-
-#include <oak/server.h>
-#include <text/case.h>
-#include <text/OakTextCtype.h>
-#include <text/parse.h>
-#include <text/utf8.h>
-
-#include <deque>
 
 static NSUInteger count_columns (NSString * str, NSUInteger tabSize)
 {

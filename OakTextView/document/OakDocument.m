@@ -282,12 +282,12 @@ ssize_t revision () const             { return _revision; }
 void set_revision (ssize_t rev)       { check_modified(_disk_revision, rev); }
 bool is_open () const                 { return _open_count != 0 && !_open_callback; }
 
-NSString * file_type () const;
+NSString * file_type () ;
 settings_t const settings () const    { return settings_for_path(virtual_path(), scope(), path::parent(_path), variables(std::map<NSString *, NSString *>(), false)); }
 
-std::map<NSString *, NSString *> variables (std::map<NSString *, NSString *> map, bool sourceFileSystem = true) const;
+std::map<NSString *, NSString *> variables (std::map<NSString *, NSString *> map, bool sourceFileSystem = true) ;
 
-bool is_modified () const;
+bool is_modified () ;
 bool is_on_disk () const                            { return is_open() ? _is_on_disk : path::exists(path());                }
 void set_disk_revision (ssize_t rev)                { check_modified(rev, _revision);                                       }
 NSString * selection () const               { return _selection;                                                    }
@@ -400,7 +400,7 @@ struct extern scanner_t
     static std::vector<OakDocument *> open_documents ();
     
     std::vector<OakDocument *> accept_documents ();
-    NSString * get_current_path () const;
+    NSString * get_current_path () ;
     
 private:
     NSString * path;

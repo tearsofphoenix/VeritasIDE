@@ -3,10 +3,8 @@
 #import "NSColor+Additions.h"
 #import "NSImage+Additions.h"
 #import <OakFoundation/OakFoundation.h>
-
-
-
 #import "OakFunctions.h"
+#import "ns.h"
 
 NSString* const kUserDefaultsDisableTabBarCollapsingKey = @"disableTabBarCollapsing";
 NSString* const OakTabBarViewTabType                    = @"OakTabBarViewTabType";
@@ -492,7 +490,7 @@ static id SafeObjectAtIndex (NSArray* array, NSUInteger index)
 	NSUInteger hiddenTab;
 
 	OakTabBarLayoutMetrics *metrics;
-	std::vector<NSRect> tabRects;
+	NSMutableArray *tabRects;
 	NSMutableDictionary *tabDropSpacing;
 	OakTimer* slideAroundAnimationTimer;
 
@@ -505,7 +503,7 @@ static id SafeObjectAtIndex (NSArray* array, NSUInteger index)
 - (BOOL)performKeyEquivalent: (NSEvent*)anEvent
 {
 	// this should be in the window controller, but there we need subclassing mojo to get key events
-	NSString * keyStr = to_s(anEvent);
+	NSString * keyStr = OakStringFromEventAndFlag(anEvent, NO);
 	if([keyStr isEqualToString: @"~@\uF702"]) // ⌥⌘⇠
     {
 		return [NSApp sendAction: @selector(selectPreviousTab:)
@@ -526,6 +524,8 @@ static id SafeObjectAtIndex (NSArray* array, NSUInteger index)
 {
 	if(self = [super initWithFrame:aRect])
 	{
+        tabRects = [[NSMutableArray alloc] init];
+        
         NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: [[NSBundle bundleForClass:[self class]] pathForResource: @"TabBar"
                                                                                                                           ofType: @"plist"]];
 		metrics           = [OakTabBarLayoutMetrics layoutMetricsFromDictionary: dict];
@@ -641,7 +641,7 @@ static id SafeObjectAtIndex (NSArray* array, NSUInteger index)
 - (void)updateLayout
 {
 	NSRect rect = [self bounds];
-	tabRects.clear();
+	[tabRects removeAllObjects];
 
 	if(!self.isExpanded)
     {
@@ -714,7 +714,7 @@ static id SafeObjectAtIndex (NSArray* array, NSUInteger index)
         
 		if(tabIndex == hiddenTab)
 		{
-			tabRects.push_back(NSZeroRect);
+			[tabRects addObject: [NSValue valueWithRect: NSZeroRect]];
 			continue;
 		}
 
@@ -740,7 +740,7 @@ static id SafeObjectAtIndex (NSArray* array, NSUInteger index)
             [newLayout addObjectsFromArray: layers];
         }
 
-		tabRects.push_back(rect);
+		[tabRects addObject: [NSValue valueWithRect: rect]];
 		rect.origin.x += rect.size.width + [metrics tabSpacing];
 	}
 	
@@ -897,7 +897,7 @@ static id SafeObjectAtIndex (NSArray* array, NSUInteger index)
 	
     double duration = flag ? (([[NSApp currentEvent] modifierFlags] & NSShiftKeyMask) == NSShiftKeyMask ? 3 : 0.5) : 0;
     
-	for(NSUInteger i = 0; i < tabRects.size(); ++i)
+	for(NSUInteger i = 0; i < [tabRects count]; ++i)
     {
         OakTabBarValue *value = [tabDropSpacing objectForKey: @(i)];
         
@@ -930,11 +930,11 @@ static id SafeObjectAtIndex (NSArray* array, NSUInteger index)
 	rect.origin.x += [metrics firstTabOffset];
 	NSUInteger tabIndex = 0;
     
-	for(; tabIndex < tabRects.size(); ++tabIndex)
+	for(; tabIndex < [tabRects count]; ++tabIndex)
 	{
 		if(tabIndex == hiddenTab)
 			continue;
-		rect.size.width = NSWidth(tabRects[tabIndex]);
+		rect.size.width = NSWidth([[tabRects objectAtIndex: tabIndex] rectValue]);
 		if(mousePos.x < NSMaxX(rect))
 			break;
 		rect.origin.x += rect.size.width + [metrics tabSpacing];
@@ -945,9 +945,9 @@ static id SafeObjectAtIndex (NSArray* array, NSUInteger index)
 - (void)dragTab:(id)sender
 {
 	NSUInteger draggedTab = self.tag;
-	NSRect tabRect = tabRects[draggedTab];
+	NSRect tabRect = [[tabRects objectAtIndex: draggedTab] rectValue];
 
-	NSImage* image = [[[NSImage alloc] initWithSize:tabRect.size] autorelease];
+	NSImage* image = [[[NSImage alloc] initWithSize: tabRect.size] autorelease];
 	[image lockFocus];
 
 	uint32_t state = [self currentState] | OakLayerMouseInside | OakLayerMouseDown;

@@ -1,7 +1,5 @@
-#ifndef DOCUMENT_H_MIJOONQT
-#define DOCUMENT_H_MIJOONQT
 
-#include <file/save.h>
+#import "save.h"
 
 @class OakDocumentWatch;
 @class OakDocument;
@@ -24,5 +22,3 @@
                filter: (NSUUID *)filter;
 
 @end
-
-#endif /* end of include guard: DOCUMENT_H_MIJOONQT */

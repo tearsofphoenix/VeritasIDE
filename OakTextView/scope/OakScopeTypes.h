@@ -43,11 +43,11 @@ namespace scope
 			bool anchor_to_bol;
 			bool anchor_to_eol;
 
-			bool does_match (path_t  lhs, path_t  rhs, double* rank) const;
+			bool does_match (path_t  lhs, path_t  rhs, double* rank) ;
 			bool operator== (path_t  rhs) const { return scopes == rhs.scopes; }
 			bool operator!= (path_t  rhs) const { return scopes != rhs.scopes; }
 			bool operator< (path_t  rhs) const  { return scopes < rhs.scopes; }
-			NSString * to_s () const;
+			NSString * to_s () ;
 		};
 
 		struct expression_t
@@ -57,14 +57,14 @@ namespace scope
 			bool negate;
 			any_ptr selector;
 
-			bool does_match (path_t  lhs, path_t  rhs, double* rank) const;
+			bool does_match (path_t  lhs, path_t  rhs, double* rank) ;
 		};
 
 		struct composite_t
 		{
 			std::vector<expression_t> expressions;
 
-			bool does_match (path_t  lhs, path_t  rhs, double* rank) const;
+			bool does_match (path_t  lhs, path_t  rhs, double* rank) ;
 		};
 
 		struct selector_t
@@ -73,7 +73,7 @@ namespace scope
 
 			std::vector<composite_t> composites;
 
-			bool does_match (path_t  lhs, path_t  rhs, double* rank) const;
+			bool does_match (path_t  lhs, path_t  rhs, double* rank) ;
 		};
 
 		struct group_t : any_t
@@ -82,8 +82,8 @@ namespace scope
 
 			selector_t selector;
 
-			bool does_match (path_t  lhs, path_t  rhs, double* rank) const;
-			NSString * to_s () const;
+			bool does_match (path_t  lhs, path_t  rhs, double* rank) ;
+			NSString * to_s () ;
 		};
 
 		struct filter_t : any_t
@@ -94,8 +94,8 @@ namespace scope
 			enum side_t { unset, left = 'L', right = 'R', both = 'B' } filter;
 			any_ptr selector;
 
-			bool does_match (path_t  lhs, path_t  rhs, double* rank) const;
-			NSString * to_s () const;
+			bool does_match (path_t  lhs, path_t  rhs, double* rank) ;
+			NSString * to_s () ;
 		};
 
 		NSString * to_s (scope_t  scope);

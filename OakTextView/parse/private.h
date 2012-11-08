@@ -2,7 +2,7 @@
 #define PARSE_PRIVATE_H_XR3VJA2H
 
 #include "parse.h"
-#include <scope/scope.h>
+
 
 
 namespace parse
@@ -74,8 +74,8 @@ namespace parse
 		bool zw_begin_match;
 		bool apply_end_last;
 
-		bool operator== (stack_t  rhs) const;
-		bool operator!= (stack_t  rhs) const;
+		bool operator== (stack_t  rhs) ;
+		bool operator!= (stack_t  rhs) ;
 	};
 
 	std::vector< std::pair<scope::selector_t, rule_ptr> >& injected_grammars ();

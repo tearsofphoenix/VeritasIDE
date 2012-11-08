@@ -23,16 +23,16 @@ namespace scope
 		scope_t (char const* scope);
 		scope_t (NSString * scope);
 
-		bool has_prefix (scope_t  rhs) const;
+		bool has_prefix (scope_t  rhs) ;
 
-		scope_t append (NSString * atom) const;
-		scope_t parent () const;
+		scope_t append (NSString * atom) ;
+		scope_t parent () ;
 
-		bool operator== (scope_t  rhs) const;
-		bool operator!= (scope_t  rhs) const;
-		bool operator< (scope_t  rhs) const;
+		bool operator== (scope_t  rhs) ;
+		bool operator!= (scope_t  rhs) ;
+		bool operator< (scope_t  rhs) ;
 
-		explicit operator bool () const;
+		explicit operator bool () ;
 
 	private:
 		void setup (NSString * str);
@@ -74,7 +74,7 @@ namespace scope
 		selector_t (char const* str);
 		selector_t (NSString * str);
 
-		bool does_match (context_t  scope, double* rank = NULL) const;
+		bool does_match (context_t  scope, double* rank = NULL) ;
 
 	private:
 		void setup (NSString * str);

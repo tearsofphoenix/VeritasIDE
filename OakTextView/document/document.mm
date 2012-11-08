@@ -1,19 +1,8 @@
 #include "document.h"
 #include "merge.h"
-#include "collection.h"
-
-
-#include <file/type.h>
-#include <file/path_info.h>
-
-#include <selection/selection.h>
-
-#include <text/utf8.h>
-#include <text/OakTextCtype.h>
 
 #import <OakSCM/OakSCM.h>
 
-#include <settings/volume.h>
 #include <queue>
 #include <sys/stat.h>
 
@@ -1026,11 +1015,11 @@ namespace document
 		_content.reset(new io::bytes_t(buf.substr(0, buf.size())));
 	}
 
-	static ng::index_t cap (NSString *  buf, text::pos_t  pos)
+	static OakSelectionIndex * cap (NSString *  buf, text::pos_t  pos)
 	{
 		NSUInteger line = OakCap<NSUInteger>(0, pos.line,   buf.lines()-1);
 		NSUInteger col  = OakCap<NSUInteger>(0, pos.column, buf.eol(line) - buf.begin(line));
-		ng::index_t res = buf.sanitize_index(buf.convert(text::pos_t(line, col)));
+		OakSelectionIndex * res = buf.sanitize_index(buf.convert(text::pos_t(line, col)));
 		if(pos.offset && res.index < buf.size() && buf[res.index] == "\n")
 			res.carry = pos.offset;
 		return res;

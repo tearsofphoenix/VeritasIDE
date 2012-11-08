@@ -113,7 +113,7 @@ void OakShowToolTip (NSString* msg, NSPoint location)
 		return NO;
 
 	NSPoint  p = mousePositionWhenOpened;
-	CGFloat dist = sqrt(SQ(p.x - aPoint.x) + SQ(p.y - aPoint.y));
+	CGFloat dist = sqrt(OakSquare(p.x - aPoint.x) + OakSquare(p.y - aPoint.y));
 
 	CGFloat moveThreshold = [[NSUserDefaults standardUserDefaults] floatForKey:@"OakToolTipMouseDistanceThreshold"];
 	return dist > moveThreshold;
@@ -122,7 +122,9 @@ void OakShowToolTip (NSString* msg, NSPoint location)
 - (void)showUntilUserActivity
 {
 	// since we run a lcoal event loop we wish to ensure that this is not done in the middle of something that can’t handle such thing, e.g. our call stack could be something like lock_buffer() → do_edit_operation() → show_tool_tip() → [here]. Additionally by using performSelector:withObject:afterDelay: we keep ‘self’ retained while the tool tip is up.
-	[self performSelector:@selector(showUntilUserActivityDelayed:) withObject:self afterDelay:0.0];
+	[self performSelector: @selector(showUntilUserActivityDelayed:)
+               withObject: self
+               afterDelay: 0.0];
 }
 
 - (void)showUntilUserActivityDelayed:(id)sender
@@ -142,12 +144,21 @@ void OakShowToolTip (NSString* msg, NSPoint location)
 	BOOL didAcceptMouseMovedEvents = [keyWindow acceptsMouseMovedEvents];
 	[keyWindow setAcceptsMouseMovedEvents:YES];
 
-	while(NSEvent* event = [NSApp nextEventMatchingMask:NSAnyEventMask untilDate:[NSDate distantFuture] inMode:NSDefaultRunLoopMode dequeue:YES])
+	while(NSEvent* event = [NSApp nextEventMatchingMask: NSAnyEventMask
+                                              untilDate: [NSDate distantFuture]
+                                                 inMode: NSDefaultRunLoopMode
+                                                dequeue: YES])
 	{
 		[NSApp sendEvent:event];
 
-		static std::set<NSEventType> const orderOutEvents = { NSLeftMouseDown, NSRightMouseDown, NSOtherMouseDown, NSKeyDown, NSScrollWheel };
-		if(orderOutEvents.find([event type]) != orderOutEvents.end())
+		static NSArray * orderOutEvents = (@[
+                                           @(NSLeftMouseDown),
+                                           @(NSRightMouseDown),
+                                           @(NSOtherMouseDown),
+                                           @(NSKeyDown), @(NSScrollWheel)
+                                           ]);
+        
+		if([orderOutEvents containsObject: @([event type])])
 		{
 			NSLog(@"close because of key/mouse down event\n");
 			break;
@@ -188,8 +199,8 @@ void OakShowToolTip (NSString* msg, NSPoint location)
 	frame.size.height = MIN(NSHeight(frame), NSHeight(r));
 	[self setFrame:frame display:NO];
 
-	aPoint.x = std::max(NSMinX(r), MIN(aPoint.x, NSMaxX(r)-NSWidth(frame)));
-	aPoint.y = MIN(std::max(NSMinY(r)+NSHeight(frame), aPoint.y), NSMaxY(r));
+	aPoint.x = MAX(NSMinX(r), MIN(aPoint.x, NSMaxX(r)-NSWidth(frame)));
+	aPoint.y = MIN(MAX(NSMinY(r)+NSHeight(frame), aPoint.y), NSMaxY(r));
 
 	[self setFrameTopLeftPoint:aPoint];
 	[self showUntilUserActivity];
@@ -200,9 +211,16 @@ void OakShowToolTip (NSString* msg, NSPoint location)
 	if(![self isVisible] || animationTimer)
 		return;
 
-	[self stopAnimation:self];
-	[self setValue:[NSDate date] forKey:@"animationStart"];
-	[self setValue:[NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(animationTick:) userInfo:nil repeats:YES] forKey:@"animationTimer"];
+	[self stopAnimation: self];
+    
+	[self setValue: [NSDate date]
+            forKey: @"animationStart"];
+    
+	[self setValue:[NSTimer scheduledTimerWithTimeInterval: 0.02
+                                                    target: self
+                                                  selector: @selector(animationTick:)
+                                                  userInfo: nil
+                                                   repeats: YES] forKey:@"animationTimer"];
 }
 
 - (void)animationTick:(id)sender

@@ -24,3 +24,11 @@ extern CGFloat OakSquare(CGFloat v);
                                                     CGContextSetFillColorWithColor((context), (color));\
                                                     CGContextFillRect((context), (rect));\
                                                 } while ( 0 )
+
+#define OakLogErrorContent(error, content) do\
+                                            {\
+                                                NSLog(@"in func: %s error: %@ content: %@", __func__, (error), (content));\
+                                            } while ( 0 )
+
+
+#define OakLogError(error) OakLogErrorContent(error, nil)

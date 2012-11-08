@@ -43,7 +43,7 @@ enum action_t { kActionNop, kActionTab, kActionReturn, kActionCancel, kActionMov
 	for(NSUInteger i = 0; i < [choices count]; ++i)
 	{
 		[dataCell setStringValue:[choices objectAtIndex:i]];
-		width = std::max(width, [dataCell cellSize].width + 4);
+		width = MAX(width, [dataCell cellSize].width + 4);
 	}
 
 	if([choices count] > 10)

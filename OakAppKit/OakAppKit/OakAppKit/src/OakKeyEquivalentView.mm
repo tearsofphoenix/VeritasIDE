@@ -1,7 +1,9 @@
 #import "OakKeyEquivalentView.h"
 #import "NSImage+Additions.h"
 #import <OakFoundation/OakFoundation.h>
-
+#import "event.h"
+#import "ns.h"
+#import "utf8.h"
 
 #import <Carbon/Carbon.h>
 
@@ -223,7 +225,7 @@ static NSString* const kRecordingPlaceholderString = @"…";
 	if(!recording)
 		return NO;
 
-	self.eventString = to_s(anEvent);
+	self.eventString = OakStringFromEventAndFlag(anEvent, NO);
 	self.recording = NO;
 	return YES;
 }
@@ -236,10 +238,13 @@ static NSString* const kRecordingPlaceholderString = @"…";
 	}
 	else
 	{
-        NSArray * ClearKeys     = @[ utf8::to_s(NSDeleteCharacter), utf8::to_s(NSDeleteFunctionKey) ];
-		NSArray * RecordingKeys = @[ @" ", @"\n", @"\r" ];
-		NSString * keyString = to_s(anEvent);
-		if([ClearKeys containsObject: keyString])
+        NSArray * ClearKeys     = @[ OakUTF8CharToString(NSDeleteCharacter), OakUTF8CharToString(NSDeleteFunctionKey) ];
+		
+        NSArray * RecordingKeys = @[ @" ", @"\n", @"\r" ];
+        
+		NSString * keyString = OakStringFromEventAndFlag(anEvent, NO);
+		
+        if([ClearKeys containsObject: keyString])
         {
 			[self clearKeyEquivalent: self];
             

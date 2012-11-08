@@ -218,7 +218,7 @@ static id OakGutterViewDataSourceMake()
 	{
 		NSUInteger n = 1;
 		while(NSImage* img = [[self columnWithIdentifier:identifier]->datasource imageForState:n++ forColumnWithIdentifier:[NSString stringWithCxxString:identifier]])
-			width = std::max(width, [img size].width);
+			width = MAX(width, [img size].width);
 	}
 
 	return ceil(width);

@@ -15,7 +15,7 @@ namespace oak
 	template <typename _ValueT>
 	_ValueT cap (_ValueT min, _ValueT cur, _ValueT max)
 	{
-		return std::max(min, MIN(cur, max));
+		return MAX(min, MIN(cur, max));
 	}
 
 	template <typename _InputIter1, typename _InputIter2>

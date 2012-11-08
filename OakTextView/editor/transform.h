@@ -10,7 +10,7 @@ namespace transform
 	struct shift
 	{
 		shift (ssize_t amount, text::indent_t  indent) : amount(amount), indent(indent) { }
-		NSString * operator() (NSString * src) const;
+		NSString * operator() (NSString * src) ;
 	private:
 		ssize_t amount;
 		text::indent_t indent;
@@ -19,7 +19,7 @@ namespace transform
 	struct reformat
 	{
 		reformat (NSUInteger wrap, NSUInteger tabSize, bool newlineTerminate = true) : wrap(wrap), tabSize(tabSize), newline(newlineTerminate) { }
-		NSString * operator() (NSString * src) const;
+		NSString * operator() (NSString * src) ;
 	private:
 		NSUInteger wrap, tabSize;
 		bool newline;
@@ -28,7 +28,7 @@ namespace transform
 	struct justify
 	{
 		justify (NSUInteger wrap, NSUInteger tabSize, bool newlineTerminate = true) : wrap(wrap), tabSize(tabSize), newline(newlineTerminate) { }
-		NSString * operator() (NSString * src) const;
+		NSString * operator() (NSString * src) ;
 	private:
 		NSUInteger wrap, tabSize;
 		bool newline;
@@ -37,7 +37,7 @@ namespace transform
 	struct replace
 	{
 		replace (NSString * text) : text(text) { }
-		NSString * operator() (NSString * src) const;
+		NSString * operator() (NSString * src) ;
 	private:
 		NSString * text;
 	};
@@ -45,7 +45,7 @@ namespace transform
 	struct surround
 	{
 		surround (NSString * prefix, NSString * suffix) : prefix(prefix), suffix(suffix) { }
-		NSString * operator() (NSString * src) const;
+		NSString * operator() (NSString * src) ;
 	private:
 		NSString * prefix, suffix;
 	};

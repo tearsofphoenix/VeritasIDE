@@ -1,14 +1,6 @@
 #include "selection.h"
 
-#include <text/classification.h>
-#include <text/utf8.h>
-#include <text/OakTextCtype.h>
 
-
-
-
-namespace ng
-{
 	static NSUInteger count_columns (NSString * buffer, index_t caret)
 	{
 		NSUInteger const tabSize = buffer.indent().tab_size();
@@ -304,7 +296,7 @@ namespace ng
 				NSUInteger lineB = buffer.convert(range->last.index).line;
 
 				NSUInteger fromLine = MIN(lineA, lineB), fromCol = MIN(colA, colB);
-				NSUInteger toLine   = std::max(lineA, lineB), toCol   = std::max(colA, colB);
+				NSUInteger toLine   = MAX(lineA, lineB), toCol   = MAX(colA, colB);
 
 				for(NSUInteger n = fromLine; n <= toLine; ++n)
 				{
@@ -356,7 +348,7 @@ namespace ng
 	{
 		NSUInteger bol = buffer.begin(line);
 		NSUInteger eol = buffer.eol(line);
-		while(bol < eol && isspace(utf8::to_ch(buffer[bol])))
+		while(bol < eol && isspace(OakUTF8StringToChar(buffer[bol])))
 			++bol;
 		return bol;
 	}
@@ -672,7 +664,7 @@ namespace ng
 			iterate(range, res)
 			{
 				min = MIN(min, range->min());
-				max = std::max(max, range->max());
+				max = MAX(max, range->max());
 			}
 			res = orgUnit == kSelectionMoveUp ? min : max;
 		}
@@ -1139,10 +1131,10 @@ namespace ng
 
 		if(options & find::extend_selection)
 		{
-			ng::index_t anchor(options & find::backwards ? buffer.size() : 0);
+			OakSelectionIndex * anchor(options & find::backwards ? buffer.size() : 0);
 			iterate(range, selection)
 			{
-				anchor = options & find::backwards ? MIN(range->min(), anchor) : std::max(range->max(), anchor);
+				anchor = options & find::backwards ? MIN(range->min(), anchor) : MAX(range->max(), anchor);
 				res.insert(std::make_pair(*range, std::map<NSString *, NSString *>()));
 			}
 
@@ -1248,5 +1240,3 @@ namespace ng
 		}
 		return res;
 	}
-
-} /* ng */

@@ -200,7 +200,7 @@ private:
 }
 
 - (IBAction)makeTextLarger:(id)sender       { [self setFont:[NSFont fontWithName:[textView.font fontName] size:[textView.font pointSize] + 1]]; }
-- (IBAction)makeTextSmaller:(id)sender      { [self setFont:[NSFont fontWithName:[textView.font fontName] size:std::max<CGFloat>([textView.font pointSize] - 1, 5)]]; }
+- (IBAction)makeTextSmaller:(id)sender      { [self setFont:[NSFont fontWithName:[textView.font fontName] size:MAX<CGFloat>([textView.font pointSize] - 1, 5)]]; }
 
 - (void)changeFont:(id)sender
 {
@@ -703,7 +703,7 @@ static NSString * kBookmarkType = "bookmark";
 	iterate(pair, marks)
 	{
 		NSUInteger n = buf.convert(pair->first).line;
-		NSMenuItem* item = [aMenu addItemWithTitle:[NSString stringWithCxxString:text::pad(n+1, 4) + ": " + buf.substr(buf.begin(n), buf.eol(n))] action:@selector(takeBookmarkFrom:) keyEquivalent:@""];
+		NSMenuItem* item = [aMenu addItemWithTitle: OakTextPad(n+1, 4) + ": " + buf.substr(buf.begin(n), buf.eol(n))] action:@selector(takeBookmarkFrom:) keyEquivalent:@""];
 		[item setRepresentedObject:[NSString stringWithCxxString:buf.convert(pair->first)]];
 	}
 

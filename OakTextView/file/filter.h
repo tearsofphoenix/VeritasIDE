@@ -1,8 +1,8 @@
 #ifndef FILE_FILTER_H_7W5OVO3A
 #define FILE_FILTER_H_7W5OVO3A
 
-#include "bytes.h"
-#include <plist/uuid.h>
+
+
 
 
 struct bundle_command_t;

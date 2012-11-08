@@ -120,7 +120,7 @@ namespace scope
 
 					bool local = expr->selector->does_match(lhs, rhs, &r);
 					if(local)
-						sum = std::max(r, sum);
+						sum = MAX(r, sum);
 
 					if(expr->negate)
 						local = !local;
@@ -176,7 +176,7 @@ namespace scope
 				{
 					if(composite->does_match(lhs, rhs, &r))
 					{
-						sum = std::max(r, sum);
+						sum = MAX(r, sum);
 						res = true;
 					}
 				}
@@ -207,7 +207,7 @@ namespace scope
 				double r1, r2;
 				if(selector->does_match(lhs, lhs, &r1) && selector->does_match(rhs, rhs, &r2))
 				{
-					*rank = std::max(r1, r2);
+					*rank = MAX(r1, r2);
 					return true;
 				}
 				return false;
