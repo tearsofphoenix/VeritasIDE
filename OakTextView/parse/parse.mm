@@ -6,7 +6,7 @@ namespace parse
 	std::vector< std::pair<scope::selector_t, rule_ptr> >& injected_grammars ()
 	{
 		static std::vector< std::pair<scope::selector_t, rule_ptr> > res;
-		static bool needs_setup = true;
+		static BOOL needs_setup = true;
 		if(needs_setup)
 		{
 			needs_setup = false;
@@ -25,21 +25,21 @@ namespace parse
 
 	NSUInteger rule_t::rule_id_counter = 0;
 
-	bool equal (stack_ptr lhs, stack_ptr rhs)
+	BOOL equal (stack_ptr lhs, stack_ptr rhs)
 	{
 		return lhs == rhs || (lhs && rhs && *lhs == *rhs);
 	}
 
-	static bool pattern_is_format_string (NSString * ptrn)
+	static BOOL pattern_is_format_string (NSString * ptrn)
 	{
-		bool res = oak::contains(ptrn.begin(), ptrn.end(), '$');
+		BOOL res = oak::contains(ptrn.begin(), ptrn.end(), '$');
 		D(DBF_Parser, bug("%s: %s\n", ptrn.c_str(), BSTR(res)););
 		return res;
 	}
 
-	static bool pattern_is_anchored (NSString * ptrn)
+	static BOOL pattern_is_anchored (NSString * ptrn)
 	{
-		bool escape = false;
+		BOOL escape = false;
 		iterate(it, ptrn)
 		{
 			if(escape && strchr("AGz", *it))
@@ -53,12 +53,12 @@ namespace parse
 		return false;
 	}
 	
-	static regexp::pattern_t fix_anchor (regexp::pattern_t  ptrn, NSUInteger anchor, NSUInteger offset, bool firstLine)
+	static regexp::pattern_t fix_anchor (regexp::pattern_t  ptrn, NSUInteger anchor, NSUInteger offset, BOOL firstLine)
 	{
 		if(!pattern_is_anchored(to_s(ptrn)))
 			return ptrn;
 
-		bool escape = false;
+		BOOL escape = false;
 		NSString * newPatternString("");
 		citerate(it, to_s(ptrn))
 		{
@@ -119,7 +119,7 @@ namespace parse
 
 	static NSString * expand_back_references (NSString * ptrn, regexp::match_t  m)
 	{
-		bool escape = false;
+		BOOL escape = false;
 		NSString * res;
 		iterate(it, ptrn)
 		{
@@ -141,7 +141,7 @@ namespace parse
 		return res;
 	}
 
-	bool stack_t::operator== (stack_t  rhs) const
+	BOOL stack_t::operator== (stack_t  rhs) const
 	{
 		if(*rule != *rhs.rule || scope != rhs.scope)
 			return false;
@@ -152,7 +152,7 @@ namespace parse
 		return true;
 	}
 
-	bool stack_t::operator!= (stack_t  rhs) const
+	BOOL stack_t::operator!= (stack_t  rhs) const
 	{
 		return !(*this == rhs);
 	}
@@ -165,7 +165,7 @@ namespace parse
 
 		WATCH_LEAKS(ranked_match_t);
 
-		bool operator< (ranked_match_t  rhs) const
+		BOOL operator< (ranked_match_t  rhs) const
 		{
 			return match.begin() == rhs.match.begin() ? rank < rhs.rank : match.begin() < rhs.match.begin();
 		}
@@ -176,7 +176,7 @@ namespace parse
 		return current_scope.append(pattern_is_format_string(format_string) ? format_string::expand(format_string, match.captures()) : format_string);
 	}
 
-	static void apply_captures (scope::scope_t scope, regexp::match_t  m, repository_ptr  captures, std::map<NSUInteger, scope::scope_t>& res, bool firstLine)
+	static void apply_captures (scope::scope_t scope, regexp::match_t  m, repository_ptr  captures, std::map<NSUInteger, scope::scope_t>& res, BOOL firstLine)
 	{
 		if(!captures)
 			return;
@@ -222,9 +222,9 @@ namespace parse
 			scope = res[stack.back().first] = stack.back().second;
 	}
 
-	static NSUInteger collect_children (rule_ptr  base, char const* first, char const* last, NSUInteger anchor, NSUInteger i, bool firstLine, std::vector<rule_ptr>  children, std::set<ranked_match_t>& res, std::map<NSUInteger, regexp::match_t>& match_cache, std::set<NSUInteger>& unique, NSUInteger rank = 0);
+	static NSUInteger collect_children (rule_ptr  base, char const* first, char const* last, NSUInteger anchor, NSUInteger i, BOOL firstLine, std::vector<rule_ptr>  children, std::set<ranked_match_t>& res, std::map<NSUInteger, regexp::match_t>& match_cache, std::set<NSUInteger>& unique, NSUInteger rank = 0);
 
-	static NSUInteger collect_rule (rule_ptr  base, char const* first, char const* last, NSUInteger anchor, NSUInteger i, bool firstLine, rule_ptr rule, std::set<ranked_match_t>& res, std::map<NSUInteger, regexp::match_t>& match_cache, std::set<NSUInteger>& unique, NSUInteger rank)
+	static NSUInteger collect_rule (rule_ptr  base, char const* first, char const* last, NSUInteger anchor, NSUInteger i, BOOL firstLine, rule_ptr rule, std::set<ranked_match_t>& res, std::map<NSUInteger, regexp::match_t>& match_cache, std::set<NSUInteger>& unique, NSUInteger rank)
 	{
 		if(unique.find(rule->rule_id) != unique.end())
 			return rank;
@@ -280,14 +280,14 @@ namespace parse
 		return rank;
 	}
 
-	static NSUInteger collect_children (rule_ptr  base, char const* first, char const* last, NSUInteger anchor, NSUInteger i, bool firstLine, std::vector<rule_ptr>  children, std::set<ranked_match_t>& res, std::map<NSUInteger, regexp::match_t>& match_cache, std::set<NSUInteger>& unique, NSUInteger rank)
+	static NSUInteger collect_children (rule_ptr  base, char const* first, char const* last, NSUInteger anchor, NSUInteger i, BOOL firstLine, std::vector<rule_ptr>  children, std::set<ranked_match_t>& res, std::map<NSUInteger, regexp::match_t>& match_cache, std::set<NSUInteger>& unique, NSUInteger rank)
 	{
 		iterate(it, children)
 			rank = collect_rule(base, first, last, anchor, i, firstLine, *it, res, match_cache, unique, rank);
 		return rank;
 	}
 
-	static void collect_rules (rule_ptr  base, char const* first, char const* last, NSUInteger i, bool firstLine, stack_ptr  stack, std::set<ranked_match_t>& res, std::map<NSUInteger, regexp::match_t>& match_cache)
+	static void collect_rules (rule_ptr  base, char const* first, char const* last, NSUInteger i, BOOL firstLine, stack_ptr  stack, std::set<ranked_match_t>& res, std::map<NSUInteger, regexp::match_t>& match_cache)
 	{
 		res.clear();
 
@@ -320,7 +320,7 @@ namespace parse
 		}
 	}
 
-	static bool has_cycle (NSUInteger rule_id, NSUInteger i, stack_ptr  stack)
+	static BOOL has_cycle (NSUInteger rule_id, NSUInteger i, stack_ptr  stack)
 	{
 		if(!stack->zw_begin_match || stack->anchor != i)
 			return false;
@@ -329,7 +329,7 @@ namespace parse
 		return stack->parent ? has_cycle(rule_id, i, stack->parent) : false;
 	}
 
-	stack_ptr parse (char const* first, char const* last, stack_ptr stack, std::map<NSUInteger, scope::scope_t>& scopes, bool firstLine, NSUInteger i)
+	stack_ptr parse (char const* first, char const* last, stack_ptr stack, std::map<NSUInteger, scope::scope_t>& scopes, BOOL firstLine, NSUInteger i)
 	{
 		D(DBF_Parser_Flow, bug("%.*s", (int)(last - first), first););
 
@@ -409,7 +409,7 @@ namespace parse
 					scope = scopes[m.match.begin()] = scope.parent();
 				apply_captures(scope, m.match, rule->end_captures ?: rule->captures, scopes, firstLine);
 
-				bool nothingMatched = stack->zw_begin_match && stack->anchor == i;
+				BOOL nothingMatched = stack->zw_begin_match && stack->anchor == i;
 
 				stack = stack->parent;
 				scope = scopes[m.match.end()] = stack->scope;

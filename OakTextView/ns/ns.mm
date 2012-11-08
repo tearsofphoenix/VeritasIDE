@@ -36,7 +36,7 @@ static NSString * string_for (CGEventFlags flags)
 	return res;
 }
 
-static bool is_ascii (NSString * str)
+static BOOL is_ascii (NSString * str)
 {
 	char ch = str.size() == 1 ? str[0] : 0;
 	return 0x20 < ch && ch < 0x7F;
@@ -56,7 +56,7 @@ static bool is_ascii (NSString * str)
 		end if
 */
 
-NSString * to_s (NSEvent* anEvent, bool preserveNumPadFlag)
+NSString * to_s (NSEvent* anEvent, BOOL preserveNumPadFlag)
 {
 	CGEventRef cgEvent = [anEvent CGEvent];
 	CGKeyCode key      = (CGKeyCode)[anEvent keyCode];

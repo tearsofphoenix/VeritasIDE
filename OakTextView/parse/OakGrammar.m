@@ -46,7 +46,7 @@
 
 static OakParseRule *parse_rule (id plist);
 
-//static bool convert_array (plist::array_t  array, std::vector<rule_ptr>& res)
+//static BOOL convert_array (plist::array_t  array, std::vector<rule_ptr>& res)
 //{
 //    iterate(it, array)
 //    {
@@ -56,7 +56,7 @@ static OakParseRule *parse_rule (id plist);
 //    return true;
 //}
 
-//static bool convert_dictionary (NSMutableDictionary *  dict, repository_ptr& res)
+//static BOOL convert_dictionary (NSMutableDictionary *  dict, repository_ptr& res)
 //{
 //    res.reset(new repository_t);
 //    iterate(it, dict)
@@ -111,9 +111,9 @@ static rule_ptr find_repository_item (rule_ptr  rule, NSString * name)
     return rule_ptr();
 }
 
-static bool pattern_has_back_references (NSString * ptrn)
+static BOOL pattern_has_back_references (NSString * ptrn)
 {
-    bool escape = false;
+    BOOL escape = false;
     iterate(it, ptrn)
     {
         if(escape && isdigit(*it))

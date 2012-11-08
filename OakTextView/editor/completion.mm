@@ -26,18 +26,18 @@ namespace ng
 	{
 		completion_command_delegate_t (NSString *  buffer, OakSelectionRanges *  ranges) : buffer(buffer), ranges(ranges), result(NULL_STR) { }
 
-		OakTextRange * write_unit_to_fd (int fd, input::type unit, input::type fallbackUnit, input_format::type format, scope::selector_t  scopeSelector, std::map<NSString *, NSString *>& variables, bool* inputWasSelection)
+		OakTextRange * write_unit_to_fd (int fd, input::type unit, input::type fallbackUnit, input_format::type format, scope::selector_t  scopeSelector, std::map<NSString *, NSString *>& variables, BOOL* inputWasSelection)
 		{
 			return ng::write_unit_to_fd(buffer, ranges.last(), buffer.indent().tab_size(), fd, unit, fallbackUnit, format, scopeSelector, variables, inputWasSelection);
 		}
 
-		bool accept_html_data (command::runner_ptr runner, char const* data, NSUInteger len) { return fprintf(stderr, "html: %.*s", (int)len, data), false; }
+		BOOL accept_html_data (command::runner_ptr runner, char const* data, NSUInteger len) { return fprintf(stderr, "html: %.*s", (int)len, data), false; }
 
 		void show_document (NSString * str) { fprintf(stderr, "document: %s\n", str.c_str()); }
 		void show_tool_tip (NSString * str) { fprintf(stderr, "tool tip: %s\n", str.c_str()); }
 		void show_error (bundle_command_t  command, int rc, NSString * out, NSString * err) { fprintf(stderr, "error: %s%s\n", out.c_str(), err.c_str()); }
 
-		bool accept_result (NSString * out, output::type placement, output_format::type format, output_caret::type outputCaret, OakTextRange * inputRange, std::map<NSString *, NSString *>  environment)
+		BOOL accept_result (NSString * out, output::type placement, output_format::type format, output_caret::type outputCaret, OakTextRange * inputRange, std::map<NSString *, NSString *>  environment)
 		{
 			if(placement == output::replace_selection && format == output_format::completion_list)
 				result = out;
@@ -129,8 +129,8 @@ namespace ng
 		{
 			NSString * word = pair->second;
 
-			bool hasPrefix = prefix.empty() || (prefix.size() < word.size() && word.find(prefix) == 0);
-			bool hasSuffix = hasPrefix && !suffix.empty() && suffix.size() < word.size() && word.find(suffix, word.size() - suffix.size()) == word.size() - suffix.size();
+			BOOL hasPrefix = prefix.empty() || (prefix.size() < word.size() && word.find(prefix) == 0);
+			BOOL hasSuffix = hasPrefix && !suffix.empty() && suffix.size() < word.size() && word.find(suffix, word.size() - suffix.size()) == word.size() - suffix.size();
 			if(!hasPrefix || word == currentWord)
 				continue;
 
@@ -152,7 +152,7 @@ namespace ng
 		return res;
 	}
 
-	bool editor_t::setup_completion (NSString * scopeAttributes)
+	BOOL editor_t::setup_completion (NSString * scopeAttributes)
 	{
 		completion_info_t& info = _completion_info;
 		if(info.revision() != _buffer.revision() || info.ranges() != _selections)

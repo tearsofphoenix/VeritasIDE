@@ -8,7 +8,7 @@
 	extern NSUUID * kCollectionNew;
 	extern NSUUID * kCollectionCurrent;
 
-	extern void show (OakDocument * document, NSUUID * collection, OakTextRange * selection, bool bringToFront);
+	extern void show (OakDocument * document, NSUUID * collection, OakTextRange * selection, BOOL bringToFront);
     
 	extern void show (NSArray *documents);
 

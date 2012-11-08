@@ -2,7 +2,7 @@
 
 
 
-void show (OakDocument * document, NSUUID * collection, OakTextRange * selection, bool bringToFront)
+void show (OakDocument * document, NSUUID * collection, OakTextRange * selection, BOOL bringToFront)
 {
     
 }

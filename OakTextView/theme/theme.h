@@ -84,8 +84,8 @@ typedef NSInteger bool_t;
     OakThemeGutterStyle *_gutter_styles;
     NSColor * _foregroundColor;
     NSColor * _backgroundColor;
-    bool _isDark;
-    bool _isTransparent;
+    BOOL _isDark;
+    BOOL _isTransparent;
     
     NSMutableDictionary *_cache;
     

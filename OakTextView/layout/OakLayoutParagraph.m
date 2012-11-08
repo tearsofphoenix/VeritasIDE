@@ -374,7 +374,7 @@
                 auto misspellings = buffer.misspellings(offset, offset + node->length());
                 for(auto it = misspellings.begin(); it != misspellings.end(); )
                 {
-                    bool flag = it->second;
+                    BOOL flag = it->second;
                     NSUInteger from = it->first;
                     NSUInteger to = ++it != misspellings.end() ? it->first : node->length();
                     if(flag)

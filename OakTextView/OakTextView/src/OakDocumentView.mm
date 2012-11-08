@@ -465,7 +465,7 @@ private:
 	NSMenu* menu = [[NSMenu new] autorelease];
 	iterate(pair, grammars)
 	{
-		bool selectedGrammar = document->file_type() == pair->second->value_for_field(bundles::kFieldGrammarScope);
+		BOOL selectedGrammar = document->file_type() == pair->second->value_for_field(bundles::kFieldGrammarScope);
 		if(!selectedGrammar && pair->second->hidden_from_user())
 			continue;
 
@@ -527,7 +527,7 @@ private:
 	NSMenu* menu = [NSMenu new];
 	iterate(pair, ordered)
 	{
-		bool selectedGrammar = false;
+		BOOL selectedGrammar = false;
 		citerate(item, bundles::query(bundles::kFieldGrammarScope, document->file_type(), scope::wildcard, bundles::kItemTypeGrammar, pair->second->uuid(), true, true))
 			selectedGrammar = true;
 		if((!selectedGrammar && pair->second->hidden_from_user()) || pair->second->menu().empty())

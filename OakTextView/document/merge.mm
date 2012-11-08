@@ -19,7 +19,7 @@ static NSString * save (NSString * buf)
 void merge (NSString * oldContent,
             NSString * myContent,
             NSString * yourContent,
-            bool* conflict)
+            BOOL* conflict)
 {
 	NSString * oldFile  = save(oldContent);
 	NSString * myFile   = save(myContent);

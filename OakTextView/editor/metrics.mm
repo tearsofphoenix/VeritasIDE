@@ -10,7 +10,7 @@ namespace ng
 	// = Visual Distances =
 	// ====================
 
-	NSUInteger editor_t::visual_distance (NSString *  buffer, index_t first, index_t last, bool eastAsianWidth)
+	NSUInteger editor_t::visual_distance (NSString *  buffer, index_t first, index_t last, BOOL eastAsianWidth)
 	{
 		ASSERT_LE(first.index, last.index);
 		ASSERT_EQ(buffer.convert(first.index).line, buffer.convert(last.index).line);
@@ -21,7 +21,7 @@ namespace ng
 		return len + (first.index == last.index ? last.carry - first.carry : last.carry);
 	}
 
-	index_t editor_t::visual_advance (NSString *  buffer, index_t caret, NSUInteger distance, bool eastAsianWidth)
+	index_t editor_t::visual_advance (NSString *  buffer, index_t caret, NSUInteger distance, BOOL eastAsianWidth)
 	{
 		NSUInteger len = 0, tabSize = buffer.indent().tab_size();
 		NSString * str = buffer.substr(caret.index, buffer.eol(buffer.convert(caret.index).line));

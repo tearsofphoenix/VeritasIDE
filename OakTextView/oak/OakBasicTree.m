@@ -102,7 +102,7 @@ static void split (OakBasicTreeNode *node)
     }
 }
 
-static bool eq (OakBasicTreeNode* lhs, OakBasicTreeNode* rhs)
+static BOOL eq (OakBasicTreeNode* lhs, OakBasicTreeNode* rhs)
 {
     return ([lhs is_null] && [rhs is_null]) || lhs == rhs;
 }

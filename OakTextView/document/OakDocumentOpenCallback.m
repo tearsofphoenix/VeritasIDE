@@ -644,7 +644,7 @@ NSString * charset_from_bom (_InputIter  first, _InputIter  last)
 	return kCharsetNoEncoding;
 }
 
-static bool not_ascii (char ch)
+static BOOL not_ascii (char ch)
 {
 	return !((0x20 <= ch && ch < 0x80) || (ch && strchr("\t\n\f\r\e", ch)));
 }
@@ -660,7 +660,7 @@ static NSData * remove_bom (NSData * content)
 	return content;
 }
 
-static NSData * convert (NSData * content, NSString * from, NSString * to, bool bom = false)
+static NSData * convert (NSData * content, NSString * from, NSString * to, BOOL bom = false)
 {
 	if(from == kCharsetUnknown)
 		return NSData *();
@@ -695,7 +695,7 @@ _InputIter harmonize_line_endings (_InputIter first, _InputIter last, NSString *
 	_InputIter out = first;
 	while(first != last)
 	{
-		bool isCR = *first == '\r';
+		BOOL isCR = *first == '\r';
 		if(out != first || isCR)
 			*out = isCR ? '\n' : *first;
 		if(++first != last && isCR && *first == '\n')

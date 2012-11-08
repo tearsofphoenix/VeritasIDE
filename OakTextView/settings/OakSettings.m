@@ -87,7 +87,7 @@ static NSArray *global_variables ()
             CFArrayRef cfArray = (CFArrayRef)cfPlist;
             for(CFIndex i = 0; i < CFArrayGetCount(cfArray); ++i)
             {
-                NSString * name, value; bool enabled;
+                NSString * name, value; BOOL enabled;
                 NSMutableDictionary *  plist = plist::convert(CFArrayGetValueAtIndex(cfArray, i));
                 if(plist::get_key_path(plist, "name", name) && plist::get_key_path(plist, "value", value) && (!plist::get_key_path(plist, "enabled", enabled) || enabled))
                     res.push_back(std::make_pair(name, value));
@@ -121,7 +121,7 @@ static std::vector<NSString *> paths (NSString * directory)
     return res;
 }
 
-static bool is_scope_selector (NSString * str)
+static BOOL is_scope_selector (NSString * str)
 {
     static NSString * RootScopes[] = { "text", "source", "attr" };
     iterate(scope, RootScopes)
@@ -139,8 +139,8 @@ struct section_t
     section_t (path::glob_t  fileGlob, std::vector< std::pair<NSString *, NSString *> >  variables) : section_t(fileGlob, scope::selector_t(), variables) { has_file_glob = true; }
     section_t (scope::selector_t  scopeSelector, std::vector< std::pair<NSString *, NSString *> >  variables) : section_t("", scopeSelector, variables) { has_scope_selector = true; }
     
-    bool has_file_glob      = false;
-    bool has_scope_selector = false;
+    BOOL has_file_glob      = false;
+    BOOL has_scope_selector = false;
     
     path::glob_t                                       file_glob;
     scope::selector_t                                  scope_selector;

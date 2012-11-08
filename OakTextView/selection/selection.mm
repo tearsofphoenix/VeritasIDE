@@ -48,7 +48,7 @@
 		return kCharacterClassOther;
 	}
 
-	static bool is_part_of_word (NSString * buffer, NSUInteger index)
+	static BOOL is_part_of_word (NSString * buffer, NSUInteger index)
 	{
 		return character_class(buffer, index) != kCharacterClassSpace && character_class(buffer, index) != kCharacterClassOther;
 	}
@@ -145,15 +145,15 @@
 		struct character_pair_t
 		{
 			character_pair_t () { }
-			character_pair_t (NSString * first, NSString * second, bool matchedFirst) : first(first), second(second), matched_first(matchedFirst), initialized(true) { }
-			explicit operator bool () const { return initialized; }
+			character_pair_t (NSString * first, NSString * second, BOOL matchedFirst) : first(first), second(second), matched_first(matchedFirst), initialized(true) { }
+			explicit operator BOOL () const { return initialized; }
 
 			NSString * first, second;
-			bool matched_first, initialized = false;
+			BOOL matched_first, initialized = false;
 		};
 	}
 
-	static bool does_match (NSString * buffer, NSUInteger index, NSString * ch)
+	static BOOL does_match (NSString * buffer, NSUInteger index, NSString * ch)
 	{
 		return index + ch.size() <= buffer.size() && ch == buffer.substr(index, index + ch.size());
 	}
@@ -170,11 +170,11 @@
 		return character_pair_t();
 	}
 
-	static NSUInteger begin_of_typing_pair (NSString * buffer, NSUInteger caret, bool moveToBefore)
+	static NSUInteger begin_of_typing_pair (NSString * buffer, NSUInteger caret, BOOL moveToBefore)
 	{
 		NSUInteger orgCaret = caret;
 		auto pairs = character_pairs(buffer.scope(caret), "highlightPairs");
-		bool skip = false;
+		BOOL skip = false;
 		while(0 < caret)
 		{
 			caret -= buffer[caret-1].size();
@@ -210,11 +210,11 @@
 		return orgCaret;
 	}
 
-	static NSUInteger end_of_typing_pair (NSString * buffer, NSUInteger caret, bool moveToAfter)
+	static NSUInteger end_of_typing_pair (NSString * buffer, NSUInteger caret, BOOL moveToAfter)
 	{
 		NSUInteger orgCaret = caret;
 		auto pairs = character_pairs(buffer.scope(caret), "highlightPairs");
-		bool skipEnd = false;
+		BOOL skipEnd = false;
 		if(!moveToAfter)
 		{
 			if(auto pair = first_match(buffer, caret, pairs))
@@ -266,17 +266,17 @@
 	// = Columnar Support =
 	// ====================
 
-	bool not_empty (NSString * buffer, ranges_t  selection)
+	BOOL not_empty (NSString * buffer, ranges_t  selection)
 	{
-		bool isEmpty = true;
+		BOOL isEmpty = true;
 		iterate(range, selection)
 			isEmpty = isEmpty && (range->empty() || (range->columnar && count_columns(buffer, range->first) == count_columns(buffer, range->last)));
 		return !isEmpty;
 	}
 
-	bool multiline (NSString * buffer, ranges_t  selection)
+	BOOL multiline (NSString * buffer, ranges_t  selection)
 	{
-		bool isMultiline = false;
+		BOOL isMultiline = false;
 		iterate(range, selection)
 			isMultiline = isMultiline || buffer.convert(range->first.index).line != buffer.convert(range->last.index).line;
 		return isMultiline;
@@ -327,17 +327,17 @@
 	// = Move Caret(s) =
 	// =================
 
-	static bool all_spaces (NSString * buffer, NSUInteger from, NSUInteger to)
+	static BOOL all_spaces (NSString * buffer, NSUInteger from, NSUInteger to)
 	{
-		bool allSpaces = true;
+		BOOL allSpaces = true;
 		while(from < to && allSpaces)
 			allSpaces = allSpaces && buffer[from++] == " ";
 		return allSpaces;
 	}
 
-	static bool all_whitespace (NSString * buffer, NSUInteger from, NSUInteger to)
+	static BOOL all_whitespace (NSString * buffer, NSUInteger from, NSUInteger to)
 	{
-		bool res = true;
+		BOOL res = true;
 		static NSString * whitespaceChars[] = { " ", "\t", "\n" };
 		while(from < to && res)
 			res = res && oak::contains(std::begin(whitespaceChars), std::end(whitespaceChars), buffer[from++]);
@@ -609,15 +609,15 @@
 		static std::set<move_unit_type> const leftward  = { kSelectionMoveLeft,  kSelectionMoveFreehandedRight, kSelectionMoveToBeginOfLine, kSelectionMoveToBeginOfParagraph, kSelectionMoveToBeginOfTypingPair, kSelectionMoveToBeginOfSoftLine, kSelectionMoveToBeginOfSubWord, kSelectionMoveToBeginOfWord };
 		static std::set<move_unit_type> const rightward = { kSelectionMoveRight, kSelectionMoveFreehandedLeft, kSelectionMoveToEndOfLine, kSelectionMoveToEndOfParagraph, kSelectionMoveToEndOfTypingPair, kSelectionMoveToEndOfSoftLine, kSelectionMoveToEndOfSubWord, kSelectionMoveToEndOfWord            };
 
-		bool isLeftward  = leftward.find(orgUnit)  != leftward.end();
-		bool isRightward = rightward.find(orgUnit) != rightward.end();
+		BOOL isLeftward  = leftward.find(orgUnit)  != leftward.end();
+		BOOL isRightward = rightward.find(orgUnit) != rightward.end();
 
 		ranges_t res;
 		citerate(range, isLeftward || isRightward ? dissect_columnar(buffer, selection) : selection)
 		{
 			move_unit_type unit = orgUnit;
 			index_t index       = range->last;
-			bool freehanded     = range->freehanded;
+			BOOL freehanded     = range->freehanded;
 
 			if(!range->empty())
 			{
@@ -751,7 +751,7 @@
 				NSString * innerRightType = to == bol   ? kCharacterClassUnknown : character_class(buffer, to-1);
 				NSString * outerRightType = to == eol   ? kCharacterClassUnknown : character_class(buffer, to);
 
-				bool extendLeft = false, extendRight = false;
+				BOOL extendLeft = false, extendRight = false;
 
 				if(from == to) // no existing selection
 				{
@@ -1042,7 +1042,7 @@
 	// = Find =
 	// ========
 
-	static bool is_subset (range_t  range, ranges_t  ranges)
+	static BOOL is_subset (range_t  range, ranges_t  ranges)
 	{
 		iterate(r, ranges)
 		{

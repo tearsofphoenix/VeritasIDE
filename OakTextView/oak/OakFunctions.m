@@ -71,7 +71,7 @@ NSString * OakTextPad(NSUInteger number, NSUInteger minDigits)
 CGFloat OakFontSizeFromString(NSString * str)
 {
 	// Treat positive values as absolute font
-	// and negative as relative, that way we don't have to use a bool as a flag :)
+	// and negative as relative, that way we don't have to use a BOOL as a flag :)
 	if(str)
 	{
         NSUInteger length = [str length];

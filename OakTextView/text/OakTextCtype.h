@@ -8,33 +8,33 @@
 
 namespace text
 {
-	inline bool is_word_char (uint32_t ch)
+	inline BOOL is_word_char (uint32_t ch)
 	{
 		return ch < 0x80 ? (isalnum(ch) || ch == '_') : CFCharacterSetIsLongCharacterMember(CFCharacterSetGetPredefined(kCFCharacterSetAlphaNumeric), ch);
 	}
 
-	inline bool is_not_word_char (uint32_t ch)
+	inline BOOL is_not_word_char (uint32_t ch)
 	{
 		return !is_word_char(ch);
 	}
 
-	inline bool is_space (char ch)
+	inline BOOL is_space (char ch)
 	{
 		return ch == '\t' || ch == ' ';
 	}
 
-	inline bool is_not_space (char ch)
+	inline BOOL is_not_space (char ch)
 	{
 		return !is_space(ch);
 	}
 
-	inline bool is_blank (char const* it, char const* last)
+	inline BOOL is_blank (char const* it, char const* last)
 	{
 		last = it != last && last[-1] == '\n' ? last-1 : last;
 		return std::find_if(it, last, &is_not_space) == last;
 	}
 
-	extern bool OakTextIsEastAsianWidth (uint32_t ch);
+	extern BOOL OakTextIsEastAsianWidth (uint32_t ch);
 
 } /* text */ 
 

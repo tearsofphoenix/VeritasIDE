@@ -21,7 +21,7 @@ namespace scope
 		scope::parse::path(scope.data(), scope.data() + scope.size(), *path);
 	}
 
-	bool scope_t::has_prefix (scope_t  rhs) const
+	BOOL scope_t::has_prefix (scope_t  rhs) const
 	{
 		std::vector<types::scope_t>  lhsScopes = path     ? path->scopes     : std::vector<types::scope_t>();
 		std::vector<types::scope_t>  rhsScopes = rhs.path ? rhs.path->scopes : std::vector<types::scope_t>();
@@ -57,10 +57,10 @@ namespace scope
 		return res;
 	}
 
-	bool scope_t::operator== (scope_t  rhs) const   { return (!path && !rhs.path) || (path && rhs.path && *path == *rhs.path); }
-	bool scope_t::operator!= (scope_t  rhs) const   { return !(*this == rhs); }
-	bool scope_t::operator< (scope_t  rhs) const    { return (!path && rhs.path) || (path && rhs.path && *path < *rhs.path); }
-	scope_t::operator bool () const                       { return path ? true : false; }
+	BOOL scope_t::operator== (scope_t  rhs) const   { return (!path && !rhs.path) || (path && rhs.path && *path == *rhs.path); }
+	BOOL scope_t::operator!= (scope_t  rhs) const   { return !(*this == rhs); }
+	BOOL scope_t::operator< (scope_t  rhs) const    { return (!path && rhs.path) || (path && rhs.path && *path < *rhs.path); }
+	scope_t::operator BOOL () const                       { return path ? true : false; }
 
 	scope_t shared_prefix (scope_t  lhs, scope_t  rhs)
 	{
@@ -133,7 +133,7 @@ namespace scope
 	// = Matching =
 	// ============
 
-	bool selector_t::does_match (context_t  scope, double* rank) const
+	BOOL selector_t::does_match (context_t  scope, double* rank) const
 	{
 		if(!selector)
 		{

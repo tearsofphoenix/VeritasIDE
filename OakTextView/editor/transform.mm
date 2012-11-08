@@ -57,7 +57,7 @@ namespace transform
 	NSString * transpose (NSString * src)
 	{
 		std::vector< std::pair<char const*, char const*> > v = text::to_lines(src.data(), src.data() + src.size());
-		bool hasNewline = !src.empty() && src[src.size()-1] == '\n';
+		BOOL hasNewline = !src.empty() && src[src.size()-1] == '\n';
 
 		NSString * res("");
 		if(v.size() == 1 || (v.size() == 2 && v.back().first == v.back().second))

@@ -126,7 +126,7 @@
 			r.origin.x = 61;
 			r.origin.y = NSMaxY(scrRect) - NSHeight(r);
 
-			bool alreadyHasWrappedWindow = false;
+			BOOL alreadyHasWrappedWindow = false;
 			for(NSWindow* win in [NSApp windows])
 			{
 				if([self ignoreWindow:win])

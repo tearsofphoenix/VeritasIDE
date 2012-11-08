@@ -164,7 +164,7 @@ action_t to_action (const char * sel)
 
 void editor_t::find_dispatch (NSMutableDictionary *  args)
 {
-    bool flag;
+    BOOL flag;
     NSStringCompareOptions options = ;
     options = plist::get_key_path(args, "fullWordMatch",     flag) && flag ? options | find::full_words         : options;
     options = plist::get_key_path(args, "ignoreCase",        flag) && flag ? options | find::ignore_case        : options;
@@ -178,7 +178,7 @@ void editor_t::find_dispatch (NSMutableDictionary *  args)
     plist::get_key_path(args, "replaceString", replaceWith);
     
     NSString * where;
-    bool searchOnlySelection = plist::get_key_path(args, "replaceAllScope", where) && where == "selection";
+    BOOL searchOnlySelection = plist::get_key_path(args, "replaceAllScope", where) && where == "selection";
     
     if(action == "replaceAndFind")
     {
@@ -219,7 +219,7 @@ void editor_t::macro_dispatch (NSMutableDictionary *  plist, std::map<NSString *
         return;
     
     // // TODO macro: useGlobalClipboard
-    // bool useGlobalClipboard = false;
+    // BOOL useGlobalClipboard = false;
     // plist::get_key_path(plist, "useGlobalClipboard", useGlobalClipboard);
     
     iterate(command, commands)

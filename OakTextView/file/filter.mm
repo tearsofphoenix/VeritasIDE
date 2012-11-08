@@ -78,7 +78,7 @@ namespace filter
 
 	int write_t::handle_request (write_t::request_t  request)
 	{
-		bool success = write(request.fd, request.bytes->get(), request.bytes->size()) == request.bytes->size();
+		BOOL success = write(request.fd, request.bytes->get(), request.bytes->size()) == request.bytes->size();
 		close(request.fd);
 		return success ? 0 : errno;
 	}
@@ -100,20 +100,20 @@ namespace
 	{
 		event_delegate_t (NSData * input, filter::callback_ptr context) : _input(input), _context(context) { }
 
-		bool accept_html_data (command::runner_ptr runner, char const* data, NSUInteger len)   { return fprintf(stderr, "html: %.*s", (int)len, data), false; }
+		BOOL accept_html_data (command::runner_ptr runner, char const* data, NSUInteger len)   { return fprintf(stderr, "html: %.*s", (int)len, data), false; }
 		void show_document (NSString * str)                                        { fprintf(stderr, "document: %s\n", str.c_str()); }
 		void show_tool_tip (NSString * str)                                        { fprintf(stderr, "tool tip: %s\n", str.c_str()); }
 		void show_error (bundle_command_t  command, int rc, NSString * out, NSString * err) { _context->filter_error(command, rc, out, err); }
 
-		OakTextRange * write_unit_to_fd (int fd, input::type unit, input::type fallbackUnit, input_format::type format, scope::selector_t  scopeSelector, std::map<NSString *, NSString *>& variables, bool* inputWasSelection);
-		bool accept_result (NSString * out, output::type placement, output_format::type format, output_caret::type outputCaret, OakTextRange * inputRange, std::map<NSString *, NSString *>  environment);
+		OakTextRange * write_unit_to_fd (int fd, input::type unit, input::type fallbackUnit, input_format::type format, scope::selector_t  scopeSelector, std::map<NSString *, NSString *>& variables, BOOL* inputWasSelection);
+		BOOL accept_result (NSString * out, output::type placement, output_format::type format, output_caret::type outputCaret, OakTextRange * inputRange, std::map<NSString *, NSString *>  environment);
 
 	private:
 		NSData * _input;
 		filter::callback_ptr _context;
 	};
 
-	OakTextRange * event_delegate_t::write_unit_to_fd (int fd, input::type unit, input::type fallbackUnit, input_format::type format, scope::selector_t  scopeSelector, std::map<NSString *, NSString *>& variables, bool* inputWasSelection)
+	OakTextRange * event_delegate_t::write_unit_to_fd (int fd, input::type unit, input::type fallbackUnit, input_format::type format, scope::selector_t  scopeSelector, std::map<NSString *, NSString *>& variables, BOOL* inputWasSelection)
 	{
 		if(unit != input::entire_document || format != input_format::text)
 			return fprintf(stderr, "*** write unit to fd: unhandled unit/format: %d/%d\n", unit, format), OakTextRange *::undefined;
@@ -122,7 +122,7 @@ namespace
 		return OakTextRange *::undefined;
 	}
 
-	bool event_delegate_t::accept_result (NSString * out, output::type placement, output_format::type format, output_caret::type outputCaret, OakTextRange * inputRange, std::map<NSString *, NSString *>  environment)
+	BOOL event_delegate_t::accept_result (NSString * out, output::type placement, output_format::type format, output_caret::type outputCaret, OakTextRange * inputRange, std::map<NSString *, NSString *>  environment)
 	{
 		if(placement != output::replace_document || format != output_format::text)
 			return fprintf(stderr, "*** unhandled placement/format (%d/%d): %s\n", placement, format, out.c_str()), false;

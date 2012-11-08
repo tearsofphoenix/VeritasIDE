@@ -252,7 +252,7 @@ static double const kFoldingDotsRatio = 16.0 / 10.0; // FIXME Folding dots ratio
 }
 
 
-static void draw_line (CGPoint pos, NSString * text, CGColorRef color, CTFontRef font, CGContextRef context, bool isFlipped)
+static void draw_line (CGPoint pos, NSString * text, CGColorRef color, CTFontRef font, CGContextRef context, BOOL isFlipped)
 {
     
     CFMutableAttributedStringRef str = CFAttributedStringCreateMutable(kCFAllocatorDefault, 0);

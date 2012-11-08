@@ -326,8 +326,8 @@ static void DrawTextWithOptions (NSString* string, NSRect bounds, OakLayerTextOp
         
 		if(!_mouseTrackingDisabled)
 		{
-			bool isInLayer    = NSMouseInRect(mousePos, [it rect], [self isFlipped]);
-			bool clickedLayer = NSMouseInRect(_mouseDownPos, [it rect], [self isFlipped]);
+			BOOL isInLayer    = NSMouseInRect(mousePos, [it rect], [self isFlipped]);
+			BOOL clickedLayer = NSMouseInRect(_mouseDownPos, [it rect], [self isFlipped]);
             
 			if(isInLayer)
             {

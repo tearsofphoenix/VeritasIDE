@@ -35,7 +35,7 @@ namespace ng
 	// = layout_t =
 	// ============
 
-	layout_t::layout_t (NSString *& buffer, OakTheme *  theme, NSString * fontName, CGFloat fontSize, bool softWrap, NSUInteger wrapColumn, NSString * folded, ng::layout_t::margin_t  margin) : _folds(new folds_t(buffer)), _buffer(buffer), _theme(theme), _font_name(fontName), _font_size(fontSize), _tab_size(buffer.indent().tab_size()), _wrapping(softWrap), _wrap_column(wrapColumn), _margin(margin)
+	layout_t::layout_t (NSString *& buffer, OakTheme *  theme, NSString * fontName, CGFloat fontSize, BOOL softWrap, NSUInteger wrapColumn, NSString * folded, ng::layout_t::margin_t  margin) : _folds(new folds_t(buffer)), _buffer(buffer), _theme(theme), _font_name(fontName), _font_size(fontSize), _tab_size(buffer.indent().tab_size()), _wrapping(softWrap), _wrap_column(wrapColumn), _margin(margin)
 	{
 		struct parser_callback_t : ng::callback_t
 		{
@@ -117,7 +117,7 @@ namespace ng
 		_dirty_rects.push_back(OakRectMake(0, 0, width(), height()));
 	}
 
-	void layout_t::set_wrapping (bool softWrap, NSUInteger wrapColumn)
+	void layout_t::set_wrapping (BOOL softWrap, NSUInteger wrapColumn)
 	{
 		if(_wrapping == softWrap && _wrap_column == wrapColumn)
 			return;
@@ -138,7 +138,7 @@ namespace ng
 	// = Display Attributes =
 	// ======================
 
-	void layout_t::set_is_key (bool isKey)
+	void layout_t::set_is_key (BOOL isKey)
 	{
 		if(_is_key == isKey)
 			return;
@@ -146,12 +146,12 @@ namespace ng
 		_dirty_rects.insert(_dirty_rects.end(), _pre_refresh_selections.begin(), _pre_refresh_selections.end());
 	}
 
-	void layout_t::set_draw_caret (bool drawCaret)
+	void layout_t::set_draw_caret (BOOL drawCaret)
 	{
 		_draw_caret = drawCaret;
 	}
 
-	void layout_t::set_draw_wrap_column (bool drawWrapColumn)
+	void layout_t::set_draw_wrap_column (BOOL drawWrapColumn)
 	{
 		_draw_wrap_column = drawWrapColumn;
 		_dirty_rects.push_back(OakRectMake(0, 0, width(), height()));
@@ -230,7 +230,7 @@ namespace ng
 		return OakRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetWidth(rect), height() - CGRectGetMinY(rect));
 	}
 
-	bool layout_t::effective_soft_wrap (row_tree_t::iterator rowIter) const
+	BOOL layout_t::effective_soft_wrap (row_tree_t::iterator rowIter) const
 	{
 		OakBundleItem * softWrapItem;
 		OakScopeContext * scope(_buffer.scope(rowIter->offset._length, false).right, _buffer.scope(rowIter->offset._length + rowIter->key._length, false).left);
@@ -291,7 +291,7 @@ namespace ng
 			if((mode == kRectsIncludeCarets && !range->empty()) || (mode == kRectsIncludeSelections && range->empty()))
 				continue;
 
-			bool includeCarry = range->freehanded;
+			BOOL includeCarry = range->freehanded;
 			auto r1 = rect_at_index(OakSelectionIndex *(range->first.index, includeCarry ? range->first.carry : 0));
 			auto r2 = rect_at_index(OakSelectionIndex *(range->last.index,  includeCarry ? range->last.carry  : 0));
 
@@ -364,7 +364,7 @@ namespace ng
 	// = Updating Layout =
 	// ===================
 
-	bool layout_t::update_row (row_tree_t::iterator rowIter)
+	BOOL layout_t::update_row (row_tree_t::iterator rowIter)
 	{
 		CGFloat oldHeight = rowIter->key._height;
 		rowIter->key._length = rowIter->value.length();
@@ -388,7 +388,7 @@ namespace ng
 		{
 			if(row->value.layout(_theme, _font_name, _font_size, effective_soft_wrap(row), effective_wrap_column(), *_metrics, visibleRect, _buffer, row->offset._length))
 			{
-				bool didUpdateHeight = update_row(row);
+				BOOL didUpdateHeight = update_row(row);
 				if(_refresh_counter)
 				{
 					CGRect lineRect = full_width(rect_for(row));
@@ -411,7 +411,7 @@ namespace ng
 		auto fromRow = row_for_offset(from);
 		auto toRow   = row_for_offset(to);
 
-		bool fullRefresh = false;
+		BOOL fullRefresh = false;
 		if(fromRow == toRow)
 		{
 			fromRow->value.erase(from, to, _buffer, fromRow->offset._length);
@@ -437,7 +437,7 @@ namespace ng
 		if(first == last)
 			return;
 
-		bool fullRefresh = false;
+		BOOL fullRefresh = false;
 		auto row = row_for_offset(first);
 
 		NSUInteger suffixLen = 0;
@@ -589,7 +589,7 @@ namespace ng
 		return res;
 	}
 
-	void layout_t::refresh_line_at_index (NSUInteger index, bool fullRefresh)
+	void layout_t::refresh_line_at_index (NSUInteger index, BOOL fullRefresh)
 	{
 		if(_refresh_counter)
 		{
@@ -721,7 +721,7 @@ namespace ng
 	{
 		struct base_colors_t
 		{
-			base_colors_t (bool darkTheme)
+			base_colors_t (BOOL darkTheme)
 			{
 				if(darkTheme)
 				{
@@ -749,7 +749,7 @@ namespace ng
 		};
 	}
 
-	void layout_t::draw (OakLayoutContext *  context, CGRect visibleRect, bool isFlipped, bool showInvisibles, OakSelectionRanges *  selection, OakSelectionRanges *  highlightRanges, bool drawBackground, CGColorRef textColor)
+	void layout_t::draw (OakLayoutContext *  context, CGRect visibleRect, BOOL isFlipped, BOOL showInvisibles, OakSelectionRanges *  selection, OakSelectionRanges *  highlightRanges, BOOL drawBackground, CGColorRef textColor)
 	{
 		update_metrics(visibleRect);
 
@@ -816,9 +816,9 @@ namespace ng
 	// = Folding Support =
 	// ===================
 
-	bool layout_t::is_line_folded (NSUInteger n) const               { return _folds->has_folded(n); }
-	bool layout_t::is_line_fold_start_marker (NSUInteger n) const    { return _folds->has_start_marker(n); }
-	bool layout_t::is_line_fold_stop_marker (NSUInteger n) const     { return _folds->has_stop_marker(n); }
+	BOOL layout_t::is_line_folded (NSUInteger n) const               { return _folds->has_folded(n); }
+	BOOL layout_t::is_line_fold_start_marker (NSUInteger n) const    { return _folds->has_start_marker(n); }
+	BOOL layout_t::is_line_fold_stop_marker (NSUInteger n) const     { return _folds->has_stop_marker(n); }
 	NSString * layout_t::folded_as_string () const              { return _folds->folded_as_string(); }
 
 	void layout_t::fold (NSUInteger from, NSUInteger to)
@@ -833,7 +833,7 @@ namespace ng
 			did_fold(range->first, range->second);
 	}
 
-	void layout_t::toggle_fold_at_line (NSUInteger n, bool recursive)
+	void layout_t::toggle_fold_at_line (NSUInteger n, BOOL recursive)
 	{
 		auto range = _folds->toggle_at_line(n, recursive);
 		if(range.first != range.second)
@@ -850,7 +850,7 @@ namespace ng
 	// = Debug Support =
 	// =================
 
-	bool layout_t::structural_integrity () const
+	BOOL layout_t::structural_integrity () const
 	{
 		iterate(row, _rows)
 		{

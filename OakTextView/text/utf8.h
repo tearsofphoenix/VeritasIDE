@@ -96,8 +96,8 @@ static inline NSString * OakUTF8CharToString(uint32_t ch)
 //			return res;
 //		}
 //        
-//		bool operator== (self  rhs) const				{ return current == rhs.current; }
-//		bool operator!= (self  rhs) const				{ return current != rhs.current; }
+//		BOOL operator== (self  rhs) const				{ return current == rhs.current; }
+//		BOOL operator!= (self  rhs) const				{ return current != rhs.current; }
 //        
 //		uint32_t& operator* ()                     { assert(current != stop); return *current; }
 //		uint32_t  operator* () const         { assert(current != stop); return *current; }

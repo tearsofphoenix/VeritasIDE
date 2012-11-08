@@ -165,7 +165,7 @@ namespace
             }
 		}
 
-		bool _running;
+		BOOL _running;
 		CFRunLoopObserverRef _observer;
 		NSMutableSet *_pasteboards;
 	};

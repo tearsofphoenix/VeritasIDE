@@ -18,20 +18,20 @@ namespace transform
 
 	struct reformat
 	{
-		reformat (NSUInteger wrap, NSUInteger tabSize, bool newlineTerminate = true) : wrap(wrap), tabSize(tabSize), newline(newlineTerminate) { }
+		reformat (NSUInteger wrap, NSUInteger tabSize, BOOL newlineTerminate = true) : wrap(wrap), tabSize(tabSize), newline(newlineTerminate) { }
 		NSString * operator() (NSString * src) ;
 	private:
 		NSUInteger wrap, tabSize;
-		bool newline;
+		BOOL newline;
 	};
 
 	struct justify
 	{
-		justify (NSUInteger wrap, NSUInteger tabSize, bool newlineTerminate = true) : wrap(wrap), tabSize(tabSize), newline(newlineTerminate) { }
+		justify (NSUInteger wrap, NSUInteger tabSize, BOOL newlineTerminate = true) : wrap(wrap), tabSize(tabSize), newline(newlineTerminate) { }
 		NSString * operator() (NSString * src) ;
 	private:
 		NSUInteger wrap, tabSize;
-		bool newline;
+		BOOL newline;
 	};
 
 	struct replace

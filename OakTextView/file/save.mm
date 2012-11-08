@@ -484,8 +484,8 @@ namespace file
 	// = Public API =
 	// ==============
     
-	// bool hasEncoding   = path::get_attr(path, "com.apple.TextEncoding") != NULL_STR;
-	// bool storeEncoding = dstSettings.get(kSettingsStoreEncodingPerFileKey, hasEncoding);
+	// BOOL hasEncoding   = path::get_attr(path, "com.apple.TextEncoding") != NULL_STR;
+	// BOOL storeEncoding = dstSettings.get(kSettingsStoreEncodingPerFileKey, hasEncoding);
 	// if(storeEncoding || hasEncoding)
 	// 	path::set_attr(path, "com.apple.TextEncoding", storeEncoding ? encoding : NULL_STR);
     

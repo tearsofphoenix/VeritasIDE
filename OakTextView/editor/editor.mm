@@ -156,7 +156,7 @@ namespace ng
 			_buffer.remove_callback(this);
 		}
 
-		ranges_t get (bool moveToEnd)
+		ranges_t get (BOOL moveToEnd)
 		{
 			ranges_t sel;
 			for(NSUInteger i = 0; i < _marks.size(); i += 2)
@@ -170,7 +170,7 @@ namespace ng
 				{
 					index_t first = _marks[i].position;
 					index_t last  = _marks[i+1].position;
-					bool columnar = _marks[i].user_info & kColumnar;
+					BOOL columnar = _marks[i].user_info & kColumnar;
 					if(_marks[i].user_info & kReversed)
 						std::swap(first, last);
 					sel.push_back(range_t(first, last, columnar));
@@ -303,7 +303,7 @@ namespace ng
 
 	struct my_clipboard_entry_t : clipboard_t::entry_t
 	{
-		my_clipboard_entry_t (NSString * content, NSString * indent, bool complete, NSUInteger fragments, bool columnar) : clipboard_t::entry_t(content)
+		my_clipboard_entry_t (NSString * content, NSString * indent, BOOL complete, NSUInteger fragments, BOOL columnar) : clipboard_t::entry_t(content)
 		{
 			if(indent != NULL_STR) _options["indent"]    = indent;
 			if(complete)           _options["complete"]  = "1";
@@ -318,7 +318,7 @@ namespace ng
 	clipboard_t::entry_ptr editor_t::copy (NSString *  buffer, OakSelectionRanges *  selections)
 	{
 		NSString * indent = NULL_STR;
-		bool complete      = false;
+		BOOL complete      = false;
 
 		if(selections.size() == 1)
 		{
@@ -343,11 +343,11 @@ namespace ng
 		std::vector<NSString *> v;
 		citerate(range, dissect_columnar(buffer, selections))
 			v.push_back(buffer.substr(range->min().index, range->max().index));
-		bool columnar = selections.size() == 1 && selections.last().columnar;
+		BOOL columnar = selections.size() == 1 && selections.last().columnar;
 		return clipboard_t::entry_ptr(new my_clipboard_entry_t(text::join(v, "\n"), indent, complete, v.size(), columnar));
 	}
 
-	static bool suitable_for_reindent (NSString * str)
+	static BOOL suitable_for_reindent (NSString * str)
 	{
 		return oak::contains(str.begin(), str.end(), '\n');
 	}
@@ -356,14 +356,14 @@ namespace ng
 	// = Snippets =
 	// ============
 
-	bool editor_t::disallow_tab_expansion () const
+	BOOL editor_t::disallow_tab_expansion () const
 	{
 		if((!_snippets.empty() && _snippets.current() == ranges().last() && !_snippets.in_last_placeholder()) || ranges().last().unanchored)
 			return true;
 		return false;
 	}
 
-	ranges_t editor_t::replace (std::multimap<range_t, NSString *>  replacements, bool selectInsertions)
+	ranges_t editor_t::replace (std::multimap<range_t, NSString *>  replacements, BOOL selectInsertions)
 	{
 		ranges_t res = replace_helper(_buffer, _snippets, replacements);
 		return selectInsertions ? res : ng::move(_buffer, res, kSelectionMoveToEndOfSelection);
@@ -426,9 +426,9 @@ namespace ng
 		std::replace(str.begin(), str.end(), '\r', '\n');
 
 		NSString * indent = options["indent"];
-		bool const complete       = options["complete"] == "1";
+		BOOL const complete       = options["complete"] == "1";
 		NSUInteger const fragments    = strtol(options["fragments"].c_str(), NULL, 10);
-		bool const columnar       = options["columnar"] == "1";
+		BOOL const columnar       = options["columnar"] == "1";
 
 		if((selections.size() != 1 || selections.last().columnar) && (fragments > 1 || oak::contains(str.begin(), str.end(), '\n')))
 		{
@@ -554,7 +554,7 @@ namespace ng
 		return ng::move(buffer, replace_helper(buffer, snippets, map(buffer, selections, transform::replace(str))), kSelectionMoveToEndOfSelection);
 	}
 
-	void editor_t::insert (NSString * str, bool selectInsertion)
+	void editor_t::insert (NSString * str, BOOL selectInsertion)
 	{
 		OakSelectionRanges * res = replace_helper(_buffer, _snippets, map(_buffer, _selections, transform::replace(str)));
 		_selections = selectInsertion ? res : ng::move(_buffer, res, kSelectionMoveToEndOfSelection);
@@ -562,7 +562,7 @@ namespace ng
 
 	struct indent_helper_t : ng::callback_t
 	{
-		indent_helper_t (editor_t& editor, buffer_t& buffer, bool indentCorrections) : _disabled(!indentCorrections), _editor(editor), _buffer(buffer)
+		indent_helper_t (editor_t& editor, buffer_t& buffer, BOOL indentCorrections) : _disabled(!indentCorrections), _editor(editor), _buffer(buffer)
 		{
 			_disabled = _disabled || editor._selections.size() != 1 || editor._selections.last().columnar;
 			if(_disabled)
@@ -577,7 +577,7 @@ namespace ng
 
 			indent::fsm_t fsm = indent::create_fsm(_buffer, indent::patterns_for_scope(_buffer.scope(from)), pos.line, _buffer.indent().indent_size(), _buffer.indent().tab_size());
 			NSString * line = _buffer.substr(_buffer.begin(pos.line), _buffer.eol(pos.line));
-			bool ignored = fsm.is_ignored(line);
+			BOOL ignored = fsm.is_ignored(line);
 			int actual = indent::leading_whitespace(line.data(), line.data() + line.size(), _buffer.indent().tab_size());
 			NSUInteger desired = fsm.scan_line(line);
 			if(ignored || actual == desired)
@@ -622,7 +622,7 @@ namespace ng
 		}
 
 	private:
-		bool _disabled;
+		BOOL _disabled;
 		editor_t& _editor;
 		buffer_t& _buffer;
 		std::map<NSUInteger, int> _lines;
@@ -650,7 +650,7 @@ namespace ng
 		return NULL_STR;
 	}
 
-	void editor_t::insert_with_pairing (NSString * str, bool indentCorrections, NSString * scopeAttributes)
+	void editor_t::insert_with_pairing (NSString * str, BOOL indentCorrections, NSString * scopeAttributes)
 	{
 		if(!has_selection())
 		{
@@ -690,7 +690,7 @@ namespace ng
 		}
 	}
 
-	void editor_t::move_selection_to (OakSelectionIndex *  index, bool selectInsertion)
+	void editor_t::move_selection_to (OakSelectionIndex *  index, BOOL selectInsertion)
 	{
 		std::vector<NSString *> v;
 		std::multimap<range_t, NSString *> insertions;
@@ -716,7 +716,7 @@ namespace ng
 		_selections = this->snippet(from, to, str, variables);
 	}
 
-	void editor_t::perform (action_t action, layout_t const* layout, bool indentCorrections, NSString * scopeAttributes)
+	void editor_t::perform (action_t action, layout_t const* layout, BOOL indentCorrections, NSString * scopeAttributes)
 	{
 		static NSString * kSingleMarkType = "•";
 		preserve_selection_helper_t selectionHelper(_buffer, _selections);
@@ -1240,7 +1240,7 @@ namespace ng
 		_selections = this->replace(replacements, true);
 	}
 
-	bool editor_t::handle_result (NSString * out, output::type placement, output_format::type format, output_caret::type outputCaret, OakTextRange * input_range, std::map<NSString *, NSString *> environment)
+	BOOL editor_t::handle_result (NSString * out, output::type placement, output_format::type format, output_caret::type outputCaret, OakTextRange * input_range, std::map<NSString *, NSString *> environment)
 	{
 		range_t range;
 		switch(placement)
@@ -1356,7 +1356,7 @@ namespace ng
 			{
 				if(32 + range.max().index - range.min().index < ARG_MAX)
 				{
-					bool first = true;
+					BOOL first = true;
 					citerate(r, dissect_columnar(_buffer, range))
 					{
 						if(first)
@@ -1382,7 +1382,7 @@ namespace ng
 	// = Find =
 	// ========
 
-	void editor_t::find (NSString * searchFor, NSStringCompareOptions options, bool searchOnlySelection)
+	void editor_t::find (NSString * searchFor, NSStringCompareOptions options, BOOL searchOnlySelection)
 	{
 		ranges_t res;
 		if(options & find::all_matches)
@@ -1407,7 +1407,7 @@ namespace ng
 			_selections = res;
 	}
 
-	ranges_t editor_t::replace (NSString * searchFor, NSString * replaceWith, NSStringCompareOptions options, bool searchOnlySelection)
+	ranges_t editor_t::replace (NSString * searchFor, NSString * replaceWith, NSStringCompareOptions options, BOOL searchOnlySelection)
 	{
 		ranges_t res;
 		if(options & find::all_matches)

@@ -248,8 +248,8 @@ static void data_from_server_stub (CFSocketRef s, CFSocketCallBackType callbackT
 //            std::map<NSUInteger, watch_info_t*>::iterator it = watch_info.find(client_id);
 //            if(it != watch_info.end())
 //            {
-//                bool did_exist = it->second->path == it->second->path_watched;
-//                bool does_exist = it->second->path == existing_parent(it->second->path);
+//                BOOL did_exist = it->second->path == it->second->path_watched;
+//                BOOL does_exist = it->second->path == existing_parent(it->second->path);
 //                
 //                if(did_exist || does_exist)
 //                {

@@ -7,7 +7,7 @@
 namespace oak
 {
 	template <typename _InputIter, typename _ValueT>
-	bool contains (_InputIter  first, _InputIter  last, _ValueT  value)
+	BOOL contains (_InputIter  first, _InputIter  last, _ValueT  value)
 	{
 		return std::find(first, last, value) != last;
 	}
@@ -19,7 +19,7 @@ namespace oak
 	}
 
 	template <typename _InputIter1, typename _InputIter2>
-	bool has_prefix (_InputIter1 srcFirst, _InputIter1  srcLast, _InputIter2 prefixFirst, _InputIter2  prefixLast)
+	BOOL has_prefix (_InputIter1 srcFirst, _InputIter1  srcLast, _InputIter2 prefixFirst, _InputIter2  prefixLast)
 	{
 		while(srcFirst != srcLast && prefixFirst != prefixLast)
 		{

@@ -7,7 +7,7 @@ void OakPlayUISound (OakSoundIdentifier aSound)
 	{
 		OakSoundIdentifier name;
 		NSString * path;
-		bool initialized;
+		BOOL initialized;
 		SystemSoundID sound;
 	};
 

@@ -106,9 +106,9 @@ typedef NSInteger select_unit_type;
 @end
 
 	extern OakSelectionRange * convert (NSString * buffer, OakTextSelection *selection);
-	extern bool not_empty (NSString * buffer,
+	extern BOOL not_empty (NSString * buffer,
                            OakSelectionRange *  selection);
-	extern bool multiline (NSString * buffer,
+	extern BOOL multiline (NSString * buffer,
                            OakSelectionRange *  selection);
 	extern OakSelectionRange * move (NSString * buffer,
                                      OakSelectionRange *  selection,

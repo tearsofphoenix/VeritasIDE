@@ -72,14 +72,14 @@ static std::vector<OakBundleItem *> items_for_tab_expansion (NSString *  buffer,
 	NSUInteger line  = buffer.convert(caret).line;
 	NSUInteger bol   = buffer.begin(line);
 
-	bool lastWasWordChar           = false;
+	BOOL lastWasWordChar           = false;
 	NSString * lastCharacterClass = ng::kCharacterClassUnknown;
 
 	scope::scope_t const rightScope = ng::scope(buffer, OakSelectionRanges *(caret), scopeAttributes).right;
 	for(NSUInteger i = bol; i < caret; i += buffer[i].size())
 	{
 		// we don’t use text::is_word_char because that function treats underscores as word characters, which is undesired, see <issue://157>.
-		bool isWordChar = CFCharacterSetIsLongCharacterMember(CFCharacterSetGetPredefined(kCFCharacterSetAlphaNumeric), OakUTF8StringToChar(buffer[i]));
+		BOOL isWordChar = CFCharacterSetIsLongCharacterMember(CFCharacterSetGetPredefined(kCFCharacterSetAlphaNumeric), OakUTF8StringToChar(buffer[i]));
 		NSString * characterClass = character_class(buffer, i);
 
 		if(i == bol || lastWasWordChar != isWordChar || lastCharacterClass != characterClass)
@@ -896,7 +896,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 
 + (void)initialize
 {
-	static bool didLoad = false;
+	static BOOL didLoad = false;
 	if(!didLoad)
 	{
 		didLoad = true;
@@ -1110,8 +1110,8 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 		newChoices.erase(std::remove_if(newChoices.begin(), newChoices.end(), [&newPrefix](NSString * str) { return str.find(newPrefix) != 0; }), newChoices.end());
 		choiceMenu.choices = (NSArray*)((CFArrayRef)cf::wrap(newChoices));
 
-		bool didEdit   = oldPrefix != newPrefix;
-		bool didDelete = didEdit && oldPrefix.find(newPrefix) == 0;
+		BOOL didEdit   = oldPrefix != newPrefix;
+		BOOL didDelete = didEdit && oldPrefix.find(newPrefix) == 0;
 
 		if(didEdit && !didDelete)
 		{
@@ -1391,7 +1391,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 
 	// TODO If aFindServer != self then we should record findWithOptions: instead of find{Next,Previous,All,…}:
 
-	bool onlyInSelection = false;
+	BOOL onlyInSelection = false;
 	switch(aFindServer.findOperation)
 	{
 		case kFindOperationFindInSelection:
@@ -1399,7 +1399,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 		case kFindOperationFind:
 		case kFindOperationCount:
 		{
-			bool isCounting = aFindServer.findOperation == kFindOperationCount || aFindServer.findOperation == kFindOperationCountInSelection;
+			BOOL isCounting = aFindServer.findOperation == kFindOperationCount || aFindServer.findOperation == kFindOperationCountInSelection;
 
 			NSString * findStr = to_s(aFindServer.findString);
 			NSStringCompareOptions options   = aFindServer.findOptions;
@@ -1701,7 +1701,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 		[aMenuItem setState:wrapColumn == [aMenuItem tag] ? NSOnState : NSOffState];
 		if([aMenuItem tag] == NSWrapColumnAskUser)
 		{
-			bool custom = Presets.find(wrapColumn) == Presets.end();
+			BOOL custom = Presets.find(wrapColumn) == Presets.end();
 			[aMenuItem setTitle:custom ? [NSString stringWithFormat:@"Other (%d)…", wrapColumn] : @"Other…"];
 			[aMenuItem setState:custom ? NSOnState : NSOffState];
 		}
@@ -1885,13 +1885,13 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 - (IBAction)toggleShowInvisibles:(id)sender
 {
 	self.showInvisibles = !self.showInvisibles;
-	settings_t::set(kSettingsShowInvisiblesKey, (bool)self.showInvisibles, document->file_type());
+	settings_t::set(kSettingsShowInvisiblesKey, (BOOL)self.showInvisibles, document->file_type());
 }
 
 - (IBAction)toggleSoftWrap:(id)sender
 {
 	self.softWrap = !self.softWrap;
-	settings_t::set(kSettingsSoftWrapKey, (bool)self.softWrap, document->file_type());
+	settings_t::set(kSettingsSoftWrapKey, (BOOL)self.softWrap, document->file_type());
 }
 
 - (IBAction)toggleShowWrapColumn:(id)sender
@@ -1899,7 +1899,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 	if(layout)
 	{
 		AUTO_REFRESH;
-		bool flag = !layout->draw_wrap_column();
+		BOOL flag = !layout->draw_wrap_column();
 		layout->set_draw_wrap_column(flag);
 		settings_t::set(kSettingsShowWrapColumnKey, flag);
 	}
@@ -1907,7 +1907,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 
 - (void)toggleContinuousSpellChecking:(id)sender
 {
-	bool flag = !document->buffer().live_spelling();
+	BOOL flag = !document->buffer().live_spelling();
 	document->buffer().set_live_spelling(flag);
 	settings_t::set(kSettingsSpellCheckingKey, flag, document->file_type(), document->path());
 
@@ -2085,7 +2085,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 
 	if(allHandlers.empty())
 	{
-		bool binary = false;
+		BOOL binary = false;
 		NSString * merged = "";
 		for(NSString* path in someFiles)
 		{
@@ -2335,9 +2335,9 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 
 - (void)actOnMouseDown
 {
-	bool optionDown  = mouseDownModifierFlags & NSAlternateKeyMask;
-	bool shiftDown   = mouseDownModifierFlags & NSShiftKeyMask;
-	bool commandDown = mouseDownModifierFlags & NSCommandKeyMask;
+	BOOL optionDown  = mouseDownModifierFlags & NSAlternateKeyMask;
+	BOOL shiftDown   = mouseDownModifierFlags & NSShiftKeyMask;
+	BOOL commandDown = mouseDownModifierFlags & NSCommandKeyMask;
 
 	OakSelectionRanges * s = editor->ranges();
 
@@ -2364,7 +2364,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 
 	if(commandDown && mouseDownClickCount == 1)
 	{
-		bool didToggle = false;
+		BOOL didToggle = false;
 		OakSelectionRanges * newSel;
 		citerate(cur, s)
 		{

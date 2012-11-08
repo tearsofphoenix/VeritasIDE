@@ -24,8 +24,8 @@ namespace parse
 
 		NSUInteger rule_id;
 
-		bool operator== (rule_t  rhs) const { return rule_id == rhs.rule_id; }
-		bool operator!= (rule_t  rhs) const { return rule_id != rhs.rule_id; }
+		BOOL operator== (rule_t  rhs) const { return rule_id == rhs.rule_id; }
+		BOOL operator!= (rule_t  rhs) const { return rule_id != rhs.rule_id; }
 		
 		NSString * include_string;
 
@@ -71,11 +71,11 @@ namespace parse
 		regexp::pattern_t while_pattern;    // a while-pattern active in current context
 		regexp::pattern_t end_pattern;      // the end-pattern which exits this context
 		NSUInteger anchor;
-		bool zw_begin_match;
-		bool apply_end_last;
+		BOOL zw_begin_match;
+		BOOL apply_end_last;
 
-		bool operator== (stack_t  rhs) ;
-		bool operator!= (stack_t  rhs) ;
+		BOOL operator== (stack_t  rhs) ;
+		BOOL operator!= (stack_t  rhs) ;
 	};
 
 	std::vector< std::pair<scope::selector_t, rule_ptr> >& injected_grammars ();

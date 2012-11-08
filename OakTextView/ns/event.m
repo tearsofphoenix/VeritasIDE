@@ -84,7 +84,7 @@ static NSString * glyphs_for_key (NSString * key, BOOL numpad)
     
 	NSString * res = key;
     
-	bool didMatch = false;
+	BOOL didMatch = false;
 	uint32_t code = OakUTF8StringToChar(key);
 	for(NSUInteger i = 0; i < sizeof(Keys) / sizeof(Keys[0]) && !didMatch; ++i)
 	{

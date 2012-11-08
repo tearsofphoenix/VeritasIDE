@@ -19,8 +19,8 @@ typedef NSInteger OakBundleItemMenuType;
 
 @end
 
-extern OakBundleItem * OakShowMenuForBundleItems (NSArray *items, CGPoint pos, bool hasSelection);
+extern OakBundleItem * OakShowMenuForBundleItems (NSArray *items, CGPoint pos, BOOL hasSelection);
 
-void OakAddBundlesToMenu (NSArray *items, bool hasSelection, bool setKeys, NSMenu* aMenu, SEL menuAction, id menuTarget = nil);
+void OakAddBundlesToMenu (NSArray *items, BOOL hasSelection, BOOL setKeys, NSMenu* aMenu, SEL menuAction, id menuTarget = nil);
 
 #endif /* end of include guard: BUNDLEMENU_H_BI4UDOAR */

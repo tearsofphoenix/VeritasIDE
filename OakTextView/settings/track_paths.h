@@ -53,9 +53,9 @@ struct track_fds_t
 		pthread_mutex_unlock(&_file_descriptors_mutex);
 	}
 
-	bool is_changed (int fd) const
+	BOOL is_changed (int fd) const
 	{
-		bool res = false;
+		BOOL res = false;
 		pthread_mutex_lock(&_file_descriptors_mutex);
 		auto it = _file_descriptors.find(fd);
 		if(it != _file_descriptors.end())
@@ -64,7 +64,7 @@ struct track_fds_t
 		return res;
 	}
 
-	void set_changed (int fd, bool flag)
+	void set_changed (int fd, BOOL flag)
 	{
 		pthread_mutex_lock(&_file_descriptors_mutex);
 		auto it = _file_descriptors.find(fd);
@@ -107,14 +107,14 @@ private:
 	pthread_t _thread = NULL;
 
 	mutable pthread_mutex_t _file_descriptors_mutex;
-	std::map<int, bool> _file_descriptors;
+	std::map<int, BOOL> _file_descriptors;
 };
 
 struct track_paths_t
 {
 	void add (NSString * path)
 	{
-		bool exists = true;
+		BOOL exists = true;
 		int fd = open_file(path, &exists);
 		if(fd != -1)
 		{
@@ -134,9 +134,9 @@ struct track_paths_t
 		}
 	}
 
-	bool is_changed (NSString * path)
+	BOOL is_changed (NSString * path)
 	{
-		bool res = false;
+		BOOL res = false;
 		auto it = _open_files.find(path);
 		if(it != _open_files.end())
 		{
@@ -145,7 +145,7 @@ struct track_paths_t
 				_track_fds.unwatch(it->second.first);
 				close(it->second.first);
 
-				bool didExist = it->second.second, exists = true;
+				BOOL didExist = it->second.second, exists = true;
 				it->second.first = open_file(path, &exists);
 				it->second.second = exists;
 				_track_fds.watch(it->second.first, NOTE_WRITE|NOTE_RENAME|NOTE_DELETE);
@@ -162,14 +162,14 @@ struct track_paths_t
 	}
 
 private:
-	static int open_file (NSString * path, bool* exists)
+	static int open_file (NSString * path, BOOL* exists)
 	{
 		int fd = open(path.c_str(), O_EVTONLY|O_CLOEXEC, 0);
 		return fd == -1 && errno == ENOENT ? (*exists = false), open_file(path::parent(path), exists) : fd;
 	}
 
 	track_fds_t _track_fds;
-	std::map<NSString *, std::pair<int, bool> > _open_files;
+	std::map<NSString *, std::pair<int, BOOL> > _open_files;
 };
 
 #endif /* end of include guard: TRACK_PATHS_H_38DE4GVD */

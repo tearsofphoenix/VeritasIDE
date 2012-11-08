@@ -33,7 +33,7 @@ namespace ng
 			NSUInteger left, top, right, bottom;
 		};
 
-		layout_t (NSString *& buffer, OakTheme *  theme, NSString * fontName = "Menlo", CGFloat fontSize = 12, bool softWrap = false, NSUInteger wrapColumn = 0, NSString * folded = NULL_STR, margin_t  margin = margin_t(8));
+		layout_t (NSString *& buffer, OakTheme *  theme, NSString * fontName = "Menlo", CGFloat fontSize = 12, BOOL softWrap = false, NSUInteger wrapColumn = 0, NSString * folded = NULL_STR, margin_t  margin = margin_t(8));
 		~layout_t ();
 
 		// _buffer_callback is managed with new/delete so can’t be copied
@@ -47,31 +47,31 @@ namespace ng
 		void set_theme (OakTheme *  theme);
 		void set_font (NSString * fontName, CGFloat fontSize);
 		void set_margin (margin_t  margin);
-		void set_wrapping (bool softWrap, NSUInteger wrapColumn);
+		void set_wrapping (BOOL softWrap, NSUInteger wrapColumn);
 
 		OakTheme *  theme () const         { return _theme; }
 		NSString * font_name () const   { return _font_name; }
 		CGFloat font_size () const              { return _font_size; }
 		NSUInteger tab_size () const                { return _tab_size; }
 		margin_t  margin () const         { return _margin; }
-		bool wrapping () const                  { return _wrapping; }
+		BOOL wrapping () const                  { return _wrapping; }
 		NSUInteger effective_wrap_column () ;
 
 		// ======================
 		// = Display Attributes =
 		// ======================
 
-		void set_is_key (bool isKey);
-		void set_draw_caret (bool drawCaret);
-		void set_draw_wrap_column (bool drawWrapColumn);
+		void set_is_key (BOOL isKey);
+		void set_draw_caret (BOOL drawCaret);
+		void set_draw_wrap_column (BOOL drawWrapColumn);
 		void set_drop_marker (OakSelectionIndex * dropMarkerIndex);
 		void set_viewport_size (CGSize size);
 
-		bool draw_wrap_column () const          { return _draw_wrap_column; }
+		BOOL draw_wrap_column () const          { return _draw_wrap_column; }
 
 		// ======================
 
-		void draw (OakLayoutContext *  context, CGRect rectangle, bool isFlipped, bool showInvisibles, OakSelectionRanges *  selection, OakSelectionRanges *  highlightRanges = OakSelectionRanges *(), bool drawBackground = true, CGColorRef textColor = NULL);
+		void draw (OakLayoutContext *  context, CGRect rectangle, BOOL isFlipped, BOOL showInvisibles, OakSelectionRanges *  selection, OakSelectionRanges *  highlightRanges = OakSelectionRanges *(), BOOL drawBackground = true, CGColorRef textColor = NULL);
 		OakSelectionIndex * index_at_point (CGPoint point) ;
 		CGRect rect_at_index (OakSelectionIndex *  index) ;
 		CGRect rect_for_range (NSUInteger first, NSUInteger last) ;
@@ -97,12 +97,12 @@ namespace ng
 		// = Folding Support =
 		// ===================
 
-		bool is_line_folded (NSUInteger n) ;
-		bool is_line_fold_start_marker (NSUInteger n) ;
-		bool is_line_fold_stop_marker (NSUInteger n) ;
+		BOOL is_line_folded (NSUInteger n) ;
+		BOOL is_line_fold_start_marker (NSUInteger n) ;
+		BOOL is_line_fold_stop_marker (NSUInteger n) ;
 		void fold (NSUInteger from, NSUInteger to);
 		void remove_enclosing_folds (NSUInteger from, NSUInteger to);
-		void toggle_fold_at_line (NSUInteger n, bool recursive);
+		void toggle_fold_at_line (NSUInteger n, BOOL recursive);
 		void toggle_all_folds_at_level (NSUInteger level);
 		NSString * folded_as_string () ;
 
@@ -117,7 +117,7 @@ namespace ng
 		// = Debug support =
 		// =================
 
-		bool structural_integrity () ;
+		BOOL structural_integrity () ;
 		NSString * to_s () ;
 
 	private:
@@ -125,7 +125,7 @@ namespace ng
 		{
 			row_key_t (NSUInteger length = 0, CGFloat height = 0, CGFloat width = 0) : _length(length), _height(height), _width(width) { }
 
-			bool operator==     (row_key_t  rhs) const { return _length == rhs._length && _height == rhs._height && _width == rhs._width; }
+			BOOL operator==     (row_key_t  rhs) const { return _length == rhs._length && _height == rhs._height && _width == rhs._width; }
 			row_key_t operator+ (row_key_t  rhs) const { return row_key_t(_length + rhs._length, _height + rhs._height, MAX(_width, rhs._width)); }
 			row_key_t operator- (row_key_t  rhs) const { return row_key_t(_length - rhs._length, _height - rhs._height, MIN(_width, rhs._width)); }
 
@@ -144,7 +144,7 @@ namespace ng
 		CGRect rect_for (row_tree_t::iterator rowIter) ;
 		CGRect full_width (CGRect  rect) ;
 		CGRect full_height (CGRect  rect) ;
-		bool effective_soft_wrap (row_tree_t::iterator rowIter) ;
+		BOOL effective_soft_wrap (row_tree_t::iterator rowIter) ;
 
 		void set_tab_size (NSUInteger tabSize);
 		void did_insert (NSUInteger first, NSUInteger last);
@@ -154,9 +154,9 @@ namespace ng
 		void clear_text_widths ();
 
 		void update_metrics (CGRect visibleRect);
-		bool update_row (row_tree_t::iterator rowIter);
+		BOOL update_row (row_tree_t::iterator rowIter);
 
-		void refresh_line_at_index (NSUInteger index, bool fullRefresh);
+		void refresh_line_at_index (NSUInteger index, BOOL fullRefresh);
 		void did_fold (NSUInteger from, NSUInteger to);
 
 		static int row_y_comp (CGFloat y, row_key_t  offset, row_key_t  node)       { return y < offset._height ? -1 : (y == offset._height ? 0 : +1); }
@@ -174,14 +174,14 @@ namespace ng
 		NSString *        _font_name;
 		CGFloat            _font_size;
 		NSUInteger             _tab_size;
-		bool               _wrapping;
-		bool               _draw_wrap_column = false;
+		BOOL               _wrapping;
+		BOOL               _draw_wrap_column = false;
 		NSUInteger             _wrap_column;
 		margin_t           _margin;
 		CGSize             _viewport_size = CGSizeZero;
 
-		bool               _is_key = false;
-		bool               _draw_caret = false;
+		BOOL               _is_key = false;
+		BOOL               _draw_caret = false;
 		OakSelectionIndex *        _drop_marker;
 
 		std::shared_ptr<OakLayoutMetrics *> _metrics;

@@ -23,16 +23,16 @@ namespace scope
 		scope_t (char const* scope);
 		scope_t (NSString * scope);
 
-		bool has_prefix (scope_t  rhs) ;
+		BOOL has_prefix (scope_t  rhs) ;
 
 		scope_t append (NSString * atom) ;
 		scope_t parent () ;
 
-		bool operator== (scope_t  rhs) ;
-		bool operator!= (scope_t  rhs) ;
-		bool operator< (scope_t  rhs) ;
+		BOOL operator== (scope_t  rhs) ;
+		BOOL operator!= (scope_t  rhs) ;
+		BOOL operator< (scope_t  rhs) ;
 
-		explicit operator bool () ;
+		explicit operator BOOL () ;
 
 	private:
 		void setup (NSString * str);
@@ -52,9 +52,9 @@ namespace scope
 		context_t (scope_t  actual) : left(actual), right(actual) { }
 		context_t (scope_t  left, scope_t  right) : left(left), right(right) { }
 
-		bool operator== (context_t  rhs) const { return left == rhs.left && right == rhs.right; }
-		bool operator!= (context_t  rhs) const { return !(*this == rhs); }
-		bool operator< (context_t  rhs) const  { return left < rhs.left || (left == rhs.left && right < rhs.right); }
+		BOOL operator== (context_t  rhs) const { return left == rhs.left && right == rhs.right; }
+		BOOL operator!= (context_t  rhs) const { return !(*this == rhs); }
+		BOOL operator< (context_t  rhs) const  { return left < rhs.left || (left == rhs.left && right < rhs.right); }
 
 		scope_t left, right;
 	};
@@ -74,7 +74,7 @@ namespace scope
 		selector_t (char const* str);
 		selector_t (NSString * str);
 
-		bool does_match (context_t  scope, double* rank = NULL) ;
+		BOOL does_match (context_t  scope, double* rank = NULL) ;
 
 	private:
 		void setup (NSString * str);

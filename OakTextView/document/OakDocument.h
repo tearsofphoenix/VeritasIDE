@@ -10,6 +10,7 @@
 
 @class OakDocument;
 @class OakFileEncodingType;
+@class OakDocumentMark;
 
 enum
 {
@@ -30,15 +31,154 @@ typedef NSInteger OakDocumentEventType;
 
 typedef void(^ OakDocumentCallback)(OakDocument *doc, OakDocumentEventType event);
 
-@interface OakDocument : NSDocument
+@interface OakDocument : NSObject
 
 @property (nonatomic, retain) NSString *path;
-@property (nonatomic, retain) NSString *virtual_path;
-@property (nonatomic, retain) NSString *custom_name;
-@property (nonatomic, retain) NSString *file_type;
-@property (nonatomic, retain) NSString *backup_path;
+@property (nonatomic, retain) NSString *virtualPath;
+@property (nonatomic, retain) NSString *customName;
+@property (nonatomic, retain) NSString *fileType;
+@property (nonatomic, retain) NSString *backupPath;
 @property (nonatomic, retain) OakFileEncodingType *fileEncoding;
 
 @property (nonatomic)   BOOL recent_tracking;
+
+
+- (id<OakDocumentReader>)createReader;
+
+// ======================================================
+// = Performing replacements (from outside a text view) =
+// ======================================================
+
+- (void)replaceContentWith: (NSDictionary *)replacements;
+
+- (void)addMark: (OakDocumentMark *)mark
+        atRange: (OakTextRange *)range;
+
+- (void)removeAllMarksWithTypeToClear: (NSString *)typeToClear;
+
+- (NSDictionary *)allMarks;
+
+- (NSString *)marksAsString;
+
+- (NSDictionary *)symbols;
+
+- (void)addCallback: (OakDocumentCallback)callback;
+
+- (void)removeCallback: (OakDocumentCallback)callback;
+
+- (void)checkModified: (ssize_t) diskRev
+             received: (ssize_t)rev;
+
+- (void)broadcastEvent: (OakDocumentEventType)event
+               cascade: (BOOL)cascade;
+
+// ===================
+// = For OakTextView =
+// ===================
+
+- (void)postLoadForPath: (NSString *)path
+                content: (NSData *) content
+             attributes: (NSDictionary *)attributes
+               fileType: (NSString *)fileType
+         pathAttributes: (NSString *) pathAttributes
+               encoding: (OakFileEncodingType * )encoding;
+
+- (void)postSaveToPath: (NSString *) path
+               content: (NSData *)content
+        pathAttributes: (NSString *) pathAttributes
+              encoding: (OakFileEncodingType *) encoding
+                succes: (BOOL) succes;
+
+
+- (BOOL)tryOpenWithCallback: (OakDocumentCallback)callback;
+
+- (void)open;
+
+- (void)close;
+
+- (void)show;
+
+- (void)hide;
+
+- (NSDate *)lru;
+
+- (void)trySaveWithCallback: (OakDocumentCallback)callback;
+
+- (BOOL)save;
+
+- (BOOL)backup;
+
+- (NSString *)buffer;
+
+- (NSUndoManager *)undoManager;
+
+// =============
+// = Accessors =
+// =============
+
+- (NSUUID *)identifier;
+
+- (NSInteger)revision;
+
+- (void)setRevision: (NSInteger)rev;
+
+- (BOOL)isOpen;
+
+- (NSString *)fileType;
+
+- (NSDictionary *)settings;
+
+- (NSDictionary *)variablesWith: (NSDictionary *)map
+             isSourceFileSystem: (BOOL)sourceFileSystem;
+
+- (BOOL)isModified;
+
+-(BOOL)isOnDisk;
+
+- (void)setDiskRevision: (NSInteger)rev;
+
+- (NSString *)selection;
+
+- (NSString *)folded;
+
+- (NSString *)visibleRect;
+
+- (void)setSelection: (NSString *)sel;
+
+- (void)setFolded: (NSString *)folded;
+
+- (void)setVisibleRect: (NSString *)rect;
+
+- (void)setAuthorization: (OakAuthorization *)auth;
+
+- (scope_t)scope;
+
+- (void)_setupBuffer;
+
+- (void)grammarDidChange;
+
+- (void)setContent: (NSData *)bytes;
+
+- (NSString *)content;
+
+- (void)setModified: (BOOL)flag;
+
+// ==============
+// = Properties =
+// ==============
+
++ (OakDocument *)documentWithPath: (NSString *)path;
+
++ (OakDocument *)documentFromContent: (NSString *)content
+                            fileType: (NSString *)fileType;
+
++ (OakDocument *)documentWithUUID: (NSUUID *)uuid
+                    searchBackups: (BOOL)flag;
+
+- (NSUInteger)untitledCount;
+
+- (void)watchCallbackWithFlag: (int) flags
+                         path: (NSString *)newPath
+                        async: (BOOL)async;
 
 @end

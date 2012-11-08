@@ -17,7 +17,7 @@ namespace scope
 {
 	namespace types
 	{
-		bool prefix_match (std::vector<scope::types::atom_t>  lhs, std::vector<scope::types::atom_t>  rhs)
+		BOOL prefix_match (std::vector<scope::types::atom_t>  lhs, std::vector<scope::types::atom_t>  rhs)
 		{
 			ENTER;
 			if(lhs.size() > rhs.size())
@@ -33,7 +33,7 @@ namespace scope
 			return true;
 		}
 
-		bool path_t::does_match (path_t  lhs, path_t  path, double* rank) const
+		BOOL path_t::does_match (path_t  lhs, path_t  path, double* rank) const
 		{
 			ENTER;
 			//printf("scope selector:%s\n", this->to_s().c_str());
@@ -42,11 +42,11 @@ namespace scope
 			NSUInteger j = scopes.size();      // “string > constant $”
 			const NSUInteger size_j = j;
 			
-			bool anchor_to_bol = this->anchor_to_bol;
-			bool anchor_to_eol = this->anchor_to_eol;
+			BOOL anchor_to_bol = this->anchor_to_bol;
+			BOOL anchor_to_eol = this->anchor_to_eol;
 			//printf("scope selector: anchor_to_bol:%s anchor_to_eol:%s\n", anchor_to_bol?"yes":"no", anchor_to_eol?"yes":"no");
 			
-			bool check_next = false;
+			BOOL check_next = false;
 			NSUInteger reset_i, reset_j;
 			double reset_score = 0;
 			double score = 0;
@@ -57,7 +57,7 @@ namespace scope
 				assert(i-1 < path.scopes.size());
 				assert(j-1 < scopes.size());
 
-				bool anchor_to_previous = scopes[j-1].anchor_to_previous;
+				BOOL anchor_to_previous = scopes[j-1].anchor_to_previous;
 				//printf("scope selector:%s anchor_to_previous:%s check_next:%s\n", types::to_s(scopes[j-1]).c_str(), anchor_to_previous?"yes":"no", check_next?"yes":"no");
 				
 				if((anchor_to_previous || (anchor_to_bol && j == 1)) && !check_next)
@@ -107,10 +107,10 @@ namespace scope
 			return j == 0;
 		}
 
-		bool composite_t::does_match (path_t  lhs, path_t  rhs, double* rank) const
+		BOOL composite_t::does_match (path_t  lhs, path_t  rhs, double* rank) const
 		{
 			ENTER;
-			bool res = false;
+			BOOL res = false;
 			if(rank)
 			{
 				double r, sum = 0;
@@ -118,7 +118,7 @@ namespace scope
 				{
 					expression_t::op_t op = expr->op;
 
-					bool local = expr->selector->does_match(lhs, rhs, &r);
+					BOOL local = expr->selector->does_match(lhs, rhs, &r);
 					if(local)
 						sum = MAX(r, sum);
 
@@ -150,7 +150,7 @@ namespace scope
 				else if(!res && op == expression_t::op_minus) // skip intersection when we have a false value
 					continue;
 
-				bool local = expr->selector->does_match(lhs, rhs, rank);
+				BOOL local = expr->selector->does_match(lhs, rhs, rank);
 				if(expr->negate)
 					local = !local;
 
@@ -165,12 +165,12 @@ namespace scope
 			return res;
 		}
 
-		bool selector_t::does_match (path_t  lhs, path_t  rhs, double* rank) const
+		BOOL selector_t::does_match (path_t  lhs, path_t  rhs, double* rank) const
 		{
 			ENTER;
 			if(rank)
 			{
-				bool res = false;
+				BOOL res = false;
 				double r, sum = 0;
 				iterate(composite, composites)
 				{
@@ -193,13 +193,13 @@ namespace scope
 			return false;
 		}
 
-		bool group_t::does_match (path_t  lhs, path_t  rhs, double* rank) const
+		BOOL group_t::does_match (path_t  lhs, path_t  rhs, double* rank) const
 		{
 			ENTER;
 			return selector.does_match(lhs, rhs, rank);
 		}
 
-		bool filter_t::does_match (path_t  lhs, path_t  rhs, double* rank) const
+		BOOL filter_t::does_match (path_t  lhs, path_t  rhs, double* rank) const
 		{
 			ENTER;
 			if(filter == both && rank)

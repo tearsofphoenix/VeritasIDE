@@ -338,7 +338,7 @@ static OakPasteboardSelector* SharedInstance;
                                             @(NSOtherMouseDown),
                                            @(NSOtherMouseUp)]);
 
-		bool orderOutEvent = (([keyEvent containsObject: @([event type])]
+		BOOL orderOutEvent = (([keyEvent containsObject: @([event type])]
                               && [event window] != parentWindow)
                               || ([mouseEvent containsObject: @([event type])]
                                   && [event window] != window));

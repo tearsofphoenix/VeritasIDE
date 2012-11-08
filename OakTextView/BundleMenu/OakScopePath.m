@@ -32,11 +32,11 @@
     NSUInteger j = [_scopes count];      // “string > constant $”
     const NSUInteger size_j = j;
     
-    bool anchor_to_bol = _anchor_to_bol;
-    bool anchor_to_eol = _anchor_to_eol;
+    BOOL anchor_to_bol = _anchor_to_bol;
+    BOOL anchor_to_eol = _anchor_to_eol;
     //printf("scope selector: anchor_to_bol:%s anchor_to_eol:%s\n", anchor_to_bol?"yes":"no", anchor_to_eol?"yes":"no");
     
-    bool check_next = false;
+    BOOL check_next = false;
     NSUInteger reset_i, reset_j;
     double reset_score = 0;
     double score = 0;
@@ -47,7 +47,7 @@
         assert(i-1 < [[path scopes] count]);
         assert(j-1 < [_scopes count]);
         
-        bool anchor_to_previous = [[_scopes objectAtIndex: j-1] anchor_to_previous];
+        BOOL anchor_to_previous = [[_scopes objectAtIndex: j-1] anchor_to_previous];
         //printf("scope selector:%s anchor_to_previous:%s check_next:%s\n", types::to_s(scopes[j-1]).c_str(), anchor_to_previous?"yes":"no", check_next?"yes":"no");
         
         if((anchor_to_previous || (anchor_to_bol && j == 1)) && !check_next)

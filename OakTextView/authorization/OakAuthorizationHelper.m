@@ -71,7 +71,7 @@
     AuthorizationItem rightsItems[]     = { { [right UTF8String], 0, NULL, 0 }, };
     AuthorizationRights const allRights = { sizeof(rightsItems), rightsItems };
     
-    bool res = false;
+    BOOL res = false;
     AuthorizationRights* myAuthorizedRights = NULL;
     int myStatus = AuthorizationCopyRights(_authorization, &allRights, kAuthorizationEmptyEnvironment, flags, &myAuthorizedRights);
     if(myStatus == errAuthorizationSuccess)

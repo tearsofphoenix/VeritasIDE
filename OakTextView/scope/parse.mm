@@ -25,22 +25,22 @@ namespace scope
 			char const* it;
 			char const* last;
 
-			bool ws ();
+			BOOL ws ();
 
-			bool parse_char (char const* ch, char* dst = NULL);
+			BOOL parse_char (char const* ch, char* dst = NULL);
 
-			bool parse_atom (atom_t& res);
-			bool parse_scope (scope::types::scope_t& res);
-			bool parse_path (path_t& res);
-			bool parse_path (any_ptr& res);
-			bool parse_group (any_ptr& res);
-			bool parse_filter (any_ptr& res);
-			bool parse_expression (expression_t& res);
-			bool parse_composite (composite_t& res);
-			bool parse_selector (selector_t& res);
+			BOOL parse_atom (atom_t& res);
+			BOOL parse_scope (scope::types::scope_t& res);
+			BOOL parse_path (path_t& res);
+			BOOL parse_path (any_ptr& res);
+			BOOL parse_group (any_ptr& res);
+			BOOL parse_filter (any_ptr& res);
+			BOOL parse_expression (expression_t& res);
+			BOOL parse_composite (composite_t& res);
+			BOOL parse_selector (selector_t& res);
 		};
 
-		bool context_t::parse_atom (atom_t& res)
+		BOOL context_t::parse_atom (atom_t& res)
 		{
 			ENTER;
 			if(parse_char("*"))
@@ -56,10 +56,10 @@ namespace scope
 			return true;
 		}
 
-		bool context_t::parse_scope (scope::types::scope_t& res)
+		BOOL context_t::parse_scope (scope::types::scope_t& res)
 		{
 			ENTER;
-			bool rc = false;
+			BOOL rc = false;
 			res.anchor_to_previous = parse_char(">") && ws();
 			do {
 				res.atoms.push_back(atom_t());
@@ -74,7 +74,7 @@ namespace scope
 			return rc;
 		}
 
-		bool context_t::parse_path (path_t& res)
+		BOOL context_t::parse_path (path_t& res)
 		{
 			ENTER;
 			res.anchor_to_bol = parse_char("^") && ws();
@@ -92,7 +92,7 @@ namespace scope
 			return true;
 		}
 
-		bool context_t::parse_path (any_ptr& res)
+		BOOL context_t::parse_path (any_ptr& res)
 		{
 			path_t tmp;
 			if(parse_path(tmp))
@@ -100,7 +100,7 @@ namespace scope
 			return false;
 		}
 
-		bool context_t::parse_group (any_ptr& res)
+		BOOL context_t::parse_group (any_ptr& res)
 		{
 			ENTER;
 			char const* bt = it;
@@ -110,7 +110,7 @@ namespace scope
 			return it = bt, false;
 		}
 
-		bool context_t::parse_filter (any_ptr& res)
+		BOOL context_t::parse_filter (any_ptr& res)
 		{
 			ENTER;
 			char const* bt = it;
@@ -121,7 +121,7 @@ namespace scope
 			return it = bt, false;
 		}
 
-		bool context_t::parse_expression (expression_t& res)
+		BOOL context_t::parse_expression (expression_t& res)
 		{
 			ENTER;
 			if(parse_char("-") && ws())
@@ -129,10 +129,10 @@ namespace scope
 			return parse_filter(res.selector) || parse_group(res.selector) || parse_path(res.selector);
 		}
 
-		bool context_t::parse_composite (composite_t& res)
+		BOOL context_t::parse_composite (composite_t& res)
 		{
 			ENTER;
-			bool rc = false;
+			BOOL rc = false;
 			char op = expression_t::op_none;
 			do {
 				expression_t tmp(op);
@@ -144,10 +144,10 @@ namespace scope
 			return rc;
 		}
 
-		bool context_t::parse_selector (selector_t& res)
+		BOOL context_t::parse_selector (selector_t& res)
 		{
 			ENTER;
-			bool rc = false;
+			BOOL rc = false;
 			ws();
 			do {
 				composite_t tmp;
@@ -163,14 +163,14 @@ namespace scope
 		// = General Utility Functions =
 		// =============================
 
-		bool context_t::ws ()
+		BOOL context_t::ws ()
 		{
 			while(it != last && strchr(" \t", *it))
 				++it;
 			return true;
 		}
 
-		bool context_t::parse_char (char const* ch, char* dst)
+		BOOL context_t::parse_char (char const* ch, char* dst)
 		{
 			if(it == last || !strchr(ch, *it))
 				return false;

@@ -51,14 +51,14 @@
 layout: (OakL)
 
 
-void perform (action_t action, layout_t const* layout = NULL, bool indentCorrections = false, NSString * scopeAttributes = NULL_STR);
+void perform (action_t action, layout_t const* layout = NULL, BOOL indentCorrections = false, NSString * scopeAttributes = NULL_STR);
         
-		bool disallow_tab_expansion () ;
+		BOOL disallow_tab_expansion () ;
         
-		void insert (NSString * str, bool selectInsertion = false);
-		void insert_with_pairing (NSString * str, bool indentCorrections = false, NSString * scopeAttributes = NULL_STR);
-		void move_selection_to (OakSelectionIndex *  index, bool selectInsertion = true);
-		ranges_t replace (NSString * searchFor, NSString * replaceWith, NSStringCompareOptions options = , bool searchOnlySelection = false);
+		void insert (NSString * str, BOOL selectInsertion = false);
+		void insert_with_pairing (NSString * str, BOOL indentCorrections = false, NSString * scopeAttributes = NULL_STR);
+		void move_selection_to (OakSelectionIndex *  index, BOOL selectInsertion = true);
+		ranges_t replace (NSString * searchFor, NSString * replaceWith, NSStringCompareOptions options = , BOOL searchOnlySelection = false);
 		void delete_tab_trigger (NSString * str);
         
 		void macro_dispatch (NSMutableDictionary *  args, std::map<NSString *, NSString *>  variables);
@@ -75,11 +75,11 @@ void perform (action_t action, layout_t const* layout = NULL, bool indentCorrect
         
 		ranges_t ranges () const                                              { return _selections; }
 		void set_selections (ranges_t  r)                               { _selections = r; }
-		bool has_selection () const                                           { return not_empty(_buffer, _selections); }
+		BOOL has_selection () const                                           { return not_empty(_buffer, _selections); }
 		NSString * as_string (NSUInteger from = 0, NSUInteger to = SIZE_T_MAX) const { return _buffer.substr(from, to != SIZE_T_MAX ? to : _buffer.size()); }
         
 		void perform_replacements (std::multimap<OakTextRange *, NSString *>  replacements);
-		bool handle_result (NSString * out, output::type placement, output_format::type format, output_caret::type outputCaret, OakTextRange * input_range, std::map<NSString *, NSString *> environment);
+		BOOL handle_result (NSString * out, output::type placement, output_format::type format, output_caret::type outputCaret, OakTextRange * input_range, std::map<NSString *, NSString *> environment);
         
 		// ==============
 		// = Clipboards =
@@ -99,8 +99,8 @@ void perform (action_t action, layout_t const* layout = NULL, bool indentCorrect
 		void setup ();
 		friend struct indent_helper_t;
         
-		static NSUInteger visual_distance (NSString *  buffer, index_t first, index_t last, bool eastAsianWidth = true);
-		static index_t visual_advance (NSString *  buffer, index_t caret, NSUInteger distance, bool eastAsianWidth = true);
+		static NSUInteger visual_distance (NSString *  buffer, index_t first, index_t last, BOOL eastAsianWidth = true);
+		static index_t visual_advance (NSString *  buffer, index_t caret, NSUInteger distance, BOOL eastAsianWidth = true);
         
 		static OakSelectionRanges * insert_tab_with_indent (NSString *& buffer, OakSelectionRanges *  selections, snippet_controller_t& snippets);
 		static OakSelectionRanges * insert_newline_with_indent (NSString *& buffer, OakSelectionRanges *  selections, snippet_controller_t& snippets);
@@ -109,7 +109,7 @@ void perform (action_t action, layout_t const* layout = NULL, bool indentCorrect
 		static OakSelectionRanges * paste (NSString *& buffer, OakSelectionRanges *  selections, snippet_controller_t& snippets, clipboard_t::entry_ptr entry);
         
 		std::vector<NSString *> completions (NSUInteger bow, NSUInteger eow, NSString * prefix, NSString * suffix, NSString * scopeAttributes);
-		bool setup_completion (NSString * scopeAttributes);
+		BOOL setup_completion (NSString * scopeAttributes);
 		void next_completion (NSString * scopeAttributes);
 		void previous_completion (NSString * scopeAttributes);
         
@@ -120,8 +120,8 @@ void perform (action_t action, layout_t const* layout = NULL, bool indentCorrect
 		void snippet (NSString * str, std::map<NSString *, NSString *>  variables);
 		ranges_t snippet (NSUInteger from, NSUInteger to, NSString * str, std::map<NSString *, NSString *>  variables);
         
-		void find (NSString * searchFor, NSStringCompareOptions options = , bool searchOnlySelection = false);
-		ranges_t replace (std::multimap<range_t, NSString *>  replacements, bool selectInsertions = false);
+		void find (NSString * searchFor, NSStringCompareOptions options = , BOOL searchOnlySelection = false);
+		ranges_t replace (std::multimap<range_t, NSString *>  replacements, BOOL selectInsertions = false);
 		void move_selection (int deltaX, int deltaY);
         
 		// ===============
@@ -138,7 +138,7 @@ void perform (action_t action, layout_t const* layout = NULL, bool indentCorrect
 		clipboard_ptr _find_clipboard;
 		clipboard_ptr _replace_clipboard;
 		clipboard_ptr _yank_clipboard;
-		bool _extend_yank_clipboard = false;
+		BOOL _extend_yank_clipboard = false;
         
 		document::OakDocument * _document;
 	};

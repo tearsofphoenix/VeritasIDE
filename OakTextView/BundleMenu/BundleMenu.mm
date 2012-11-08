@@ -58,7 +58,7 @@ static NSArray *filtered_menu (OakBundleItem * menuItem, NSMutableSet* includedI
 
 void OakAddBundlesToMenu (NSArray *items, BOOL hasSelection, BOOL setKeys, NSMenu* menu, SEL menuAction, id menuTarget)
 {
-	bool onlyGrammars = true;
+	BOOL onlyGrammars = true;
 	for(OakBundleItem *item in items)
     {
 		onlyGrammars = onlyGrammars &&  [item kind] == kItemTypeGrammar;
@@ -118,14 +118,14 @@ void OakAddBundlesToMenu (NSArray *items, BOOL hasSelection, BOOL setKeys, NSMen
 			menus.insert(std::make_pair(bundle->name(), menuItems));
 		}
         
-		bool showBundleHeadings = menus.size() > 1;
+		BOOL showBundleHeadings = menus.size() > 1;
 		iterate(pair, menus)
 		{
 			if(showBundleHeadings)
 				[menu addItemWithTitle:[NSString stringWithCxxString:pair->first] action:NULL keyEquivalent:@""];
             
-			bool suppressSeparator = true;
-			bool pendingSeparator  = false;
+			BOOL suppressSeparator = true;
+			BOOL pendingSeparator  = false;
 			iterate(item, pair->second)
 			{
 				if((*item)->kind() == bundles::kItemTypeMenuItemSeparator)
@@ -159,7 +159,7 @@ void OakAddBundlesToMenu (NSArray *items, BOOL hasSelection, BOOL setKeys, NSMen
 	}
 }
 
-OakBundleItem * OakShowMenuForBundleItems (NSArray *items, CGPoint  pos, bool hasSelection)
+OakBundleItem * OakShowMenuForBundleItems (NSArray *items, CGPoint  pos, BOOL hasSelection)
 {
 	if(items.empty())
 		return OakBundleItem *();

@@ -14,7 +14,7 @@ namespace scope
 		struct any_t
 		{
 			 ~any_t () { }
-			 bool does_match (path_t  lhs, path_t  rhs, double* rank) const = 0;
+			 BOOL does_match (path_t  lhs, path_t  rhs, double* rank) const = 0;
 			 NSString * to_s () const = 0;
 		};
 
@@ -27,11 +27,11 @@ namespace scope
 		{
 			scope_t () : anchor_to_previous(false) { }
 			std::vector<atom_t> atoms;
-			bool anchor_to_previous;
+			BOOL anchor_to_previous;
 
-			bool operator== (scope_t  rhs) const { return atoms == rhs.atoms; }
-			bool operator!= (scope_t  rhs) const { return atoms != rhs.atoms; }
-			bool operator< (scope_t  rhs) const  { return atoms < rhs.atoms; }
+			BOOL operator== (scope_t  rhs) const { return atoms == rhs.atoms; }
+			BOOL operator!= (scope_t  rhs) const { return atoms != rhs.atoms; }
+			BOOL operator< (scope_t  rhs) const  { return atoms < rhs.atoms; }
 		};
 
 		struct path_t : any_t
@@ -40,13 +40,13 @@ namespace scope
 
 			path_t () : anchor_to_bol(false), anchor_to_eol(false) { }
 			std::vector<scope_t> scopes;
-			bool anchor_to_bol;
-			bool anchor_to_eol;
+			BOOL anchor_to_bol;
+			BOOL anchor_to_eol;
 
-			bool does_match (path_t  lhs, path_t  rhs, double* rank) ;
-			bool operator== (path_t  rhs) const { return scopes == rhs.scopes; }
-			bool operator!= (path_t  rhs) const { return scopes != rhs.scopes; }
-			bool operator< (path_t  rhs) const  { return scopes < rhs.scopes; }
+			BOOL does_match (path_t  lhs, path_t  rhs, double* rank) ;
+			BOOL operator== (path_t  rhs) const { return scopes == rhs.scopes; }
+			BOOL operator!= (path_t  rhs) const { return scopes != rhs.scopes; }
+			BOOL operator< (path_t  rhs) const  { return scopes < rhs.scopes; }
 			NSString * to_s () ;
 		};
 
@@ -54,17 +54,17 @@ namespace scope
 		{
 			expression_t (char op) : op((op_t)op), negate(false) { }
 			enum op_t { op_none, op_or = '|', op_and = '&', op_minus = '-' } op;
-			bool negate;
+			BOOL negate;
 			any_ptr selector;
 
-			bool does_match (path_t  lhs, path_t  rhs, double* rank) ;
+			BOOL does_match (path_t  lhs, path_t  rhs, double* rank) ;
 		};
 
 		struct composite_t
 		{
 			std::vector<expression_t> expressions;
 
-			bool does_match (path_t  lhs, path_t  rhs, double* rank) ;
+			BOOL does_match (path_t  lhs, path_t  rhs, double* rank) ;
 		};
 
 		struct selector_t
@@ -73,7 +73,7 @@ namespace scope
 
 			std::vector<composite_t> composites;
 
-			bool does_match (path_t  lhs, path_t  rhs, double* rank) ;
+			BOOL does_match (path_t  lhs, path_t  rhs, double* rank) ;
 		};
 
 		struct group_t : any_t
@@ -82,7 +82,7 @@ namespace scope
 
 			selector_t selector;
 
-			bool does_match (path_t  lhs, path_t  rhs, double* rank) ;
+			BOOL does_match (path_t  lhs, path_t  rhs, double* rank) ;
 			NSString * to_s () ;
 		};
 
@@ -94,7 +94,7 @@ namespace scope
 			enum side_t { unset, left = 'L', right = 'R', both = 'B' } filter;
 			any_ptr selector;
 
-			bool does_match (path_t  lhs, path_t  rhs, double* rank) ;
+			BOOL does_match (path_t  lhs, path_t  rhs, double* rank) ;
 			NSString * to_s () ;
 		};
 

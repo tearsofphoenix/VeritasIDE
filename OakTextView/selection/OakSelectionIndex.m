@@ -52,7 +52,7 @@
         return NSOrderedDescending;
     }
 }
-//		bool operator< (index_t  rhs) const  { return index < rhs.index || (index == rhs.index && carry < rhs.carry); }
-//		bool operator<= (index_t  rhs) const { return *this < rhs || *this == rhs; }
+//		BOOL operator< (index_t  rhs) const  { return index < rhs.index || (index == rhs.index && carry < rhs.carry); }
+//		BOOL operator<= (index_t  rhs) const { return *this < rhs || *this == rhs; }
 //		index_t operator+ (ssize_t i) const        { return index_t(index + i, carry); }
 @end

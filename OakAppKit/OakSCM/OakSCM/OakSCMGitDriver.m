@@ -135,7 +135,7 @@ static void collect_all_paths (NSString * git, NSMutableDictionary *entries, NSS
     [env setObject: dir
             forKey: @"PWD"];
     
-	bool haveHead = [[NSTask resultByExecute: git
+	BOOL haveHead = [[NSTask resultByExecute: git
                                    arguments: @[ @"show-ref", @"-qh"]
                                  currentPath: dir] length] > 0;
     

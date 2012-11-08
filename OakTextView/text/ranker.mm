@@ -1,6 +1,6 @@
 #include "ranker.h"
 
-static bool is_subset (NSString * needle, NSString * haystack)
+static BOOL is_subset (NSString * needle, NSString * haystack)
 {
 	NSString *::size_type n = 0, m = 0;
 	while(n < needle.size() && m < haystack.size())
@@ -44,12 +44,12 @@ static double calculate_rank (NSString * lhs, NSString * rhs, std::vector< std::
 	NSUInteger const n = lhs.size();
 	NSUInteger const m = rhs.size();
 	NSUInteger matrix[n][m], first[n], last[n];
-	bool capitals[m];
+	BOOL capitals[m];
 	bzero(matrix, sizeof(matrix));
 	std::fill_n(&first[0], n, m);
 	std::fill_n(&last[0],  n, 0);
 
-	bool at_bow = true;
+	BOOL at_bow = true;
 	for(NSUInteger j = 0; j < m; ++j)
 	{
 		char ch = rhs[j];
@@ -138,7 +138,7 @@ static double calculate_rank (NSString * lhs, NSString * rhs, std::vector< std::
 			prefixSize = bestJIndex;
 
 		NSUInteger len = 0;
-		bool foundCapital = false;
+		BOOL foundCapital = false;
 		do {
 
 			++i; ++len;
