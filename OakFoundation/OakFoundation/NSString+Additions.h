@@ -4,23 +4,28 @@
 + (NSString*)stringWithUTF8String: (char const *)aString
                            length: (NSUInteger)aLength;
 
-- (BOOL)existsAsPath;
-
-- (BOOL)isDirectory;
-
 - (NSString *)stringByConvertToEncoding: (NSStringEncoding)encoding
                            fromEncoding: (NSStringEncoding)fromEncoding;
 
 + (NSString *)stringWithChar: (char)value
                  repeatCount: (NSUInteger)count;
 
+- (char)charAtIndex: (NSUInteger)index;
+
+- (BOOL)existsAsPath;
+
+- (BOOL)isDirectory;
+
+
+@end
+
+@interface NSString (DocumentContent)
+
 - (NSUInteger)locationOfLineStart: (NSUInteger)line;
 
 - (NSUInteger)locationOfLineEnd: (NSUInteger)line;
 
 - (NSUInteger)numberOfLines;
-
-- (char)charAtIndex: (NSUInteger)index;
 
 @end
 

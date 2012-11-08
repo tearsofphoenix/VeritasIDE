@@ -1,8 +1,5 @@
 #import "ns.h"
 
-
-#import <text/utf8.h>
-
 static NSString * string_for (CGKeyCode key, CGEventFlags flags)
 {
 	CGEventRef event = CGEventCreateKeyboardEvent(NULL, key, true);

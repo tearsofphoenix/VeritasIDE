@@ -1,6 +1,6 @@
 #import "event.h"
 #import "ns.h"
-#import <text/utf8.h>
+
 
 
 static NSString * glyph_named (NSString * name)
@@ -177,7 +177,7 @@ static void parse_event_string (NSString * eventString, NSString *& key, NSUInte
 	}
 }
 
-NSString * create_event_string (NSString* key, NSUInteger flags)
+NSString * OakCreateEventString (NSString* key, NSUInteger flags)
 {
     return string_for(flags) + to_s(key);
 }

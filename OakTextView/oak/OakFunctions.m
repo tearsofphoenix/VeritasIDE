@@ -94,3 +94,9 @@ CGFloat OakFontSizeFromString(NSString * str)
     
 	return -1;
 }
+
+CGFloat OakSquare(CGFloat v)
+{
+    return v * v;
+}
+

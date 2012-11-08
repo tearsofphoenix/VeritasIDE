@@ -1,7 +1,7 @@
 #ifndef TEXT_CDEF_H_GWU81P7L
 #define TEXT_CDEF_H_GWU81P7L
 
-#include <oak/misc.h>
+
 #include <stdint.h>
 #include <CoreFoundation/CFCharacterSet.h>
 #include <ctype.h>

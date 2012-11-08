@@ -3,7 +3,7 @@
 
 
 #include <theme/theme.h>
-#include <oak/misc.h>
+
 
 namespace ng
 {
@@ -28,10 +28,10 @@ namespace ng
 		void insert_folded (NSUInteger pos, NSUInteger len, NSString *  buffer, NSUInteger bufferOffset);
 		void erase (NSUInteger from, NSUInteger to, NSString *  buffer, NSUInteger bufferOffset);
 		void did_update_scopes (NSUInteger from, NSUInteger to, NSString *  buffer, NSUInteger bufferOffset);
-		bool layout (theme_ptr  theme, NSString * fontName, CGFloat fontSize, bool softWrap, NSUInteger wrapColumn, ct::metrics_t  metrics, CGRect visibleRect, NSString *  buffer, NSUInteger bufferOffset);
+		bool layout (OakTheme *  theme, NSString * fontName, CGFloat fontSize, bool softWrap, NSUInteger wrapColumn, ct::metrics_t  metrics, CGRect visibleRect, NSString *  buffer, NSUInteger bufferOffset);
 
-		void draw_background (theme_ptr  theme, NSString * fontName, CGFloat fontSize, ct::metrics_t  metrics, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef backgroundColor, NSString *  buffer, NSUInteger bufferOffset, CGPoint anchor) const;
-		void draw_foreground (theme_ptr  theme, NSString * fontName, CGFloat fontSize, ct::metrics_t  metrics, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef textColor, NSString *  buffer, NSUInteger bufferOffset, OakSelectionRanges *  selection, CGPoint anchor) const;
+		void draw_background (OakTheme *  theme, NSString * fontName, CGFloat fontSize, ct::metrics_t  metrics, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef backgroundColor, NSString *  buffer, NSUInteger bufferOffset, CGPoint anchor) const;
+		void draw_foreground (OakTheme *  theme, NSString * fontName, CGFloat fontSize, ct::metrics_t  metrics, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef textColor, NSString *  buffer, NSUInteger bufferOffset, OakSelectionRanges *  selection, CGPoint anchor) const;
 
 		ng::index_t index_at_point (CGPoint point, ct::metrics_t  metrics, NSString *  buffer, NSUInteger bufferOffset, CGPoint anchor) const;
 		CGRect rect_at_index (ng::index_t  index, ct::metrics_t  metrics, NSString *  buffer, NSUInteger bufferOffset, CGPoint anchor) const;
@@ -64,10 +64,10 @@ namespace ng
 			void erase (NSUInteger from, NSUInteger to);
 			void did_update_scopes (NSUInteger from, NSUInteger to);
 
-			void layout (CGFloat x, CGFloat tabWidth, theme_ptr  theme, NSString * fontName, CGFloat fontSize, bool softWrap, NSUInteger wrapColumn, ct::metrics_t  metrics, NSString *  buffer, NSUInteger bufferOffset, NSString * fillStr);
+			void layout (CGFloat x, CGFloat tabWidth, OakTheme *  theme, NSString * fontName, CGFloat fontSize, bool softWrap, NSUInteger wrapColumn, ct::metrics_t  metrics, NSString *  buffer, NSUInteger bufferOffset, NSString * fillStr);
 			void reset_font_metrics (ct::metrics_t  metrics);
-			void draw_background (theme_ptr  theme, NSString * fontName, CGFloat fontSize, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef backgroundColor, NSString *  buffer, NSUInteger bufferOffset, CGPoint anchor, CGFloat lineHeight) const;
-			void draw_foreground (theme_ptr  theme, NSString * fontName, CGFloat fontSize, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef textColor, NSString *  buffer, NSUInteger bufferOffset, std::vector< std::pair<NSUInteger, NSUInteger> >  misspelled, CGPoint anchor, CGFloat baseline) const;
+			void draw_background (OakTheme *  theme, NSString * fontName, CGFloat fontSize, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef backgroundColor, NSString *  buffer, NSUInteger bufferOffset, CGPoint anchor, CGFloat lineHeight) const;
+			void draw_foreground (OakTheme *  theme, NSString * fontName, CGFloat fontSize, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef textColor, NSString *  buffer, NSUInteger bufferOffset, std::vector< std::pair<NSUInteger, NSUInteger> >  misspelled, CGPoint anchor, CGFloat baseline) const;
 
 			node_type_t type () const                      { return _type; }
 			NSUInteger length () const                         { return _length; }

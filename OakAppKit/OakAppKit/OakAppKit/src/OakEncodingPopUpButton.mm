@@ -1,8 +1,8 @@
 #import "OakEncodingPopUpButton.h"
 #import "NSMenu+Additions.h"
 #import <OakFoundation/OakFoundation.h>
-#import <ns/ns.h>
-#import <text/parse.h>
+
+
 
 
 static NSString* const kUserDefaultsAvailableEncodingsKey = @"availableEncodings";

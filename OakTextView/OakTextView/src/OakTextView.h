@@ -1,40 +1,44 @@
 #import "GutterView.h"
 #import <OakAppKit/OakView.h>
-#import <editor/editor.h>
-#import <buffer/buffer.h>
-#import <theme/theme.h>
-#import <document/document.h>
 
 extern int32_t const NSWrapColumnWindowWidth;
 extern int32_t const NSWrapColumnAskUser;
 extern NSString* const kUserDefaultsDisableAntiAliasKey;
 
-namespace bundles { struct item_t; typedef std::shared_ptr<item_t> item_ptr; }
-namespace ng      { struct layout_t; }
-
 @class OakTextView;
 @class OakTimer;
 @class OakChoiceMenu;
+@class OakDocument;
+@class OakTheme;
+@class OakEditor;
+@class OakLayout;
+@class OakSelectionIndex;
+@class OakSelectionRangeArray;
+@class OakScopeContext;
+@class OakBundleItem;
 
 struct buffer_refresh_callback_t;
 
 enum folding_state_t { kFoldingNone, kFoldingTop, kFoldingCollapsed, kFoldingBottom };
 
 @protocol OakTextViewDelegate <NSObject>
+
 @optional
+
 - (NSString*)scopeAttributes;
+
 @end
 
 @interface OakTextView : OakView <NSTextInput, NSTextFieldDelegate>
 {
-	document::OakDocument * document;
-	theme_ptr theme;
+	OakDocument * document;
+	OakTheme *theme;
 	NSString * fontName;
 	CGFloat fontSize;
 	BOOL antiAlias;
 	BOOL showInvisibles;
-	ng::editor_ptr editor;
-	std::shared_ptr<ng::layout_t> layout;
+	OakEditor *editor;
+	OakLayout *layout;
 	NSUInteger refreshNestCount;
 	buffer_refresh_callback_t* callback;
 
@@ -53,7 +57,7 @@ enum folding_state_t { kFoldingNone, kFoldingTop, kFoldingCollapsed, kFoldingBot
 	NSCursor* ibeamCursor;
 
 	NSPoint mouseDownPos;
-	ng::index_t mouseDownIndex;
+	OakSelectionIndex *mouseDownIndex;
 	NSInteger mouseDownModifierFlags;
 	NSInteger mouseDownClickCount;
 
@@ -69,9 +73,9 @@ enum folding_state_t { kFoldingNone, kFoldingTop, kFoldingCollapsed, kFoldingBot
 	// = Drag’n’drop =
 	// ===============
 
-	ng::index_t dropPosition;
-	OakSelectionRanges * markedRanges;
-	OakSelectionRanges * pendingMarkedRanges;
+	OakSelectionIndex *dropPosition;
+	OakSelectionRangeArray * markedRanges;
+	OakSelectionRangeArray * pendingMarkedRanges;
 
 	NSString* selectionString;
 	BOOL isUpdatingSelection;
@@ -84,20 +88,20 @@ enum folding_state_t { kFoldingNone, kFoldingTop, kFoldingCollapsed, kFoldingBot
 
 	NSViewController* liveSearchViewController;
 	NSString* liveSearchString;
-	OakSelectionRanges * liveSearchAnchor;
-	OakSelectionRanges * liveSearchRanges;
+	OakSelectionRangeArray * liveSearchAnchor;
+	OakSelectionRangeArray * liveSearchRanges;
 
 	// ===================
 	// = Snippet Choices =
 	// ===================
 
 	OakChoiceMenu* choiceMenu;
-	std::vector<NSString *> choiceVector;
+	NSMutableArray *choiceVector;
 }
-- (void)setDocument:(document::OakDocument * )aDocument;
+- (void)setDocument: (OakDocument * )aDocument;
 
 @property (nonatomic, assign) id <OakTextViewDelegate>      delegate;
-@property (nonatomic, assign) theme_ptr               theme;
+@property (nonatomic, assign) OakTheme *               theme;
 @property (nonatomic, retain) NSCursor*                     ibeamCursor;
 @property (nonatomic, retain) NSFont*                       font;
 @property (nonatomic, assign) BOOL                          antiAlias;

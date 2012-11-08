@@ -3,7 +3,7 @@
 #import "NSSavePanel+Additions.h"
 #import <OakFoundation/OakFoundation.h>
 
-#import <ns/ns.h>
+
 #import "OakFileEncodingType.h"
 
 @interface OakEncodingSaveOptionsViewController : NSViewController

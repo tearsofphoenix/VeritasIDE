@@ -1,9 +1,9 @@
 #import "Private.h"
 #import <OakFoundation/NSString+Additions.h>
 #import <OakAppKit/NSMenuItem+Additions.h>
-#import <text/OakTextCtype.h>
+
 #import "OakBundleItem.h"
-#import <ns/ns.h>
+
 
 
 @interface BundlePopupMenuTarget : NSObject

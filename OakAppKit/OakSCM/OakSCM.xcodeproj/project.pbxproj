@@ -27,6 +27,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2279FEEB164B41F200E31A27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E152471A1649904C004C2CC8 /* OakFoundation.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E1CCD12E1644F65F006696E0;
+			remoteInfo = OakFoundation;
+		};
+		2279FEEF164B41F200E31A27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E152471A1649904C004C2CC8 /* OakFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E1B93118164A6A3200B0DE8D;
+			remoteInfo = Test;
+		};
 		E152471E1649904D004C2CC8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E152471A1649904C004C2CC8 /* OakFoundation.xcodeproj */;
@@ -149,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				E152471F1649904D004C2CC8 /* OakFoundation.framework */,
+				2279FEF0164B41F200E31A27 /* Test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +201,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2279FEEC164B41F200E31A27 /* PBXTargetDependency */,
 			);
 			name = OakSCM;
 			productName = OakSCM;
@@ -225,6 +241,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		2279FEF0164B41F200E31A27 /* Test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = Test;
+			remoteRef = 2279FEEF164B41F200E31A27 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		E152471F1649904D004C2CC8 /* OakFoundation.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -261,6 +284,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2279FEEC164B41F200E31A27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OakFoundation;
+			targetProxy = 2279FEEB164B41F200E31A27 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E1524734164A24EC004C2CC8 /* svn_status.xslt */ = {
@@ -374,6 +405,7 @@
 				E15246F216498F4C004C2CC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

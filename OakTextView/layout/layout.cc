@@ -35,7 +35,7 @@ namespace ng
 	// = layout_t =
 	// ============
 
-	layout_t::layout_t (NSString *& buffer, theme_ptr  theme, NSString * fontName, CGFloat fontSize, bool softWrap, NSUInteger wrapColumn, NSString * folded, ng::layout_t::margin_t  margin) : _folds(new folds_t(buffer)), _buffer(buffer), _theme(theme), _font_name(fontName), _font_size(fontSize), _tab_size(buffer.indent().tab_size()), _wrapping(softWrap), _wrap_column(wrapColumn), _margin(margin)
+	layout_t::layout_t (NSString *& buffer, OakTheme *  theme, NSString * fontName, CGFloat fontSize, bool softWrap, NSUInteger wrapColumn, NSString * folded, ng::layout_t::margin_t  margin) : _folds(new folds_t(buffer)), _buffer(buffer), _theme(theme), _font_name(fontName), _font_size(fontSize), _tab_size(buffer.indent().tab_size()), _wrapping(softWrap), _wrap_column(wrapColumn), _margin(margin)
 	{
 		struct parser_callback_t : ng::callback_t
 		{
@@ -81,7 +81,7 @@ namespace ng
 	// = Settings =
 	// ============
 
-	void layout_t::set_theme (theme_ptr  theme)
+	void layout_t::set_theme (OakTheme *  theme)
 	{
 		_theme = theme;
 		clear_text_widths();

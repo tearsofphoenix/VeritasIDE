@@ -46,6 +46,16 @@
     return result;
 }
 
+- (char)charAtIndex: (NSUInteger)index
+{
+    return [self UTF8String][index];
+}
+
+@end
+
+@implementation NSString (DocumentContent)
+
+
 - (NSUInteger)locationOfLineStart: (NSUInteger)line
 {
     const char *cString = [self UTF8String];
@@ -59,7 +69,7 @@
         {
             return charLooper - cString;
         }
-
+        
         if (*charLooper == '\n')
         {
             ++lineCounter;
@@ -86,7 +96,7 @@
 {
     const char *cStr = [self UTF8String];
     NSUInteger lineCount = 0;
-
+    
     while (cStr)
     {
         if (*cStr == '\n')
@@ -98,11 +108,6 @@
     }
     
     return lineCount;
-}
-
-- (char)charAtIndex: (NSUInteger)index
-{
-    return [self UTF8String][index];
 }
 
 @end

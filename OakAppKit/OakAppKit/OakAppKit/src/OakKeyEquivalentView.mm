@@ -1,8 +1,8 @@
 #import "OakKeyEquivalentView.h"
 #import "NSImage+Additions.h"
 #import <OakFoundation/OakFoundation.h>
-#import <ns/ns.h>
-#import <text/utf8.h>
+
+
 #import <Carbon/Carbon.h>
 
 static NSString* const kBindingInfoControllerKey   = @"controller";

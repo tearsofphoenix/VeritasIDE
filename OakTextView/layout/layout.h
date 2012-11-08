@@ -6,7 +6,7 @@
 #include <selection/selection.h>
 #include <theme/theme.h>
 
-#include <oak/misc.h>
+
 
 namespace ct
 {
@@ -33,7 +33,7 @@ namespace ng
 			NSUInteger left, top, right, bottom;
 		};
 
-		layout_t (NSString *& buffer, theme_ptr  theme, NSString * fontName = "Menlo", CGFloat fontSize = 12, bool softWrap = false, NSUInteger wrapColumn = 0, NSString * folded = NULL_STR, margin_t  margin = margin_t(8));
+		layout_t (NSString *& buffer, OakTheme *  theme, NSString * fontName = "Menlo", CGFloat fontSize = 12, bool softWrap = false, NSUInteger wrapColumn = 0, NSString * folded = NULL_STR, margin_t  margin = margin_t(8));
 		~layout_t ();
 
 		// _buffer_callback is managed with new/delete so can’t be copied
@@ -44,12 +44,12 @@ namespace ng
 		// = Settings =
 		// ============
 
-		void set_theme (theme_ptr  theme);
+		void set_theme (OakTheme *  theme);
 		void set_font (NSString * fontName, CGFloat fontSize);
 		void set_margin (margin_t  margin);
 		void set_wrapping (bool softWrap, NSUInteger wrapColumn);
 
-		theme_ptr  theme () const         { return _theme; }
+		OakTheme *  theme () const         { return _theme; }
 		NSString * font_name () const   { return _font_name; }
 		CGFloat font_size () const              { return _font_size; }
 		NSUInteger tab_size () const                { return _tab_size; }
@@ -170,7 +170,7 @@ namespace ng
 		NSString *&      _buffer;
 		ng::callback_t*    _buffer_callback;
 
-		theme_ptr          _theme;
+		OakTheme *          _theme;
 		NSString *        _font_name;
 		CGFloat            _font_size;
 		NSUInteger             _tab_size;

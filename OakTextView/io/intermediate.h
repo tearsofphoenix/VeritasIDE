@@ -1,11 +1,10 @@
 #ifndef INTERMEDIATE_H_LWU9YRUW
 #define INTERMEDIATE_H_LWU9YRUW
 
-#include <oak/misc.h>
 
 namespace path
 {
-	struct extern intermediate_t
+	struct intermediate_t
 	{
 		intermediate_t (NSString * dest);
 		bool commit () const;

@@ -1,13 +1,6 @@
 #include "grammar.h"
 #include "private.h"
 
-#include <regexp/format_string.h>
-
-
-
-OAK_DEBUG_VAR(Parser);
-OAK_DEBUG_VAR(Parser_Flow);
-
 namespace parse
 {
 	std::vector< std::pair<scope::selector_t, rule_ptr> >& injected_grammars ()

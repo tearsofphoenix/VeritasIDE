@@ -1,7 +1,7 @@
 #import "OakPasteboardWrapper.h"
 #import <OakAppKit/OakPasteboard.h>
 #import <OakFoundation/OakFoundation.h>
-#import <ns/ns.h>
+
 
 @interface OakMyClipBoardEntry : OakClipBoardEntry
 {

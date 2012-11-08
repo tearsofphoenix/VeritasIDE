@@ -17,21 +17,21 @@
 #import <document/collection.h>
 #import <file/type.h>
 #import <layout/layout.h>
-#import <ns/ns.h>
+
 #import <ns/spellcheck.h>
 #import <text/classification.h>
 
 #import <text/utf16.h>
-#import <text/utf8.h>
 
 
-OAK_DEBUG_VAR(OakTextView_TextInput);
-OAK_DEBUG_VAR(OakTextView_Spelling);
-OAK_DEBUG_VAR(OakTextView_ViewRect);
-OAK_DEBUG_VAR(OakTextView_NSView);
-OAK_DEBUG_VAR(OakTextView_DragNDrop);
-OAK_DEBUG_VAR(OakTextView_MouseEvents);
-OAK_DEBUG_VAR(OakTextView_Macros);
+
+
+
+
+
+
+
+
 
 int32_t const NSWrapColumnWindowWidth =  0;
 int32_t const NSWrapColumnAskUser     = -1;
@@ -1768,7 +1768,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 // = Public API =
 // ==============
 
-- (theme_ptr )theme     { return theme; }
+- (OakTheme * )theme     { return theme; }
 - (NSFont*)font               { return [NSFont fontWithName:[NSString stringWithCxxString:fontName] size:fontSize]; }
 - (NSUInteger)tabSize             { return document ? document->buffer().indent().tab_size() : 2; }
 - (BOOL)softTabs              { return document ? document->buffer().indent().soft_tabs() : NO; }
@@ -1780,7 +1780,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 	return !plist::is_true(bundles::value_for_setting("disableIndentCorrections", editor->scope(to_s([self scopeAttributes]))));
 }
 
-- (void)setTheme:(theme_ptr )newTheme
+- (void)setTheme:(OakTheme * )newTheme
 {
 	theme = newTheme;
 	if(layout)

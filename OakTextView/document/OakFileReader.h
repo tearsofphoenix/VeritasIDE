@@ -44,4 +44,4 @@
     
 @end
 
-extern OakFileReaderResult OakFileReaderHandleRequest(OakFileReaderRequest *request);
+extern OakFileReaderResult *OakFileReaderHandleRequest(OakFileReaderRequest *request);

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2279FEF4164B426200E31A27 /* OakGrammar.h in Headers */ = {isa = PBXBuildFile; fileRef = 2279FEF2164B426200E31A27 /* OakGrammar.h */; };
+		2279FEF5164B426200E31A27 /* OakGrammar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2279FEF3164B426200E31A27 /* OakGrammar.m */; };
+		2279FEF8164B43FD00E31A27 /* OakIntermediate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2279FEF6164B43FD00E31A27 /* OakIntermediate.h */; };
+		2279FEF9164B43FD00E31A27 /* OakIntermediate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2279FEF7164B43FD00E31A27 /* OakIntermediate.m */; };
 		E1105058164555D1001CE3CC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1105057164555D1001CE3CC /* AudioToolbox.framework */; };
 		E110505C16455623001CE3CC /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E110505B16455623001CE3CC /* Quartz.framework */; };
 		E110628D1646A9A1001CE3CC /* OakBorderlessPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = E11062731646A9A1001CE3CC /* OakBorderlessPanel.mm */; };
@@ -137,7 +141,6 @@
 		E181BDC01646BA8F002EC9E0 /* intermediate.cc in Sources */ = {isa = PBXBuildFile; fileRef = E181BA061646BA8E002EC9E0 /* intermediate.cc */; };
 		E181BDC11646BA8F002EC9E0 /* intermediate.h in Headers */ = {isa = PBXBuildFile; fileRef = E181BA071646BA8E002EC9E0 /* intermediate.h */; };
 		E181BDC51646BA8F002EC9E0 /* path.cc in Sources */ = {isa = PBXBuildFile; fileRef = E181BA0B1646BA8E002EC9E0 /* path.cc */; };
-		E181BDD01646BA8F002EC9E0 /* folds.cc in Sources */ = {isa = PBXBuildFile; fileRef = E181BA171646BA8E002EC9E0 /* folds.cc */; };
 		E181BDD21646BA8F002EC9E0 /* layout.cc in Sources */ = {isa = PBXBuildFile; fileRef = E181BA191646BA8E002EC9E0 /* layout.cc */; };
 		E181BDD31646BA8F002EC9E0 /* layout.h in Headers */ = {isa = PBXBuildFile; fileRef = E181BA1A1646BA8E002EC9E0 /* layout.h */; };
 		E181BDD41646BA8F002EC9E0 /* paragraph.cc in Sources */ = {isa = PBXBuildFile; fileRef = E181BA1B1646BA8E002EC9E0 /* paragraph.cc */; };
@@ -149,8 +152,6 @@
 		E181BE011646BA8F002EC9E0 /* dependency_graph.h in Headers */ = {isa = PBXBuildFile; fileRef = E181BA4C1646BA8E002EC9E0 /* dependency_graph.h */; };
 		E181BE051646BA8F002EC9E0 /* misc.h in Headers */ = {isa = PBXBuildFile; fileRef = E181BA501646BA8E002EC9E0 /* misc.h */; };
 		E181BE071646BA8F002EC9E0 /* OakAlgorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = E181BA521646BA8E002EC9E0 /* OakAlgorithm.h */; };
-		E181BE811646BA8F002EC9E0 /* grammar.cc in Sources */ = {isa = PBXBuildFile; fileRef = E181BADE1646BA8E002EC9E0 /* grammar.cc */; };
-		E181BE821646BA8F002EC9E0 /* grammar.h in Headers */ = {isa = PBXBuildFile; fileRef = E181BADF1646BA8E002EC9E0 /* grammar.h */; };
 		E181BE831646BA8F002EC9E0 /* parse.cc in Sources */ = {isa = PBXBuildFile; fileRef = E181BAE01646BA8E002EC9E0 /* parse.cc */; };
 		E181BE841646BA8F002EC9E0 /* parse.h in Headers */ = {isa = PBXBuildFile; fileRef = E181BAE11646BA8E002EC9E0 /* parse.h */; };
 		E181BE851646BA8F002EC9E0 /* private.h in Headers */ = {isa = PBXBuildFile; fileRef = E181BAE21646BA8E002EC9E0 /* private.h */; };
@@ -337,6 +338,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2279FEF2164B426200E31A27 /* OakGrammar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakGrammar.h; sourceTree = "<group>"; };
+		2279FEF3164B426200E31A27 /* OakGrammar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakGrammar.m; sourceTree = "<group>"; };
+		2279FEF6164B43FD00E31A27 /* OakIntermediate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakIntermediate.h; sourceTree = "<group>"; };
+		2279FEF7164B43FD00E31A27 /* OakIntermediate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakIntermediate.m; sourceTree = "<group>"; };
 		E1105057164555D1001CE3CC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E110505B16455623001CE3CC /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		E11062731646A9A1001CE3CC /* OakBorderlessPanel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OakBorderlessPanel.mm; sourceTree = "<group>"; };
@@ -468,7 +473,6 @@
 		E181BA061646BA8E002EC9E0 /* intermediate.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = intermediate.cc; sourceTree = "<group>"; };
 		E181BA071646BA8E002EC9E0 /* intermediate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = intermediate.h; sourceTree = "<group>"; };
 		E181BA0B1646BA8E002EC9E0 /* path.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = path.cc; sourceTree = "<group>"; };
-		E181BA171646BA8E002EC9E0 /* folds.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = folds.cc; sourceTree = "<group>"; };
 		E181BA191646BA8E002EC9E0 /* layout.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = layout.cc; sourceTree = "<group>"; };
 		E181BA1A1646BA8E002EC9E0 /* layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = layout.h; sourceTree = "<group>"; };
 		E181BA1B1646BA8E002EC9E0 /* paragraph.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = paragraph.cc; sourceTree = "<group>"; };
@@ -480,8 +484,6 @@
 		E181BA4C1646BA8E002EC9E0 /* dependency_graph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dependency_graph.h; sourceTree = "<group>"; };
 		E181BA501646BA8E002EC9E0 /* misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = misc.h; sourceTree = "<group>"; };
 		E181BA521646BA8E002EC9E0 /* OakAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakAlgorithm.h; sourceTree = "<group>"; };
-		E181BADE1646BA8E002EC9E0 /* grammar.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = grammar.cc; sourceTree = "<group>"; };
-		E181BADF1646BA8E002EC9E0 /* grammar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = grammar.h; sourceTree = "<group>"; };
 		E181BAE01646BA8E002EC9E0 /* parse.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parse.cc; sourceTree = "<group>"; };
 		E181BAE11646BA8E002EC9E0 /* parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parse.h; sourceTree = "<group>"; };
 		E181BAE21646BA8E002EC9E0 /* private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = private.h; sourceTree = "<group>"; };
@@ -877,6 +879,8 @@
 				E181BA061646BA8E002EC9E0 /* intermediate.cc */,
 				E181BA071646BA8E002EC9E0 /* intermediate.h */,
 				E181BA0B1646BA8E002EC9E0 /* path.cc */,
+				2279FEF6164B43FD00E31A27 /* OakIntermediate.h */,
+				2279FEF7164B43FD00E31A27 /* OakIntermediate.m */,
 			);
 			name = io;
 			path = ../io;
@@ -885,7 +889,6 @@
 		E181BA141646BA8E002EC9E0 /* layout */ = {
 			isa = PBXGroup;
 			children = (
-				E181BA171646BA8E002EC9E0 /* folds.cc */,
 				E181BA191646BA8E002EC9E0 /* layout.cc */,
 				E181BA1A1646BA8E002EC9E0 /* layout.h */,
 				E181BA1B1646BA8E002EC9E0 /* paragraph.cc */,
@@ -935,11 +938,11 @@
 		E181BADD1646BA8E002EC9E0 /* parse */ = {
 			isa = PBXGroup;
 			children = (
-				E181BADE1646BA8E002EC9E0 /* grammar.cc */,
-				E181BADF1646BA8E002EC9E0 /* grammar.h */,
 				E181BAE01646BA8E002EC9E0 /* parse.cc */,
 				E181BAE11646BA8E002EC9E0 /* parse.h */,
 				E181BAE21646BA8E002EC9E0 /* private.h */,
+				2279FEF2164B426200E31A27 /* OakGrammar.h */,
+				2279FEF3164B426200E31A27 /* OakGrammar.m */,
 			);
 			name = parse;
 			path = ../parse;
@@ -1324,7 +1327,6 @@
 				E181BE011646BA8F002EC9E0 /* dependency_graph.h in Headers */,
 				E181BE051646BA8F002EC9E0 /* misc.h in Headers */,
 				E181BE071646BA8F002EC9E0 /* OakAlgorithm.h in Headers */,
-				E181BE821646BA8F002EC9E0 /* grammar.h in Headers */,
 				E181BE841646BA8F002EC9E0 /* parse.h in Headers */,
 				E181BE851646BA8F002EC9E0 /* private.h in Headers */,
 				E181C0161646BA91002EC9E0 /* OakScopeTypes.h in Headers */,
@@ -1374,6 +1376,8 @@
 				E1496024164A4F2D004907DE /* OakLayoutMetrics.h in Headers */,
 				E1496028164A511D004907DE /* OakLayoutLine.h in Headers */,
 				E1B93112164A5C4600B0DE8D /* OakLayoutFolds.h in Headers */,
+				2279FEF4164B426200E31A27 /* OakGrammar.h in Headers */,
+				2279FEF8164B43FD00E31A27 /* OakIntermediate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1598,12 +1602,10 @@
 				E181BD7D1646BA8F002EC9E0 /* type.mm in Sources */,
 				E181BDC01646BA8F002EC9E0 /* intermediate.cc in Sources */,
 				E181BDC51646BA8F002EC9E0 /* path.cc in Sources */,
-				E181BDD01646BA8F002EC9E0 /* folds.cc in Sources */,
 				E181BDD21646BA8F002EC9E0 /* layout.cc in Sources */,
 				E181BDD41646BA8F002EC9E0 /* paragraph.cc in Sources */,
 				E181BDF31646BA8F002EC9E0 /* event.mm in Sources */,
 				E181BDF51646BA8F002EC9E0 /* ns.mm in Sources */,
-				E181BE811646BA8F002EC9E0 /* grammar.cc in Sources */,
 				E181BE831646BA8F002EC9E0 /* parse.cc in Sources */,
 				E181C0151646BA91002EC9E0 /* match.cc in Sources */,
 				E181C0171646BA91002EC9E0 /* parse.cc in Sources */,
@@ -1650,6 +1652,8 @@
 				E1496025164A4F2D004907DE /* OakLayoutMetrics.m in Sources */,
 				E1496029164A511D004907DE /* OakLayoutLine.m in Sources */,
 				E1B93113164A5C4600B0DE8D /* OakLayoutFolds.m in Sources */,
+				2279FEF5164B426200E31A27 /* OakGrammar.m in Sources */,
+				2279FEF9164B43FD00E31A27 /* OakIntermediate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

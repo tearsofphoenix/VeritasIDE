@@ -2,9 +2,9 @@
 #import "OTVStatusBar.h"
 #import <document/document.h>
 #import <file/type.h>
-#import <text/OakTextCtype.h>
-#import <text/parse.h>
-#import <ns/ns.h>
+
+
+
 
 #import <bundles/bundles.h>
 #import <OakFoundation/OakFoundation.h>
@@ -17,7 +17,7 @@
 #import <OakAppKit/NSMenuItem+Additions.h>
 #import <BundleMenu/BundleMenu.h>
 
-OAK_DEBUG_VAR(OakDocumentView);
+
 
 static NSString* const kBookmarksColumnIdentifier = @"bookmarks";
 static NSString* const kFoldingsColumnIdentifier  = @"foldings";

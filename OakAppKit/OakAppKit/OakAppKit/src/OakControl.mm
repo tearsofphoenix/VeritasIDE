@@ -2,6 +2,7 @@
 #import "NSView+Additions.h"
 
 #import "OakAttributedString.h"
+#import "OakFunctions.h"
 
 @implementation OakLayer
 
@@ -446,7 +447,7 @@ static void DrawTextWithOptions (NSString* string, NSRect bounds, OakLayerTextOp
 		{
 			if(dragLayer)
 			{
-				if(2.5 <= sqrt(SQ(_mouseDownPos.x - mousePos.x) + SQ(_mouseDownPos.y - mousePos.y)))
+				if(2.5 <= sqrt(OakSquare(_mouseDownPos.x - mousePos.x) + OakSquare(_mouseDownPos.y - mousePos.y)))
 				{
 					_tag = [dragLayer tag];
 					[NSApp sendAction: [dragLayer action]
@@ -491,16 +492,6 @@ static void DrawTextWithOptions (NSString* string, NSRect bounds, OakLayerTextOp
 		[self removeTrackingArea:trackingArea];
 	[self removeAllToolTips];
 }
-
-struct rect_cmp_t
-{
-	bool operator() (NSRect  a, NSRect  b) const
-	{
-		auto lhs = std::make_tuple(NSMinX(a), NSMinY(a), NSMaxX(a), NSMaxY(a));
-		auto rhs = std::make_tuple(NSMinX(b), NSMinY(b), NSMaxX(b), NSMaxY(b));
-		return lhs < rhs;
-	}
-};
 
 - (void)setupTrackingRects
 {

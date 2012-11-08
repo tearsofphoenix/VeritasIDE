@@ -389,14 +389,14 @@ static NSColor* soften (NSColor *color, CGFloat factor)
 // = Public API =
 // ==============
 
-theme_ptr parse_theme (OakBundleItem * themeItem)
+OakTheme * parse_theme (OakBundleItem * themeItem)
 {
 	static NSUUID * kEmptyThemeUUID = NSUUID *().generate();
-	static std::map<NSUUID *, theme_ptr> Cache;
+	static std::map<NSUUID *, OakTheme *> Cache;
     
 	NSUUID * uuid = themeItem ? themeItem->uuid() : kEmptyThemeUUID;
-	std::map<NSUUID *, theme_ptr>::iterator theme = Cache.find(uuid);
+	std::map<NSUUID *, OakTheme *>::iterator theme = Cache.find(uuid);
 	if(theme == Cache.end())
-		theme = Cache.insert(std::make_pair(uuid, theme_ptr(new theme_t(themeItem)))).first;
+		theme = Cache.insert(std::make_pair(uuid, OakTheme *(new theme_t(themeItem)))).first;
 	return theme->second;
 }

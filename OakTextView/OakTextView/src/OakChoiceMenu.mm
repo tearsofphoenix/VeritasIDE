@@ -1,5 +1,5 @@
 #import "OakChoiceMenu.h"
-#import <oak/OakAlgorithm.h>
+
 
 NSUInteger const OakChoiceMenuKeyUnused   = 0;
 NSUInteger const OakChoiceMenuKeyReturn   = 1;

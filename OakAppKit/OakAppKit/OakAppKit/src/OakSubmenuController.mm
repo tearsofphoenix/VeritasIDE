@@ -1,8 +1,8 @@
 #import "OakSubmenuController.h"
 #import "NSMenu+Additions.h"
 #import <OakFoundation/NSString+Additions.h>
+#import "ns.h"
 
-#import <ns/ns.h>
 
 static OakSubmenuController* SharedInstance = nil;
 
@@ -55,7 +55,10 @@ static OakSubmenuController* SharedInstance = nil;
         withSelector: aMenu == goToMenu ? @selector(updateGoToMenu:) : @selector(updateBookmarksMenu:)];
 }
 
-- (BOOL)menuHasKeyEquivalent:(NSMenu*)aMenu forEvent:(NSEvent*)anEvent target:(id*)anId action:(SEL*)aSEL
+- (BOOL)menuHasKeyEquivalent: (NSMenu*)aMenu
+                    forEvent: (NSEvent*)anEvent
+                      target: (id *)anId
+                      action: (SEL *)aSEL
 {
 	//D(DBF_OakSubmenuController, bug("%@ %s\n", to_s(anEvent), [[aMenu description] UTF8String]););
 
@@ -63,13 +66,13 @@ static OakSubmenuController* SharedInstance = nil;
 		return NO;
 
 	self.representedObject = nil;
-	NSString * eventString = to_s(anEvent);
+	NSString * eventString = OakStringFromEventAndFlag(anEvent, NO);
 
 	NSMenu* dummy = [[NSMenu new] autorelease];
 	[self updateMenu:dummy withSelector:@selector(updateGoToMenu:)];
 	for(NSMenuItem* item in [dummy itemArray])
 	{
-		if(eventString == ns::create_event_string(item.keyEquivalent, item.keyEquivalentModifierMask))
+		if([eventString isEqualToString: OakCreateEventString(item.keyEquivalent, item.keyEquivalentModifierMask)])
 		{
 			*anId                  = item.target;
 			*aSEL                  = item.action;

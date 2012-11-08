@@ -16,6 +16,8 @@ extern NSString * OakStringFromFileSize(NSUInteger inBytes);
 
 extern NSString * OakTextPad(NSUInteger number, NSUInteger minDigits);
 
+extern CGFloat OakSquare(CGFloat v);
+
 #define OakRenderFillRect(context, color, rect) do \
                                                 {\
                                                     assert((color));\

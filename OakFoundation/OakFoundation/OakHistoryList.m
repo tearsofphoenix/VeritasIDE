@@ -3,7 +3,7 @@
 #import "NSArray+Additions.h"
 #import "NSString+Additions.h"
 
-//OAK_DEBUG_VAR(Find_HistoryList);
+//
 
 static void StoreObjectAtKeyPath (id obj, NSString * keyPath)
 {

@@ -100,7 +100,7 @@ namespace ng
 		_line.reset();
 	}
 
-	void paragraph_t::node_t::layout (CGFloat x, CGFloat tabWidth, theme_ptr  theme, NSString * fontName, CGFloat fontSize, bool softWrap, NSUInteger wrapColumn, ct::metrics_t  metrics, NSString *  buffer, NSUInteger bufferOffset, NSString * fillStr)
+	void paragraph_t::node_t::layout (CGFloat x, CGFloat tabWidth, OakTheme *  theme, NSString * fontName, CGFloat fontSize, bool softWrap, NSUInteger wrapColumn, ct::metrics_t  metrics, NSString *  buffer, NSUInteger bufferOffset, NSString * fillStr)
 	{
 		if(_line)
 			return;
@@ -162,7 +162,7 @@ namespace ng
 			_width += tabWidth;
 	}
 
-	void paragraph_t::node_t::draw_background (theme_ptr  theme, NSString * fontName, CGFloat fontSize, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef backgroundColor, NSString *  buffer, NSUInteger bufferOffset, CGPoint anchor, CGFloat lineHeight) const
+	void paragraph_t::node_t::draw_background (OakTheme *  theme, NSString * fontName, CGFloat fontSize, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef backgroundColor, NSString *  buffer, NSUInteger bufferOffset, CGPoint anchor, CGFloat lineHeight) const
 	{
 		if(_line)
 			_line->draw_background(CGPointMake(anchor.x, anchor.y), lineHeight, context, isFlipped, backgroundColor);
@@ -187,7 +187,7 @@ namespace ng
 		}
 	}
 
-	void paragraph_t::node_t::draw_foreground (theme_ptr  theme, NSString * fontName, CGFloat fontSize, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef textColor, NSString *  buffer, NSUInteger bufferOffset, std::vector< std::pair<NSUInteger, NSUInteger> >  misspelled, CGPoint anchor, CGFloat baseline) const
+	void paragraph_t::node_t::draw_foreground (OakTheme *  theme, NSString * fontName, CGFloat fontSize, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef textColor, NSString *  buffer, NSUInteger bufferOffset, std::vector< std::pair<NSUInteger, NSUInteger> >  misspelled, CGPoint anchor, CGFloat baseline) const
 	{
 		if(_line)
 			_line->draw_foreground(CGPointMake(anchor.x, anchor.y + baseline), context, isFlipped, misspelled);
@@ -319,7 +319,7 @@ namespace ng
 		_dirty = true;
 	}
 
-	bool paragraph_t::layout (theme_ptr  theme, NSString * fontName, CGFloat fontSize, bool softWrap, NSUInteger wrapColumn, ct::metrics_t  metrics, CGRect visibleRect, NSString *  buffer, NSUInteger bufferOffset)
+	bool paragraph_t::layout (OakTheme *  theme, NSString * fontName, CGFloat fontSize, bool softWrap, NSUInteger wrapColumn, ct::metrics_t  metrics, CGRect visibleRect, NSString *  buffer, NSUInteger bufferOffset)
 	{
 		if(!_dirty)
 			return false;
@@ -683,7 +683,7 @@ namespace ng
 		return index;
 	}
 
-	void paragraph_t::draw_background (theme_ptr  theme, NSString * fontName, CGFloat fontSize, ct::metrics_t  metrics, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef backgroundColor, NSString *  buffer, NSUInteger bufferOffset, CGPoint anchor) const
+	void paragraph_t::draw_background (OakTheme *  theme, NSString * fontName, CGFloat fontSize, ct::metrics_t  metrics, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef backgroundColor, NSString *  buffer, NSUInteger bufferOffset, CGPoint anchor) const
 	{
 		// OakRenderFillRect(context, cf::color_t("#FFAAAA"), CGRectInset(CGRectMake(anchor.x, anchor.y, width(), height(metrics)), -1, 0));
 		// OakRenderFillRect(context, backgroundColor, CGRectMake(anchor.x, anchor.y, width(), height(metrics)));
@@ -702,7 +702,7 @@ namespace ng
 		}
 	}
 
-	void paragraph_t::draw_foreground (theme_ptr  theme, NSString * fontName, CGFloat fontSize, ct::metrics_t  metrics, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef textColor, NSString *  buffer, NSUInteger bufferOffset, OakSelectionRanges *  selection, CGPoint anchor) const
+	void paragraph_t::draw_foreground (OakTheme *  theme, NSString * fontName, CGFloat fontSize, ct::metrics_t  metrics, ng::context_t  context, bool isFlipped, CGRect visibleRect, bool showInvisibles, CGColorRef textColor, NSString *  buffer, NSUInteger bufferOffset, OakSelectionRanges *  selection, CGPoint anchor) const
 	{
 		CGContextSetTextMatrix(context, CGAffineTransformMake(1, 0, 0, 1, 0, 0));
 

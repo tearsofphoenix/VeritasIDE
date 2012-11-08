@@ -1,7 +1,7 @@
 #include "indent.h"
 
 
-OAK_DEBUG_VAR(Indent);
+
 
 namespace indent
 {
