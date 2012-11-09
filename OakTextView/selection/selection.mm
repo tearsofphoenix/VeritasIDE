@@ -30,10 +30,10 @@
 		return index_t(caret + str.size(), column - len);
 	}
 
-	NSString * kCharacterClassWord    = "word";
-	NSString * kCharacterClassSpace   = "space";
-	NSString * kCharacterClassOther   = "other";
-	NSString * kCharacterClassUnknown = "unknown";
+	NSString * kCharacterClassWord    = @"word";
+	NSString * kCharacterClassSpace   = @"space";
+	NSString * kCharacterClassOther   = @"other";
+	NSString * kCharacterClassUnknown = @"unknown";
 
 	NSString * character_class (NSString * buffer, NSUInteger index)
 	{

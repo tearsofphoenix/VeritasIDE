@@ -19,29 +19,30 @@ static CGFloat read_font_size (NSString * str_font_size);
 
 + (id)styleWithDictionary: (NSDictionary *)dict
 {
-    if((self = [super init]))
+    OakDecoposedStyle *style = [[self alloc] init];
+    if(style)
     {
         
         NSString * scopeSelector = [dict objectForKeyPath: @"scope"];
-        [self setScopeSelector: scopeSelector];
+        [style setScopeSelector: scopeSelector];
         
-        [self setFontName: [dict objectForKeyPath: @"settings.fontName"]];
-        [self setFontSize: [dict objectForKeyPath: @"settings.fontSize"]];
+        [style setFontName: [dict objectForKeyPath: @"settings.fontName"]];
+        [style setFontSize: [[dict objectForKeyPath: @"settings.fontSize"] doubleValue]];
         
-        [self setForegroundColor: [dict objectForKeyPath: @"settings.foreground"]];
-        [self setBackgroundColor: [dict objectForKeyPath: @"settings.background"]];
-        [self setCaretColor: [dict objectForKeyPath: @"settings.caret"]];
+        [style setForegroundColor: [NSColor colorWithString: [dict objectForKeyPath: @"settings.foreground"]]];
+        [style setBackgroundColor: [NSColor colorWithString: [dict objectForKeyPath: @"settings.background"]]];
+        [style setCaretColor: [NSColor colorWithString: [dict objectForKeyPath: @"settings.caret"]]];
         
-        [self setSelectionColor: [dict objectForKeyPath: @"settings.selection"]];
-        [self setInvisibles: [dict objectForKeyPath: @"settings.invisibles"]];
+        [style setSelectionColor: [NSColor colorWithString: [dict objectForKeyPath: @"settings.selection"]]];
+        [style setInvisiblesColor: [NSColor colorWithString: [dict objectForKeyPath: @"settings.invisibles"]]];
         
         id flag = [dict objectForKeyPath: @"settings.misspelled"];
         if (flag)
         {
-            [self setMisspell: [flag boolValue]];
+            [style setMisspelled: [flag boolValue]];
         }else
         {
-            [self setMisspell: bool_unset];
+            [style setMisspelled: bool_unset];
         }
         
         NSString * fontStyle = [dict objectForKeyPath: @"settings.fontStyle"];
@@ -49,15 +50,15 @@ static CGFloat read_font_size (NSString * str_font_size);
         {
             if([fontStyle rangeOfString: @"plain"].location != NSNotFound)
             {
-                self.bold       = bool_false;
-                self.italic     = bool_false;
-                self.underlined = bool_false;
+                style.bold       = bool_false;
+                style.italic     = bool_false;
+                style.underlined = bool_false;
             }
             else
             {
-                self.bold       = [fontStyle rangeOfString: @"bold"].location      != NSNotFound ? bool_true : bool_unset;
-                self.italic     = [fontStyle rangeOfString: @"italic"].location    != NSNotFound ? bool_true : bool_unset;
-                self.underlined = [fontStyle rangeOfString: @"underline"].location != NSNotFound ? bool_true : bool_unset;
+                style.bold       = [fontStyle rangeOfString: @"bold"].location      != NSNotFound ? bool_true : bool_unset;
+                style.italic     = [fontStyle rangeOfString: @"italic"].location    != NSNotFound ? bool_true : bool_unset;
+                style.underlined = [fontStyle rangeOfString: @"underline"].location != NSNotFound ? bool_true : bool_unset;
             }
         }
     }
@@ -187,7 +188,8 @@ static NSColor* soften (NSColor *color, CGFloat factor)
     
 	if(_item)
 	{
-		if(OakBundleItem * newItem = bundles::lookup([_item uuid]))
+        OakBundleItem * newItem = bundles::lookup([_item uuid]);
+		if(newItem)
         {
 			_item = newItem;
         }
@@ -201,12 +203,12 @@ static NSColor* soften (NSColor *color, CGFloat factor)
 				{
 					[_decomposedStyles addObject: [OakDecoposedStyle styleWithDictionary: it]];
                     
-					if(! [[[[_decomposedStyles lastObject] back] invisibles] is_blank])
+					if(! [[[_decomposedStyles lastObject] invisiblesColor] isDark])
 					{
-                        OakDecoposedStyle invisbleStyle = [[OakDecoposedStyle alloc] init];
+                        OakDecoposedStyle *invisbleStyle = [[OakDecoposedStyle alloc] init];
                         
 						//decomposed_style_t invisbleStyle("deco.invisible");
-                        [invisbleStyle setForeground: [[_decomposedStyles lastObject] invisibles]];
+                        [invisbleStyle setForegroundColor: [[_decomposedStyles lastObject] invisiblesColor]];
 
 						[_decomposedStyles addObject: invisbleStyle];
 					}
@@ -296,9 +298,13 @@ static NSColor* soften (NSColor *color, CGFloat factor)
 {
 	if(fileType)
     {
-		return [styles_for_scope(fileType, nil, 0) background];
+        OakScopeContext *context = fileType;
+		return [[self stylesForScope: context
+                            fontName: nil
+                            fontSize: 0] backgroundColor];
     }
-        return _background;
+    
+    return _backgroundColor;
 }
 
 - (OakThemeStyle *)stylesForScope: (OakScopeContext *)scope
@@ -332,30 +338,29 @@ static NSColor* soften (NSColor *color, CGFloat factor)
             }
 		}
         
-        OakDecoposedStyle base = nil;
+        OakDecoposedStyle *base = nil;
 		//decomposed_style_t base(scope::selector_t(), fontName, fontSize);
 		//iterate(it, ordering)
         //base += it->second;
         
-        NSFont *font = [NSFont fontWithName: [base font_name]
-                                       size: [base font_size]];
+        NSFont *font = [NSFont fontWithName: [base fontName]
+                                       size: [base fontSize]];
 
         CTFontSymbolicTraits traits = (([base bold] == bool_true ? kCTFontBoldTrait : 0)
                                        + ([base italic] == bool_true ? kCTFontItalicTrait : 0));
 		if(traits)
 		{
-            CTFontRef newFont = CTFontCreateCopyWithSymbolicTraits([font CTFont], [base font_size]), NULL, traits,
-            kCTFontBoldTrait | kCTFontItalicTrait);
+            CTFontRef newFont = CTFontCreateCopyWithSymbolicTraits([font CTFont], [base fontSize], NULL, traits, kCTFontBoldTrait | kCTFontItalicTrait);
 			if(newFont)
             {
                 font = newFont;
             }
 		}
         
-		NSColor *foreground = [[base foreground] is_blank]   ? [NSColor colorWithString: @"#000000"]   : base.foreground;
-		NSColor *background = [[base background] is_blank]   ? [NSColor colorWithString: @"#FFFFFF"]   : base.background;
-		NSColor *caret      = [[base caret] is_blank]        ? [NSColor colorWithString: @"#000000"]   : base.caret;
-		NSColor *selection  = [[base selection] is_blank]    ? [NSColor colorWithString: @"#4D97FF54"] : base.selection;
+		NSColor *foreground = [[base foreground] isBlank]   ? [NSColor colorWithString: @"#000000"]   : [base foregroundColor];
+		NSColor *background = [[base background] isBlank]   ? [NSColor colorWithString: @"#FFFFFF"]   : [base backgroundColor];
+		NSColor *caret      = [[base caret] isBlank]        ? [NSColor colorWithString: @"#000000"]   : [base caretColor];
+		NSColor *selection  = [[base selection] isBlank]    ? [NSColor colorWithString: @"#4D97FF54"] : [base selectionColor];
         
 		styles_t res(foreground, background, caret, selection, font, base.underlined == bool_true, base.misspelled == bool_true);
 		styles = _cache.insert(std::make_pair(key_t(scope, fontName, fontSize), res)).first;

@@ -29,7 +29,7 @@
             _anchor = [[range minPosition] index];
         }
         
-		[_stack addObject: @[snippet, snippet::range_t(range.first.index - anchor, range.last.index - anchor ]];
+		[_stack addObject: @[snippet, [Ol](range.first.index - anchor, range.last.index - anchor ]];
 	}
 
 	std::vector< std::pair<ng::range_t, NSString *> > snippet_controller_t::replace (NSUInteger from, NSUInteger to, NSString * replacement)

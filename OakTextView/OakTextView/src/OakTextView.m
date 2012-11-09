@@ -4,6 +4,8 @@
 #import "OakDocumentView.h" // addAuxiliaryView:atEdge: signature
 #import <OakAppKit/OakAppKit.h>
 #import <OakFoundation/OakFoundation.h>
+#import "OakSelectionRange.h"
+#import "OakSelectionRangeArray.h"
 
 int32_t const NSWrapColumnWindowWidth =  0;
 int32_t const NSWrapColumnAskUser     = -1;
@@ -38,14 +40,16 @@ NSString* const kUserDefaultsDisableAntiAliasKey = @"disableAntiAlias";
 @property (nonatomic, assign) OakSelectionRangeArray *  liveSearchRanges;
 @end
 
-static std::vector<OakBundleItem *> items_for_tab_expansion (NSString *  buffer, OakSelectionRangeArray *  ranges, NSString * scopeAttributes, ng::range_t* range)
+static NSArray *items_for_tab_expansion (NSString *  buffer, OakSelectionRangeArray *  ranges, NSString * scopeAttributes, OakSelectionRange* range)
 {
-	NSUInteger caret = ranges.last().min().index;
+	NSUInteger caret = [[[ranges lastRange] minIndex] index];
+    
 	NSUInteger line  = buffer.convert(caret).line;
-	NSUInteger bol   = buffer.begin(line);
+	
+    NSUInteger bol   = [buffer locationOfLineStart: line];
 
 	BOOL lastWasWordChar           = false;
-	NSString * lastCharacterClass = ng::kCharacterClassUnknown;
+	NSString * lastCharacterClass = kCharacterClassUnknown;
 
 	scope::scope_t const rightScope = ng::scope(buffer, OakSelectionRangeArray *(caret), scopeAttributes).right;
 	for(NSUInteger i = bol; i < caret; i += buffer[i].size())
@@ -60,7 +64,9 @@ static std::vector<OakBundleItem *> items_for_tab_expansion (NSString *  buffer,
 			if(!items.empty())
 			{
 				if(range)
+                {
 					*range = ng::range_t(i, caret);
+                }
 				return items;
 			}
 		}
@@ -69,145 +75,146 @@ static std::vector<OakBundleItem *> items_for_tab_expansion (NSString *  buffer,
 		lastCharacterClass = characterClass;
 	}
 
-	return std::vector<OakBundleItem *>();
+	return nil;
 }
 
 static OakSelectionRangeArray * merge (OakSelectionRangeArray * lhs, OakSelectionRangeArray *  rhs)
 {
-	iterate(range, rhs)
-		lhs.push_back(*range);
+	for(id range in rhs)
+    {
+		[lhs addRange: range];
+    }
+    
 	return lhs;
 }
 
-struct refresh_helper_t
+//struct refresh_helper_t
+//{
+//	typedef std::shared_ptr<ng::layout_t> layout_ptr;
+//
+//	refresh_helper_t (OakTextView* self, document::OakDocument * document, ng::editor_ptr editor, layout_ptr theLayout) : _self(self), _document(document), _editor(editor), _layout(theLayout)
+//	{
+//		if(++_self.refreshNestCount == 1)
+//		{
+//			_document->open();
+//
+//			_revision  = document->buffer().revision();
+//			_selection = editor->ranges();
+//			_document->undo_manager().begin_undo_group(_editor->ranges());
+//			if(layout_ptr layout = _layout.lock())
+//				layout->begin_refresh_cycle(merge(_editor->ranges(), [_self markedRanges]), [_self liveSearchRanges]);
+//		}
+//	}
+//
+//	static NSView* find_gutter_view (NSView* view)
+//	{
+//		for(NSView* candidate in [view subviews])
+//		{
+//			if([candidate isKindOfClass:NSClassFromString(@"GutterView")])
+//				return candidate;
+//			else if(NSView* res = find_gutter_view(candidate))
+//				return res;
+//		}
+//		return nil;
+//	}
+//
+//	~refresh_helper_t ()
+//	{
+//		if(--_self.refreshNestCount == 0)
+//		{
+//			_document->undo_manager().end_undo_group(_editor->ranges());
+//			if(layout_ptr layout = _layout.lock())
+//			{
+//				if(_revision == _document->buffer().revision())
+//				{
+//					citerate(range, ng::highlight_ranges_for_movement(_document->buffer(), _selection, _editor->ranges()))
+//					{
+//						NSRect imageRect;
+//						NSImage* image = [_self imageForRanges:*range imageRect:&imageRect];
+//						imageRect = [_self convertRect:imageRect toView:nil];
+//						imageRect.origin = [[_self window] convertBaseToScreen:imageRect.origin];
+//						OakShowPopOutAnimation(imageRect, image);
+//					}
+//				}
+//
+//				if(_revision != _document->buffer().revision() || _selection != _editor->ranges())
+//				{
+//					[_self updateMarkedRanges];
+//					[_self updateSelection];
+//				}
+//
+//				auto damagedRects = layout->end_refresh_cycle(merge(_editor->ranges(), [_self markedRanges]), [_self visibleRect], [_self liveSearchRanges]);
+//
+//				NSRect r = [[_self enclosingScrollView] documentVisibleRect];
+//				NSSize newSize = NSMakeSize(MAX(NSWidth(r), layout->width()), MAX(NSHeight(r), layout->height()));
+//				if(!NSEqualSizes([_self frame].size, newSize))
+//					[_self setFrameSize:newSize];
+//
+//				NSView* gutterView = find_gutter_view([[_self enclosingScrollView] superview]);
+//				iterate(rect, damagedRects)
+//				{
+//					[_self setNeedsDisplayInRect:*rect];
+//					if(gutterView)
+//					{
+//						NSRect r = *rect;
+//						r.origin.x = 0;
+//						r.size.width = NSWidth([gutterView frame]);
+//						[gutterView setNeedsDisplayInRect:r];
+//					}
+//				}
+//
+//				if(_revision != _document->buffer().revision() || _selection != _editor->ranges())
+//				{
+//					if(_revision != _document->buffer().revision()) // FIXME document_t needs to skip work in set_revision if nothing changed.
+//						_document->set_revision(_document->buffer().revision());
+//
+//					[_self ensureSelectionIsInVisibleArea:nil];
+//					[_self resetBlinkCaretTimer];
+//					[_self updateChoiceMenu:nil];
+//				}
+//			}
+//
+//			_document->close();
+//		}
+//	}
+//
+//private:
+//	OakTextView* _self;
+//	document::OakDocument * _document;
+//	NSUInteger _revision;
+//	ng::editor_ptr _editor;
+//	OakSelectionRangeArray * _selection;
+//	std::weak_ptr<ng::layout_t> _layout;
+//};
+
+#define AUTO_REFRESH //refresh_helper_t _dummy(self, document, editor, layout)
+
+//struct buffer_refresh_callback_t : ng::callback_t
+//{
+//	buffer_refresh_callback_t (OakTextView* textView) : textView(textView) { }
+//	void did_parse (NSUInteger from, NSUInteger to);
+//private:
+//	OakTextView* textView;
+//};
+//
+//void buffer_refresh_callback_t::did_parse (NSUInteger from, NSUInteger to)
+//{
+//	[textView redisplayFrom:from to:to];
+//}
+
+static NSString * shell_quote (NSArray *paths)
 {
-	typedef std::shared_ptr<ng::layout_t> layout_ptr;
-
-	refresh_helper_t (OakTextView* self, document::OakDocument * document, ng::editor_ptr editor, layout_ptr theLayout) : _self(self), _document(document), _editor(editor), _layout(theLayout)
-	{
-		if(++_self.refreshNestCount == 1)
-		{
-			_document->open();
-
-			_revision  = document->buffer().revision();
-			_selection = editor->ranges();
-			_document->undo_manager().begin_undo_group(_editor->ranges());
-			if(layout_ptr layout = _layout.lock())
-				layout->begin_refresh_cycle(merge(_editor->ranges(), [_self markedRanges]), [_self liveSearchRanges]);
-		}
-	}
-
-	static NSView* find_gutter_view (NSView* view)
-	{
-		for(NSView* candidate in [view subviews])
-		{
-			if([candidate isKindOfClass:NSClassFromString(@"GutterView")])
-				return candidate;
-			else if(NSView* res = find_gutter_view(candidate))
-				return res;
-		}
-		return nil;
-	}
-
-	~refresh_helper_t ()
-	{
-		if(--_self.refreshNestCount == 0)
-		{
-			_document->undo_manager().end_undo_group(_editor->ranges());
-			if(layout_ptr layout = _layout.lock())
-			{
-				if(_revision == _document->buffer().revision())
-				{
-					citerate(range, ng::highlight_ranges_for_movement(_document->buffer(), _selection, _editor->ranges()))
-					{
-						NSRect imageRect;
-						NSImage* image = [_self imageForRanges:*range imageRect:&imageRect];
-						imageRect = [_self convertRect:imageRect toView:nil];
-						imageRect.origin = [[_self window] convertBaseToScreen:imageRect.origin];
-						OakShowPopOutAnimation(imageRect, image);
-					}
-				}
-
-				if(_revision != _document->buffer().revision() || _selection != _editor->ranges())
-				{
-					[_self updateMarkedRanges];
-					[_self updateSelection];
-				}
-
-				auto damagedRects = layout->end_refresh_cycle(merge(_editor->ranges(), [_self markedRanges]), [_self visibleRect], [_self liveSearchRanges]);
-
-				NSRect r = [[_self enclosingScrollView] documentVisibleRect];
-				NSSize newSize = NSMakeSize(MAX(NSWidth(r), layout->width()), MAX(NSHeight(r), layout->height()));
-				if(!NSEqualSizes([_self frame].size, newSize))
-					[_self setFrameSize:newSize];
-
-				NSView* gutterView = find_gutter_view([[_self enclosingScrollView] superview]);
-				iterate(rect, damagedRects)
-				{
-					[_self setNeedsDisplayInRect:*rect];
-					if(gutterView)
-					{
-						NSRect r = *rect;
-						r.origin.x = 0;
-						r.size.width = NSWidth([gutterView frame]);
-						[gutterView setNeedsDisplayInRect:r];
-					}
-				}
-
-				if(_revision != _document->buffer().revision() || _selection != _editor->ranges())
-				{
-					if(_revision != _document->buffer().revision()) // FIXME document_t needs to skip work in set_revision if nothing changed.
-						_document->set_revision(_document->buffer().revision());
-
-					[_self ensureSelectionIsInVisibleArea:nil];
-					[_self resetBlinkCaretTimer];
-					[_self updateChoiceMenu:nil];
-				}
-			}
-
-			_document->close();
-		}
-	}
-
-private:
-	OakTextView* _self;
-	document::OakDocument * _document;
-	NSUInteger _revision;
-	ng::editor_ptr _editor;
-	OakSelectionRangeArray * _selection;
-	std::weak_ptr<ng::layout_t> _layout;
-};
-
-#define AUTO_REFRESH refresh_helper_t _dummy(self, document, editor, layout)
-
-struct buffer_refresh_callback_t : ng::callback_t
-{
-	buffer_refresh_callback_t (OakTextView* textView) : textView(textView) { }
-	void did_parse (NSUInteger from, NSUInteger to);
-private:
-	OakTextView* textView;
-};
-
-void buffer_refresh_callback_t::did_parse (NSUInteger from, NSUInteger to)
-{
-	[textView redisplayFrom:from to:to];
-}
-
-static NSString * shell_quote (std::vector<NSString *> paths)
-{
-	iterate(it, paths)
+    NSMutableArray *result = [NSMutableArray array];
+	for(NSString *it in paths)
+    {
 		*it = format_string::replace(*it, ".*", "'${0/'/'\\''/g}'");
+    }
+    
 	return text::join(paths, " ");
 }
 
-// =============================
-// = OakTextView’s Find Server =
-// =============================
 
-#import <regexp/find.h> // for NSStringCompareOptions
-//#import <text/types.h>
-
-enum find_operation_t {
+enum NSStringCompareOptions {
 	kFindOperationCount,
 	kFindOperationCountInSelection,
 	kFindOperationFind,
@@ -217,12 +224,14 @@ enum find_operation_t {
 };
 
 @protocol OakFindServerProtocol
-@property (nonatomic, readonly) find_operation_t findOperation;
+@property (nonatomic, readonly) NSStringCompareOptions findOperation;
 @property (nonatomic, readonly) NSString* findString;
 @property (nonatomic, readonly) NSString* replaceString;
 @property (nonatomic, readonly) NSStringCompareOptions findOptions;
 
-- (void)didFind:(NSUInteger)aNumber occurrencesOf:(NSString*)aFindString atPosition:(text::pos_t )aPosition;
+- (void)didFind: (NSUInteger)aNumber
+  occurrencesOf: (NSString*)aFindString
+     atPosition: (OakTextPosition *)aPosition;
 - (void)didReplace:(NSUInteger)aNumber occurrencesOf:(NSString*)aFindString with:(NSString*)aReplacementString;
 @end
 
@@ -233,18 +242,18 @@ enum find_operation_t {
 @interface OakTextViewFindServer : NSObject <OakFindServerProtocol>
 {
 	OakTextView*     textView;
-	find_operation_t findOperation;
+	NSStringCompareOptions findOperation;
 	NSStringCompareOptions  findOptions;
 }
 @property (nonatomic, retain)   OakTextView*     textView;
-@property (nonatomic, readonly) find_operation_t findOperation;
+@property (nonatomic, readonly) NSStringCompareOptions findOperation;
 @property (nonatomic, readonly) NSStringCompareOptions  findOptions;
 @end
 
 @implementation OakTextViewFindServer
 @synthesize textView, findOperation, findOptions;
 
-- (id)initWithTextView:(OakTextView*)aTextView operation:(find_operation_t)anOperation options:(NSStringCompareOptions)someOptions
+- (id)initWithTextView:(OakTextView*)aTextView operation:(NSStringCompareOptions)anOperation options:(NSStringCompareOptions)someOptions
 {
 	if((self = [super init]))
 	{
@@ -261,7 +270,7 @@ enum find_operation_t {
 	[super dealloc];
 }
 
-+ (id)findServerWithTextView:(OakTextView*)aTextView operation:(find_operation_t)anOperation options:(NSStringCompareOptions)someOptions
++ (id)findServerWithTextView:(OakTextView*)aTextView operation:(NSStringCompareOptions)anOperation options:(NSStringCompareOptions)someOptions
 {
 	return [[[self alloc] initWithTextView:aTextView operation:anOperation options:someOptions] autorelease];
 }
@@ -269,14 +278,19 @@ enum find_operation_t {
 - (NSString*)findString      { return [[OakPasteboard pasteboardWithName:NSFindPboard] current].string;    }
 - (NSString*)replaceString   { return [[OakPasteboard pasteboardWithName:NSReplacePboard] current].string; }
 
-- (void)didFind:(NSUInteger)aNumber occurrencesOf:(NSString*)aFindString atPosition:(text::pos_t )aPosition
+- (void)didFind:(NSUInteger)aNumber occurrencesOf:(NSString*)aFindString atPosition:(OakTextPosition * )aPosition
 {
-	static NSString* const formatStrings[2][3] = {
+	static NSString* const formatStrings[2][3] =
+    {
 		{ @"No more occurrences of “%@”.", nil, @"%2$ld occurrences of “%@”." },
 		{ @"No more matches for “%@”.",    nil, @"%2$ld matches for “%@”."    },
 	};
-	if(NSString* format = formatStrings[(findOptions & find::regular_expression) ? 1 : 0][aNumber > 2 ? 2 : aNumber])
+    
+    NSString* format = formatStrings[(findOptions & NSRegularExpressionSearch) ? 1 : 0][aNumber > 2 ? 2 : aNumber];
+	if(format)
+    {
 		OakShowToolTip([NSString stringWithFormat:format, aFindString, aNumber], [textView positionForWindowUnderCaret]);
+    }
 }
 
 - (void)didReplace:(NSUInteger)aNumber occurrencesOf:(NSString*)aFindString with:(NSString*)aReplacementString
@@ -286,7 +300,7 @@ enum find_operation_t {
 		{ @"Nothing replaced (no occurrences of “%@”).", @"Replaced one occurrence of “%@”.", @"Replaced %2$ld occurrences of “%@”." },
 		{ @"Nothing replaced (no matches for “%@”).",    @"Replaced one match of “%@”.",      @"Replaced %2$ld matches of “%@”."     }
 	};
-	NSString* format = formatStrings[(findOptions & find::regular_expression) ? 1 : 0][aNumber > 2 ? 2 : aNumber];
+	NSString* format = formatStrings[(findOptions & NSRegularExpressionSearch) ? 1 : 0][aNumber > 2 ? 2 : aNumber];
 	OakShowToolTip([NSString stringWithFormat:format, aFindString, aNumber], [textView positionForWindowUnderCaret]);
 }
 @end
@@ -314,9 +328,11 @@ enum find_operation_t {
 - (NSImage*)imageForRanges:(OakSelectionRangeArray * )ranges imageRect:(NSRect*)outRect
 {
 	NSRect srcRect = NSZeroRect, visibleRect = [self visibleRect];
-	citerate(range, ranges)
+	for(OakSelectionRange *range in ranges)
+    {
 		srcRect = NSUnionRect(srcRect, NSIntersectionRect(visibleRect, layout->rect_for_range(range->min().index, range->max().index)));
-
+    }
+    
 	NSBezierPath* clip = [NSBezierPath bezierPath];
 	citerate(rect, layout->rects_for_ranges(ranges))
 		[clip appendBezierPath:[NSBezierPath bezierPathWithRect:NSOffsetRect(*rect, -NSMinX(srcRect), -NSMinY(srcRect))]];
@@ -1417,7 +1433,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 
 			if(isCounting)
 			{
-				[aFindServer didFind:res.size() occurrencesOf:aFindServer.findString atPosition:res.size() == 1 ? document->buffer().convert(res.last().min().index) : text::pos_t::undefined];
+				[aFindServer didFind:res.size() occurrencesOf:aFindServer.findString atPosition:res.size() == 1 ? document->buffer().convert(res.last().min().index) : OakTextPosition *::undefined];
 			}
 			else
 			{
@@ -1438,7 +1454,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 					editor->set_selections(res);
 
 				[self highlightRanges:newSelection];
-				[aFindServer didFind:newSelection.size() occurrencesOf:aFindServer.findString atPosition:res.size() == 1 ? document->buffer().convert(res.last().min().index) : text::pos_t::undefined];
+				[aFindServer didFind:newSelection.size() occurrencesOf:aFindServer.findString atPosition:res.size() == 1 ? document->buffer().convert(res.last().min().index) : OakTextPosition *::undefined];
 			}
 		}
 		break;
@@ -1929,8 +1945,8 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 	text::selection_t ranges;
 	citerate(range, editor->ranges())
 	{
-		text::pos_t from = document->buffer().convert(range->first.index);
-		text::pos_t to   = document->buffer().convert(range->last.index);
+		OakTextPosition * from = document->buffer().convert(range->first.index);
+		OakTextPosition * to   = document->buffer().convert(range->last.index);
 		from.offset = range->first.carry;
 		to.offset   = range->last.carry;
 		ranges.push_back(OakTextRange *(from, to, range->columnar));
@@ -1970,7 +1986,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 	static GVLineRecord res;
 	if(!layout)
 		return res = GVLineRecord();
-	auto record = layout->line_record_for(text::pos_t(aLine, aColumn));
+	auto record = layout->line_record_for(OakTextPosition *(aLine, aColumn));
 	return res = GVLineRecord(record.line, record.softline, record.top, record.bottom, record.baseline);
 }
 

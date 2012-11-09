@@ -55,6 +55,17 @@
     return NO;
 }
 
+- (id)firstRange
+{
+    return [_ranges objectAtIndex: 0];
+}
+
+- (id)lastRange
+{
+    return [_ranges lastObject];
+}
+
+
 - (NSArray *)ranges
 {
     return [NSArray arrayWithArray: _ranges];
@@ -81,5 +92,18 @@
                                                      lastIndex: index]];
 }
 
+- (void)mergeWithRangeArray: (OakSelectionRangeArray *)array
+{
+    [_ranges addObjectsFromArray: [array ranges]];
+}
+
+- (NSUInteger)countByEnumeratingWithState: (NSFastEnumerationState *)state
+                                  objects: (id __unsafe_unretained [])buffer
+                                    count: (NSUInteger)len
+{
+    return [_ranges countByEnumeratingWithState: state
+                                        objects: buffer
+                                          count: len];
+}
 
 @end

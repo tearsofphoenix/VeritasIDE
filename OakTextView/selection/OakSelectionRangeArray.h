@@ -11,7 +11,7 @@
 @class OakSelectionIndex;
 @class OakSelectionRange;
 
-@interface OakSelectionRangeArray : NSObject
+@interface OakSelectionRangeArray : NSObject<NSFastEnumeration>
 {
     NSMutableArray *_ranges;
 }
@@ -22,8 +22,13 @@
 
 - (id)initWithRanges: (NSArray *)ranges;
 
+- (id)firstRange;
+
+- (id)lastRange;
 
 - (NSArray *)ranges;
+
+- (void)mergeWithRangeArray: (OakSelectionRangeArray *)array;
 
 - (BOOL)isEmpty;
 

@@ -78,7 +78,7 @@ namespace ng
 			NSUInteger from = range->min().index, to = range->max().index;
 			if(from == to)
 			{
-				text::pos_t  pos = _buffer.convert(from);
+				OakTextPosition *  pos = _buffer.convert(from);
 
 				if(from == 0 || from == _buffer.size())
 				{
@@ -323,8 +323,8 @@ namespace ng
 		if(selections.size() == 1)
 		{
 			range_t  sel = selections.last();
-			text::pos_t  from = buffer.convert(sel.min().index);
-			text::pos_t  to   = buffer.convert(sel.max().index);
+			OakTextPosition *  from = buffer.convert(sel.min().index);
+			OakTextPosition *  to   = buffer.convert(sel.max().index);
 
 			if(from.line != to.line)
 			{
@@ -573,7 +573,7 @@ namespace ng
 
 		void will_replace (NSUInteger from, NSUInteger to, NSString * str)
 		{
-			text::pos_t pos = _buffer.convert(from);
+			OakTextPosition * pos = _buffer.convert(from);
 
 			indent::fsm_t fsm = indent::create_fsm(_buffer, indent::patterns_for_scope(_buffer.scope(from)), pos.line, _buffer.indent().indent_size(), _buffer.indent().tab_size());
 			NSString * line = _buffer.substr(_buffer.begin(pos.line), _buffer.eol(pos.line));
@@ -1022,8 +1022,8 @@ namespace ng
 			case kIndent:
 			{
 				range_t r = _selections.last();
-				text::pos_t p0 = _buffer.convert(r.first.index);
-				text::pos_t p1 = _buffer.convert(r.last.index);
+				OakTextPosition * p0 = _buffer.convert(r.first.index);
+				OakTextPosition * p1 = _buffer.convert(r.last.index);
 				if(p1 < p0)
 					std::swap(p0, p1);
 				NSUInteger from = p0.line;
@@ -1067,8 +1067,8 @@ namespace ng
 
 				if(_selections.last().columnar)
 				{
-					text::pos_t  fromPos = _buffer.convert(_selections.last().min().index);
-					text::pos_t  toPos   = _buffer.convert(_selections.last().max().index);
+					OakTextPosition *  fromPos = _buffer.convert(_selections.last().min().index);
+					OakTextPosition *  toPos   = _buffer.convert(_selections.last().max().index);
 
 					NSUInteger fromCol = visual_distance(_buffer, _buffer.begin(fromPos.line), _selections.last().min());
 					NSUInteger toCol   = visual_distance(_buffer, _buffer.begin(toPos.line), _selections.last().max());
@@ -1229,7 +1229,7 @@ namespace ng
 		std::multimap<range_t, NSString *> replacements;
 		iterate(pair, clips)
 		{
-			text::pos_t pos = _buffer.convert(pair->first);
+			OakTextPosition * pos = _buffer.convert(pair->first);
 			int line        = pos.line;
 			int col         = visual_distance(_buffer, _buffer.begin(line), pair->first, false);
 
@@ -1340,7 +1340,7 @@ namespace ng
 			if(range.empty())
 			{
 				NSUInteger const caret = range.last.index;
-				text::pos_t  pos = _buffer.convert(caret);
+				OakTextPosition *  pos = _buffer.convert(caret);
 
 				map.insert(std::make_pair("TM_LINE_INDEX",    text::format("%zu", pos.column)));
 				map.insert(std::make_pair("TM_LINE_NUMBER",   text::format("%zu", pos.line+1)));

@@ -56,14 +56,14 @@ typedef NSInteger bool_t;
 
 @property (nonatomic, retain) OakScopeSelector * scopeSelector;
 
-@property (nonatomic, retain) NSString * font_name;
-@property (nonatomic, retain) NSColor * foreground;
-@property (nonatomic, retain) NSColor * background;
-@property (nonatomic, retain) NSColor * caret;
-@property (nonatomic, retain) NSColor * selection;
-@property (nonatomic, retain) NSColor * invisibles;
+@property (nonatomic, retain) NSString * fontName;
+@property (nonatomic, retain) NSColor * foregroundColor;
+@property (nonatomic, retain) NSColor * backgroundColor;
+@property (nonatomic, retain) NSColor * caretColor;
+@property (nonatomic, retain) NSColor * selectionColor;
+@property (nonatomic, retain) NSColor * invisiblesColor;
 
-@property (nonatomic)     CGFloat font_size;
+@property (nonatomic)     CGFloat fontSize;
 
 @property (nonatomic)     bool_t bold;
 @property (nonatomic)     bool_t italic;

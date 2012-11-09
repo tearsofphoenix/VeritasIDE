@@ -64,7 +64,7 @@
 
 - (BOOL)isEmpty
 {
-    return _freehanded ? ([_first isEqual: _last]) : ([[_first index] isEqual: [_last index]]);
+    return _freehanded ? ([_first isEqual: _last]) : ([_first index] == [_last index]);
 }
 
 - (OakSelectionRange *)normalizedRange
@@ -73,8 +73,8 @@
     
     if (strip)
     {
-        OakSelectionRange *range = [[OakSelectionRange alloc] initWithFirstIndex: [[self minIndex] index]
-                                                                       lastIndex: [[self maxIndex] index]];
+        OakSelectionRange *range = [[OakSelectionRange alloc] initWithFirstIndex: [self minIndex]
+                                                                       lastIndex: [self maxIndex]];
         [range setColumnar: _columnar];
         [range setFreehanded: _freehanded];
         [range setUnanchored: _unanchored];

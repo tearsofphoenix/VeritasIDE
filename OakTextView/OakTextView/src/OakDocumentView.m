@@ -341,7 +341,7 @@ static NSArray*  ObservedTextViewKeyPaths = nil;
 		OakTheme *theme = [textView theme];
 
 		[[self window] setOpaque: ![theme isTransparent]];
-		[textScrollView setBackgroundColor: [NSColor tmColorWithCGColor: [theme backgroundColorForFileType: [document fileType]]]];
+		[textScrollView setBackgroundColor: [theme backgroundColorForFileType: [document fileType]]];
 
 		if([theme isDark])
 		{
