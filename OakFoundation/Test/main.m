@@ -14,20 +14,17 @@ int main(int argc, const char * argv[])
 
     @autoreleasepool
     {
-        NSString *test = @"测试1";
-        printf("%s\n", [test UTF8String]);
-        for (NSUInteger iLooper = 0; iLooper < [test length]; ++iLooper)
-        {
-            NSLog(@"%ld char: %C", iLooper, ([test characterAtIndex: iLooper]));
-        }
+        OakMutableRangeArray *rangeArray = [[OakMutableRangeArray alloc] init];
+        [rangeArray addRange: NSMakeRange(0, 1)];
+        [rangeArray addObject: @"{10,10}"];
+        [rangeArray firstRange];
+        NSLog(@"%@", rangeArray);
         
-        const char *cStirng = [test UTF8String];
-        while(*cStirng)
-        {
-            printf("%c\n", *cStirng);
-            ++cStirng;
-        }
-
+        id obj = @[ @"YE"];
+        id co = [obj mutableCopy];
+        
+        NSLog(@"%d", [obj isEqualToArray: co]);
+        
     }
     return 0;
 }

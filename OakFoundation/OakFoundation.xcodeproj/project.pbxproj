@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		229085BC164CA60A0015C25C /* OakRangeArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 229085BA164CA60A0015C25C /* OakRangeArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		229085BD164CA60A0015C25C /* OakRangeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 229085BB164CA60A0015C25C /* OakRangeArray.m */; };
+		229085C2164CB0600015C25C /* OakMutableRangeArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 229085C0164CB0600015C25C /* OakMutableRangeArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		229085C3164CB0600015C25C /* OakMutableRangeArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 229085C1164CB0600015C25C /* OakMutableRangeArray.mm */; };
+		229085CB164CB14A0015C25C /* _OakMutableStructArray.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 229085C9164CB14A0015C25C /* _OakMutableStructArray.hpp */; };
+		229085CE164CD41D0015C25C /* OakMutableRectArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 229085CC164CD41D0015C25C /* OakMutableRectArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		229085CF164CD41D0015C25C /* OakMutableRectArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 229085CD164CD41D0015C25C /* OakMutableRectArray.mm */; };
+		229085D2164CD44E0015C25C /* OakRectArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 229085D0164CD44E0015C25C /* OakRectArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		229085D3164CD44E0015C25C /* OakRectArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 229085D1164CD44E0015C25C /* OakRectArray.m */; };
 		E101E982164BB7A800761766 /* OakAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = E101E980164BB7A800761766 /* OakAttributedString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E101E983164BB7A800761766 /* OakAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = E101E981164BB7A800761766 /* OakAttributedString.m */; };
 		E101E987164BB8FA00761766 /* OakFileEncodingType.h in Headers */ = {isa = PBXBuildFile; fileRef = E101E985164BB8FA00761766 /* OakFileEncodingType.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -72,6 +81,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		229085BA164CA60A0015C25C /* OakRangeArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakRangeArray.h; sourceTree = "<group>"; };
+		229085BB164CA60A0015C25C /* OakRangeArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakRangeArray.m; sourceTree = "<group>"; };
+		229085C0164CB0600015C25C /* OakMutableRangeArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakMutableRangeArray.h; sourceTree = "<group>"; };
+		229085C1164CB0600015C25C /* OakMutableRangeArray.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OakMutableRangeArray.mm; sourceTree = "<group>"; };
+		229085C9164CB14A0015C25C /* _OakMutableStructArray.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = _OakMutableStructArray.hpp; sourceTree = "<group>"; };
+		229085CC164CD41D0015C25C /* OakMutableRectArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakMutableRectArray.h; sourceTree = "<group>"; };
+		229085CD164CD41D0015C25C /* OakMutableRectArray.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OakMutableRectArray.mm; sourceTree = "<group>"; };
+		229085D0164CD44E0015C25C /* OakRectArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakRectArray.h; sourceTree = "<group>"; };
+		229085D1164CD44E0015C25C /* OakRectArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakRectArray.m; sourceTree = "<group>"; };
 		E101E980164BB7A800761766 /* OakAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakAttributedString.h; sourceTree = "<group>"; };
 		E101E981164BB7A800761766 /* OakAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakAttributedString.m; sourceTree = "<group>"; };
 		E101E985164BB8FA00761766 /* OakFileEncodingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakFileEncodingType.h; sourceTree = "<group>"; };
@@ -138,6 +156,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		229085BF164CA6130015C25C /* DataStructers */ = {
+			isa = PBXGroup;
+			children = (
+				E14958D1164A3BD6004907DE /* OakDependencyGraph.h */,
+				E14958D2164A3BD6004907DE /* OakDependencyGraph.m */,
+				229085BA164CA60A0015C25C /* OakRangeArray.h */,
+				229085BB164CA60A0015C25C /* OakRangeArray.m */,
+				229085C0164CB0600015C25C /* OakMutableRangeArray.h */,
+				229085C1164CB0600015C25C /* OakMutableRangeArray.mm */,
+				229085C9164CB14A0015C25C /* _OakMutableStructArray.hpp */,
+				229085CC164CD41D0015C25C /* OakMutableRectArray.h */,
+				229085CD164CD41D0015C25C /* OakMutableRectArray.mm */,
+				229085D0164CD44E0015C25C /* OakRectArray.h */,
+				229085D1164CD44E0015C25C /* OakRectArray.m */,
+			);
+			name = DataStructers;
+			sourceTree = "<group>";
+		};
 		E1B9311C164A6A3200B0DE8D /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,16 +223,7 @@
 		E1CCD1381644F660006696E0 /* OakFoundation */ = {
 			isa = PBXGroup;
 			children = (
-				E101E98D164BBE0500761766 /* OakFunctions.h */,
-				E101E98E164BBE0600761766 /* OakFunctions.m */,
-				E101E989164BBA3700761766 /* OakNSEventFunctions.h */,
-				E101E98A164BBA3700761766 /* OakNSEventFunctions.m */,
-				E101E985164BB8FA00761766 /* OakFileEncodingType.h */,
-				E101E986164BB8FA00761766 /* OakFileEncodingType.m */,
-				E101E980164BB7A800761766 /* OakAttributedString.h */,
-				E101E981164BB7A800761766 /* OakAttributedString.m */,
-				E15247151649900B004C2CC8 /* NSTask+Executecommand.h */,
-				E15247161649900B004C2CC8 /* NSTask+Executecommand.m */,
+				229085BF164CA6130015C25C /* DataStructers */,
 				E1CCD1471644F68C006696E0 /* NSArray+Additions.h */,
 				E1CCD1481644F68C006696E0 /* NSArray+Additions.m */,
 				E1CCD1491644F68C006696E0 /* NSDate+Additions.h */,
@@ -205,22 +232,30 @@
 				E15246B11649197B004C2CC8 /* NSDictionary+KeyPathSupport.m */,
 				E1CCD14B1644F68C006696E0 /* NSString+Additions.h */,
 				E1CCD14C1644F68C006696E0 /* NSString+Additions.m */,
+				E15247151649900B004C2CC8 /* NSTask+Executecommand.h */,
+				E15247161649900B004C2CC8 /* NSTask+Executecommand.m */,
+				E101E980164BB7A800761766 /* OakAttributedString.h */,
+				E101E981164BB7A800761766 /* OakAttributedString.m */,
+				E101E985164BB8FA00761766 /* OakFileEncodingType.h */,
+				E101E986164BB8FA00761766 /* OakFileEncodingType.m */,
 				E1CCD14D1644F68C006696E0 /* OakFindProtocol.h */,
 				E1CCD13F1644F660006696E0 /* OakFoundation.h */,
+				E101E98D164BBE0500761766 /* OakFunctions.h */,
+				E101E98E164BBE0600761766 /* OakFunctions.m */,
 				E1CCD1571644F69B006696E0 /* OakHistoryList.h */,
 				E1CCD1581644F69B006696E0 /* OakHistoryList.m */,
+				E101E989164BBA3700761766 /* OakNSEventFunctions.h */,
+				E101E98A164BBA3700761766 /* OakNSEventFunctions.m */,
 				E1CCD1591644F69B006696E0 /* OakStringListTransformer.h */,
 				E1CCD15A1644F69B006696E0 /* OakStringListTransformer.m */,
-				E1CCD15B1644F69B006696E0 /* OakTimer.h */,
-				E1CCD15C1644F69B006696E0 /* OakTimer.m */,
 				E11050BA16456ED5001CE3CC /* OakTextPosition.h */,
 				E11050BB16456ED5001CE3CC /* OakTextPosition.m */,
 				E11050BF164572A7001CE3CC /* OakTextRange.h */,
 				E11050C0164572A8001CE3CC /* OakTextRange.m */,
 				E1A7C0E21648184B00483373 /* OakTextSelection.h */,
 				E1A7C0E31648184B00483373 /* OakTextSelection.m */,
-				E14958D1164A3BD6004907DE /* OakDependencyGraph.h */,
-				E14958D2164A3BD6004907DE /* OakDependencyGraph.m */,
+				E1CCD15B1644F69B006696E0 /* OakTimer.h */,
+				E1CCD15C1644F69B006696E0 /* OakTimer.m */,
 				E1CCD1391644F660006696E0 /* Supporting Files */,
 			);
 			path = OakFoundation;
@@ -242,6 +277,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229085CE164CD41D0015C25C /* OakMutableRectArray.h in Headers */,
+				229085D2164CD44E0015C25C /* OakRectArray.h in Headers */,
+				229085BC164CA60A0015C25C /* OakRangeArray.h in Headers */,
+				229085C2164CB0600015C25C /* OakMutableRangeArray.h in Headers */,
 				E101E98F164BBE0600761766 /* OakFunctions.h in Headers */,
 				E101E98B164BBA3700761766 /* OakNSEventFunctions.h in Headers */,
 				E101E987164BB8FA00761766 /* OakFileEncodingType.h in Headers */,
@@ -260,6 +299,7 @@
 				E1CCD1611644F69B006696E0 /* OakTimer.h in Headers */,
 				E1CCD1551644F68C006696E0 /* OakFindProtocol.h in Headers */,
 				E1CCD20116450D68006696E0 /* OakFoundation.h in Headers */,
+				229085CB164CB14A0015C25C /* _OakMutableStructArray.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +408,10 @@
 				E101E988164BB8FA00761766 /* OakFileEncodingType.m in Sources */,
 				E101E98C164BBA3700761766 /* OakNSEventFunctions.m in Sources */,
 				E101E990164BBE0600761766 /* OakFunctions.m in Sources */,
+				229085BD164CA60A0015C25C /* OakRangeArray.m in Sources */,
+				229085C3164CB0600015C25C /* OakMutableRangeArray.mm in Sources */,
+				229085CF164CD41D0015C25C /* OakMutableRectArray.mm in Sources */,
+				229085D3164CD44E0015C25C /* OakRectArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

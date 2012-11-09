@@ -44,7 +44,8 @@ static id OakGutterViewDataSourceMake()
 	NSMutableArray *_columnDataSources;
 	NSMutableSet* hiddenColumns;
 	NSString * highlightedRange;
-	std::vector<CGRect> backgroundRects, borderRects;
+	NSMutableArray *backgroundRects;
+    NSMutableArray *borderRects;
 
 	NSPoint mouseDownAtPoint;
 	NSPoint mouseHoveringAtPoint;
@@ -111,32 +112,39 @@ static id OakGutterViewDataSourceMake()
 	self.selectionIconHoverColor   = nil;
 	self.selectionIconPressedColor = nil;
 	self.selectionBorderColor      = nil;
-	iterate(it, columnDataSources)
+	for(id it in _columnDataSources)
 	{
-		if(it->datasource)
-			[[NSNotificationCenter defaultCenter] removeObserver:self name:GVColumnDataSourceDidChange object:it->datasource];
+		if([it datasource])
+        {
+			[[NSNotificationCenter defaultCenter] removeObserver: self
+                                                            name: GVColumnDataSourceDidChange
+                                                          object: [it datasource]];
+        }
 	}
+    
 	[hiddenColumns release];
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[super dealloc];
+	
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+	
+    [super dealloc];
 }
 
 - (void)setupSelectionRects
 {
-	backgroundRects.clear();
-	borderRects.clear();
+	[backgroundRects removeAllObjects];
+	[borderRects removeAllObjects];
 
-	citerate(range, text::selection_t(highlightedRange))
-	{
-		auto from = range->min(), to = range->max();
-		CGFloat firstY = [self.delegate lineFragmentForLine:from.line column:from.column].firstY;
-		auto fragment = [self.delegate lineFragmentForLine:to.line column:to.column];
-		CGFloat lastY = to.column == 0 && from.line != to.line ? fragment.firstY : fragment.lastY;
-
-		backgroundRects.push_back(CGRectMake(0, firstY+1, self.frame.size.width, lastY - firstY - 2));
-		borderRects.push_back(CGRectMake(0, firstY, self.frame.size.width, 1));
-		borderRects.push_back(CGRectMake(0, lastY-1, self.frame.size.width, 1));
-	}
+//	citerate(range, text::selection_t(highlightedRange))
+//	{
+//		auto from = range->min(), to = range->max();
+//		CGFloat firstY = [self.delegate lineFragmentForLine:from.line column:from.column].firstY;
+//		auto fragment = [self.delegate lineFragmentForLine:to.line column:to.column];
+//		CGFloat lastY = to.column == 0 && from.line != to.line ? fragment.firstY : fragment.lastY;
+//
+//		backgroundRects.push_back(CGRectMake(0, firstY+1, self.frame.size.width, lastY - firstY - 2));
+//		borderRects.push_back(CGRectMake(0, firstY, self.frame.size.width, 1));
+//		borderRects.push_back(CGRectMake(0, lastY-1, self.frame.size.width, 1));
+//	}
 }
 
 // =============
@@ -145,18 +153,22 @@ static id OakGutterViewDataSourceMake()
 
 - (void)setHighlightedRange:(NSString *)str
 {
+	NSMutableArray *oldBackgroundRects = [NSMutableArray arrayWithArray: backgroundRects];
+    NSMutableArray *oldBorderRects = [NSMutableArray arrayWithArray: borderRects];
+    NSMutableArray *refreshRects = [NSMutableArray array];
 
-	std::vector<CGRect> oldBackgroundRects, oldBorderRects, refreshRects;
-	backgroundRects.swap(oldBackgroundRects);
-	borderRects.swap(oldBorderRects);
-
+    
 	highlightedRange = str;
+
 	[self setupSelectionRects];
 
-	OakRectSymmetricDifference(oldBackgroundRects, backgroundRects,    back_inserter(refreshRects));
-	OakRectSymmetricDifference(oldBorderRects,     borderRects,        back_inserter(refreshRects));
-	iterate(rect, refreshRects)
-		[self setNeedsDisplayInRect:*rect];
+    [refreshRects addObjectsFromArray: [oldBackgroundRects differenceArrayWithArray: backgroundRects]];
+    [refreshRects addObjectsFromArray: [oldBorderRects differenceArrayWithArray: borderRects]];
+
+	for(NSValue *rect in refreshRects)
+    {
+		[self setNeedsDisplayInRect: [rect rectValue]];
+    }
 }
 
 - (void)setPartnerView:(NSView*)aView
@@ -172,12 +184,20 @@ static id OakGutterViewDataSourceMake()
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(boundsDidChange:) name:NSViewBoundsDidChangeNotification object:[[_partnerView enclosingScrollView] contentView]];
 }
 
-- (void)insertColumnWithIdentifier:(NSString*)columnIdentifier atPosition:(NSUInteger)index dataSource:(id <GutterViewColumnDataSource>)columnDataSource delegate:(id <GutterViewColumnDelegate>)columnDelegate
+- (void)insertColumnWithIdentifier: (NSString*)columnIdentifier
+                        atPosition: (NSUInteger)index
+                        dataSource: (id <GutterViewColumnDataSource>)columnDataSource
+                          delegate: (id <GutterViewColumnDelegate>)columnDelegate
 {
-	assert(index <= columnDataSources.size());
-	columnDataSources.insert(columnDataSources.begin() + index, data_source_t(columnIdentifier.UTF8String, columnDataSource, columnDelegate));
+//	columnDataSources.insert(columnDataSources.begin() + index, OakGutterViewDataSource(columnIdentifier.UTF8String, columnDataSource, columnDelegate));
 	if(columnDelegate)
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(columnDataSourceDidChange:) name:GVColumnDataSourceDidChange object:columnDelegate];
+    {
+		[[NSNotificationCenter defaultCenter] addObserver: self
+                                                 selector: @selector(columnDataSourceDidChange:)
+                                                     name: GVColumnDataSourceDidChange
+                                                   object: columnDelegate];
+    }
+    
 	[self reloadData:self];
 }
 
@@ -199,50 +219,51 @@ static id OakGutterViewDataSourceMake()
 - (CGFloat)widthForColumnWithIdentifier:(NSString *)identifier
 {
 	CGFloat width = 0;
-	if(!self.delegate)
-		return 5;
-
-	if(identifier == [GVLineNumbersColumnIdentifier UTF8String])
-	{
-		NSUInteger lastLineNumber = [self.delegate lineRecordForPosition:NSHeight([_partnerView frame])].lineNumber;
-		CGFloat newWidth = WidthOfLineNumbers(lastLineNumber == NSNotFound ? 0 : lastLineNumber + 1, self.lineNumberFont);
-
-		width = [self columnWithIdentifier:identifier]->width;
-		if(width < newWidth || (newWidth < width && WidthOfLineNumbers(lastLineNumber * 4/3, self.lineNumberFont) < width))
-			width = newWidth;
-	}
-	else
-	{
-		NSUInteger n = 1;
-		while(NSImage* img = [[self columnWithIdentifier:identifier]->datasource imageForState:n++ forColumnWithIdentifier:[NSString stringWithCxxString:identifier]])
-			width = MAX(width, [img size].width);
-	}
+//	if(!self.delegate)
+//    {
+//		return 5;
+//    }
+//	if(identifier == [GVLineNumbersColumnIdentifier UTF8String])
+//	{
+//		NSUInteger lastLineNumber = [self.delegate lineRecordForPosition:NSHeight([_partnerView frame])].lineNumber;
+//		CGFloat newWidth = WidthOfLineNumbers(lastLineNumber == NSNotFound ? 0 : lastLineNumber + 1, self.lineNumberFont);
+//
+//		width = [self columnWithIdentifier:identifier]->width;
+//		if(width < newWidth || (newWidth < width && WidthOfLineNumbers(lastLineNumber * 4/3, self.lineNumberFont) < width))
+//			width = newWidth;
+//	}
+//	else
+//	{
+//		NSUInteger n = 1;
+//		while(NSImage* img = [[self columnWithIdentifier:identifier]->datasource imageForState:n++ forColumnWithIdentifier:[NSString stringWithCxxString:identifier]])
+//			width = MAX(width, [img size].width);
+//	}
 
 	return ceil(width);
 }
 
-- (data_source_t*)columnWithIdentifier:(NSString *)identifier
+- (OakGutterViewDataSource*)columnWithIdentifier:(NSString *)identifier
 {
-	iterate(it, columnDataSources)
-	{
-		if(it->identifier == identifier)
-			return &(*it);
-	}
-	assert(false);
-	return NULL;
+//	iterate(it, columnDataSources)
+//	{
+//		if(it->identifier == identifier)
+//			return &(*it);
+//	}
+//	assert(false);
+//	return NULL;
 }
 
-- (std::vector<data_source_t> )visibleColumnDataSources
+- (NSArray *)visibleColumnDataSources
 {
-	static std::vector<data_source_t> visibleColumnDataSources;
-	visibleColumnDataSources.clear();
-
-	iterate(it, columnDataSources)
-	{
-		if([self visibilityForColumnWithIdentifier:[NSString stringWithCxxString:it->identifier]])
-			visibleColumnDataSources.push_back(*it);
-	}
-	return visibleColumnDataSources;
+//	static std::vector<OakGutterViewDataSource> visibleColumnDataSources;
+//	visibleColumnDataSources.clear();
+//
+//	iterate(it, columnDataSources)
+//	{
+//		if([self visibilityForColumnWithIdentifier:[NSString stringWithCxxString:it->identifier]])
+//			visibleColumnDataSources.push_back(*it);
+//	}
+//	return visibleColumnDataSources;
 }
 
 // ================
@@ -251,16 +272,16 @@ static id OakGutterViewDataSourceMake()
 
 - (NSImage*)imageForColumn:(NSString *)identifier atLine:(NSUInteger)lineNumber hovering:(BOOL)hovering pressed:(BOOL)pressed
 {
-	id datasource    = [self columnWithIdentifier:identifier]->datasource;
-	NSUInteger state = [datasource stateForColumnWithIdentifier:[NSString stringWithCxxString:identifier] atLine:lineNumber];
-	NSImage* image   = nil;
-
-	if(pressed && [datasource respondsToSelector:@selector(pressedImageForState:forColumnWithIdentifier:)])
-		image = [datasource pressedImageForState:state forColumnWithIdentifier:[NSString stringWithCxxString:identifier]];
-	else if(hovering && [datasource respondsToSelector:@selector(hoverImageForState:forColumnWithIdentifier:)])
-		image = [datasource hoverImageForState:state forColumnWithIdentifier:[NSString stringWithCxxString:identifier]];
-
-	return image ?: [datasource imageForState:state forColumnWithIdentifier:[NSString stringWithCxxString:identifier]];
+//	id datasource    = [self columnWithIdentifier:identifier]->datasource;
+//	NSUInteger state = [datasource stateForColumnWithIdentifier:[NSString stringWithCxxString:identifier] atLine:lineNumber];
+//	NSImage* image   = nil;
+//
+//	if(pressed && [datasource respondsToSelector:@selector(pressedImageForState:forColumnWithIdentifier:)])
+//		image = [datasource pressedImageForState:state forColumnWithIdentifier:[NSString stringWithCxxString:identifier]];
+//	else if(hovering && [datasource respondsToSelector:@selector(hoverImageForState:forColumnWithIdentifier:)])
+//		image = [datasource hoverImageForState:state forColumnWithIdentifier:[NSString stringWithCxxString:identifier]];
+//
+//	return image ?: [datasource imageForState:state forColumnWithIdentifier:[NSString stringWithCxxString:identifier]];
 }
 
 // ==========
@@ -274,14 +295,19 @@ static id OakGutterViewDataSourceMake()
 		[self invalidateIntrinsicContentSize];
 }
 
-static CTLineRef CTCreateLineFromText (NSString * text, NSFont* font, NSColor* color = nil)
+static CTLineRef CTCreateLineFromText (NSString * text, NSFont* font, NSColor* color)
 {
-	return CTLineCreateWithAttributedString(OakAttributedString(font) << (color ?: [NSColor grayColor]) << text);
+    OakAttributedString *attrString = [[OakAttributedString alloc] init];
+    [attrString appendString: text];
+    [attrString appendFont: font];
+    [attrString appendBackgroundColor: (color ?: [NSColor grayColor])];
+    
+	return CTLineCreateWithAttributedString((CFAttributedStringRef)[attrString mutableAttributedString]);
 }
 
 static CGFloat WidthOfLineNumbers (NSUInteger lineNumber, NSFont* font)
 {
-	CTLineRef line = CTCreateLineFromText(text::format("%ld", MAX(10, lineNumber)), font);
+	CTLineRef line = CTCreateLineFromText([NSString stringWithFormat: @"%ld", MAX(10, lineNumber)], font, nil);
 	CGFloat width  = CTLineGetTypographicBounds(line, NULL, NULL, NULL);
 	CFRelease(line);
 	return ceil(width);
@@ -310,26 +336,34 @@ static void DrawText (NSString * text, CGRect  rect, CGFloat baseline, NSFont* f
 	[self setupSelectionRects];
 
 	[self.selectionBackgroundColor set];
-	iterate(rect, backgroundRects)
-		NSRectFillUsingOperation(NSIntersectionRect(*rect, NSIntersectionRect(aRect, self.frame)), NSCompositeSourceOver);
+	for(NSValue *rect in backgroundRects)
+    {
+		NSRectFillUsingOperation(NSIntersectionRect([rect rectValue], NSIntersectionRect(aRect, self.frame)), NSCompositeSourceOver);
+    }
 
 	[self.selectionBorderColor set];
-	iterate(rect, borderRects)
-		NSRectFillUsingOperation(NSIntersectionRect(*rect, NSIntersectionRect(aRect, self.frame)), NSCompositeSourceOver);
+	for(NSValue *rect in borderRects)
+    {
+		NSRectFillUsingOperation(NSIntersectionRect([rect rectValue], NSIntersectionRect(aRect, self.frame)), NSCompositeSourceOver);
+    }
 
-	std::pair<NSUInteger, NSUInteger> prevLine(NSNotFound, 0);
+	NSRange prevLine = NSMakeRange(NSNotFound, 0);
+    
 	for(CGFloat y = NSMinY(aRect); y < NSMaxY(aRect); )
 	{
 		GVLineRecord record = [self.delegate lineRecordForPosition:y];
-		if(record.lastY <= y || prevLine == std::make_pair(record.lineNumber, record.softlineOffset))
+		if(record.lastY <= y || (prevLine.location == record.lineNumber
+                                 && prevLine.length == record.softlineOffset) )
 			break;
-		prevLine = std::make_pair(record.lineNumber, record.softlineOffset);
+		prevLine = NSMakeRange(record.lineNumber, record.softlineOffset);
 
 		BOOL selectedRow = NO;
-		iterate(rect, backgroundRects)
-			selectedRow = selectedRow || NSIntersectsRect(*rect, NSMakeRect(0, record.firstY, CGRectGetWidth(self.frame), record.lastY - record.firstY));
-
-		citerate(dataSource, [self visibleColumnDataSources])
+		for(NSValue *rect in backgroundRects)
+        {
+			selectedRow = selectedRow || NSIntersectsRect([rect rectValue], NSMakeRect(0, record.firstY, CGRectGetWidth(self.frame), record.lastY - record.firstY));
+        }
+        
+		for(id dataSource in [self visibleColumnDataSources])
 		{
 			NSRect columnRect = NSMakeRect(dataSource->x0, record.firstY, dataSource->width, record.lastY - record.firstY);
 			if(dataSource->identifier == GVLineNumbersColumnIdentifier.UTF8String)
@@ -386,7 +420,7 @@ static void DrawText (NSString * text, CGRect  rect, CGFloat baseline, NSFont* f
 	static const CGFloat columnPadding = 1;
 
 	CGFloat currentX = 0, totalWidth = 0;
-	iterate(it, columnDataSources)
+	for(id it in columnDataSources)
 	{
 		it->x0 = currentX;
 		if([self visibilityForColumnWithIdentifier:[NSString stringWithCxxString:it->identifier]])
@@ -447,9 +481,19 @@ static void DrawText (NSString * text, CGRect  rect, CGFloat baseline, NSFont* f
 
 		while([event type] != NSLeftMouseUp)
 		{
-			event = [NSApp nextEventMatchingMask:(NSLeftMouseUpMask|NSMouseMovedMask|NSLeftMouseDraggedMask|NSMouseEnteredMask|NSMouseExitedMask) untilDate:[NSDate distantFuture] inMode:NSEventTrackingRunLoopMode dequeue:YES];
+			event = [NSApp nextEventMatchingMask: (NSLeftMouseUpMask
+                                                  | NSMouseMovedMask
+                                                  | NSLeftMouseDraggedMask
+                                                  | NSMouseEnteredMask
+                                                  | NSMouseExitedMask)
+                                       untilDate: [NSDate distantFuture]
+                                          inMode: NSEventTrackingRunLoopMode
+                                         dequeue: YES];
+            
 			if([event type] == NSMouseMoved || [event type] == NSLeftMouseDragged)
+            {
 				[self mouseMoved:event];
+            }
 		}
 
 		if(NSEqualRects(columnRect, [self columnRectForPoint:mouseHoveringAtPoint]))
@@ -459,7 +503,10 @@ static void DrawText (NSString * text, CGRect  rect, CGFloat baseline, NSFont* f
 			{
 				NSRect columnRect = NSMakeRect(dataSource->x0, record.firstY, dataSource->width, record.lastY - record.firstY);
 				if(NSPointInRect(mouseDownAtPoint, columnRect))
-					[dataSource->delegate userDidClickColumnWithIdentifier:[NSString stringWithCxxString:dataSource->identifier] atLine:record.lineNumber];
+                {
+					[dataSource->delegate userDidClickColumnWithIdentifier: dataSource->identifier
+                                                                    atLine: record.lineNumber];
+                }
 			}
 		}
 		else
@@ -473,12 +520,23 @@ static void DrawText (NSString * text, CGRect  rect, CGFloat baseline, NSFont* f
 	else
 	{
 		[_partnerView mouseDown:event];
+        
 		while([event type] != NSLeftMouseUp)
 		{
-			event = [NSApp nextEventMatchingMask:(NSLeftMouseUpMask|NSMouseMovedMask|NSLeftMouseDraggedMask|NSMouseEnteredMask|NSMouseExitedMask) untilDate:[NSDate distantFuture] inMode:NSEventTrackingRunLoopMode dequeue:YES];
+			event = [NSApp nextEventMatchingMask: (NSLeftMouseUpMask
+                                                   | NSMouseMovedMask
+                                                   | NSLeftMouseDraggedMask
+                                                   | NSMouseEnteredMask
+                                                   | NSMouseExitedMask)
+                                       untilDate: [NSDate distantFuture]
+                                          inMode: NSEventTrackingRunLoopMode
+                                         dequeue: YES];
 			if([event type] == NSMouseMoved || [event type] == NSLeftMouseDragged)
+            {
 				[_partnerView mouseDragged:event];
+            }
 		}
+        
 		[_partnerView mouseUp:event];
 	}
 }
@@ -502,9 +560,10 @@ static void DrawText (NSString * text, CGRect  rect, CGFloat baseline, NSFont* f
 
 - (void)clearTrackingRects
 {
-	
 	for(NSTrackingArea* trackingArea in self.trackingAreas)
+    {
 		[self removeTrackingArea:trackingArea];
+    }
 }
 
 - (void)setupTrackingRects
@@ -512,7 +571,12 @@ static void DrawText (NSString * text, CGRect  rect, CGFloat baseline, NSFont* f
 	
 	[self clearTrackingRects];
 
-	NSTrackingArea* trackingArea = [[NSTrackingArea alloc] initWithRect:[self visibleRect] options:NSTrackingMouseEnteredAndExited|NSTrackingMouseMoved|NSTrackingActiveInKeyWindow owner:self userInfo:nil];
+	NSTrackingArea* trackingArea = [[NSTrackingArea alloc] initWithRect: [self visibleRect]
+                                                                options: (NSTrackingMouseEnteredAndExited
+                                                                          | NSTrackingMouseMoved
+                                                                          | NSTrackingActiveInKeyWindow)
+                                                                  owner: self
+                                                               userInfo: nil];
 	[self addTrackingArea:trackingArea];
 	[trackingArea release];
 }

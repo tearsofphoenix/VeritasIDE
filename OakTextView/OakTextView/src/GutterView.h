@@ -25,15 +25,23 @@ typedef struct _GVLineRecord GVLineRecord;
 @end
 
 @protocol GutterViewColumnDataSource
+
 - (NSUInteger)stateForColumnWithIdentifier:(id)columnIdentifier atLine:(NSUInteger)lineNumber;
+
 - (NSImage*)imageForState:(NSUInteger)aState forColumnWithIdentifier:(id)columnIdentifier;
+
 @optional
+
 - (NSImage*)hoverImageForState:(NSUInteger)aState forColumnWithIdentifier:(id)columnIdentifier;
+
 - (NSImage*)pressedImageForState:(NSUInteger)aState forColumnWithIdentifier:(id)columnIdentifier;
+
 @end
 
 @protocol GutterViewColumnDelegate
+
 - (void)userDidClickColumnWithIdentifier:(id)columnIdentifier atLine:(NSUInteger)lineNumber;
+
 @end
 
 @interface GutterView : NSView

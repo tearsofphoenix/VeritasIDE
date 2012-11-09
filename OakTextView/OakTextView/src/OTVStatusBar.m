@@ -20,17 +20,17 @@ const NSInteger BundleItemSelector = 1;
 
 - (void)update
 {
-	NSUInteger line = [[caretPosition minPosition] line];
-    NSUInteger column = [[caretPosition minPosition] column];
+//	NSUInteger line = [[caretPosition minPosition] line];
+//    NSUInteger column = [[caretPosition minPosition] column];
 
 	//NSString * lineNumberText = [NSString stringWithFormat: @"Line: %@\u2003Column: %@", OakTextPad(line+1, 4), OakTextPad(column+1, 3)];
     
 	NSString * tabSizeText    = [NSString stringWithFormat: @"%s\u2003%@", (softTabs ? "Soft Tabs:" : "Tab Size:"), OakTextPad(tabSize, 4)];
     
-	static NSImage* gearImage        = [[NSImage imageNamed: @"Statusbar Gear"
-                                        inSameBundleAsClass: [self class]] retain];
-	static NSImage* languageIcon     = [[NSImage imageNamed: @"Languages"
-                                        inSameBundleAsClass: [self class]] retain];
+	 NSImage* gearImage        = [NSImage imageNamed: @"Statusbar Gear"
+                                        inSameBundleAsClass: [self class]];
+	 NSImage* languageIcon     = [NSImage imageNamed: @"Languages"
+                                        inSameBundleAsClass: [self class]];
     
     NSMutableArray *cells = [NSMutableArray array];
     
