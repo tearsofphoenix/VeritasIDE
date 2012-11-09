@@ -38,8 +38,27 @@
 static NSImage *s_VDELineNumberMarkerEnableImage = nil;
 static NSImage *s_VDELineNumberMarkerDisableImage = nil;
 
+static NSColor *s_VDELineNumberMarkerColor = nil;
+static NSColor *s_VDELineNumberMarkerDisableColor = nil;
+static NSColor *s_VDELineNumberMarkerFillColor = nil;
+
 + (void)initialize
 {
+    s_VDELineNumberMarkerColor = [[NSColor colorWithCalibratedRed: 0.37
+                                                           green: 0.56
+                                                            blue: 0.77
+                                                            alpha: 1.00] retain];
+    
+    s_VDELineNumberMarkerDisableColor = [[NSColor colorWithCalibratedRed: 0.77
+                                                                  green: 0.84
+                                                                   blue: 0.91
+                                                                   alpha: 1.00] retain];
+    
+    s_VDELineNumberMarkerFillColor = [[NSColor colorWithCalibratedRed: 0.26
+                                                               green: 0.44
+                                                                blue: 0.69
+                                                                alpha: 1.00] retain];
+    
     CGSize size = CGSizeMake(36, MARKER_HEIGHT);
     s_VDELineNumberMarkerEnableImage = [[NSImage alloc] initWithSize: size];
     NSCustomImageRep *rep = [[NSCustomImageRep alloc] initWithDrawSelector: @selector(drawMarkerImageIntoRep:)
@@ -86,10 +105,7 @@ static void NLNumerMarkerDraw(NSCustomImageRep *rep, NSColor *fillColor)
     
 	[path fill];
 	
-    [[NSColor colorWithCalibratedRed: 0.26
-                               green: 0.44
-                                blue: 0.69
-                               alpha: 1.00] set];
+    [s_VDELineNumberMarkerFillColor set];
 	
 	[path setLineWidth: 1.0];
     
@@ -98,19 +114,12 @@ static void NLNumerMarkerDraw(NSCustomImageRep *rep, NSColor *fillColor)
 
 + (void)drawDisabledMarkerImageWithRep: (NSCustomImageRep *)rep
 {
-	NLNumerMarkerDraw(rep, [NSColor colorWithCalibratedRed: 0.77
-                                                     green: 0.84
-                                                      blue: 0.91
-                                                     alpha: 1.00]);
+	NLNumerMarkerDraw(rep, s_VDELineNumberMarkerDisableColor);
 }
 
 + (void)drawMarkerImageIntoRep: (NSCustomImageRep *)rep
 {
-	
-	NLNumerMarkerDraw(rep, [NSColor colorWithCalibratedRed: 0.37
-                                                     green: 0.56
-                                                      blue: 0.77
-                                                     alpha: 1.00]);
+	NLNumerMarkerDraw(rep, s_VDELineNumberMarkerColor);
 }
 
 @synthesize lineNumber = _lineNumber;

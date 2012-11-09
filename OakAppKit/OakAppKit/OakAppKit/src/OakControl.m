@@ -581,7 +581,7 @@ static void DrawTextWithOptions (NSString* string, NSRect bounds, OakLayerTextOp
 		[self setupTrackingRects];
 }
 
-- (void)setKeyState:(NSUInteger)newState
+- (void)setKeyState: (OakViewKeyState)newState
 {
 	[super setKeyState:newState];
 	// TODO only redraw the layers which has requisite set so that they would change on view/window/app focus changes

@@ -39,7 +39,7 @@
     memset(cstr, value, sizeof(char) * count);
     cstr[count] = '\0';
     
-    NSString *result = [NSString stringWithUTF8String: cstr];
+    NSString *result = @(cstr);
     
     free(cstr);
     

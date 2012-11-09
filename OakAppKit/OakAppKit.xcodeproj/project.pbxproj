@@ -7,14 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		229085E8164CF2580015C25C /* clipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 229085E6164CF2580015C25C /* clipboard.h */; };
-		229085E9164CF2580015C25C /* clipboard.mm in Sources */ = {isa = PBXBuildFile; fileRef = 229085E7164CF2580015C25C /* clipboard.mm */; };
-		229085F0164CF2800015C25C /* OakSelectionIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 229085EA164CF2800015C25C /* OakSelectionIndex.h */; };
-		229085F1164CF2800015C25C /* OakSelectionIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 229085EB164CF2800015C25C /* OakSelectionIndex.m */; };
-		229085F2164CF2800015C25C /* OakSelectionRange.h in Headers */ = {isa = PBXBuildFile; fileRef = 229085EC164CF2800015C25C /* OakSelectionRange.h */; };
-		229085F3164CF2800015C25C /* OakSelectionRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 229085ED164CF2800015C25C /* OakSelectionRange.m */; };
-		229085F4164CF2800015C25C /* OakSelectionRangeArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 229085EE164CF2800015C25C /* OakSelectionRangeArray.h */; };
-		229085F5164CF2800015C25C /* OakSelectionRangeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 229085EF164CF2800015C25C /* OakSelectionRangeArray.m */; };
+		2290861F164CF8130015C25C /* Bookmark Hover Add.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 229085FD164CF8130015C25C /* Bookmark Hover Add.pdf */; };
+		22908620164CF8130015C25C /* Bookmark Hover Remove.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 229085FE164CF8130015C25C /* Bookmark Hover Remove.pdf */; };
+		22908621164CF8130015C25C /* Bookmark.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 229085FF164CF8130015C25C /* Bookmark.pdf */; };
+		22908622164CF8130015C25C /* SearchField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22908600164CF8130015C25C /* SearchField.xib */; };
+		22908623164CF8130015C25C /* TabSizeSetting.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22908602164CF8130015C25C /* TabSizeSetting.xib */; };
+		22908624164CF8130015C25C /* Folding Bottom Hover.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 22908604164CF8130015C25C /* Folding Bottom Hover.pdf */; };
+		22908625164CF8130015C25C /* Folding Bottom.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 22908605164CF8130015C25C /* Folding Bottom.pdf */; };
+		22908626164CF8130015C25C /* Folding Collapsed Hover.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 22908606164CF8130015C25C /* Folding Collapsed Hover.pdf */; };
+		22908627164CF8130015C25C /* Folding Collapsed.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 22908607164CF8130015C25C /* Folding Collapsed.pdf */; };
+		22908628164CF8130015C25C /* Folding Top Hover.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 22908608164CF8130015C25C /* Folding Top Hover.pdf */; };
+		22908629164CF8130015C25C /* Folding Top.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 22908609164CF8130015C25C /* Folding Top.pdf */; };
+		2290862A164CF8130015C25C /* FoldingDots.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2290860A164CF8130015C25C /* FoldingDots.pdf */; };
+		2290862B164CF8130015C25C /* IBeam white.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 2290860B164CF8130015C25C /* IBeam white.tiff */; };
+		2290862C164CF8130015C25C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2290860C164CF8130015C25C /* Info.plist */; };
+		2290862D164CF8130015C25C /* Languages.png in Resources */ = {isa = PBXBuildFile; fileRef = 2290860D164CF8130015C25C /* Languages.png */; };
+		2290862E164CF8130015C25C /* Languages@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2290860E164CF8130015C25C /* Languages@2x.png */; };
+		2290862F164CF8130015C25C /* RecordingMacro.png in Resources */ = {isa = PBXBuildFile; fileRef = 2290860F164CF8130015C25C /* RecordingMacro.png */; };
+		22908630164CF8130015C25C /* RecordingMacro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22908610164CF8130015C25C /* RecordingMacro@2x.png */; };
+		22908631164CF8130015C25C /* Search Mark.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 22908611164CF8130015C25C /* Search Mark.pdf */; };
+		22908632164CF8130015C25C /* SpellingDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 22908612164CF8130015C25C /* SpellingDot.png */; };
+		22908633164CF8130015C25C /* SpellingDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22908613164CF8130015C25C /* SpellingDot@2x.png */; };
+		22908634164CF8130015C25C /* Statusbar Gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 22908614164CF8130015C25C /* Statusbar Gear.png */; };
+		22908635164CF8130015C25C /* Statusbar Gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22908615164CF8130015C25C /* Statusbar Gear@2x.png */; };
+		22908636164CF8130015C25C /* OakGutterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 22908617164CF8130015C25C /* OakGutterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		22908637164CF8130015C25C /* OakGutterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22908618164CF8130015C25C /* OakGutterView.m */; };
+		22908638164CF8130015C25C /* OakLiveSearchView.h in Headers */ = {isa = PBXBuildFile; fileRef = 22908619164CF8130015C25C /* OakLiveSearchView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		22908639164CF8130015C25C /* OakLiveSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2290861A164CF8130015C25C /* OakLiveSearchView.m */; };
+		2290863A164CF8130015C25C /* OakChoiceMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 2290861B164CF8130015C25C /* OakChoiceMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2290863B164CF8130015C25C /* OakChoiceMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 2290861C164CF8130015C25C /* OakChoiceMenu.m */; };
+		2290863C164CF8130015C25C /* OTVStatusBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 2290861D164CF8130015C25C /* OTVStatusBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2290863D164CF8130015C25C /* OTVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2290861E164CF8130015C25C /* OTVStatusBar.m */; };
 		E101E992164BC1F100761766 /* OakFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E101E991164BC1F100761766 /* OakFoundation.framework */; };
 		E101E993164BC1F500761766 /* OakSCM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15246F816498F4D004C2CC8 /* OakSCM.framework */; };
 		E1105058164555D1001CE3CC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1105057164555D1001CE3CC /* AudioToolbox.framework */; };
@@ -27,7 +50,7 @@
 		E11062921646A9A1001CE3CC /* OakFinderLabelChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = E11062781646A9A1001CE3CC /* OakFinderLabelChooser.m */; };
 		E11062931646A9A1001CE3CC /* OakImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E11062791646A9A1001CE3CC /* OakImage.m */; };
 		E11062941646A9A1001CE3CC /* OakImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E110627A1646A9A1001CE3CC /* OakImageAndTextCell.m */; };
-		E11062951646A9A1001CE3CC /* OakKeyEquivalentView.h in Headers */ = {isa = PBXBuildFile; fileRef = E110627B1646A9A1001CE3CC /* OakKeyEquivalentView.h */; };
+		E11062951646A9A1001CE3CC /* OakKeyEquivalentView.h in Headers */ = {isa = PBXBuildFile; fileRef = E110627B1646A9A1001CE3CC /* OakKeyEquivalentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E11062961646A9A1001CE3CC /* OakKeyEquivalentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E110627C1646A9A1001CE3CC /* OakKeyEquivalentView.m */; };
 		E11062971646A9A1001CE3CC /* OakOpenWithMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E110627D1646A9A1001CE3CC /* OakOpenWithMenu.m */; };
 		E11062981646A9A1001CE3CC /* OakPasteboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E110627E1646A9A1001CE3CC /* OakPasteboard.m */; };
@@ -38,7 +61,7 @@
 		E110629D1646A9A1001CE3CC /* OakSound.m in Sources */ = {isa = PBXBuildFile; fileRef = E11062831646A9A1001CE3CC /* OakSound.m */; };
 		E110629E1646A9A1001CE3CC /* OakStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E11062841646A9A1001CE3CC /* OakStatusBar.m */; };
 		E110629F1646A9A1001CE3CC /* OakSubmenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11062851646A9A1001CE3CC /* OakSubmenuController.m */; };
-		E11062A01646A9A1001CE3CC /* OakTabBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = E11062861646A9A1001CE3CC /* OakTabBarView.h */; };
+		E11062A01646A9A1001CE3CC /* OakTabBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = E11062861646A9A1001CE3CC /* OakTabBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E11062A11646A9A1001CE3CC /* OakTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E11062871646A9A1001CE3CC /* OakTabBarView.m */; };
 		E11062A21646A9A1001CE3CC /* OakToolTip.m in Sources */ = {isa = PBXBuildFile; fileRef = E11062881646A9A1001CE3CC /* OakToolTip.m */; };
 		E11062A31646A9A1001CE3CC /* OakView.m in Sources */ = {isa = PBXBuildFile; fileRef = E11062891646A9A1001CE3CC /* OakView.m */; };
@@ -116,7 +139,6 @@
 		E1CCD0C01644F510006696E0 /* HiddenFilesAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CCD0211644F50F006696E0 /* HiddenFilesAccessoryView.xib */; };
 		E1CCD0C11644F510006696E0 /* Pasteboard Selector.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CCD0231644F50F006696E0 /* Pasteboard Selector.xib */; };
 		E1CCD0C31644F510006696E0 /* TabBar.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1CCD0261644F50F006696E0 /* TabBar.plist */; };
-		E1CCD0C41644F510006696E0 /* IOAlertPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCD0281644F50F006696E0 /* IOAlertPanel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCD0C51644F510006696E0 /* NSAlert+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCD0291644F50F006696E0 /* NSAlert+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCD0C61644F510006696E0 /* NSAlert+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCD02A1644F50F006696E0 /* NSAlert+Additions.m */; };
 		E1CCD0C71644F510006696E0 /* NSColor+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCD02B1644F50F006696E0 /* NSColor+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -138,7 +160,6 @@
 		E1CCD0D71644F510006696E0 /* NSWindow+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCD03B1644F50F006696E0 /* NSWindow+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCD0D81644F510006696E0 /* NSWindow+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCD03C1644F50F006696E0 /* NSWindow+Additions.m */; };
 		E1CCD0D91644F510006696E0 /* OakAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCD03D1644F50F006696E0 /* OakAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E1CCD0DA1644F510006696E0 /* OakAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCD03E1644F50F006696E0 /* OakAppKit.m */; };
 		E1CCD0DB1644F510006696E0 /* OakBorderlessPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCD03F1644F50F006696E0 /* OakBorderlessPanel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCD0DD1644F510006696E0 /* OakControl+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCD0411644F50F006696E0 /* OakControl+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCD0DE1644F510006696E0 /* OakControl.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCD0421644F50F006696E0 /* OakControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -161,43 +182,6 @@
 		E1CCD1041644F510006696E0 /* OakWindowFrameHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCD0681644F50F006696E0 /* OakWindowFrameHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCD1061644F510006696E0 /* OakZoomingIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCD06A1644F50F006696E0 /* OakZoomingIcon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCD21416451D9F006696E0 /* Charsets.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1CCD21316451D9F006696E0 /* Charsets.plist */; };
-		E1D821F8164C3225008545E5 /* Bookmark Hover Add.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D0164C3225008545E5 /* Bookmark Hover Add.pdf */; };
-		E1D821F9164C3225008545E5 /* Bookmark Hover Remove.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D1164C3225008545E5 /* Bookmark Hover Remove.pdf */; };
-		E1D821FA164C3225008545E5 /* Bookmark.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D2164C3225008545E5 /* Bookmark.pdf */; };
-		E1D821FB164C3225008545E5 /* SearchField.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D3164C3225008545E5 /* SearchField.xib */; };
-		E1D821FC164C3225008545E5 /* TabSizeSetting.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D5164C3225008545E5 /* TabSizeSetting.xib */; };
-		E1D821FD164C3225008545E5 /* Folding Bottom Hover.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D7164C3225008545E5 /* Folding Bottom Hover.pdf */; };
-		E1D821FE164C3225008545E5 /* Folding Bottom.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D8164C3225008545E5 /* Folding Bottom.pdf */; };
-		E1D821FF164C3225008545E5 /* Folding Collapsed Hover.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D9164C3225008545E5 /* Folding Collapsed Hover.pdf */; };
-		E1D82200164C3225008545E5 /* Folding Collapsed.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821DA164C3225008545E5 /* Folding Collapsed.pdf */; };
-		E1D82201164C3225008545E5 /* Folding Top Hover.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821DB164C3225008545E5 /* Folding Top Hover.pdf */; };
-		E1D82202164C3225008545E5 /* Folding Top.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821DC164C3225008545E5 /* Folding Top.pdf */; };
-		E1D82203164C3225008545E5 /* FoldingDots.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821DD164C3225008545E5 /* FoldingDots.pdf */; };
-		E1D82204164C3225008545E5 /* IBeam white.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E1D821DE164C3225008545E5 /* IBeam white.tiff */; };
-		E1D82205164C3225008545E5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1D821DF164C3225008545E5 /* Info.plist */; };
-		E1D82206164C3225008545E5 /* Languages.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E0164C3225008545E5 /* Languages.png */; };
-		E1D82207164C3225008545E5 /* Languages@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E1164C3225008545E5 /* Languages@2x.png */; };
-		E1D82208164C3225008545E5 /* RecordingMacro.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E2164C3225008545E5 /* RecordingMacro.png */; };
-		E1D82209164C3225008545E5 /* RecordingMacro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E3164C3225008545E5 /* RecordingMacro@2x.png */; };
-		E1D8220A164C3225008545E5 /* Search Mark.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E4164C3225008545E5 /* Search Mark.pdf */; };
-		E1D8220B164C3225008545E5 /* SpellingDot.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E5164C3225008545E5 /* SpellingDot.png */; };
-		E1D8220C164C3225008545E5 /* SpellingDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E6164C3225008545E5 /* SpellingDot@2x.png */; };
-		E1D8220D164C3225008545E5 /* Statusbar Gear.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E7164C3225008545E5 /* Statusbar Gear.png */; };
-		E1D8220E164C3225008545E5 /* Statusbar Gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E8164C3225008545E5 /* Statusbar Gear@2x.png */; };
-		E1D8220F164C3225008545E5 /* GutterView.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D821EA164C3225008545E5 /* GutterView.h */; };
-		E1D82210164C3225008545E5 /* GutterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D821EB164C3225008545E5 /* GutterView.m */; };
-		E1D82211164C3225008545E5 /* LiveSearchView.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D821EC164C3225008545E5 /* LiveSearchView.h */; };
-		E1D82212164C3225008545E5 /* LiveSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D821ED164C3225008545E5 /* LiveSearchView.m */; };
-		E1D82213164C3225008545E5 /* OakChoiceMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D821EE164C3225008545E5 /* OakChoiceMenu.h */; };
-		E1D82214164C3225008545E5 /* OakChoiceMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D821EF164C3225008545E5 /* OakChoiceMenu.m */; };
-		E1D82215164C3225008545E5 /* OakDocumentView.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D821F0164C3225008545E5 /* OakDocumentView.h */; };
-		E1D82216164C3225008545E5 /* OakDocumentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D821F1164C3225008545E5 /* OakDocumentView.m */; };
-		E1D82217164C3225008545E5 /* OakPasteboardWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D821F2164C3225008545E5 /* OakPasteboardWrapper.h */; };
-		E1D82218164C3225008545E5 /* OakPasteboardWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D821F3164C3225008545E5 /* OakPasteboardWrapper.m */; };
-		E1D82219164C3225008545E5 /* OakTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D821F4164C3225008545E5 /* OakTextView.h */; };
-		E1D8221A164C3225008545E5 /* OakTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D821F5164C3225008545E5 /* OakTextView.m */; };
-		E1D8221B164C3225008545E5 /* OTVStatusBar.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D821F6164C3225008545E5 /* OTVStatusBar.h */; };
-		E1D8221C164C3225008545E5 /* OTVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D821F7164C3225008545E5 /* OTVStatusBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,14 +202,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		229085E6164CF2580015C25C /* clipboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = clipboard.h; path = ../../OakTextView/editor/clipboard.h; sourceTree = "<group>"; };
-		229085E7164CF2580015C25C /* clipboard.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = clipboard.mm; path = ../../OakTextView/editor/clipboard.mm; sourceTree = "<group>"; };
-		229085EA164CF2800015C25C /* OakSelectionIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OakSelectionIndex.h; path = ../../OakTextView/selection/OakSelectionIndex.h; sourceTree = "<group>"; };
-		229085EB164CF2800015C25C /* OakSelectionIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OakSelectionIndex.m; path = ../../OakTextView/selection/OakSelectionIndex.m; sourceTree = "<group>"; };
-		229085EC164CF2800015C25C /* OakSelectionRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OakSelectionRange.h; path = ../../OakTextView/selection/OakSelectionRange.h; sourceTree = "<group>"; };
-		229085ED164CF2800015C25C /* OakSelectionRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OakSelectionRange.m; path = ../../OakTextView/selection/OakSelectionRange.m; sourceTree = "<group>"; };
-		229085EE164CF2800015C25C /* OakSelectionRangeArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OakSelectionRangeArray.h; path = ../../OakTextView/selection/OakSelectionRangeArray.h; sourceTree = "<group>"; };
-		229085EF164CF2800015C25C /* OakSelectionRangeArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OakSelectionRangeArray.m; path = ../../OakTextView/selection/OakSelectionRangeArray.m; sourceTree = "<group>"; };
+		229085FD164CF8130015C25C /* Bookmark Hover Add.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bookmark Hover Add.pdf"; sourceTree = "<group>"; };
+		229085FE164CF8130015C25C /* Bookmark Hover Remove.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bookmark Hover Remove.pdf"; sourceTree = "<group>"; };
+		229085FF164CF8130015C25C /* Bookmark.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Bookmark.pdf; sourceTree = "<group>"; };
+		22908601164CF8130015C25C /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/SearchField.xib; sourceTree = "<group>"; };
+		22908603164CF8130015C25C /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TabSizeSetting.xib; sourceTree = "<group>"; };
+		22908604164CF8130015C25C /* Folding Bottom Hover.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Bottom Hover.pdf"; sourceTree = "<group>"; };
+		22908605164CF8130015C25C /* Folding Bottom.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Bottom.pdf"; sourceTree = "<group>"; };
+		22908606164CF8130015C25C /* Folding Collapsed Hover.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Collapsed Hover.pdf"; sourceTree = "<group>"; };
+		22908607164CF8130015C25C /* Folding Collapsed.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Collapsed.pdf"; sourceTree = "<group>"; };
+		22908608164CF8130015C25C /* Folding Top Hover.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Top Hover.pdf"; sourceTree = "<group>"; };
+		22908609164CF8130015C25C /* Folding Top.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Top.pdf"; sourceTree = "<group>"; };
+		2290860A164CF8130015C25C /* FoldingDots.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = FoldingDots.pdf; sourceTree = "<group>"; };
+		2290860B164CF8130015C25C /* IBeam white.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "IBeam white.tiff"; sourceTree = "<group>"; };
+		2290860C164CF8130015C25C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2290860D164CF8130015C25C /* Languages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Languages.png; sourceTree = "<group>"; };
+		2290860E164CF8130015C25C /* Languages@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Languages@2x.png"; sourceTree = "<group>"; };
+		2290860F164CF8130015C25C /* RecordingMacro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordingMacro.png; sourceTree = "<group>"; };
+		22908610164CF8130015C25C /* RecordingMacro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingMacro@2x.png"; sourceTree = "<group>"; };
+		22908611164CF8130015C25C /* Search Mark.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Search Mark.pdf"; sourceTree = "<group>"; };
+		22908612164CF8130015C25C /* SpellingDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpellingDot.png; sourceTree = "<group>"; };
+		22908613164CF8130015C25C /* SpellingDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpellingDot@2x.png"; sourceTree = "<group>"; };
+		22908614164CF8130015C25C /* Statusbar Gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Statusbar Gear.png"; sourceTree = "<group>"; };
+		22908615164CF8130015C25C /* Statusbar Gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Statusbar Gear@2x.png"; sourceTree = "<group>"; };
+		22908617164CF8130015C25C /* OakGutterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakGutterView.h; sourceTree = "<group>"; };
+		22908618164CF8130015C25C /* OakGutterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakGutterView.m; sourceTree = "<group>"; };
+		22908619164CF8130015C25C /* OakLiveSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakLiveSearchView.h; sourceTree = "<group>"; };
+		2290861A164CF8130015C25C /* OakLiveSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakLiveSearchView.m; sourceTree = "<group>"; };
+		2290861B164CF8130015C25C /* OakChoiceMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakChoiceMenu.h; sourceTree = "<group>"; };
+		2290861C164CF8130015C25C /* OakChoiceMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakChoiceMenu.m; sourceTree = "<group>"; };
+		2290861D164CF8130015C25C /* OTVStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTVStatusBar.h; sourceTree = "<group>"; };
+		2290861E164CF8130015C25C /* OTVStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTVStatusBar.m; sourceTree = "<group>"; };
 		E101E991164BC1F100761766 /* OakFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OakFoundation.framework; path = "../../../../Library/Developer/Xcode/DerivedData/OakAppKit-egsyxbyoyndueyhenfbdawksfgyv/Build/Products/Debug/OakFoundation.framework"; sourceTree = "<group>"; };
 		E1105057164555D1001CE3CC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		E110505B16455623001CE3CC /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
@@ -333,7 +340,6 @@
 		E1CCD0221644F50F006696E0 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/HiddenFilesAccessoryView.xib; sourceTree = "<group>"; };
 		E1CCD0241644F50F006696E0 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = "English.lproj/Pasteboard Selector.xib"; sourceTree = "<group>"; };
 		E1CCD0261644F50F006696E0 /* TabBar.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = TabBar.plist; sourceTree = "<group>"; };
-		E1CCD0281644F50F006696E0 /* IOAlertPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOAlertPanel.h; sourceTree = "<group>"; };
 		E1CCD0291644F50F006696E0 /* NSAlert+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAlert+Additions.h"; sourceTree = "<group>"; };
 		E1CCD02A1644F50F006696E0 /* NSAlert+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+Additions.m"; sourceTree = "<group>"; };
 		E1CCD02B1644F50F006696E0 /* NSColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Additions.h"; sourceTree = "<group>"; };
@@ -355,7 +361,6 @@
 		E1CCD03B1644F50F006696E0 /* NSWindow+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+Additions.h"; sourceTree = "<group>"; };
 		E1CCD03C1644F50F006696E0 /* NSWindow+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+Additions.m"; sourceTree = "<group>"; };
 		E1CCD03D1644F50F006696E0 /* OakAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakAppKit.h; sourceTree = "<group>"; };
-		E1CCD03E1644F50F006696E0 /* OakAppKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakAppKit.m; sourceTree = "<group>"; };
 		E1CCD03F1644F50F006696E0 /* OakBorderlessPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakBorderlessPanel.h; sourceTree = "<group>"; };
 		E1CCD0411644F50F006696E0 /* OakControl+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OakControl+Private.h"; sourceTree = "<group>"; };
 		E1CCD0421644F50F006696E0 /* OakControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakControl.h; sourceTree = "<group>"; };
@@ -378,43 +383,6 @@
 		E1CCD0681644F50F006696E0 /* OakWindowFrameHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakWindowFrameHelper.h; sourceTree = "<group>"; };
 		E1CCD06A1644F50F006696E0 /* OakZoomingIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakZoomingIcon.h; sourceTree = "<group>"; };
 		E1CCD21316451D9F006696E0 /* Charsets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Charsets.plist; sourceTree = "<group>"; };
-		E1D821D0164C3225008545E5 /* Bookmark Hover Add.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bookmark Hover Add.pdf"; sourceTree = "<group>"; };
-		E1D821D1164C3225008545E5 /* Bookmark Hover Remove.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bookmark Hover Remove.pdf"; sourceTree = "<group>"; };
-		E1D821D2164C3225008545E5 /* Bookmark.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Bookmark.pdf; sourceTree = "<group>"; };
-		E1D821D4164C3225008545E5 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/SearchField.xib; sourceTree = "<group>"; };
-		E1D821D6164C3225008545E5 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TabSizeSetting.xib; sourceTree = "<group>"; };
-		E1D821D7164C3225008545E5 /* Folding Bottom Hover.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Bottom Hover.pdf"; sourceTree = "<group>"; };
-		E1D821D8164C3225008545E5 /* Folding Bottom.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Bottom.pdf"; sourceTree = "<group>"; };
-		E1D821D9164C3225008545E5 /* Folding Collapsed Hover.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Collapsed Hover.pdf"; sourceTree = "<group>"; };
-		E1D821DA164C3225008545E5 /* Folding Collapsed.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Collapsed.pdf"; sourceTree = "<group>"; };
-		E1D821DB164C3225008545E5 /* Folding Top Hover.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Top Hover.pdf"; sourceTree = "<group>"; };
-		E1D821DC164C3225008545E5 /* Folding Top.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Top.pdf"; sourceTree = "<group>"; };
-		E1D821DD164C3225008545E5 /* FoldingDots.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = FoldingDots.pdf; sourceTree = "<group>"; };
-		E1D821DE164C3225008545E5 /* IBeam white.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "IBeam white.tiff"; sourceTree = "<group>"; };
-		E1D821DF164C3225008545E5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1D821E0164C3225008545E5 /* Languages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Languages.png; sourceTree = "<group>"; };
-		E1D821E1164C3225008545E5 /* Languages@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Languages@2x.png"; sourceTree = "<group>"; };
-		E1D821E2164C3225008545E5 /* RecordingMacro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordingMacro.png; sourceTree = "<group>"; };
-		E1D821E3164C3225008545E5 /* RecordingMacro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingMacro@2x.png"; sourceTree = "<group>"; };
-		E1D821E4164C3225008545E5 /* Search Mark.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Search Mark.pdf"; sourceTree = "<group>"; };
-		E1D821E5164C3225008545E5 /* SpellingDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpellingDot.png; sourceTree = "<group>"; };
-		E1D821E6164C3225008545E5 /* SpellingDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpellingDot@2x.png"; sourceTree = "<group>"; };
-		E1D821E7164C3225008545E5 /* Statusbar Gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Statusbar Gear.png"; sourceTree = "<group>"; };
-		E1D821E8164C3225008545E5 /* Statusbar Gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Statusbar Gear@2x.png"; sourceTree = "<group>"; };
-		E1D821EA164C3225008545E5 /* GutterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GutterView.h; sourceTree = "<group>"; };
-		E1D821EB164C3225008545E5 /* GutterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GutterView.m; sourceTree = "<group>"; };
-		E1D821EC164C3225008545E5 /* LiveSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveSearchView.h; sourceTree = "<group>"; };
-		E1D821ED164C3225008545E5 /* LiveSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveSearchView.m; sourceTree = "<group>"; };
-		E1D821EE164C3225008545E5 /* OakChoiceMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakChoiceMenu.h; sourceTree = "<group>"; };
-		E1D821EF164C3225008545E5 /* OakChoiceMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakChoiceMenu.m; sourceTree = "<group>"; };
-		E1D821F0164C3225008545E5 /* OakDocumentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakDocumentView.h; sourceTree = "<group>"; };
-		E1D821F1164C3225008545E5 /* OakDocumentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakDocumentView.m; sourceTree = "<group>"; };
-		E1D821F2164C3225008545E5 /* OakPasteboardWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakPasteboardWrapper.h; sourceTree = "<group>"; };
-		E1D821F3164C3225008545E5 /* OakPasteboardWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakPasteboardWrapper.m; sourceTree = "<group>"; };
-		E1D821F4164C3225008545E5 /* OakTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakTextView.h; sourceTree = "<group>"; };
-		E1D821F5164C3225008545E5 /* OakTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakTextView.m; sourceTree = "<group>"; };
-		E1D821F6164C3225008545E5 /* OTVStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTVStatusBar.h; sourceTree = "<group>"; };
-		E1D821F7164C3225008545E5 /* OTVStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTVStatusBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -440,6 +408,87 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		229085FB164CF8130015C25C /* OakTextView */ = {
+			isa = PBXGroup;
+			children = (
+				229085FC164CF8130015C25C /* resources */,
+				22908616164CF8130015C25C /* src */,
+			);
+			path = OakTextView;
+			sourceTree = SOURCE_ROOT;
+		};
+		229085FC164CF8130015C25C /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				229085FD164CF8130015C25C /* Bookmark Hover Add.pdf */,
+				229085FE164CF8130015C25C /* Bookmark Hover Remove.pdf */,
+				229085FF164CF8130015C25C /* Bookmark.pdf */,
+				22908600164CF8130015C25C /* SearchField.xib */,
+				22908602164CF8130015C25C /* TabSizeSetting.xib */,
+				22908604164CF8130015C25C /* Folding Bottom Hover.pdf */,
+				22908605164CF8130015C25C /* Folding Bottom.pdf */,
+				22908606164CF8130015C25C /* Folding Collapsed Hover.pdf */,
+				22908607164CF8130015C25C /* Folding Collapsed.pdf */,
+				22908608164CF8130015C25C /* Folding Top Hover.pdf */,
+				22908609164CF8130015C25C /* Folding Top.pdf */,
+				2290860A164CF8130015C25C /* FoldingDots.pdf */,
+				2290860B164CF8130015C25C /* IBeam white.tiff */,
+				2290860C164CF8130015C25C /* Info.plist */,
+				2290860D164CF8130015C25C /* Languages.png */,
+				2290860E164CF8130015C25C /* Languages@2x.png */,
+				2290860F164CF8130015C25C /* RecordingMacro.png */,
+				22908610164CF8130015C25C /* RecordingMacro@2x.png */,
+				22908611164CF8130015C25C /* Search Mark.pdf */,
+				22908612164CF8130015C25C /* SpellingDot.png */,
+				22908613164CF8130015C25C /* SpellingDot@2x.png */,
+				22908614164CF8130015C25C /* Statusbar Gear.png */,
+				22908615164CF8130015C25C /* Statusbar Gear@2x.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		22908616164CF8130015C25C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				22908617164CF8130015C25C /* OakGutterView.h */,
+				22908618164CF8130015C25C /* OakGutterView.m */,
+				22908619164CF8130015C25C /* OakLiveSearchView.h */,
+				2290861A164CF8130015C25C /* OakLiveSearchView.m */,
+				2290861B164CF8130015C25C /* OakChoiceMenu.h */,
+				2290861C164CF8130015C25C /* OakChoiceMenu.m */,
+				2290861D164CF8130015C25C /* OTVStatusBar.h */,
+				2290861E164CF8130015C25C /* OTVStatusBar.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		22908660164CFA1F0015C25C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E1CCD0291644F50F006696E0 /* NSAlert+Additions.h */,
+				E1CCD02A1644F50F006696E0 /* NSAlert+Additions.m */,
+				E1CCD02B1644F50F006696E0 /* NSColor+Additions.h */,
+				E1CCD02C1644F50F006696E0 /* NSColor+Additions.m */,
+				E1CCD02D1644F50F006696E0 /* NSEvent+Additions.h */,
+				E1CCD02E1644F50F006696E0 /* NSEvent+Additions.m */,
+				E1CCD02F1644F50F006696E0 /* NSImage+Additions.h */,
+				E1CCD0301644F50F006696E0 /* NSImage+Additions.m */,
+				E1CCD0311644F50F006696E0 /* NSMenu+Additions.h */,
+				E1CCD0321644F50F006696E0 /* NSMenu+Additions.m */,
+				E1CCD0331644F50F006696E0 /* NSMenuItem+Additions.h */,
+				E1CCD0341644F50F006696E0 /* NSMenuItem+Additions.m */,
+				E1CCD0351644F50F006696E0 /* NSSavePanel+Additions.h */,
+				E1CCD0361644F50F006696E0 /* NSSavePanel+Additions.m */,
+				E1CCD0371644F50F006696E0 /* NSScreen+Additions.h */,
+				E1CCD0381644F50F006696E0 /* NSScreen+Additions.m */,
+				E1CCD0391644F50F006696E0 /* NSView+Additions.h */,
+				E1CCD03A1644F50F006696E0 /* NSView+Additions.m */,
+				E1CCD03B1644F50F006696E0 /* NSWindow+Additions.h */,
+				E1CCD03C1644F50F006696E0 /* NSWindow+Additions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		E15246F416498F4C004C2CC8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,15 +547,7 @@
 		E1CCCF771644F48C006696E0 /* OakAppKit */ = {
 			isa = PBXGroup;
 			children = (
-				229085EA164CF2800015C25C /* OakSelectionIndex.h */,
-				229085EB164CF2800015C25C /* OakSelectionIndex.m */,
-				229085EC164CF2800015C25C /* OakSelectionRange.h */,
-				229085ED164CF2800015C25C /* OakSelectionRange.m */,
-				229085EE164CF2800015C25C /* OakSelectionRangeArray.h */,
-				229085EF164CF2800015C25C /* OakSelectionRangeArray.m */,
-				229085E6164CF2580015C25C /* clipboard.h */,
-				229085E7164CF2580015C25C /* clipboard.mm */,
-				E1D821CE164C3224008545E5 /* OakTextView */,
+				229085FB164CF8130015C25C /* OakTextView */,
 				E1CCCFDE1644F50F006696E0 /* gfx */,
 				E1CCCFFC1644F50F006696E0 /* icons */,
 				E1CCD01B1644F50F006696E0 /* resources */,
@@ -625,139 +666,57 @@
 		E1CCD0271644F50F006696E0 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				22908660164CFA1F0015C25C /* Categories */,
+				E1CCD03D1644F50F006696E0 /* OakAppKit.h */,
+				E1CCD03F1644F50F006696E0 /* OakBorderlessPanel.h */,
 				E11062731646A9A1001CE3CC /* OakBorderlessPanel.m */,
 				E11062741646A9A1001CE3CC /* OakControl Private.h */,
+				E1CCD0411644F50F006696E0 /* OakControl+Private.h */,
+				E1CCD0421644F50F006696E0 /* OakControl.h */,
 				E11062751646A9A1001CE3CC /* OakControl.m */,
+				E1CCD0441644F50F006696E0 /* OakEncodingPopUpButton.h */,
 				E11062761646A9A1001CE3CC /* OakEncodingPopUpButton.m */,
+				E1CCD0461644F50F006696E0 /* OakFileIconImage.h */,
 				E11062771646A9A1001CE3CC /* OakFileIconImage.m */,
+				E1CCD0481644F50F006696E0 /* OakFinderLabelChooser.h */,
 				E11062781646A9A1001CE3CC /* OakFinderLabelChooser.m */,
+				E1CCD04A1644F50F006696E0 /* OakImage.h */,
 				E11062791646A9A1001CE3CC /* OakImage.m */,
+				E1CCD04C1644F50F006696E0 /* OakImageAndTextCell.h */,
 				E110627A1646A9A1001CE3CC /* OakImageAndTextCell.m */,
 				E110627B1646A9A1001CE3CC /* OakKeyEquivalentView.h */,
 				E110627C1646A9A1001CE3CC /* OakKeyEquivalentView.m */,
+				E1CCD0501644F50F006696E0 /* OakOpenWithMenu.h */,
 				E110627D1646A9A1001CE3CC /* OakOpenWithMenu.m */,
+				E1CCD0521644F50F006696E0 /* OakPasteboard.h */,
 				E110627E1646A9A1001CE3CC /* OakPasteboard.m */,
+				E1CCD0541644F50F006696E0 /* OakPasteboardSelector.h */,
 				E110627F1646A9A1001CE3CC /* OakPasteboardSelector.m */,
+				E1CCD0561644F50F006696E0 /* OakPopOutAnimation.h */,
 				E11062801646A9A1001CE3CC /* OakPopOutAnimation.m */,
+				E1CCD0581644F50F006696E0 /* OakPreview.h */,
 				E11062811646A9A1001CE3CC /* OakPreview.m */,
+				E1CCD05A1644F50F006696E0 /* OakSavePanel.h */,
 				E11062821646A9A1001CE3CC /* OakSavePanel.m */,
+				E1CCD05C1644F50F006696E0 /* OakSound.h */,
 				E11062831646A9A1001CE3CC /* OakSound.m */,
+				E1CCD05E1644F50F006696E0 /* OakStatusBar.h */,
 				E11062841646A9A1001CE3CC /* OakStatusBar.m */,
+				E1CCD0601644F50F006696E0 /* OakSubmenuController.h */,
 				E11062851646A9A1001CE3CC /* OakSubmenuController.m */,
 				E11062861646A9A1001CE3CC /* OakTabBarView.h */,
 				E11062871646A9A1001CE3CC /* OakTabBarView.m */,
-				E11062881646A9A1001CE3CC /* OakToolTip.m */,
-				E11062891646A9A1001CE3CC /* OakView.m */,
-				E110628A1646A9A1001CE3CC /* OakWindowFrameHelper.m */,
-				E110628B1646A9A1001CE3CC /* OakZoomingIcon.m */,
-				E1CCD0281644F50F006696E0 /* IOAlertPanel.h */,
-				E1CCD0291644F50F006696E0 /* NSAlert+Additions.h */,
-				E1CCD02A1644F50F006696E0 /* NSAlert+Additions.m */,
-				E1CCD02B1644F50F006696E0 /* NSColor+Additions.h */,
-				E1CCD02C1644F50F006696E0 /* NSColor+Additions.m */,
-				E1CCD02D1644F50F006696E0 /* NSEvent+Additions.h */,
-				E1CCD02E1644F50F006696E0 /* NSEvent+Additions.m */,
-				E1CCD02F1644F50F006696E0 /* NSImage+Additions.h */,
-				E1CCD0301644F50F006696E0 /* NSImage+Additions.m */,
-				E1CCD0311644F50F006696E0 /* NSMenu+Additions.h */,
-				E1CCD0321644F50F006696E0 /* NSMenu+Additions.m */,
-				E1CCD0331644F50F006696E0 /* NSMenuItem+Additions.h */,
-				E1CCD0341644F50F006696E0 /* NSMenuItem+Additions.m */,
-				E1CCD0351644F50F006696E0 /* NSSavePanel+Additions.h */,
-				E1CCD0361644F50F006696E0 /* NSSavePanel+Additions.m */,
-				E1CCD0371644F50F006696E0 /* NSScreen+Additions.h */,
-				E1CCD0381644F50F006696E0 /* NSScreen+Additions.m */,
-				E1CCD0391644F50F006696E0 /* NSView+Additions.h */,
-				E1CCD03A1644F50F006696E0 /* NSView+Additions.m */,
-				E1CCD03B1644F50F006696E0 /* NSWindow+Additions.h */,
-				E1CCD03C1644F50F006696E0 /* NSWindow+Additions.m */,
-				E1CCD03D1644F50F006696E0 /* OakAppKit.h */,
-				E1CCD03E1644F50F006696E0 /* OakAppKit.m */,
-				E1CCD03F1644F50F006696E0 /* OakBorderlessPanel.h */,
-				E1CCD0411644F50F006696E0 /* OakControl+Private.h */,
-				E1CCD0421644F50F006696E0 /* OakControl.h */,
-				E1CCD0441644F50F006696E0 /* OakEncodingPopUpButton.h */,
-				E1CCD0461644F50F006696E0 /* OakFileIconImage.h */,
-				E1CCD0481644F50F006696E0 /* OakFinderLabelChooser.h */,
-				E1CCD04A1644F50F006696E0 /* OakImage.h */,
-				E1CCD04C1644F50F006696E0 /* OakImageAndTextCell.h */,
-				E1CCD0501644F50F006696E0 /* OakOpenWithMenu.h */,
-				E1CCD0521644F50F006696E0 /* OakPasteboard.h */,
-				E1CCD0541644F50F006696E0 /* OakPasteboardSelector.h */,
-				E1CCD0561644F50F006696E0 /* OakPopOutAnimation.h */,
-				E1CCD0581644F50F006696E0 /* OakPreview.h */,
-				E1CCD05A1644F50F006696E0 /* OakSavePanel.h */,
-				E1CCD05C1644F50F006696E0 /* OakSound.h */,
-				E1CCD05E1644F50F006696E0 /* OakStatusBar.h */,
-				E1CCD0601644F50F006696E0 /* OakSubmenuController.h */,
 				E1CCD0641644F50F006696E0 /* OakToolTip.h */,
+				E11062881646A9A1001CE3CC /* OakToolTip.m */,
 				E1CCD0661644F50F006696E0 /* OakView.h */,
+				E11062891646A9A1001CE3CC /* OakView.m */,
 				E1CCD0681644F50F006696E0 /* OakWindowFrameHelper.h */,
+				E110628A1646A9A1001CE3CC /* OakWindowFrameHelper.m */,
 				E1CCD06A1644F50F006696E0 /* OakZoomingIcon.h */,
+				E110628B1646A9A1001CE3CC /* OakZoomingIcon.m */,
 			);
 			name = src;
 			path = OakAppKit/src;
-			sourceTree = "<group>";
-		};
-		E1D821CE164C3224008545E5 /* OakTextView */ = {
-			isa = PBXGroup;
-			children = (
-				E1D821CF164C3225008545E5 /* resources */,
-				E1D821E9164C3225008545E5 /* src */,
-			);
-			name = OakTextView;
-			path = ../../OakTextView/OakTextView;
-			sourceTree = "<group>";
-		};
-		E1D821CF164C3225008545E5 /* resources */ = {
-			isa = PBXGroup;
-			children = (
-				E1D821D0164C3225008545E5 /* Bookmark Hover Add.pdf */,
-				E1D821D1164C3225008545E5 /* Bookmark Hover Remove.pdf */,
-				E1D821D2164C3225008545E5 /* Bookmark.pdf */,
-				E1D821D3164C3225008545E5 /* SearchField.xib */,
-				E1D821D5164C3225008545E5 /* TabSizeSetting.xib */,
-				E1D821D7164C3225008545E5 /* Folding Bottom Hover.pdf */,
-				E1D821D8164C3225008545E5 /* Folding Bottom.pdf */,
-				E1D821D9164C3225008545E5 /* Folding Collapsed Hover.pdf */,
-				E1D821DA164C3225008545E5 /* Folding Collapsed.pdf */,
-				E1D821DB164C3225008545E5 /* Folding Top Hover.pdf */,
-				E1D821DC164C3225008545E5 /* Folding Top.pdf */,
-				E1D821DD164C3225008545E5 /* FoldingDots.pdf */,
-				E1D821DE164C3225008545E5 /* IBeam white.tiff */,
-				E1D821DF164C3225008545E5 /* Info.plist */,
-				E1D821E0164C3225008545E5 /* Languages.png */,
-				E1D821E1164C3225008545E5 /* Languages@2x.png */,
-				E1D821E2164C3225008545E5 /* RecordingMacro.png */,
-				E1D821E3164C3225008545E5 /* RecordingMacro@2x.png */,
-				E1D821E4164C3225008545E5 /* Search Mark.pdf */,
-				E1D821E5164C3225008545E5 /* SpellingDot.png */,
-				E1D821E6164C3225008545E5 /* SpellingDot@2x.png */,
-				E1D821E7164C3225008545E5 /* Statusbar Gear.png */,
-				E1D821E8164C3225008545E5 /* Statusbar Gear@2x.png */,
-			);
-			path = resources;
-			sourceTree = "<group>";
-		};
-		E1D821E9164C3225008545E5 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				E1D821EA164C3225008545E5 /* GutterView.h */,
-				E1D821EB164C3225008545E5 /* GutterView.m */,
-				E1D821EC164C3225008545E5 /* LiveSearchView.h */,
-				E1D821ED164C3225008545E5 /* LiveSearchView.m */,
-				E1D821EE164C3225008545E5 /* OakChoiceMenu.h */,
-				E1D821EF164C3225008545E5 /* OakChoiceMenu.m */,
-				E1D821F0164C3225008545E5 /* OakDocumentView.h */,
-				E1D821F1164C3225008545E5 /* OakDocumentView.m */,
-				E1D821F2164C3225008545E5 /* OakPasteboardWrapper.h */,
-				E1D821F3164C3225008545E5 /* OakPasteboardWrapper.m */,
-				E1D821F4164C3225008545E5 /* OakTextView.h */,
-				E1D821F5164C3225008545E5 /* OakTextView.m */,
-				E1D821F6164C3225008545E5 /* OTVStatusBar.h */,
-				E1D821F7164C3225008545E5 /* OTVStatusBar.m */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -767,7 +726,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1CCD0C41644F510006696E0 /* IOAlertPanel.h in Headers */,
+				E11062951646A9A1001CE3CC /* OakKeyEquivalentView.h in Headers */,
+				E11062A01646A9A1001CE3CC /* OakTabBarView.h in Headers */,
+				22908636164CF8130015C25C /* OakGutterView.h in Headers */,
+				22908638164CF8130015C25C /* OakLiveSearchView.h in Headers */,
+				2290863A164CF8130015C25C /* OakChoiceMenu.h in Headers */,
+				2290863C164CF8130015C25C /* OTVStatusBar.h in Headers */,
 				E1CCD0C51644F510006696E0 /* NSAlert+Additions.h in Headers */,
 				E1CCD0C71644F510006696E0 /* NSColor+Additions.h in Headers */,
 				E1CCD0C91644F510006696E0 /* NSEvent+Additions.h in Headers */,
@@ -801,19 +765,6 @@
 				E1CCD1061644F510006696E0 /* OakZoomingIcon.h in Headers */,
 				E1CCD0D91644F510006696E0 /* OakAppKit.h in Headers */,
 				E110628E1646A9A1001CE3CC /* OakControl Private.h in Headers */,
-				E11062951646A9A1001CE3CC /* OakKeyEquivalentView.h in Headers */,
-				E11062A01646A9A1001CE3CC /* OakTabBarView.h in Headers */,
-				E1D8220F164C3225008545E5 /* GutterView.h in Headers */,
-				E1D82211164C3225008545E5 /* LiveSearchView.h in Headers */,
-				E1D82213164C3225008545E5 /* OakChoiceMenu.h in Headers */,
-				E1D82215164C3225008545E5 /* OakDocumentView.h in Headers */,
-				E1D82217164C3225008545E5 /* OakPasteboardWrapper.h in Headers */,
-				E1D82219164C3225008545E5 /* OakTextView.h in Headers */,
-				E1D8221B164C3225008545E5 /* OTVStatusBar.h in Headers */,
-				229085E8164CF2580015C25C /* clipboard.h in Headers */,
-				229085F0164CF2800015C25C /* OakSelectionIndex.h in Headers */,
-				229085F2164CF2800015C25C /* OakSelectionRange.h in Headers */,
-				229085F4164CF2800015C25C /* OakSelectionRangeArray.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -952,29 +903,29 @@
 				E1CCD0C11644F510006696E0 /* Pasteboard Selector.xib in Resources */,
 				E1CCD0C31644F510006696E0 /* TabBar.plist in Resources */,
 				E1CCD21416451D9F006696E0 /* Charsets.plist in Resources */,
-				E1D821F8164C3225008545E5 /* Bookmark Hover Add.pdf in Resources */,
-				E1D821F9164C3225008545E5 /* Bookmark Hover Remove.pdf in Resources */,
-				E1D821FA164C3225008545E5 /* Bookmark.pdf in Resources */,
-				E1D821FB164C3225008545E5 /* SearchField.xib in Resources */,
-				E1D821FC164C3225008545E5 /* TabSizeSetting.xib in Resources */,
-				E1D821FD164C3225008545E5 /* Folding Bottom Hover.pdf in Resources */,
-				E1D821FE164C3225008545E5 /* Folding Bottom.pdf in Resources */,
-				E1D821FF164C3225008545E5 /* Folding Collapsed Hover.pdf in Resources */,
-				E1D82200164C3225008545E5 /* Folding Collapsed.pdf in Resources */,
-				E1D82201164C3225008545E5 /* Folding Top Hover.pdf in Resources */,
-				E1D82202164C3225008545E5 /* Folding Top.pdf in Resources */,
-				E1D82203164C3225008545E5 /* FoldingDots.pdf in Resources */,
-				E1D82204164C3225008545E5 /* IBeam white.tiff in Resources */,
-				E1D82205164C3225008545E5 /* Info.plist in Resources */,
-				E1D82206164C3225008545E5 /* Languages.png in Resources */,
-				E1D82207164C3225008545E5 /* Languages@2x.png in Resources */,
-				E1D82208164C3225008545E5 /* RecordingMacro.png in Resources */,
-				E1D82209164C3225008545E5 /* RecordingMacro@2x.png in Resources */,
-				E1D8220A164C3225008545E5 /* Search Mark.pdf in Resources */,
-				E1D8220B164C3225008545E5 /* SpellingDot.png in Resources */,
-				E1D8220C164C3225008545E5 /* SpellingDot@2x.png in Resources */,
-				E1D8220D164C3225008545E5 /* Statusbar Gear.png in Resources */,
-				E1D8220E164C3225008545E5 /* Statusbar Gear@2x.png in Resources */,
+				2290861F164CF8130015C25C /* Bookmark Hover Add.pdf in Resources */,
+				22908620164CF8130015C25C /* Bookmark Hover Remove.pdf in Resources */,
+				22908621164CF8130015C25C /* Bookmark.pdf in Resources */,
+				22908622164CF8130015C25C /* SearchField.xib in Resources */,
+				22908623164CF8130015C25C /* TabSizeSetting.xib in Resources */,
+				22908624164CF8130015C25C /* Folding Bottom Hover.pdf in Resources */,
+				22908625164CF8130015C25C /* Folding Bottom.pdf in Resources */,
+				22908626164CF8130015C25C /* Folding Collapsed Hover.pdf in Resources */,
+				22908627164CF8130015C25C /* Folding Collapsed.pdf in Resources */,
+				22908628164CF8130015C25C /* Folding Top Hover.pdf in Resources */,
+				22908629164CF8130015C25C /* Folding Top.pdf in Resources */,
+				2290862A164CF8130015C25C /* FoldingDots.pdf in Resources */,
+				2290862B164CF8130015C25C /* IBeam white.tiff in Resources */,
+				2290862C164CF8130015C25C /* Info.plist in Resources */,
+				2290862D164CF8130015C25C /* Languages.png in Resources */,
+				2290862E164CF8130015C25C /* Languages@2x.png in Resources */,
+				2290862F164CF8130015C25C /* RecordingMacro.png in Resources */,
+				22908630164CF8130015C25C /* RecordingMacro@2x.png in Resources */,
+				22908631164CF8130015C25C /* Search Mark.pdf in Resources */,
+				22908632164CF8130015C25C /* SpellingDot.png in Resources */,
+				22908633164CF8130015C25C /* SpellingDot@2x.png in Resources */,
+				22908634164CF8130015C25C /* Statusbar Gear.png in Resources */,
+				22908635164CF8130015C25C /* Statusbar Gear@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -995,7 +946,6 @@
 				E1CCD0D41644F510006696E0 /* NSScreen+Additions.m in Sources */,
 				E1CCD0D61644F510006696E0 /* NSView+Additions.m in Sources */,
 				E1CCD0D81644F510006696E0 /* NSWindow+Additions.m in Sources */,
-				E1CCD0DA1644F510006696E0 /* OakAppKit.m in Sources */,
 				E110628D1646A9A1001CE3CC /* OakBorderlessPanel.m in Sources */,
 				E110628F1646A9A1001CE3CC /* OakControl.m in Sources */,
 				E11062901646A9A1001CE3CC /* OakEncodingPopUpButton.m in Sources */,
@@ -1018,17 +968,10 @@
 				E11062A31646A9A1001CE3CC /* OakView.m in Sources */,
 				E11062A41646A9A1001CE3CC /* OakWindowFrameHelper.m in Sources */,
 				E11062A51646A9A1001CE3CC /* OakZoomingIcon.m in Sources */,
-				E1D82210164C3225008545E5 /* GutterView.m in Sources */,
-				E1D82212164C3225008545E5 /* LiveSearchView.m in Sources */,
-				E1D82214164C3225008545E5 /* OakChoiceMenu.m in Sources */,
-				E1D82216164C3225008545E5 /* OakDocumentView.m in Sources */,
-				E1D82218164C3225008545E5 /* OakPasteboardWrapper.m in Sources */,
-				E1D8221A164C3225008545E5 /* OakTextView.m in Sources */,
-				E1D8221C164C3225008545E5 /* OTVStatusBar.m in Sources */,
-				229085E9164CF2580015C25C /* clipboard.mm in Sources */,
-				229085F1164CF2800015C25C /* OakSelectionIndex.m in Sources */,
-				229085F3164CF2800015C25C /* OakSelectionRange.m in Sources */,
-				229085F5164CF2800015C25C /* OakSelectionRangeArray.m in Sources */,
+				22908637164CF8130015C25C /* OakGutterView.m in Sources */,
+				22908639164CF8130015C25C /* OakLiveSearchView.m in Sources */,
+				2290863B164CF8130015C25C /* OakChoiceMenu.m in Sources */,
+				2290863D164CF8130015C25C /* OTVStatusBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1043,6 +986,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		22908600164CF8130015C25C /* SearchField.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22908601164CF8130015C25C /* English */,
+			);
+			name = SearchField.xib;
+			sourceTree = "<group>";
+		};
+		22908602164CF8130015C25C /* TabSizeSetting.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22908603164CF8130015C25C /* English */,
+			);
+			name = TabSizeSetting.xib;
+			sourceTree = "<group>";
+		};
 		E1CCCF7A1644F48C006696E0 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1081,22 +1040,6 @@
 				E1CCD0241644F50F006696E0 /* English */,
 			);
 			name = "Pasteboard Selector.xib";
-			sourceTree = "<group>";
-		};
-		E1D821D3164C3225008545E5 /* SearchField.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E1D821D4164C3225008545E5 /* English */,
-			);
-			name = SearchField.xib;
-			sourceTree = "<group>";
-		};
-		E1D821D5164C3225008545E5 /* TabSizeSetting.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E1D821D6164C3225008545E5 /* English */,
-			);
-			name = TabSizeSetting.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1160,10 +1103,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/OakAppKit-egsyxbyoyndueyhenfbdawksfgyv/Build/Products/Debug\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				FRAMEWORK_VERSION = A;
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1186,10 +1126,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/OakAppKit-egsyxbyoyndueyhenfbdawksfgyv/Build/Products/Debug\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				FRAMEWORK_VERSION = A;
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

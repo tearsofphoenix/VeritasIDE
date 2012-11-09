@@ -59,7 +59,7 @@
         
         while (objLooper)
         {
-            [indexes addObject: [NSNumber numberWithUnsignedInteger: [objLooper indexInParent]]];
+            [indexes addObject: @([objLooper indexInParent])];
             
             objLooper = [objLooper parentObject];
         }

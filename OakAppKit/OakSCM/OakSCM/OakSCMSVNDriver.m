@@ -115,7 +115,7 @@ static void collect_all_paths (NSString * svn, NSString * xsltPath, NSMutableDic
                 CFStringRef path = CFURLCopyFileSystemPath(xsltURL, kCFURLPOSIXPathStyle);
                 if(path)
                 {
-                    _xslt_path = [[NSString stringWithString: (NSString *)path] retain];
+                    _xslt_path = [(NSString *)path retain];
                     
                     CFRelease(path);
                 }

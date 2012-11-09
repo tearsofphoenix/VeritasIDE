@@ -1,0 +1,4 @@
+
+@interface OakLiveSearchView : NSView
+
+@end

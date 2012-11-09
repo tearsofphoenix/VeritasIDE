@@ -32,4 +32,9 @@
 #import <OakAppKit/OakWindowFrameHelper.h>
 #import <OakAppKit/OakZoomingIcon.h>
 
+#import <OakAppKit/OakGutterView.h>
+#import <OakAppKit/OakLiveSearchView.h>
+#import <OakAppKit/OakChoiceMenu.h>
+#import <OakAppKit/OTVStatusBar.h>
+
 #define OakCursorDidHideNotification @"OakCursorDidHideNotification"

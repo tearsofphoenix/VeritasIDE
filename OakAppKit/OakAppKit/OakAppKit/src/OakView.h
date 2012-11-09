@@ -1,14 +1,19 @@
 
+enum
+{
+    OakViewApplicationIsActiveMask  = 1 << 0,
+    OakViewWindowIsMainMask         = 1 << 1,
+    OakViewWindowIsKeyMask          = 1 << 2,
+    OakViewViewIsFirstResponderMask = 1 << 3,
+};
 
-extern NSUInteger const OakViewApplicationIsActiveMask;
-extern NSUInteger const OakViewWindowIsMainMask;
-extern NSUInteger const OakViewWindowIsKeyMask;
-extern NSUInteger const OakViewViewIsFirstResponderMask;
+typedef NSInteger OakViewKeyState;
 
 @interface OakView : NSView
 {
 	BOOL isFirstResponder;
-	NSUInteger keyState;
 }
-@property (nonatomic, assign) NSUInteger keyState;
+
+@property (nonatomic) OakViewKeyState keyState;
+
 @end

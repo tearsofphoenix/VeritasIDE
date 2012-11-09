@@ -124,7 +124,7 @@ static NSString* const kRecordingPlaceholderString = @"…";
 	[self setNeedsDisplayInRect:clearButtonRect];
 }
 
-- (void)setKeyState:(NSUInteger)newState
+- (void)setKeyState: (OakViewKeyState)newState
 {
 	NSUInteger oldState = self.keyState;
 	[super setKeyState:newState];

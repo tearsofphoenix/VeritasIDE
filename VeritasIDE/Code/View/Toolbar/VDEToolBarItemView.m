@@ -119,7 +119,7 @@ static void VDEToolBarItemViewInitialize(VDEToolBarItemView *self)
     
     [_delegate toolbarItemView: self
                      sendEvent: VDEToolbarEventToggleBreakPoint
-                      userInfo: [NSNumber numberWithBool: [button isSelected]]
+                      userInfo: @([button isSelected])
      ];
 }
 

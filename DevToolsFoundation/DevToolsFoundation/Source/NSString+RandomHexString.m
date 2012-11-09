@@ -210,7 +210,7 @@ static const char s_NSStringLowerAlphabetPool[] = "qwertyuiopasdfghjklzxcvbnm";
     
     buffer[length] = 0;
     
-    return [NSString stringWithUTF8String: buffer];
+    return @(buffer);
 }
 
 + (NSString *)randomHexString
@@ -232,7 +232,7 @@ static const char s_NSStringLowerAlphabetPool[] = "qwertyuiopasdfghjklzxcvbnm";
     
     buffer[length] = 0;
     
-    return [NSString stringWithUTF8String: buffer];
+    return @(buffer);
 }
 
 

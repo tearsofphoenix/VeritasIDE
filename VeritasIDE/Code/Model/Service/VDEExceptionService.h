@@ -16,4 +16,4 @@ extern NSString * VDEExceptionServiceID;
 
 extern NSString * VDEExceptionServiceHandleErrorInFunctionAction;
 
-#define VDEExceptionServiceHandleError(error) do{ if((error)) VSC(VDEExceptionServiceID, VDEExceptionServiceHandleErrorInFunctionAction, nil, @[(error), [NSString stringWithUTF8String: __func__]]);}while(0)
+#define VDEExceptionServiceHandleError(error) do{ if((error)) VSC(VDEExceptionServiceID, VDEExceptionServiceHandleErrorInFunctionAction, nil, @[(error), @(__func__)]);}while(0)

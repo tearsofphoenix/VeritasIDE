@@ -1,11 +1,8 @@
 #import "OakView.h"
 
-NSUInteger const OakViewApplicationIsActiveMask  = 1 << 0;
-NSUInteger const OakViewWindowIsMainMask         = 1 << 1;
-NSUInteger const OakViewWindowIsKeyMask          = 1 << 2;
-NSUInteger const OakViewViewIsFirstResponderMask = 1 << 3;
 
 @implementation OakView
+
 @synthesize keyState;
 
 - (id)initWithFrame:(NSRect)aFrame

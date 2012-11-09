@@ -976,7 +976,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Code/Library\"",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/VeritasIDE-hflewhzfrdqtowfhbiyrhapippyf/Build/Products/Debug\"",
 				);
 				GCC_PREFIX_HEADER = Code/Application/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
@@ -997,7 +996,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Code/Library\"",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/VeritasIDE-hflewhzfrdqtowfhbiyrhapippyf/Build/Products/Debug\"",
 				);
 				GCC_FAST_OBJC_DISPATCH = YES;
 				GCC_OPTIMIZATION_LEVEL = s;
