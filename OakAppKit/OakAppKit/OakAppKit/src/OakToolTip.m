@@ -145,10 +145,10 @@ void OakShowToolTip (NSString* msg, NSPoint location)
 	[keyWindow setAcceptsMouseMovedEvents:YES];
     
     NSEvent* event = nil;
-	while(event = [NSApp nextEventMatchingMask: NSAnyEventMask
+	while((event = [NSApp nextEventMatchingMask: NSAnyEventMask
                                      untilDate: [NSDate distantFuture]
                                         inMode: NSDefaultRunLoopMode
-                                       dequeue: YES])
+                                       dequeue: YES]))
 	{
 		[NSApp sendEvent: event];
         

@@ -224,7 +224,7 @@ namespace ng
 	// =======================================================
 
 	template <typename F>
-	std::multimap<range_t, NSString *> map (NSString *  buffer, OakSelectionRanges *  selections, F op)
+	std::multimap<range_t, NSString *> map (NSString *  buffer, OakSelectionRangeArray *  selections, F op)
 	{
 		std::multimap<range_t, NSString *> replacements;
 		citerate(range, dissect_columnar(buffer, selections))
@@ -266,7 +266,7 @@ namespace ng
 	}
 
 	template <typename F>
-	OakSelectionRanges * apply (NSString *& buffer, OakSelectionRanges *  selections, snippet_controller_t& snippets, F op)
+	OakSelectionRangeArray * apply (NSString *& buffer, OakSelectionRangeArray *  selections, snippet_controller_t& snippets, F op)
 	{
 		return ng::move(buffer, replace_helper(buffer, snippets, map(buffer, selections, op)), kSelectionMoveToEndOfSelection);
 	}
@@ -315,7 +315,7 @@ namespace ng
 		std::map<NSString *, NSString *> _options;
 	};
 
-	clipboard_t::entry_ptr editor_t::copy (NSString *  buffer, OakSelectionRanges *  selections)
+	clipboard_t::entry_ptr editor_t::copy (NSString *  buffer, OakSelectionRangeArray *  selections)
 	{
 		NSString * indent = NULL_STR;
 		BOOL complete      = false;
@@ -408,7 +408,7 @@ namespace ng
 	{
 		std::multimap<range_t, NSString *> map;
 		map.insert(std::make_pair(_snippets.current(), str));
-		OakSelectionRanges * res = this->replace(map, true);
+		OakSelectionRangeArray * res = this->replace(map, true);
 		iterate(range, res)
 			range->min().index += selectFrom;
 		_selections = res;
@@ -416,7 +416,7 @@ namespace ng
 
 	// ============
 
-	OakSelectionRanges * editor_t::paste (NSString *& buffer, OakSelectionRanges *  selections, snippet_controller_t& snippets, clipboard_t::entry_ptr entry)
+	OakSelectionRangeArray * editor_t::paste (NSString *& buffer, OakSelectionRangeArray *  selections, snippet_controller_t& snippets, clipboard_t::entry_ptr entry)
 	{
 		if(!entry)
 			return selections;
@@ -556,7 +556,7 @@ namespace ng
 
 	void editor_t::insert (NSString * str, BOOL selectInsertion)
 	{
-		OakSelectionRanges * res = replace_helper(_buffer, _snippets, map(_buffer, _selections, transform::replace(str)));
+		OakSelectionRangeArray * res = replace_helper(_buffer, _snippets, map(_buffer, _selections, transform::replace(str)));
 		_selections = selectInsertion ? res : ng::move(_buffer, res, kSelectionMoveToEndOfSelection);
 	}
 
@@ -1137,7 +1137,7 @@ namespace ng
 		_selections = this->replace(tmp);
 	}
 
-	OakSelectionRanges * editor_t::insert_tab_with_indent (NSString *& buffer, OakSelectionRanges *  selections, snippet_controller_t& snippets)
+	OakSelectionRangeArray * editor_t::insert_tab_with_indent (NSString *& buffer, OakSelectionRangeArray *  selections, snippet_controller_t& snippets)
 	{
 		NSString * estimatedIndent = NULL_STR;
 		std::multimap<range_t, NSString *> insertions;
@@ -1178,7 +1178,7 @@ namespace ng
 		return ng::move(buffer, replace_helper(buffer, snippets, insertions), kSelectionMoveToEndOfSelection);
 	}
 
-	OakSelectionRanges * editor_t::insert_newline_with_indent (NSString *& buffer, OakSelectionRanges *  selections, snippet_controller_t& snippets)
+	OakSelectionRangeArray * editor_t::insert_newline_with_indent (NSString *& buffer, OakSelectionRangeArray *  selections, snippet_controller_t& snippets)
 	{
 		std::multimap<range_t, NSString *> insertions;
 		citerate(range, dissect_columnar(buffer, selections))

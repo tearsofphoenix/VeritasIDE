@@ -1,10 +1,6 @@
 #import "OakControl.h"
 
-
-
 @class OakStatusBar;
-
-const CGFloat OakStatusBarHeight = 16;
 
 enum
 {

@@ -3,35 +3,7 @@
 #import "OakChoiceMenu.h"
 #import "OakDocumentView.h" // addAuxiliaryView:atEdge: signature
 #import <OakAppKit/OakAppKit.h>
-#import <OakAppKit/OakPasteboard.h>
-#import <OakAppKit/OakPopOutAnimation.h>
-#import <OakAppKit/OakToolTip.h>
-#import <OakFoundation/NSString+Additions.h>
 #import <OakFoundation/OakFoundation.h>
-#import <OakFoundation/OakTimer.h>
-#import <OakSystem/application.h>
-#import <BundleMenu/BundleMenu.h>
-#import <bundles/bundles.h>
-#import <cf/cf.h>
-#import <command/runner.h>
-#import <document/collection.h>
-#import <file/type.h>
-#import <layout/layout.h>
-
-#import <ns/spellcheck.h>
-#import <text/classification.h>
-
-#import <text/utf16.h>
-
-
-
-
-
-
-
-
-
-
 
 int32_t const NSWrapColumnWindowWidth =  0;
 int32_t const NSWrapColumnAskUser     = -1;
@@ -51,9 +23,9 @@ NSString* const kUserDefaultsDisableAntiAliasKey = @"disableAntiAlias";
 - (void)updateMarkedRanges;
 - (void)redisplayFrom:(NSUInteger)from to:(NSUInteger)to;
 - (void)recordSelector:(SEL)aSelector withArgument:(id)anArgument;
-- (NSImage*)imageForRanges:(OakSelectionRanges * )ranges imageRect:(NSRect*)outRect;
-- (void)highlightRanges:(OakSelectionRanges * )ranges;
-@property (nonatomic, readonly) OakSelectionRanges *  markedRanges;
+- (NSImage*)imageForRanges:(OakSelectionRangeArray * )ranges imageRect:(NSRect*)outRect;
+- (void)highlightRanges:(OakSelectionRangeArray * )ranges;
+@property (nonatomic, readonly) OakSelectionRangeArray *  markedRanges;
 @property (nonatomic, retain) NSDate* optionDownDate;
 @property (nonatomic, retain) OakTimer* initiateDragTimer;
 @property (nonatomic, retain) OakTimer* dragScrollTimer;
@@ -63,10 +35,10 @@ NSString* const kUserDefaultsDisableAntiAliasKey = @"disableAntiAlias";
 @property (nonatomic, assign) NSUInteger refreshNestCount;
 @property (nonatomic, retain) NSViewController* liveSearchViewController;
 @property (nonatomic, copy) NSString* liveSearchString;
-@property (nonatomic, assign) OakSelectionRanges *  liveSearchRanges;
+@property (nonatomic, assign) OakSelectionRangeArray *  liveSearchRanges;
 @end
 
-static std::vector<OakBundleItem *> items_for_tab_expansion (NSString *  buffer, OakSelectionRanges *  ranges, NSString * scopeAttributes, ng::range_t* range)
+static std::vector<OakBundleItem *> items_for_tab_expansion (NSString *  buffer, OakSelectionRangeArray *  ranges, NSString * scopeAttributes, ng::range_t* range)
 {
 	NSUInteger caret = ranges.last().min().index;
 	NSUInteger line  = buffer.convert(caret).line;
@@ -75,7 +47,7 @@ static std::vector<OakBundleItem *> items_for_tab_expansion (NSString *  buffer,
 	BOOL lastWasWordChar           = false;
 	NSString * lastCharacterClass = ng::kCharacterClassUnknown;
 
-	scope::scope_t const rightScope = ng::scope(buffer, OakSelectionRanges *(caret), scopeAttributes).right;
+	scope::scope_t const rightScope = ng::scope(buffer, OakSelectionRangeArray *(caret), scopeAttributes).right;
 	for(NSUInteger i = bol; i < caret; i += buffer[i].size())
 	{
 		// we don’t use text::is_word_char because that function treats underscores as word characters, which is undesired, see <issue://157>.
@@ -84,7 +56,7 @@ static std::vector<OakBundleItem *> items_for_tab_expansion (NSString *  buffer,
 
 		if(i == bol || lastWasWordChar != isWordChar || lastCharacterClass != characterClass)
 		{
-			std::vector<OakBundleItem *>  items = bundles::query(bundles::kFieldTabTrigger, buffer.substr(i, caret), OakScopeContext *(ng::scope(buffer, OakSelectionRanges *(i), scopeAttributes).left, rightScope));
+			std::vector<OakBundleItem *>  items = bundles::query(bundles::kFieldTabTrigger, buffer.substr(i, caret), OakScopeContext *(ng::scope(buffer, OakSelectionRangeArray *(i), scopeAttributes).left, rightScope));
 			if(!items.empty())
 			{
 				if(range)
@@ -100,7 +72,7 @@ static std::vector<OakBundleItem *> items_for_tab_expansion (NSString *  buffer,
 	return std::vector<OakBundleItem *>();
 }
 
-static OakSelectionRanges * merge (OakSelectionRanges * lhs, OakSelectionRanges *  rhs)
+static OakSelectionRangeArray * merge (OakSelectionRangeArray * lhs, OakSelectionRangeArray *  rhs)
 {
 	iterate(range, rhs)
 		lhs.push_back(*range);
@@ -202,7 +174,7 @@ private:
 	document::OakDocument * _document;
 	NSUInteger _revision;
 	ng::editor_ptr _editor;
-	OakSelectionRanges * _selection;
+	OakSelectionRangeArray * _selection;
 	std::weak_ptr<ng::layout_t> _layout;
 };
 
@@ -339,7 +311,7 @@ enum find_operation_t {
 
 // =================================
 
-- (NSImage*)imageForRanges:(OakSelectionRanges * )ranges imageRect:(NSRect*)outRect
+- (NSImage*)imageForRanges:(OakSelectionRangeArray * )ranges imageRect:(NSRect*)outRect
 {
 	NSRect srcRect = NSZeroRect, visibleRect = [self visibleRect];
 	citerate(range, ranges)
@@ -358,7 +330,7 @@ enum find_operation_t {
 	CGContextTranslateCTM(context, -NSMinX(srcRect), -NSMinY(srcRect));
 
 	NSRectClip(srcRect);
-	layout->draw(context, srcRect, [self isFlipped], false, OakSelectionRanges *(), OakSelectionRanges *(), false, cf::color_t("#000000"));
+	layout->draw(context, srcRect, [self isFlipped], false, OakSelectionRangeArray *(), OakSelectionRangeArray *(), false, cf::color_t("#000000"));
 
 	[image unlockFocus];
 	[image setFlipped:NO];
@@ -369,7 +341,7 @@ enum find_operation_t {
 	return image;
 }
 
-- (void)highlightRanges:(OakSelectionRanges * )ranges
+- (void)highlightRanges:(OakSelectionRangeArray * )ranges
 {
 	iterate(range, ranges)
 		layout->remove_enclosing_folds(range->min().index, range->max().index);
@@ -391,7 +363,7 @@ enum find_operation_t {
 	{
 		if(document->selection() != NULL_STR)
 		{
-			OakSelectionRanges * ranges = convert(document->buffer(), document->selection());
+			OakSelectionRangeArray * ranges = convert(document->buffer(), document->selection());
 			editor->set_selections(ranges);
 			iterate(range, ranges)
 				layout->remove_enclosing_folds(range->min().index, range->max().index);
@@ -440,7 +412,7 @@ enum find_operation_t {
 		NSString * visibleRect = document->visible_rect();
 		if(document->selection() != NULL_STR)
 		{
-			OakSelectionRanges * ranges = convert(document->buffer(), document->selection());
+			OakSelectionRangeArray * ranges = convert(document->buffer(), document->selection());
 			editor->set_selections(ranges);
 			iterate(range, ranges)
 				layout->remove_enclosing_folds(range->min().index, range->max().index);
@@ -673,13 +645,13 @@ enum find_operation_t {
 	AUTO_REFRESH;
 	if(!markedRanges.empty())
 		editor->set_selections(markedRanges);
-	markedRanges = OakSelectionRanges *();
+	markedRanges = OakSelectionRangeArray *();
 	editor->insert(to_s([aString description]), true);
 	if([aString length] != 0)
 		markedRanges = editor->ranges();
 	pendingMarkedRanges = markedRanges;
 
-	OakSelectionRanges * sel;
+	OakSelectionRangeArray * sel;
 	citerate(range, editor->ranges())
 	{
 		NSString * str = document->buffer().substr(range->min().index, range->max().index);
@@ -715,7 +687,7 @@ enum find_operation_t {
 {
 	D(DBF_OakTextView_TextInput, bug("\n"););
 	AUTO_REFRESH;
-	markedRanges = OakSelectionRanges *();
+	markedRanges = OakSelectionRangeArray *();
 }
 
 - (BOOL)hasMarkedText
@@ -736,7 +708,7 @@ enum find_operation_t {
 		[[NSInputManager currentInputManager] markedTextAbandoned:self];
 
 	markedRanges = pendingMarkedRanges;
-	pendingMarkedRanges = OakSelectionRanges *();
+	pendingMarkedRanges = OakSelectionRangeArray *();
 }
 
 // =====================
@@ -948,7 +920,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 	if([self hasSelection] && [types containsObject:NSStringPboardType])
 	{
 		std::vector<NSString *> v;
-		OakSelectionRanges * const ranges = ng::dissect_columnar(document->buffer(), editor->ranges());
+		OakSelectionRangeArray * const ranges = ng::dissect_columnar(document->buffer(), editor->ranges());
 		iterate(range, ranges)
 			v.push_back(document->buffer().substr(range->min().index, range->max().index));
 
@@ -1198,7 +1170,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 	{
 		editor->set_selections(markedRanges);
 		[self delete:nil];
-		markedRanges = OakSelectionRanges *();
+		markedRanges = OakSelectionRangeArray *();
 	}
 
 	if(![aString isKindOfClass:[NSString class]])
@@ -1408,14 +1380,14 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 			if(documents && [documents count] > 1)
 				options &= ~find::wrap_around;
 
-			OakSelectionRanges * res;
-			citerate(pair, ng::find(document->buffer(), editor->ranges(), findStr, options, onlyInSelection ? editor->ranges() : OakSelectionRanges *()))
+			OakSelectionRangeArray * res;
+			citerate(pair, ng::find(document->buffer(), editor->ranges(), findStr, options, onlyInSelection ? editor->ranges() : OakSelectionRangeArray *()))
 				res.push_back(pair->first);
 
 			if(onlyInSelection && res.sorted() == editor->ranges().sorted())
 			{
-				res = OakSelectionRanges *();
-				citerate(pair, ng::find(document->buffer(), editor->ranges(), findStr, options, OakSelectionRanges *()))
+				res = OakSelectionRangeArray *();
+				citerate(pair, ng::find(document->buffer(), editor->ranges(), findStr, options, OakSelectionRangeArray *()))
 					res.push_back(pair->first);
 			}
 
@@ -1455,7 +1427,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 				citerate(range, editor->ranges())
 					alreadySelected.insert(*range);
 
-				OakSelectionRanges * newSelection;
+				OakSelectionRangeArray * newSelection;
 				iterate(range, res)
 				{
 					if(alreadySelected.find(range->sorted()) == alreadySelected.end())
@@ -1479,7 +1451,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 			NSStringCompareOptions options      = aFindServer.findOptions;
 			[self recordSelector:(options & find::all_matches) ? (aFindServer.findOperation == kFindOperationReplace ? @selector(replaceAll:) : @selector(replaceAllInSelection:)) : @selector(replace:) withArgument:nil];
 
-			OakSelectionRanges * const res = editor->replace(findStr, replaceStr, options, aFindServer.findOperation == kFindOperationReplaceInSelection);
+			OakSelectionRangeArray * const res = editor->replace(findStr, replaceStr, options, aFindServer.findOperation == kFindOperationReplaceInSelection);
 			[aFindServer didReplace:res.size() occurrencesOf:aFindServer.findString with:aFindServer.replaceString];
 		}
 		break;
@@ -1514,15 +1486,15 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 		[documentView removeAuxiliaryView:liveSearchViewController.view];
 		[[self window] makeFirstResponder:self];
 		self.liveSearchViewController = nil;
-		liveSearchRanges = OakSelectionRanges *();
+		liveSearchRanges = OakSelectionRangeArray *();
 	}
 }
 
-- (void)setLiveSearchRanges:(OakSelectionRanges * )ranges
+- (void)setLiveSearchRanges:(OakSelectionRangeArray * )ranges
 {
 	AUTO_REFRESH;
 
-	OakSelectionRanges * const oldRanges = ng::move(document->buffer(), liveSearchRanges, kSelectionMoveToBeginOfSelection);
+	OakSelectionRangeArray * const oldRanges = ng::move(document->buffer(), liveSearchRanges, kSelectionMoveToBeginOfSelection);
 	liveSearchRanges = ranges;
 	if(!liveSearchRanges.empty())
 	{
@@ -1552,7 +1524,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 	NSTextView* searchField = [[aNotification userInfo] objectForKey:@"NSFieldEditor"];
 	self.liveSearchString = [searchField string];
 
-	OakSelectionRanges * res;
+	OakSelectionRangeArray * res;
 	citerate(pair, ng::find(document->buffer(), liveSearchAnchor, to_s(liveSearchString), find::ignore_case|find::ignore_whitespace|find::wrap_around))
 		res.push_back(pair->first);
 	[self setLiveSearchRanges:res];
@@ -1582,7 +1554,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 {
 	if(liveSearchViewController)
 	{
-		OakSelectionRanges * tmp;
+		OakSelectionRangeArray * tmp;
 		citerate(pair, ng::find(document->buffer(), ng::move(document->buffer(), liveSearchRanges.empty() ? liveSearchAnchor : liveSearchRanges, kSelectionMoveToEndOfSelection), to_s(liveSearchString), find::ignore_case|find::ignore_whitespace))
 			tmp.push_back(pair->first);
 		[self setLiveSearchRanges:tmp];
@@ -1599,7 +1571,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 {
 	if(liveSearchViewController)
 	{
-		OakSelectionRanges * tmp;
+		OakSelectionRangeArray * tmp;
 		citerate(pair, ng::find(document->buffer(), ng::move(document->buffer(), liveSearchRanges.empty() ? liveSearchAnchor : liveSearchRanges, kSelectionMoveToBeginOfSelection), to_s(liveSearchString), find::backwards|find::ignore_case|find::ignore_whitespace))
 			tmp.push_back(pair->first);
 		[self setLiveSearchRanges:tmp];
@@ -1941,7 +1913,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 		return;
 
 	AUTO_REFRESH;
-	OakSelectionRanges * ranges = convert(document->buffer(), to_s(aSelectionString));
+	OakSelectionRangeArray * ranges = convert(document->buffer(), to_s(aSelectionString));
 	editor->set_selections(ranges);
 	iterate(range, ranges)
 		layout->remove_enclosing_folds(range->min().index, range->max().index);
@@ -2339,7 +2311,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 	BOOL shiftDown   = mouseDownModifierFlags & NSShiftKeyMask;
 	BOOL commandDown = mouseDownModifierFlags & NSCommandKeyMask;
 
-	OakSelectionRanges * s = editor->ranges();
+	OakSelectionRangeArray * s = editor->ranges();
 
 	OakSelectionIndex * index = layout->index_at_point(mouseDownPos);
 	if(!optionDown)
@@ -2347,7 +2319,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 
 	OakSelectionIndex * min = s.last().min(), max = s.last().max();
 	mouseDownIndex = shiftDown ? (index <= min ? max : (max <= index ? min : s.last().first)) : index;
-	OakSelectionRanges * range(ng::range_t(mouseDownIndex, index));
+	OakSelectionRangeArray * range(ng::range_t(mouseDownIndex, index));
 
 	switch(mouseDownClickCount)
 	{
@@ -2365,7 +2337,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 	if(commandDown && mouseDownClickCount == 1)
 	{
 		BOOL didToggle = false;
-		OakSelectionRanges * newSel;
+		OakSelectionRangeArray * newSel;
 		citerate(cur, s)
 		{
 			if(*cur != range.last())
@@ -2388,7 +2360,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 - (void)actOnMouseDragged:(NSEvent*)anEvent
 {
 	NSPoint mouseCurrentPos = [self convertPoint:[anEvent locationInWindow] fromView:nil];
-	OakSelectionRanges * range(ng::range_t(mouseDownIndex, layout->index_at_point(mouseCurrentPos)));
+	OakSelectionRangeArray * range(ng::range_t(mouseDownIndex, layout->index_at_point(mouseCurrentPos)));
 	switch(mouseDownClickCount)
 	{
 		case 2: range = ng::extend(document->buffer(), range, kSelectionExtendToWord); break;
@@ -2399,7 +2371,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 	if(currentModifierFlags & NSAlternateKeyMask)
 		range.last().columnar = true;
 
-	OakSelectionRanges * s = editor->ranges();
+	OakSelectionRangeArray * s = editor->ranges();
 	s.last() = range.last();
 	editor->set_selections(s);
 }
@@ -2409,7 +2381,7 @@ static void update_menu_key_equivalents (NSMenu* menu, action_to_key_t  actionTo
 	assert(layout);
 
 	NSRect srcRect;
-	OakSelectionRanges * const ranges = ng::dissect_columnar(document->buffer(), editor->ranges());
+	OakSelectionRangeArray * const ranges = ng::dissect_columnar(document->buffer(), editor->ranges());
 	NSImage* srcImage = [self imageForRanges:ranges imageRect:&srcRect];
 
 	NSImage* image = [[[NSImage alloc] initWithSize:srcImage.size] autorelease];

@@ -1,13 +1,11 @@
 
-#include <string>
-
 extern NSString* GVColumnDataSourceDidChange;
 extern NSString* GVLineNumbersColumnIdentifier;
 
-struct GVLineRecord
+struct _GVLineRecord
 {
-	GVLineRecord (NSUInteger lineNumber = NSNotFound, NSUInteger softlineOffset = 0, CGFloat firstY = 0, CGFloat lastY = 0, CGFloat baseline = 0) : lineNumber(lineNumber), softlineOffset(softlineOffset), firstY(firstY), lastY(lastY), baseline(baseline) { }
-
+//	GVLineRecord (NSUInteger lineNumber = NSNotFound, NSUInteger softlineOffset = 0, CGFloat firstY = 0, CGFloat lastY = 0, CGFloat baseline = 0) : lineNumber(lineNumber), softlineOffset(softlineOffset), firstY(firstY), lastY(lastY), baseline(baseline) { }
+//
 	NSUInteger lineNumber;
 	NSUInteger softlineOffset;
 	CGFloat firstY;
@@ -15,9 +13,15 @@ struct GVLineRecord
 	CGFloat baseline;
 };
 
+typedef struct _GVLineRecord GVLineRecord;
+
 @protocol GutterViewDelegate
+
 - (GVLineRecord )lineRecordForPosition:(CGFloat)yPos;
-- (GVLineRecord )lineFragmentForLine:(NSUInteger)aLine column:(NSUInteger)aColumn;
+
+- (GVLineRecord )lineFragmentForLine: (NSUInteger)aLine
+                              column: (NSUInteger)aColumn;
+
 @end
 
 @protocol GutterViewColumnDataSource

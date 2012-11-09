@@ -102,11 +102,11 @@ void perform (action_t action, layout_t const* layout = NULL, BOOL indentCorrect
 		static NSUInteger visual_distance (NSString *  buffer, index_t first, index_t last, BOOL eastAsianWidth = true);
 		static index_t visual_advance (NSString *  buffer, index_t caret, NSUInteger distance, BOOL eastAsianWidth = true);
         
-		static OakSelectionRanges * insert_tab_with_indent (NSString *& buffer, OakSelectionRanges *  selections, snippet_controller_t& snippets);
-		static OakSelectionRanges * insert_newline_with_indent (NSString *& buffer, OakSelectionRanges *  selections, snippet_controller_t& snippets);
+		static OakSelectionRangeArray * insert_tab_with_indent (NSString *& buffer, OakSelectionRangeArray *  selections, snippet_controller_t& snippets);
+		static OakSelectionRangeArray * insert_newline_with_indent (NSString *& buffer, OakSelectionRangeArray *  selections, snippet_controller_t& snippets);
         
-		static clipboard_t::entry_ptr copy (NSString *  buffer, OakSelectionRanges *  selections);
-		static OakSelectionRanges * paste (NSString *& buffer, OakSelectionRanges *  selections, snippet_controller_t& snippets, clipboard_t::entry_ptr entry);
+		static clipboard_t::entry_ptr copy (NSString *  buffer, OakSelectionRangeArray *  selections);
+		static OakSelectionRangeArray * paste (NSString *& buffer, OakSelectionRangeArray *  selections, snippet_controller_t& snippets, clipboard_t::entry_ptr entry);
         
 		std::vector<NSString *> completions (NSUInteger bow, NSUInteger eow, NSString * prefix, NSString * suffix, NSString * scopeAttributes);
 		BOOL setup_completion (NSString * scopeAttributes);
@@ -129,7 +129,7 @@ void perform (action_t action, layout_t const* layout = NULL, BOOL indentCorrect
 		// ===============
         
 		buffer_t& _buffer;
-		OakSelectionRanges * _selections = ranges_t(0);
+		OakSelectionRangeArray * _selections = ranges_t(0);
 		snippet_controller_t _snippets;
         
 		completion_info_t _completion_info;

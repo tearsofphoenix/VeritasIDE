@@ -1,4 +1,5 @@
 #import "OakChoiceMenu.h"
+#import <OakFoundation/OakFoundation.h>
 
 
 NSUInteger const OakChoiceMenuKeyUnused   = 0;
@@ -195,7 +196,7 @@ enum action_t { kActionNop, kActionTab, kActionReturn, kActionCancel, kActionMov
 	}
 
 	if(res == OakChoiceMenuKeyMovement)
-		self.choiceIndex = OakCap<NSInteger>(0, (choiceIndex == NSNotFound ? (offset > 0 ? -1 : [choices count]) : choiceIndex) + offset, [choices count] - 1);;
+		self.choiceIndex = OakCap(0, (choiceIndex == NSNotFound ? (offset > 0 ? -1 : [choices count]) : choiceIndex) + offset, [choices count] - 1);;
 
 	return res;
 }

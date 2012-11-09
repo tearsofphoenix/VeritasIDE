@@ -24,7 +24,7 @@ namespace ng
 {
 	struct completion_command_delegate_t : command::delegate_t
 	{
-		completion_command_delegate_t (NSString *  buffer, OakSelectionRanges *  ranges) : buffer(buffer), ranges(ranges), result(NULL_STR) { }
+		completion_command_delegate_t (NSString *  buffer, OakSelectionRangeArray *  ranges) : buffer(buffer), ranges(ranges), result(NULL_STR) { }
 
 		OakTextRange * write_unit_to_fd (int fd, input::type unit, input::type fallbackUnit, input_format::type format, scope::selector_t  scopeSelector, std::map<NSString *, NSString *>& variables, BOOL* inputWasSelection)
 		{
@@ -45,7 +45,7 @@ namespace ng
 		}
 
 		NSString *  buffer;
-		OakSelectionRanges * ranges;
+		OakSelectionRangeArray * ranges;
 		NSString * result;
 	};
 

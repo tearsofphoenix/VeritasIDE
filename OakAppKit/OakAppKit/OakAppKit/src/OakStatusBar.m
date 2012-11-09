@@ -6,6 +6,7 @@
 #import <OakFoundation/NSString+Additions.h>
 
 
+const CGFloat OakStatusBarHeight = 16;
 
 @implementation OakStatusBarCell
 

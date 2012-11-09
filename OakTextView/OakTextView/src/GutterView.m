@@ -1,8 +1,5 @@
 #import "GutterView.h"
 #import <OakAppKit/OakAppKit.h>
-#import "OakAttributedString.h"
-
-
 #import <OakFoundation/OakFoundation.h>
 
 NSString* GVColumnDataSourceDidChange   = @"GVColumnDataSourceDidChange";

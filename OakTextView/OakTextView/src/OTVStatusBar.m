@@ -1,6 +1,6 @@
 #import "OTVStatusBar.h"
 #import <OakAppKit/OakAppKit.h>
-#import "OakFunctions.h"
+#import <OakFoundation/OakFoundation.h>
 
 @interface OTVStatusBar ()
 

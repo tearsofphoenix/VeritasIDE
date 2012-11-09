@@ -19,7 +19,15 @@ extern NSString* const kUserDefaultsDisableAntiAliasKey;
 
 struct buffer_refresh_callback_t;
 
-enum folding_state_t { kFoldingNone, kFoldingTop, kFoldingCollapsed, kFoldingBottom };
+enum
+{
+    kFoldingNone,
+    kFoldingTop,
+    kFoldingCollapsed,
+    kFoldingBottom
+};
+
+typedef NSInteger folding_state_t;
 
 @protocol OakTextViewDelegate <NSObject>
 
@@ -40,7 +48,7 @@ enum folding_state_t { kFoldingNone, kFoldingTop, kFoldingCollapsed, kFoldingBot
 	OakEditor *editor;
 	OakLayout *layout;
 	NSUInteger refreshNestCount;
-	buffer_refresh_callback_t* callback;
+	struct buffer_refresh_callback_t* callback;
 
 	int32_t wrapColumn;
 

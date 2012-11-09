@@ -153,6 +153,64 @@
 		E1CCD1041644F510006696E0 /* OakWindowFrameHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCD0681644F50F006696E0 /* OakWindowFrameHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCD1061644F510006696E0 /* OakZoomingIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCD06A1644F50F006696E0 /* OakZoomingIcon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCD21416451D9F006696E0 /* Charsets.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1CCD21316451D9F006696E0 /* Charsets.plist */; };
+		E1D821F8164C3225008545E5 /* Bookmark Hover Add.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D0164C3225008545E5 /* Bookmark Hover Add.pdf */; };
+		E1D821F9164C3225008545E5 /* Bookmark Hover Remove.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D1164C3225008545E5 /* Bookmark Hover Remove.pdf */; };
+		E1D821FA164C3225008545E5 /* Bookmark.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D2164C3225008545E5 /* Bookmark.pdf */; };
+		E1D821FB164C3225008545E5 /* SearchField.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D3164C3225008545E5 /* SearchField.xib */; };
+		E1D821FC164C3225008545E5 /* TabSizeSetting.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D5164C3225008545E5 /* TabSizeSetting.xib */; };
+		E1D821FD164C3225008545E5 /* Folding Bottom Hover.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D7164C3225008545E5 /* Folding Bottom Hover.pdf */; };
+		E1D821FE164C3225008545E5 /* Folding Bottom.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D8164C3225008545E5 /* Folding Bottom.pdf */; };
+		E1D821FF164C3225008545E5 /* Folding Collapsed Hover.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821D9164C3225008545E5 /* Folding Collapsed Hover.pdf */; };
+		E1D82200164C3225008545E5 /* Folding Collapsed.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821DA164C3225008545E5 /* Folding Collapsed.pdf */; };
+		E1D82201164C3225008545E5 /* Folding Top Hover.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821DB164C3225008545E5 /* Folding Top Hover.pdf */; };
+		E1D82202164C3225008545E5 /* Folding Top.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821DC164C3225008545E5 /* Folding Top.pdf */; };
+		E1D82203164C3225008545E5 /* FoldingDots.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821DD164C3225008545E5 /* FoldingDots.pdf */; };
+		E1D82204164C3225008545E5 /* IBeam white.tiff in Resources */ = {isa = PBXBuildFile; fileRef = E1D821DE164C3225008545E5 /* IBeam white.tiff */; };
+		E1D82205164C3225008545E5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1D821DF164C3225008545E5 /* Info.plist */; };
+		E1D82206164C3225008545E5 /* Languages.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E0164C3225008545E5 /* Languages.png */; };
+		E1D82207164C3225008545E5 /* Languages@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E1164C3225008545E5 /* Languages@2x.png */; };
+		E1D82208164C3225008545E5 /* RecordingMacro.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E2164C3225008545E5 /* RecordingMacro.png */; };
+		E1D82209164C3225008545E5 /* RecordingMacro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E3164C3225008545E5 /* RecordingMacro@2x.png */; };
+		E1D8220A164C3225008545E5 /* Search Mark.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E4164C3225008545E5 /* Search Mark.pdf */; };
+		E1D8220B164C3225008545E5 /* SpellingDot.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E5164C3225008545E5 /* SpellingDot.png */; };
+		E1D8220C164C3225008545E5 /* SpellingDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E6164C3225008545E5 /* SpellingDot@2x.png */; };
+		E1D8220D164C3225008545E5 /* Statusbar Gear.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E7164C3225008545E5 /* Statusbar Gear.png */; };
+		E1D8220E164C3225008545E5 /* Statusbar Gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D821E8164C3225008545E5 /* Statusbar Gear@2x.png */; };
+		E1D8220F164C3225008545E5 /* GutterView.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D821EA164C3225008545E5 /* GutterView.h */; };
+		E1D82210164C3225008545E5 /* GutterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D821EB164C3225008545E5 /* GutterView.m */; };
+		E1D82211164C3225008545E5 /* LiveSearchView.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D821EC164C3225008545E5 /* LiveSearchView.h */; };
+		E1D82212164C3225008545E5 /* LiveSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D821ED164C3225008545E5 /* LiveSearchView.m */; };
+		E1D82213164C3225008545E5 /* OakChoiceMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D821EE164C3225008545E5 /* OakChoiceMenu.h */; };
+		E1D82214164C3225008545E5 /* OakChoiceMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D821EF164C3225008545E5 /* OakChoiceMenu.m */; };
+		E1D82215164C3225008545E5 /* OakDocumentView.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D821F0164C3225008545E5 /* OakDocumentView.h */; };
+		E1D82216164C3225008545E5 /* OakDocumentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D821F1164C3225008545E5 /* OakDocumentView.m */; };
+		E1D82217164C3225008545E5 /* OakPasteboardWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D821F2164C3225008545E5 /* OakPasteboardWrapper.h */; };
+		E1D82218164C3225008545E5 /* OakPasteboardWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D821F3164C3225008545E5 /* OakPasteboardWrapper.m */; };
+		E1D82219164C3225008545E5 /* OakTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D821F4164C3225008545E5 /* OakTextView.h */; };
+		E1D8221A164C3225008545E5 /* OakTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D821F5164C3225008545E5 /* OakTextView.m */; };
+		E1D8221B164C3225008545E5 /* OTVStatusBar.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D821F6164C3225008545E5 /* OTVStatusBar.h */; };
+		E1D8221C164C3225008545E5 /* OTVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D821F7164C3225008545E5 /* OTVStatusBar.m */; };
+		E1D82220164C9B55008545E5 /* theme.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D8221E164C9B55008545E5 /* theme.h */; };
+		E1D82221164C9B55008545E5 /* theme.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D8221F164C9B55008545E5 /* theme.m */; };
+		E1D82236164C9F3C008545E5 /* clipboard.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D82223164C9F3C008545E5 /* clipboard.h */; };
+		E1D82237164C9F3C008545E5 /* clipboard.mm in Sources */ = {isa = PBXBuildFile; fileRef = E1D82224164C9F3C008545E5 /* clipboard.mm */; };
+		E1D82238164C9F3C008545E5 /* completion.mm in Sources */ = {isa = PBXBuildFile; fileRef = E1D82225164C9F3C008545E5 /* completion.mm */; };
+		E1D82239164C9F3C008545E5 /* dispatch.mm in Sources */ = {isa = PBXBuildFile; fileRef = E1D82226164C9F3C008545E5 /* dispatch.mm */; };
+		E1D8223A164C9F3C008545E5 /* editor.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D82227164C9F3C008545E5 /* editor.h */; };
+		E1D8223B164C9F3C008545E5 /* editor.mm in Sources */ = {isa = PBXBuildFile; fileRef = E1D82228164C9F3C008545E5 /* editor.mm */; };
+		E1D8223C164C9F3C008545E5 /* metrics.mm in Sources */ = {isa = PBXBuildFile; fileRef = E1D82229164C9F3C008545E5 /* metrics.mm */; };
+		E1D8223D164C9F3C008545E5 /* OakCompletionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D8222A164C9F3C008545E5 /* OakCompletionInfo.h */; };
+		E1D8223E164C9F3C008545E5 /* OakCompletionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D8222B164C9F3C008545E5 /* OakCompletionInfo.m */; };
+		E1D8223F164C9F3C008545E5 /* OakEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D8222C164C9F3C008545E5 /* OakEditor.h */; };
+		E1D82240164C9F3C008545E5 /* OakEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D8222D164C9F3C008545E5 /* OakEditor.m */; };
+		E1D82241164C9F3C008545E5 /* OakSnippet.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D8222E164C9F3C008545E5 /* OakSnippet.h */; };
+		E1D82242164C9F3C008545E5 /* OakSnippet.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D8222F164C9F3C008545E5 /* OakSnippet.m */; };
+		E1D82243164C9F3C008545E5 /* OakTextIndent.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D82230164C9F3C008545E5 /* OakTextIndent.h */; };
+		E1D82244164C9F3C008545E5 /* OakTextIndent.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D82231164C9F3C008545E5 /* OakTextIndent.m */; };
+		E1D82245164C9F3C008545E5 /* snippets.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D82232164C9F3C008545E5 /* snippets.h */; };
+		E1D82246164C9F3C008545E5 /* snippets.mm in Sources */ = {isa = PBXBuildFile; fileRef = E1D82233164C9F3C008545E5 /* snippets.mm */; };
+		E1D82247164C9F3C008545E5 /* transform.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D82234164C9F3C008545E5 /* transform.h */; };
+		E1D82248164C9F3C008545E5 /* transform.mm in Sources */ = {isa = PBXBuildFile; fileRef = E1D82235164C9F3C008545E5 /* transform.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -325,6 +383,64 @@
 		E1CCD0681644F50F006696E0 /* OakWindowFrameHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakWindowFrameHelper.h; sourceTree = "<group>"; };
 		E1CCD06A1644F50F006696E0 /* OakZoomingIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakZoomingIcon.h; sourceTree = "<group>"; };
 		E1CCD21316451D9F006696E0 /* Charsets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Charsets.plist; sourceTree = "<group>"; };
+		E1D821D0164C3225008545E5 /* Bookmark Hover Add.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bookmark Hover Add.pdf"; sourceTree = "<group>"; };
+		E1D821D1164C3225008545E5 /* Bookmark Hover Remove.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Bookmark Hover Remove.pdf"; sourceTree = "<group>"; };
+		E1D821D2164C3225008545E5 /* Bookmark.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Bookmark.pdf; sourceTree = "<group>"; };
+		E1D821D4164C3225008545E5 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/SearchField.xib; sourceTree = "<group>"; };
+		E1D821D6164C3225008545E5 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TabSizeSetting.xib; sourceTree = "<group>"; };
+		E1D821D7164C3225008545E5 /* Folding Bottom Hover.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Bottom Hover.pdf"; sourceTree = "<group>"; };
+		E1D821D8164C3225008545E5 /* Folding Bottom.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Bottom.pdf"; sourceTree = "<group>"; };
+		E1D821D9164C3225008545E5 /* Folding Collapsed Hover.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Collapsed Hover.pdf"; sourceTree = "<group>"; };
+		E1D821DA164C3225008545E5 /* Folding Collapsed.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Collapsed.pdf"; sourceTree = "<group>"; };
+		E1D821DB164C3225008545E5 /* Folding Top Hover.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Top Hover.pdf"; sourceTree = "<group>"; };
+		E1D821DC164C3225008545E5 /* Folding Top.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Folding Top.pdf"; sourceTree = "<group>"; };
+		E1D821DD164C3225008545E5 /* FoldingDots.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = FoldingDots.pdf; sourceTree = "<group>"; };
+		E1D821DE164C3225008545E5 /* IBeam white.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "IBeam white.tiff"; sourceTree = "<group>"; };
+		E1D821DF164C3225008545E5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1D821E0164C3225008545E5 /* Languages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Languages.png; sourceTree = "<group>"; };
+		E1D821E1164C3225008545E5 /* Languages@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Languages@2x.png"; sourceTree = "<group>"; };
+		E1D821E2164C3225008545E5 /* RecordingMacro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordingMacro.png; sourceTree = "<group>"; };
+		E1D821E3164C3225008545E5 /* RecordingMacro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingMacro@2x.png"; sourceTree = "<group>"; };
+		E1D821E4164C3225008545E5 /* Search Mark.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Search Mark.pdf"; sourceTree = "<group>"; };
+		E1D821E5164C3225008545E5 /* SpellingDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpellingDot.png; sourceTree = "<group>"; };
+		E1D821E6164C3225008545E5 /* SpellingDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpellingDot@2x.png"; sourceTree = "<group>"; };
+		E1D821E7164C3225008545E5 /* Statusbar Gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Statusbar Gear.png"; sourceTree = "<group>"; };
+		E1D821E8164C3225008545E5 /* Statusbar Gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Statusbar Gear@2x.png"; sourceTree = "<group>"; };
+		E1D821EA164C3225008545E5 /* GutterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GutterView.h; sourceTree = "<group>"; };
+		E1D821EB164C3225008545E5 /* GutterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GutterView.m; sourceTree = "<group>"; };
+		E1D821EC164C3225008545E5 /* LiveSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveSearchView.h; sourceTree = "<group>"; };
+		E1D821ED164C3225008545E5 /* LiveSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveSearchView.m; sourceTree = "<group>"; };
+		E1D821EE164C3225008545E5 /* OakChoiceMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakChoiceMenu.h; sourceTree = "<group>"; };
+		E1D821EF164C3225008545E5 /* OakChoiceMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakChoiceMenu.m; sourceTree = "<group>"; };
+		E1D821F0164C3225008545E5 /* OakDocumentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakDocumentView.h; sourceTree = "<group>"; };
+		E1D821F1164C3225008545E5 /* OakDocumentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakDocumentView.m; sourceTree = "<group>"; };
+		E1D821F2164C3225008545E5 /* OakPasteboardWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakPasteboardWrapper.h; sourceTree = "<group>"; };
+		E1D821F3164C3225008545E5 /* OakPasteboardWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakPasteboardWrapper.m; sourceTree = "<group>"; };
+		E1D821F4164C3225008545E5 /* OakTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakTextView.h; sourceTree = "<group>"; };
+		E1D821F5164C3225008545E5 /* OakTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakTextView.m; sourceTree = "<group>"; };
+		E1D821F6164C3225008545E5 /* OTVStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTVStatusBar.h; sourceTree = "<group>"; };
+		E1D821F7164C3225008545E5 /* OTVStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTVStatusBar.m; sourceTree = "<group>"; };
+		E1D8221E164C9B55008545E5 /* theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = theme.h; sourceTree = "<group>"; };
+		E1D8221F164C9B55008545E5 /* theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = theme.m; sourceTree = "<group>"; };
+		E1D82223164C9F3C008545E5 /* clipboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clipboard.h; sourceTree = "<group>"; };
+		E1D82224164C9F3C008545E5 /* clipboard.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = clipboard.mm; sourceTree = "<group>"; };
+		E1D82225164C9F3C008545E5 /* completion.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = completion.mm; sourceTree = "<group>"; };
+		E1D82226164C9F3C008545E5 /* dispatch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dispatch.mm; sourceTree = "<group>"; };
+		E1D82227164C9F3C008545E5 /* editor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = editor.h; sourceTree = "<group>"; };
+		E1D82228164C9F3C008545E5 /* editor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = editor.mm; sourceTree = "<group>"; };
+		E1D82229164C9F3C008545E5 /* metrics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = metrics.mm; sourceTree = "<group>"; };
+		E1D8222A164C9F3C008545E5 /* OakCompletionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakCompletionInfo.h; sourceTree = "<group>"; };
+		E1D8222B164C9F3C008545E5 /* OakCompletionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakCompletionInfo.m; sourceTree = "<group>"; };
+		E1D8222C164C9F3C008545E5 /* OakEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakEditor.h; sourceTree = "<group>"; };
+		E1D8222D164C9F3C008545E5 /* OakEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakEditor.m; sourceTree = "<group>"; };
+		E1D8222E164C9F3C008545E5 /* OakSnippet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakSnippet.h; sourceTree = "<group>"; };
+		E1D8222F164C9F3C008545E5 /* OakSnippet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakSnippet.m; sourceTree = "<group>"; };
+		E1D82230164C9F3C008545E5 /* OakTextIndent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OakTextIndent.h; sourceTree = "<group>"; };
+		E1D82231164C9F3C008545E5 /* OakTextIndent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OakTextIndent.m; sourceTree = "<group>"; };
+		E1D82232164C9F3C008545E5 /* snippets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snippets.h; sourceTree = "<group>"; };
+		E1D82233164C9F3C008545E5 /* snippets.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = snippets.mm; sourceTree = "<group>"; };
+		E1D82234164C9F3C008545E5 /* transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transform.h; sourceTree = "<group>"; };
+		E1D82235164C9F3C008545E5 /* transform.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = transform.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,6 +524,9 @@
 		E1CCCF771644F48C006696E0 /* OakAppKit */ = {
 			isa = PBXGroup;
 			children = (
+				E1D82222164C9F3C008545E5 /* editor */,
+				E1D8221D164C9B54008545E5 /* theme */,
+				E1D821CE164C3224008545E5 /* OakTextView */,
 				E1CCCFDE1644F50F006696E0 /* gfx */,
 				E1CCCFFC1644F50F006696E0 /* icons */,
 				E1CCD01B1644F50F006696E0 /* resources */,
@@ -600,6 +719,104 @@
 			path = OakAppKit/src;
 			sourceTree = "<group>";
 		};
+		E1D821CE164C3224008545E5 /* OakTextView */ = {
+			isa = PBXGroup;
+			children = (
+				E1D821CF164C3225008545E5 /* resources */,
+				E1D821E9164C3225008545E5 /* src */,
+			);
+			name = OakTextView;
+			path = ../../OakTextView/OakTextView;
+			sourceTree = "<group>";
+		};
+		E1D821CF164C3225008545E5 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				E1D821D0164C3225008545E5 /* Bookmark Hover Add.pdf */,
+				E1D821D1164C3225008545E5 /* Bookmark Hover Remove.pdf */,
+				E1D821D2164C3225008545E5 /* Bookmark.pdf */,
+				E1D821D3164C3225008545E5 /* SearchField.xib */,
+				E1D821D5164C3225008545E5 /* TabSizeSetting.xib */,
+				E1D821D7164C3225008545E5 /* Folding Bottom Hover.pdf */,
+				E1D821D8164C3225008545E5 /* Folding Bottom.pdf */,
+				E1D821D9164C3225008545E5 /* Folding Collapsed Hover.pdf */,
+				E1D821DA164C3225008545E5 /* Folding Collapsed.pdf */,
+				E1D821DB164C3225008545E5 /* Folding Top Hover.pdf */,
+				E1D821DC164C3225008545E5 /* Folding Top.pdf */,
+				E1D821DD164C3225008545E5 /* FoldingDots.pdf */,
+				E1D821DE164C3225008545E5 /* IBeam white.tiff */,
+				E1D821DF164C3225008545E5 /* Info.plist */,
+				E1D821E0164C3225008545E5 /* Languages.png */,
+				E1D821E1164C3225008545E5 /* Languages@2x.png */,
+				E1D821E2164C3225008545E5 /* RecordingMacro.png */,
+				E1D821E3164C3225008545E5 /* RecordingMacro@2x.png */,
+				E1D821E4164C3225008545E5 /* Search Mark.pdf */,
+				E1D821E5164C3225008545E5 /* SpellingDot.png */,
+				E1D821E6164C3225008545E5 /* SpellingDot@2x.png */,
+				E1D821E7164C3225008545E5 /* Statusbar Gear.png */,
+				E1D821E8164C3225008545E5 /* Statusbar Gear@2x.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		E1D821E9164C3225008545E5 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				E1D821EA164C3225008545E5 /* GutterView.h */,
+				E1D821EB164C3225008545E5 /* GutterView.m */,
+				E1D821EC164C3225008545E5 /* LiveSearchView.h */,
+				E1D821ED164C3225008545E5 /* LiveSearchView.m */,
+				E1D821EE164C3225008545E5 /* OakChoiceMenu.h */,
+				E1D821EF164C3225008545E5 /* OakChoiceMenu.m */,
+				E1D821F0164C3225008545E5 /* OakDocumentView.h */,
+				E1D821F1164C3225008545E5 /* OakDocumentView.m */,
+				E1D821F2164C3225008545E5 /* OakPasteboardWrapper.h */,
+				E1D821F3164C3225008545E5 /* OakPasteboardWrapper.m */,
+				E1D821F4164C3225008545E5 /* OakTextView.h */,
+				E1D821F5164C3225008545E5 /* OakTextView.m */,
+				E1D821F6164C3225008545E5 /* OTVStatusBar.h */,
+				E1D821F7164C3225008545E5 /* OTVStatusBar.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		E1D8221D164C9B54008545E5 /* theme */ = {
+			isa = PBXGroup;
+			children = (
+				E1D8221E164C9B55008545E5 /* theme.h */,
+				E1D8221F164C9B55008545E5 /* theme.m */,
+			);
+			name = theme;
+			path = ../../OakTextView/theme;
+			sourceTree = "<group>";
+		};
+		E1D82222164C9F3C008545E5 /* editor */ = {
+			isa = PBXGroup;
+			children = (
+				E1D82223164C9F3C008545E5 /* clipboard.h */,
+				E1D82224164C9F3C008545E5 /* clipboard.mm */,
+				E1D82225164C9F3C008545E5 /* completion.mm */,
+				E1D82226164C9F3C008545E5 /* dispatch.mm */,
+				E1D82227164C9F3C008545E5 /* editor.h */,
+				E1D82228164C9F3C008545E5 /* editor.mm */,
+				E1D82229164C9F3C008545E5 /* metrics.mm */,
+				E1D8222A164C9F3C008545E5 /* OakCompletionInfo.h */,
+				E1D8222B164C9F3C008545E5 /* OakCompletionInfo.m */,
+				E1D8222C164C9F3C008545E5 /* OakEditor.h */,
+				E1D8222D164C9F3C008545E5 /* OakEditor.m */,
+				E1D8222E164C9F3C008545E5 /* OakSnippet.h */,
+				E1D8222F164C9F3C008545E5 /* OakSnippet.m */,
+				E1D82230164C9F3C008545E5 /* OakTextIndent.h */,
+				E1D82231164C9F3C008545E5 /* OakTextIndent.m */,
+				E1D82232164C9F3C008545E5 /* snippets.h */,
+				E1D82233164C9F3C008545E5 /* snippets.mm */,
+				E1D82234164C9F3C008545E5 /* transform.h */,
+				E1D82235164C9F3C008545E5 /* transform.mm */,
+			);
+			name = editor;
+			path = ../../OakTextView/editor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -643,6 +860,22 @@
 				E110628E1646A9A1001CE3CC /* OakControl Private.h in Headers */,
 				E11062951646A9A1001CE3CC /* OakKeyEquivalentView.h in Headers */,
 				E11062A01646A9A1001CE3CC /* OakTabBarView.h in Headers */,
+				E1D8220F164C3225008545E5 /* GutterView.h in Headers */,
+				E1D82211164C3225008545E5 /* LiveSearchView.h in Headers */,
+				E1D82213164C3225008545E5 /* OakChoiceMenu.h in Headers */,
+				E1D82215164C3225008545E5 /* OakDocumentView.h in Headers */,
+				E1D82217164C3225008545E5 /* OakPasteboardWrapper.h in Headers */,
+				E1D82219164C3225008545E5 /* OakTextView.h in Headers */,
+				E1D8221B164C3225008545E5 /* OTVStatusBar.h in Headers */,
+				E1D82220164C9B55008545E5 /* theme.h in Headers */,
+				E1D82236164C9F3C008545E5 /* clipboard.h in Headers */,
+				E1D8223A164C9F3C008545E5 /* editor.h in Headers */,
+				E1D8223D164C9F3C008545E5 /* OakCompletionInfo.h in Headers */,
+				E1D8223F164C9F3C008545E5 /* OakEditor.h in Headers */,
+				E1D82241164C9F3C008545E5 /* OakSnippet.h in Headers */,
+				E1D82243164C9F3C008545E5 /* OakTextIndent.h in Headers */,
+				E1D82245164C9F3C008545E5 /* snippets.h in Headers */,
+				E1D82247164C9F3C008545E5 /* transform.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,6 +1014,29 @@
 				E1CCD0C11644F510006696E0 /* Pasteboard Selector.xib in Resources */,
 				E1CCD0C31644F510006696E0 /* TabBar.plist in Resources */,
 				E1CCD21416451D9F006696E0 /* Charsets.plist in Resources */,
+				E1D821F8164C3225008545E5 /* Bookmark Hover Add.pdf in Resources */,
+				E1D821F9164C3225008545E5 /* Bookmark Hover Remove.pdf in Resources */,
+				E1D821FA164C3225008545E5 /* Bookmark.pdf in Resources */,
+				E1D821FB164C3225008545E5 /* SearchField.xib in Resources */,
+				E1D821FC164C3225008545E5 /* TabSizeSetting.xib in Resources */,
+				E1D821FD164C3225008545E5 /* Folding Bottom Hover.pdf in Resources */,
+				E1D821FE164C3225008545E5 /* Folding Bottom.pdf in Resources */,
+				E1D821FF164C3225008545E5 /* Folding Collapsed Hover.pdf in Resources */,
+				E1D82200164C3225008545E5 /* Folding Collapsed.pdf in Resources */,
+				E1D82201164C3225008545E5 /* Folding Top Hover.pdf in Resources */,
+				E1D82202164C3225008545E5 /* Folding Top.pdf in Resources */,
+				E1D82203164C3225008545E5 /* FoldingDots.pdf in Resources */,
+				E1D82204164C3225008545E5 /* IBeam white.tiff in Resources */,
+				E1D82205164C3225008545E5 /* Info.plist in Resources */,
+				E1D82206164C3225008545E5 /* Languages.png in Resources */,
+				E1D82207164C3225008545E5 /* Languages@2x.png in Resources */,
+				E1D82208164C3225008545E5 /* RecordingMacro.png in Resources */,
+				E1D82209164C3225008545E5 /* RecordingMacro@2x.png in Resources */,
+				E1D8220A164C3225008545E5 /* Search Mark.pdf in Resources */,
+				E1D8220B164C3225008545E5 /* SpellingDot.png in Resources */,
+				E1D8220C164C3225008545E5 /* SpellingDot@2x.png in Resources */,
+				E1D8220D164C3225008545E5 /* Statusbar Gear.png in Resources */,
+				E1D8220E164C3225008545E5 /* Statusbar Gear@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,6 +1080,25 @@
 				E11062A31646A9A1001CE3CC /* OakView.m in Sources */,
 				E11062A41646A9A1001CE3CC /* OakWindowFrameHelper.m in Sources */,
 				E11062A51646A9A1001CE3CC /* OakZoomingIcon.m in Sources */,
+				E1D82210164C3225008545E5 /* GutterView.m in Sources */,
+				E1D82212164C3225008545E5 /* LiveSearchView.m in Sources */,
+				E1D82214164C3225008545E5 /* OakChoiceMenu.m in Sources */,
+				E1D82216164C3225008545E5 /* OakDocumentView.m in Sources */,
+				E1D82218164C3225008545E5 /* OakPasteboardWrapper.m in Sources */,
+				E1D8221A164C3225008545E5 /* OakTextView.m in Sources */,
+				E1D8221C164C3225008545E5 /* OTVStatusBar.m in Sources */,
+				E1D82221164C9B55008545E5 /* theme.m in Sources */,
+				E1D82237164C9F3C008545E5 /* clipboard.mm in Sources */,
+				E1D82238164C9F3C008545E5 /* completion.mm in Sources */,
+				E1D82239164C9F3C008545E5 /* dispatch.mm in Sources */,
+				E1D8223B164C9F3C008545E5 /* editor.mm in Sources */,
+				E1D8223C164C9F3C008545E5 /* metrics.mm in Sources */,
+				E1D8223E164C9F3C008545E5 /* OakCompletionInfo.m in Sources */,
+				E1D82240164C9F3C008545E5 /* OakEditor.m in Sources */,
+				E1D82242164C9F3C008545E5 /* OakSnippet.m in Sources */,
+				E1D82244164C9F3C008545E5 /* OakTextIndent.m in Sources */,
+				E1D82246164C9F3C008545E5 /* snippets.mm in Sources */,
+				E1D82248164C9F3C008545E5 /* transform.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,6 +1151,22 @@
 				E1CCD0241644F50F006696E0 /* English */,
 			);
 			name = "Pasteboard Selector.xib";
+			sourceTree = "<group>";
+		};
+		E1D821D3164C3225008545E5 /* SearchField.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1D821D4164C3225008545E5 /* English */,
+			);
+			name = SearchField.xib;
+			sourceTree = "<group>";
+		};
+		E1D821D5164C3225008545E5 /* TabSizeSetting.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1D821D6164C3225008545E5 /* English */,
+			);
+			name = TabSizeSetting.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
