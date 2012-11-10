@@ -28,6 +28,8 @@
 		E11D1C41163B87B1004FCD5B /* VXFileReference.m in Sources */ = {isa = PBXBuildFile; fileRef = E11D1C40163B87B1004FCD5B /* VXFileReference.m */; };
 		E11D1C44163B87E6004FCD5B /* VXDictObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E11D1C43163B87E5004FCD5B /* VXDictObject.m */; };
 		E11D1C4F163BAC7D004FCD5B /* VDEResourceService.m in Sources */ = {isa = PBXBuildFile; fileRef = E11D1C4E163BAC7D004FCD5B /* VDEResourceService.m */; };
+		E12AEAE2164D6122008004B6 /* VDETextSiderBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E12AEAE1164D6122008004B6 /* VDETextSiderBarView.m */; };
+		E12AEAE5164D65E8008004B6 /* VDERulerMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = E12AEAE4164D65E8008004B6 /* VDERulerMarker.m */; };
 		E12EDFA8163F6A960009C048 /* VDEMainDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E12EDFA7163F6A960009C048 /* VDEMainDataSource.m */; };
 		E12EDFDA16402CA20009C048 /* icon.navigator.group.icns in Resources */ = {isa = PBXBuildFile; fileRef = E12EDFD916402CA20009C048 /* icon.navigator.group.icns */; };
 		E12EDFDD16402D870009C048 /* VXBreakPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E12EDFDC16402D860009C048 /* VXBreakPoint.m */; };
@@ -224,6 +226,10 @@
 		E11D1C43163B87E5004FCD5B /* VXDictObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VXDictObject.m; sourceTree = "<group>"; };
 		E11D1C4D163BAC7D004FCD5B /* VDEResourceService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDEResourceService.h; path = Service/VDEResourceService.h; sourceTree = "<group>"; };
 		E11D1C4E163BAC7D004FCD5B /* VDEResourceService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDEResourceService.m; path = Service/VDEResourceService.m; sourceTree = "<group>"; };
+		E12AEAE0164D6122008004B6 /* VDETextSiderBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDETextSiderBarView.h; path = Editor/VDETextSiderBarView.h; sourceTree = "<group>"; };
+		E12AEAE1164D6122008004B6 /* VDETextSiderBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDETextSiderBarView.m; path = Editor/VDETextSiderBarView.m; sourceTree = "<group>"; };
+		E12AEAE3164D65E8008004B6 /* VDERulerMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDERulerMarker.h; path = Editor/VDERulerMarker.h; sourceTree = "<group>"; };
+		E12AEAE4164D65E8008004B6 /* VDERulerMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDERulerMarker.m; path = Editor/VDERulerMarker.m; sourceTree = "<group>"; };
 		E12EDFA6163F6A960009C048 /* VDEMainDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEMainDataSource.h; sourceTree = "<group>"; };
 		E12EDFA7163F6A960009C048 /* VDEMainDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEMainDataSource.m; sourceTree = "<group>"; };
 		E12EDFD916402CA20009C048 /* icon.navigator.group.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.navigator.group.icns; sourceTree = "<group>"; };
@@ -682,6 +688,10 @@
 				E1863385163D899E0027EF15 /* VDESourceScrollView.m */,
 				E1BC6E6F163EBBF00075F3B0 /* NSMenu+VDEProjectConfigurationExtension.h */,
 				E1BC6E70163EBBF00075F3B0 /* NSMenu+VDEProjectConfigurationExtension.m */,
+				E12AEAE0164D6122008004B6 /* VDETextSiderBarView.h */,
+				E12AEAE1164D6122008004B6 /* VDETextSiderBarView.m */,
+				E12AEAE3164D65E8008004B6 /* VDERulerMarker.h */,
+				E12AEAE4164D65E8008004B6 /* VDERulerMarker.m */,
 			);
 			name = Editor;
 			sourceTree = "<group>";
@@ -909,6 +919,8 @@
 				E14B7071164237D900BCCDB4 /* VDEDebugService.m in Sources */,
 				E1A289071642CD1F009FCA36 /* VDENewFileViewController.m in Sources */,
 				E1A4FDF6164372E400F8AE92 /* VDEExceptionService.m in Sources */,
+				E12AEAE2164D6122008004B6 /* VDETextSiderBarView.m in Sources */,
+				E12AEAE5164D65E8008004B6 /* VDERulerMarker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

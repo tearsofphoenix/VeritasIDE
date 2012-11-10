@@ -34,9 +34,10 @@
 @interface NoodleLineNumberView : NSRulerView
 {
     // Array of character indices for the beginning of each line
-    NSMutableArray      *_lineIndices;
+    NSMutableIndexSet      *_lineIndices;
 	// Maps line numbers to markers
 	NSMutableDictionary	*_linesToMarkers;
+    BOOL _lineIndicesIsValid;
 }
 
 - (id)initWithScrollView: (NSScrollView *)aScrollView;

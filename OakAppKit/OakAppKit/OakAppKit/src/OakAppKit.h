@@ -1,5 +1,4 @@
 
-#import <OakAppKit/IOAlertPanel.h>
 #import <OakAppKit/NSAlert+Additions.h>
 #import <OakAppKit/NSColor+Additions.h>
 #import <OakAppKit/NSEvent+Additions.h>

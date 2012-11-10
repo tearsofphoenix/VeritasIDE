@@ -9,11 +9,12 @@
 #import "VDESourceScrollView.h"
 #import "NoodleLineNumberView.h"
 #import "VDESourceCodeEditorView.h"
+#import "VDETextSiderBarView.h"
 
 @interface VDESourceScrollView()
 {
 @private
-    NoodleLineNumberView *_lineNumberView;
+    VDETextSiderBarView *_lineNumberView;
 }
 @end
 
@@ -25,7 +26,8 @@ static void VDESourceScrollViewCommonInitialize(VDESourceScrollView *self)
     
     [self setDocumentView: self->_editorView];
 
-    self->_lineNumberView = [[NoodleLineNumberView alloc] initWithScrollView: self];
+    self->_lineNumberView = [[VDETextSiderBarView alloc] initWithScrollView: self
+                                                                orientation: NSVerticalRuler];
     [self setVerticalRulerView: self->_lineNumberView];
     [self setHasVerticalRuler: YES];
     [self setHasHorizontalRuler: NO];

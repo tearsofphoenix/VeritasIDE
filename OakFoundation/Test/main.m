@@ -11,19 +11,17 @@
 
 int main(int argc, const char * argv[])
 {
-
+    
     @autoreleasepool
     {
-        OakMutableRangeArray *rangeArray = [[OakMutableRangeArray alloc] init];
-        [rangeArray addRange: NSMakeRange(0, 1)];
-        [rangeArray addObject: @"{10,10}"];
-        [rangeArray firstRange];
-        NSLog(@"%@", rangeArray);
+        NSMutableIndexSet *set = [NSMutableIndexSet indexSetWithIndexesInRange: NSMakeRange(5, 10)];
+        [set addIndex: 4];
+        [set addIndex: 122];
         
-        id obj = @[ @"YE"];
-        id co = [obj mutableCopy];
-        
-        NSLog(@"%d", [obj isEqualToArray: co]);
+        [set enumerateIndexesUsingBlock: (^(NSUInteger idx, BOOL *stop)
+                                          {
+                                              NSLog(@"%ld\n", idx);
+                                          })];
         
     }
     return 0;
