@@ -6,7 +6,7 @@
 
 #import <DevToolsCore/PBXObject.h>
 
-@class NSDate, NSHashTable, NSMutableDictionary, NSMutableSet, NSString, PBXGroup, PBXGroupEnumerator, PBXHeaderFileEnumerator, XCRezSearchPathFileEnumerator;
+@class PBXGroup, PBXGroupEnumerator, PBXHeaderFileEnumerator, XCRezSearchPathFileEnumerator;
 
 @interface PBXContainer : PBXObject
 {

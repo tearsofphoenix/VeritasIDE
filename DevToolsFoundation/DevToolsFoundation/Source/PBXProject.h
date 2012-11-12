@@ -6,7 +6,6 @@
 
 #import <DevToolsCore/PBXContainer.h>
 
-#import "PBXChangeNotification-Protocol.h"
 #import "PBXContainerItemChangeNotification-Protocol.h"
 #import "XCCompatibilityChecking-Protocol.h"
 #import "XCConfigurationInspectables-Protocol.h"

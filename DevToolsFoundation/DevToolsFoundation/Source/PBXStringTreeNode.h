@@ -4,38 +4,41 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
-
-@class NSString;
-
 @interface PBXStringTreeNode : NSObject
 {
-    NSString *_string;
     PBXStringTreeNode *_nextSibling;
     PBXStringTreeNode *_firstChild;
-    id _representedObject;
 }
 
-+ (id)nodeWithString:(id)arg1 representedObject:(id)arg2;
-- (id)subnodeWithString:(id)arg1;
-- (void)removeSubnode:(id)arg1;
-- (void)addSubnode:(id)arg1;
-- (void)addSubnode:(id)arg1 sorted:(BOOL)arg2;
-- (void)addSubnode:(id)arg1 sorted:(BOOL)arg2 sortHint:(id)arg3;
-- (NSUInteger)indexOfSubnode:(id)arg1;
-- (id)subnodeAtIndex:(NSUInteger)arg1;
-- (id)subnodes;
++ (id)nodeWithString: (NSString *)str
+   representedObject: (id)representedObject;
+
+- (PBXStringTreeNode *)subnodeWithString: (NSString *)str;
+- (void)removeSubnode: (PBXStringTreeNode *)subnode;
+- (void)addSubnode:(PBXStringTreeNode *)subnode;
+- (void)addSubnode: (PBXStringTreeNode *)subnode
+            sorted: (BOOL)flag;
+
+- (void)addSubnode: (PBXStringTreeNode *)subnode
+            sorted: (BOOL)flag
+          sortHint: (id)hint;
+
+- (NSUInteger)indexOfSubnode: (PBXStringTreeNode *)subnode;
+
+- (PBXStringTreeNode *)subnodeAtIndex:(NSUInteger)idx;
+
+- (NSArray *)subnodes;
 - (NSUInteger)numSubnodes;
+
 - (BOOL)isLeaf;
-- (id)treeDescriptionWithPrefix:(id)arg1;
-- (id)description;
-- (void)setRepresentedObject:(id)arg1;
-- (id)representedObject;
-- (void)setString:(id)arg1;
-- (id)string;
-- (void)dealloc;
-- (id)init;
-- (id)initWithString:(id)arg1 representedObject:(id)arg2;
+- (id)treeDescriptionWithPrefix: (id)arg1;
+- (NSString *)description;
+
+@property (retain) id representedObject;
+@property (retain) NSString *string;
+
+- (id)initWithString: (NSString *)str
+   representedObject: (id)representedObject;
 
 @end
 

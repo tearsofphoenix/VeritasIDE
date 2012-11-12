@@ -6,8 +6,6 @@
 
 #import <DevToolsCore/PBXContainer.h>
 
-@class NSMutableArray;
-
 @interface PBXFolder : PBXContainer
 {
     NSMutableArray *_acceptedPathExtensionsCache;

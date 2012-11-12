@@ -5,8 +5,12 @@
  */
 
 @protocol PBXChangeNotification
+
 - (int)changeMask;
-- (void)willChangeWithArchivePriority:(int)arg1;
+
+- (void)willChangeWithArchivePriority: (int)priority;
+
 - (void)willChange;
+
 @end
 

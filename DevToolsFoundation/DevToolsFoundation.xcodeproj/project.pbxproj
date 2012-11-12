@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1131B8116509409009DA6AA /* XCSpecification.h in Headers */ = {isa = PBXBuildFile; fileRef = E1131B8016509409009DA6AA /* XCSpecification.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1131B901650946C009DA6AA /* XCSpecification.m in Sources */ = {isa = PBXBuildFile; fileRef = E1131B8F1650946C009DA6AA /* XCSpecification.m */; };
+		E1131B93165098EF009DA6AA /* PBXStringTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E1131B92165098EF009DA6AA /* PBXStringTreeNode.m */; };
+		E1131B9516509E4E009DA6AA /* PBXStringTree.m in Sources */ = {isa = PBXBuildFile; fileRef = E1131B9416509E4E009DA6AA /* PBXStringTree.m */; };
+		E1602E961650A3A3009729DE /* PBXFileType.m in Sources */ = {isa = PBXBuildFile; fileRef = E1602E951650A3A3009729DE /* PBXFileType.m */; };
+		E1602E991650A4E6009729DE /* PBXFileTypePart.m in Sources */ = {isa = PBXBuildFile; fileRef = E1602E981650A4E6009729DE /* PBXFileTypePart.m */; };
+		E1602EA01650BBD1009729DE /* TSPropertyListDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = E1602E9E1650BBCD009729DE /* TSPropertyListDictionary.h */; };
+		E1602EA11650BBD1009729DE /* TSPropertyListDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = E1602E9F1650BBCF009729DE /* TSPropertyListDictionary.m */; };
+		E1602EA31650C447009729DE /* PBXBuildMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E1602EA21650C446009729DE /* PBXBuildMessage.m */; };
 		E1CCCE9F1644ED37006696E0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CCCE9E1644ED37006696E0 /* Cocoa.framework */; };
 		E1CCCEA91644ED38006696E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1CCCEA71644ED38006696E0 /* InfoPlist.strings */; };
 		E1CCCF0D1644EDAB006696E0 /* NSString+RandomHexString.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEBF1644EDAB006696E0 /* NSString+RandomHexString.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		E1CCCF0E1644EDAB006696E0 /* NSString+RandomHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCCEC01644EDAB006696E0 /* NSString+RandomHexString.m */; };
-		E1CCCF0F1644EDAB006696E0 /* PBXBreakpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEC11644EDAB006696E0 /* PBXBreakpoint.h */; };
+		E1CCCF0F1644EDAB006696E0 /* PBXBreakpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEC11644EDAB006696E0 /* PBXBreakpoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCCF101644EDAB006696E0 /* PBXBreakpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCCEC21644EDAB006696E0 /* PBXBreakpoint.m */; };
-		E1CCCF111644EDAB006696E0 /* PBXBuildContext.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEC31644EDAB006696E0 /* PBXBuildContext.h */; };
-		E1CCCF121644EDAB006696E0 /* PBXBuildMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEC41644EDAB006696E0 /* PBXBuildMessage.h */; };
-		E1CCCF131644EDAB006696E0 /* PBXChangeNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEC51644EDAB006696E0 /* PBXChangeNotification.h */; };
+		E1CCCF121644EDAB006696E0 /* PBXBuildMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEC41644EDAB006696E0 /* PBXBuildMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1CCCF131644EDAB006696E0 /* PBXChangeNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEC51644EDAB006696E0 /* PBXChangeNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCCF141644EDAB006696E0 /* PBXCodeCompletion.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEC61644EDAB006696E0 /* PBXCodeCompletion.h */; };
 		E1CCCF151644EDAB006696E0 /* PBXCodeSenseManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEC71644EDAB006696E0 /* PBXCodeSenseManager.h */; };
 		E1CCCF161644EDAB006696E0 /* PBXCompletionItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEC81644EDAB006696E0 /* PBXCompletionItem.h */; };
@@ -31,11 +39,9 @@
 		E1CCCF201644EDAB006696E0 /* PBXExecutable.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCED21644EDAB006696E0 /* PBXExecutable.h */; };
 		E1CCCF211644EDAB006696E0 /* PBXFileBreakpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCED31644EDAB006696E0 /* PBXFileBreakpoint.h */; };
 		E1CCCF221644EDAB006696E0 /* PBXFileReference.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCED41644EDAB006696E0 /* PBXFileReference.h */; };
-		E1CCCF231644EDAB006696E0 /* PBXFileSystemLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCED51644EDAB006696E0 /* PBXFileSystemLocation.h */; };
-		E1CCCF241644EDAB006696E0 /* PBXFileType.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCED61644EDAB006696E0 /* PBXFileType.h */; };
-		E1CCCF251644EDAB006696E0 /* PBXFileTypePart.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCED71644EDAB006696E0 /* PBXFileTypePart.h */; };
+		E1CCCF241644EDAB006696E0 /* PBXFileType.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCED61644EDAB006696E0 /* PBXFileType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1CCCF251644EDAB006696E0 /* PBXFileTypePart.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCED71644EDAB006696E0 /* PBXFileTypePart.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCCF261644EDAB006696E0 /* PBXFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCED81644EDAB006696E0 /* PBXFolder.h */; };
-		E1CCCF271644EDAB006696E0 /* PBXFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCED91644EDAB006696E0 /* PBXFramework.h */; };
 		E1CCCF281644EDAB006696E0 /* PBXFunctionSymbol.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEDA1644EDAB006696E0 /* PBXFunctionSymbol.h */; };
 		E1CCCF291644EDAB006696E0 /* PBXGlobalID.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEDB1644EDAB006696E0 /* PBXGlobalID.h */; };
 		E1CCCF2A1644EDAB006696E0 /* PBXGlobalID.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCCEDC1644EDAB006696E0 /* PBXGlobalID.m */; };
@@ -57,7 +63,7 @@
 		E1CCCF3A1644EDAB006696E0 /* PBXObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCCEEC1644EDAB006696E0 /* PBXObject.m */; };
 		E1CCCF3B1644EDAB006696E0 /* PBXProject.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEED1644EDAB006696E0 /* PBXProject.h */; };
 		E1CCCF3C1644EDAB006696E0 /* PBXProjectIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEEE1644EDAB006696E0 /* PBXProjectIndex.h */; };
-		E1CCCF3D1644EDAB006696E0 /* PBXProjectItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEEF1644EDAB006696E0 /* PBXProjectItem.h */; };
+		E1CCCF3D1644EDAB006696E0 /* PBXProjectItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEEF1644EDAB006696E0 /* PBXProjectItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCCF3E1644EDAB006696E0 /* PBXProjectItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCCEF01644EDAB006696E0 /* PBXProjectItem.m */; };
 		E1CCCF3F1644EDAB006696E0 /* PBXProjectRenameFileCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEF11644EDAB006696E0 /* PBXProjectRenameFileCallback.h */; };
 		E1CCCF401644EDAB006696E0 /* PBXRecordVector.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEF21644EDAB006696E0 /* PBXRecordVector.h */; };
@@ -92,6 +98,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E1131B8016509409009DA6AA /* XCSpecification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCSpecification.h; path = Source/XCSpecification.h; sourceTree = "<group>"; };
+		E1131B8F1650946C009DA6AA /* XCSpecification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCSpecification.m; path = Source/XCSpecification.m; sourceTree = "<group>"; };
+		E1131B92165098EF009DA6AA /* PBXStringTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBXStringTreeNode.m; path = Source/PBXStringTreeNode.m; sourceTree = "<group>"; };
+		E1131B9416509E4E009DA6AA /* PBXStringTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBXStringTree.m; path = Source/PBXStringTree.m; sourceTree = "<group>"; };
+		E1602E951650A3A3009729DE /* PBXFileType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBXFileType.m; path = Source/PBXFileType.m; sourceTree = "<group>"; };
+		E1602E981650A4E6009729DE /* PBXFileTypePart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBXFileTypePart.m; path = Source/PBXFileTypePart.m; sourceTree = "<group>"; };
+		E1602E9E1650BBCD009729DE /* TSPropertyListDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSPropertyListDictionary.h; path = Source/TSPropertyListDictionary.h; sourceTree = "<group>"; };
+		E1602E9F1650BBCF009729DE /* TSPropertyListDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSPropertyListDictionary.m; path = Source/TSPropertyListDictionary.m; sourceTree = "<group>"; };
+		E1602EA21650C446009729DE /* PBXBuildMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBXBuildMessage.m; path = Source/PBXBuildMessage.m; sourceTree = "<group>"; };
 		E1CCCE9B1644ED37006696E0 /* DevToolsFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DevToolsFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CCCE9E1644ED37006696E0 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E1CCCEA11644ED37006696E0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -105,7 +120,6 @@
 		E1CCCEC01644EDAB006696E0 /* NSString+RandomHexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+RandomHexString.m"; path = "Source/NSString+RandomHexString.m"; sourceTree = "<group>"; };
 		E1CCCEC11644EDAB006696E0 /* PBXBreakpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBXBreakpoint.h; path = Source/PBXBreakpoint.h; sourceTree = "<group>"; };
 		E1CCCEC21644EDAB006696E0 /* PBXBreakpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBXBreakpoint.m; path = Source/PBXBreakpoint.m; sourceTree = "<group>"; };
-		E1CCCEC31644EDAB006696E0 /* PBXBuildContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBXBuildContext.h; path = Source/PBXBuildContext.h; sourceTree = "<group>"; };
 		E1CCCEC41644EDAB006696E0 /* PBXBuildMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBXBuildMessage.h; path = Source/PBXBuildMessage.h; sourceTree = "<group>"; };
 		E1CCCEC51644EDAB006696E0 /* PBXChangeNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBXChangeNotification.h; path = Source/PBXChangeNotification.h; sourceTree = "<group>"; };
 		E1CCCEC61644EDAB006696E0 /* PBXCodeCompletion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBXCodeCompletion.h; path = Source/PBXCodeCompletion.h; sourceTree = "<group>"; };
@@ -123,11 +137,9 @@
 		E1CCCED21644EDAB006696E0 /* PBXExecutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBXExecutable.h; path = Source/PBXExecutable.h; sourceTree = "<group>"; };
 		E1CCCED31644EDAB006696E0 /* PBXFileBreakpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBXFileBreakpoint.h; path = Source/PBXFileBreakpoint.h; sourceTree = "<group>"; };
 		E1CCCED41644EDAB006696E0 /* PBXFileReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBXFileReference.h; path = Source/PBXFileReference.h; sourceTree = "<group>"; };
-		E1CCCED51644EDAB006696E0 /* PBXFileSystemLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBXFileSystemLocation.h; path = Source/PBXFileSystemLocation.h; sourceTree = "<group>"; };
 		E1CCCED61644EDAB006696E0 /* PBXFileType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBXFileType.h; path = Source/PBXFileType.h; sourceTree = "<group>"; };
 		E1CCCED71644EDAB006696E0 /* PBXFileTypePart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBXFileTypePart.h; path = Source/PBXFileTypePart.h; sourceTree = "<group>"; };
 		E1CCCED81644EDAB006696E0 /* PBXFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBXFolder.h; path = Source/PBXFolder.h; sourceTree = "<group>"; };
-		E1CCCED91644EDAB006696E0 /* PBXFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBXFramework.h; path = Source/PBXFramework.h; sourceTree = "<group>"; };
 		E1CCCEDA1644EDAB006696E0 /* PBXFunctionSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBXFunctionSymbol.h; path = Source/PBXFunctionSymbol.h; sourceTree = "<group>"; };
 		E1CCCEDB1644EDAB006696E0 /* PBXGlobalID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBXGlobalID.h; path = Source/PBXGlobalID.h; sourceTree = "<group>"; };
 		E1CCCEDC1644EDAB006696E0 /* PBXGlobalID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBXGlobalID.m; path = Source/PBXGlobalID.m; sourceTree = "<group>"; };
@@ -235,12 +247,14 @@
 		E1CCCEA41644ED37006696E0 /* DevToolsFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				E1131B8016509409009DA6AA /* XCSpecification.h */,
+				E1131B8F1650946C009DA6AA /* XCSpecification.m */,
 				E1CCCEBF1644EDAB006696E0 /* NSString+RandomHexString.h */,
 				E1CCCEC01644EDAB006696E0 /* NSString+RandomHexString.m */,
 				E1CCCEC11644EDAB006696E0 /* PBXBreakpoint.h */,
 				E1CCCEC21644EDAB006696E0 /* PBXBreakpoint.m */,
-				E1CCCEC31644EDAB006696E0 /* PBXBuildContext.h */,
 				E1CCCEC41644EDAB006696E0 /* PBXBuildMessage.h */,
+				E1602EA21650C446009729DE /* PBXBuildMessage.m */,
 				E1CCCEC51644EDAB006696E0 /* PBXChangeNotification.h */,
 				E1CCCEC61644EDAB006696E0 /* PBXCodeCompletion.h */,
 				E1CCCEC71644EDAB006696E0 /* PBXCodeSenseManager.h */,
@@ -257,11 +271,11 @@
 				E1CCCED21644EDAB006696E0 /* PBXExecutable.h */,
 				E1CCCED31644EDAB006696E0 /* PBXFileBreakpoint.h */,
 				E1CCCED41644EDAB006696E0 /* PBXFileReference.h */,
-				E1CCCED51644EDAB006696E0 /* PBXFileSystemLocation.h */,
 				E1CCCED61644EDAB006696E0 /* PBXFileType.h */,
+				E1602E951650A3A3009729DE /* PBXFileType.m */,
 				E1CCCED71644EDAB006696E0 /* PBXFileTypePart.h */,
+				E1602E981650A4E6009729DE /* PBXFileTypePart.m */,
 				E1CCCED81644EDAB006696E0 /* PBXFolder.h */,
-				E1CCCED91644EDAB006696E0 /* PBXFramework.h */,
 				E1CCCEDA1644EDAB006696E0 /* PBXFunctionSymbol.h */,
 				E1CCCEDB1644EDAB006696E0 /* PBXGlobalID.h */,
 				E1CCCEDC1644EDAB006696E0 /* PBXGlobalID.m */,
@@ -301,7 +315,9 @@
 				E1CCCEFE1644EDAB006696E0 /* PBXStringCompletionItem.h */,
 				E1CCCEFF1644EDAB006696E0 /* PBXStringLexer.h */,
 				E1CCCF001644EDAB006696E0 /* PBXStringTree.h */,
+				E1131B9416509E4E009DA6AA /* PBXStringTree.m */,
 				E1CCCF011644EDAB006696E0 /* PBXStringTreeNode.h */,
+				E1131B92165098EF009DA6AA /* PBXStringTreeNode.m */,
 				E1CCCF021644EDAB006696E0 /* PBXSymbol.h */,
 				E1CCCF031644EDAB006696E0 /* PBXSymbolicBreakpoint.h */,
 				E1CCCF041644EDAB006696E0 /* PBXTarget.h */,
@@ -315,6 +331,8 @@
 				E1CCCF0C1644EDAB006696E0 /* PBXVariantGroup.h */,
 				E1CCCEAB1644ED38006696E0 /* DevToolsFoundation.h */,
 				E1CCCEA51644ED37006696E0 /* Supporting Files */,
+				E1602E9E1650BBCD009729DE /* TSPropertyListDictionary.h */,
+				E1602E9F1650BBCF009729DE /* TSPropertyListDictionary.m */,
 			);
 			path = DevToolsFoundation;
 			sourceTree = "<group>";
@@ -336,12 +354,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1CCCF131644EDAB006696E0 /* PBXChangeNotification.h in Headers */,
+				E1CCCF121644EDAB006696E0 /* PBXBuildMessage.h in Headers */,
+				E1CCCF0F1644EDAB006696E0 /* PBXBreakpoint.h in Headers */,
+				E1CCCF3D1644EDAB006696E0 /* PBXProjectItem.h in Headers */,
+				E1CCCF251644EDAB006696E0 /* PBXFileTypePart.h in Headers */,
+				E1CCCF241644EDAB006696E0 /* PBXFileType.h in Headers */,
+				E1131B8116509409009DA6AA /* XCSpecification.h in Headers */,
 				E1CCCF611644EEEC006696E0 /* DevToolsFoundation.h in Headers */,
 				E1CCCF0D1644EDAB006696E0 /* NSString+RandomHexString.h in Headers */,
-				E1CCCF0F1644EDAB006696E0 /* PBXBreakpoint.h in Headers */,
-				E1CCCF111644EDAB006696E0 /* PBXBuildContext.h in Headers */,
-				E1CCCF121644EDAB006696E0 /* PBXBuildMessage.h in Headers */,
-				E1CCCF131644EDAB006696E0 /* PBXChangeNotification.h in Headers */,
 				E1CCCF141644EDAB006696E0 /* PBXCodeCompletion.h in Headers */,
 				E1CCCF151644EDAB006696E0 /* PBXCodeSenseManager.h in Headers */,
 				E1CCCF161644EDAB006696E0 /* PBXCompletionItem.h in Headers */,
@@ -356,11 +377,7 @@
 				E1CCCF201644EDAB006696E0 /* PBXExecutable.h in Headers */,
 				E1CCCF211644EDAB006696E0 /* PBXFileBreakpoint.h in Headers */,
 				E1CCCF221644EDAB006696E0 /* PBXFileReference.h in Headers */,
-				E1CCCF231644EDAB006696E0 /* PBXFileSystemLocation.h in Headers */,
-				E1CCCF241644EDAB006696E0 /* PBXFileType.h in Headers */,
-				E1CCCF251644EDAB006696E0 /* PBXFileTypePart.h in Headers */,
 				E1CCCF261644EDAB006696E0 /* PBXFolder.h in Headers */,
-				E1CCCF271644EDAB006696E0 /* PBXFramework.h in Headers */,
 				E1CCCF281644EDAB006696E0 /* PBXFunctionSymbol.h in Headers */,
 				E1CCCF291644EDAB006696E0 /* PBXGlobalID.h in Headers */,
 				E1CCCF2B1644EDAB006696E0 /* PBXGroup.h in Headers */,
@@ -379,7 +396,6 @@
 				E1CCCF391644EDAB006696E0 /* PBXObject.h in Headers */,
 				E1CCCF3B1644EDAB006696E0 /* PBXProject.h in Headers */,
 				E1CCCF3C1644EDAB006696E0 /* PBXProjectIndex.h in Headers */,
-				E1CCCF3D1644EDAB006696E0 /* PBXProjectItem.h in Headers */,
 				E1CCCF3F1644EDAB006696E0 /* PBXProjectRenameFileCallback.h in Headers */,
 				E1CCCF401644EDAB006696E0 /* PBXRecordVector.h in Headers */,
 				E1CCCF411644EDAB006696E0 /* PBXReference.h in Headers */,
@@ -406,6 +422,7 @@
 				E1CCCF581644EDAB006696E0 /* PBXTSStreamConsuming-Protocol.h in Headers */,
 				E1CCCF591644EDAB006696E0 /* PBXTypeDescriptor.h in Headers */,
 				E1CCCF5A1644EDAB006696E0 /* PBXVariantGroup.h in Headers */,
+				E1602EA01650BBD1009729DE /* TSPropertyListDictionary.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +498,13 @@
 				E1CCCF3E1644EDAB006696E0 /* PBXProjectItem.m in Sources */,
 				E1CCCF471644EDAB006696E0 /* PBXSourceLexer.m in Sources */,
 				E1CCCF4B1644EDAB006696E0 /* PBXSourceTokens.m in Sources */,
+				E1131B901650946C009DA6AA /* XCSpecification.m in Sources */,
+				E1131B93165098EF009DA6AA /* PBXStringTreeNode.m in Sources */,
+				E1131B9516509E4E009DA6AA /* PBXStringTree.m in Sources */,
+				E1602E961650A3A3009729DE /* PBXFileType.m in Sources */,
+				E1602E991650A4E6009729DE /* PBXFileTypePart.m in Sources */,
+				E1602EA11650BBD1009729DE /* TSPropertyListDictionary.m in Sources */,
+				E1602EA31650C447009729DE /* PBXBuildMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

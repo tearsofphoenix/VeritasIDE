@@ -4,40 +4,53 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+enum
+{
+    PBXMessageError,
+    PBXMessageAnalyzerResult,
+    PBXMessageWarning,
+    PBXMessageNotice
+};
 
-@class NSArray, NSMutableArray, NSString;
+typedef NSInteger PBXMessageType;
 
 @interface PBXBuildMessage : NSObject
 {
-    int _type;
-    NSString *_messageString;
-    NSArray *_fileLocations;
-    NSUInteger _buildLogItemIdentifier;
+    PBXMessageType _type;
     NSMutableArray *_submessages;
 }
 
-+ (id)buildErrorMessageWithFormat:(id)arg1;
-+ (id)buildWarningMessageWithFormat:(id)arg1;
-+ (id)buildNoticeMessageWithFormat:(id)arg1;
-@property(nonatomic) NSUInteger buildLogItemIdentifier; // @synthesize buildLogItemIdentifier=_buildLogItemIdentifier;
-- (id)description;
++ (id)buildErrorMessageWithFormat: (NSString *)format;
++ (id)buildWarningMessageWithFormat: (NSString *)format;
++ (id)buildNoticeMessageWithFormat: (NSString *)format;
+
+@property(nonatomic) NSUInteger buildLogItemIdentifier;
+
+@property (copy) NSArray *fileLocations;
+
+@property (retain) NSString *messageString;
+
 - (BOOL)isError;
 - (BOOL)isAnalyzerResult;
 - (BOOL)isWarning;
 - (BOOL)isNotice;
-- (id)submessages;
-- (void)addSubmessage:(id)arg1;
+
+- (NSArray *)submessages;
+
+- (void)addSubmessage: (id)submessage;
+
 - (NSUInteger)lineNumber;
+
 - (id)filePath;
-- (void)setFileLocations:(id)arg1;
-- (id)fileLocations;
-- (void)setMessageString:(id)arg1;
-- (id)messageString;
-- (int)type;
-- (void)dealloc;
-- (id)initWithType:(int)arg1 messageString:(id)arg2;
-- (id)initWithType:(int)arg1 messageString:(id)arg2 fileLocations:(id)arg3;
+
+- (PBXMessageType)type;
+
+- (id)initWithType: (PBXMessageType)type
+     messageString: (NSString *)str;
+
+- (id)initWithType: (PBXMessageType)type
+     messageString: (NSString *)str
+     fileLocations: (NSArray *)locations;
 
 @end
 

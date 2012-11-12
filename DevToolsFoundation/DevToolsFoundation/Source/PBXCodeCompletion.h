@@ -4,8 +4,6 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
-
 @class PBXCCSymbolTable, PBXProjectIndex;
 
 @interface PBXCodeCompletion : NSObject
@@ -14,7 +12,8 @@
     PBXCCSymbolTable *symTab;
 }
 
-+ (id)stringByReplacingPlaceholderTokensInString:(id)arg1 withString:(id)arg2;
++ (NSString *)stringByReplacingPlaceholderTokensInString: (NSString *)targetStr
+                                              withString: (NSString *)replacement;
 + (void)initialize;
 + (NSInteger)debugLevel;
 - (id)typeOfExpression:(id)arg1 resolveType:(BOOL)arg2;

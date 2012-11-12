@@ -8,8 +8,6 @@
 
 #import "XCCompatibilityChecking-Protocol.h"
 
-@class NSMutableArray;
-
 @interface PBXGroup : PBXReference <XCCompatibilityChecking>
 {
     NSMutableArray *_children;

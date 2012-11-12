@@ -8,8 +8,6 @@
 
 #import "PBXSignatureSymbol-Protocol.h"
 
-@class NSArray, NSString;
-
 @interface PBXFunctionSymbol : PBXSymbol <PBXSignatureSymbol>
 {
     NSString *_cachedInvocation;

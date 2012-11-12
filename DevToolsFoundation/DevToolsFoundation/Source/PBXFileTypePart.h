@@ -4,10 +4,6 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
-
-@class NSMutableArray, NSString;
-
 @interface PBXFileTypePart : NSObject
 {
     NSString *_identifier;
@@ -15,17 +11,26 @@
     NSMutableArray *_subparts;
 }
 
-+ (id)fileTypePartFromSpecificationArray:(id)arg1 identifier:(id)arg2;
++ (id)fileTypePartFromSpecificationArray: (NSArray *)array
+                              identifier: (NSString *)ID;
+
 - (BOOL)isSymbolicLink;
 - (BOOL)isFolder;
 - (BOOL)isPlainFile;
-- (id)subparts;
-- (void)setSuperpart:(id)arg1;
-- (id)superpart;
-- (id)identifier;
+
+- (NSArray *)subparts;
+- (void)setSuperpart: (NSArray *)parts;
+
+- (PBXFileTypePart *)superpart;
+
+- (NSString *)identifier;
+
 - (void)dealloc;
+
 - (id)init;
-- (id)initFromSpecificationArray:(id)arg1 identifier:(id)arg2;
+
+- (id)initFromSpecificationArray: (NSArray *)array
+                      identifier: (NSString *)ID;
 
 @end
 

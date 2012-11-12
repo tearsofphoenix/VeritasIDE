@@ -6,18 +6,15 @@
 
 #import <DevToolsCore/PBXBreakpoint.h>
 
-#import "NSCopying-Protocol.h"
-
-@class NSString;
-
 @interface PBXFileBreakpoint : PBXBreakpoint <NSCopying>
 {
     NSUInteger _debugTimestamp;
     NSString *_functionName;
 }
 
-+ (id)breakpointWithFileReference:(id)arg1 lineNumber:(NSUInteger)arg2;
-+ (id)breakpointWithTextBookmark:(id)arg1;
++ (id)breakpointWithFileReference: (id)arg1
+                       lineNumber: (NSUInteger)arg2;
++ (id)breakpointWithTextBookmark: (id)arg1;
 + (id)archivableRelationships;
 + (id)archivableAttributes;
 - (void)purify;

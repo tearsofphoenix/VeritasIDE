@@ -1,0 +1,690 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E1131B7F16509261009DA6AA /* XcodeEdit.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB43164E9ED5008004B6 /* XcodeEdit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1131B8E1650942F009DA6AA /* DevToolsFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1131B8B16509420009DA6AA /* DevToolsFoundation.framework */; };
+		E12AEB37164E9ED5008004B6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12AEB36164E9ED5008004B6 /* Cocoa.framework */; };
+		E12AEB41164E9ED5008004B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12AEB3F164E9ED5008004B6 /* InfoPlist.strings */; };
+		E12AEB9B164E9F17008004B6 /* NSAttributedString-XCEditAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB55164E9F17008004B6 /* NSAttributedString-XCEditAdditions.h */; };
+		E12AEB9C164E9F17008004B6 /* NSCursor-XCTextExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB56164E9F17008004B6 /* NSCursor-XCTextExtras.h */; };
+		E12AEB9D164E9F17008004B6 /* NSFont-XCTextColorExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB57164E9F17008004B6 /* NSFont-XCTextColorExtensions.h */; };
+		E12AEB9F164E9F17008004B6 /* NSMutableString-XCTextExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB59164E9F17008004B6 /* NSMutableString-XCTextExtras.h */; };
+		E12AEBA1164E9F17008004B6 /* NSUndoReplaceCharacters-XCUndoReplaceCharacters.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB5B164E9F17008004B6 /* NSUndoReplaceCharacters-XCUndoReplaceCharacters.h */; };
+		E12AEBA2164E9F17008004B6 /* NSUndoTextOperation-XCUndoTextOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB5C164E9F17008004B6 /* NSUndoTextOperation-XCUndoTextOperation.h */; };
+		E12AEBA3164E9F17008004B6 /* NSUndoTyping-XCUndoTyping.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB5D164E9F17008004B6 /* NSUndoTyping-XCUndoTyping.h */; };
+		E12AEBA4164E9F17008004B6 /* XCAnnotatingTypesetter.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB5E164E9F17008004B6 /* XCAnnotatingTypesetter.h */; };
+		E12AEBA5164E9F17008004B6 /* XCBlockScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB5F164E9F17008004B6 /* XCBlockScanner.h */; };
+		E12AEBA6164E9F17008004B6 /* XCBreakpointTextAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB60164E9F17008004B6 /* XCBreakpointTextAnnotation.h */; };
+		E12AEBA7164E9F17008004B6 /* XCBreakpointTextAnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB61164E9F17008004B6 /* XCBreakpointTextAnnotationView.h */; };
+		E12AEBA8164E9F17008004B6 /* XCBuildMessageTextAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB62164E9F17008004B6 /* XCBuildMessageTextAnnotation.h */; };
+		E12AEBA9164E9F17008004B6 /* XCBuildMessageTextAnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB63164E9F17008004B6 /* XCBuildMessageTextAnnotationView.h */; };
+		E12AEBAA164E9F17008004B6 /* XCCategoryItemMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB64164E9F17008004B6 /* XCCategoryItemMatcher.h */; };
+		E12AEBAB164E9F17008004B6 /* XCCharStream.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB65164E9F17008004B6 /* XCCharStream.h */; };
+		E12AEBAC164E9F17008004B6 /* XCClassItemMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB66164E9F17008004B6 /* XCClassItemMatcher.h */; };
+		E12AEBAD164E9F17008004B6 /* XCColorTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB67164E9F17008004B6 /* XCColorTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E12AEBAE164E9F17008004B6 /* XCFold.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB68164E9F17008004B6 /* XCFold.h */; };
+		E12AEBAF164E9F17008004B6 /* XCFoldingTextStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB69164E9F17008004B6 /* XCFoldingTextStorage.h */; };
+		E12AEBB0164E9F17008004B6 /* XCFoldInlineTokenAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB6A164E9F17008004B6 /* XCFoldInlineTokenAttachment.h */; };
+		E12AEBB1164E9F17008004B6 /* XCFoldInlineTokenAttachmentCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB6B164E9F17008004B6 /* XCFoldInlineTokenAttachmentCell.h */; };
+		E12AEBB2164E9F17008004B6 /* XCFunctionItemMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB6C164E9F17008004B6 /* XCFunctionItemMatcher.h */; };
+		E12AEBB3164E9F17008004B6 /* XCHTMLEntityScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB6D164E9F17008004B6 /* XCHTMLEntityScanner.h */; };
+		E12AEBB4164E9F17008004B6 /* XCHTMLScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB6E164E9F17008004B6 /* XCHTMLScanner.h */; };
+		E12AEBB5164E9F17008004B6 /* XCInstructionPointerTextAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB6F164E9F17008004B6 /* XCInstructionPointerTextAnnotation.h */; };
+		E12AEBB6164E9F17008004B6 /* XCInstructionPointerTextAnnotationTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB70164E9F17008004B6 /* XCInstructionPointerTextAnnotationTheme.h */; };
+		E12AEBB7164E9F17008004B6 /* XCKeywordScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB71164E9F17008004B6 /* XCKeywordScanner.h */; };
+		E12AEBB8164E9F17008004B6 /* XCLanguageSpecification.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB72164E9F17008004B6 /* XCLanguageSpecification.h */; };
+		E12AEBB9164E9F17008004B6 /* XCLayoutManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB73164E9F17008004B6 /* XCLayoutManager.h */; };
+		E12AEBBA164E9F17008004B6 /* XCMethodItemMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB74164E9F17008004B6 /* XCMethodItemMatcher.h */; };
+		E12AEBBB164E9F17008004B6 /* XCNumberScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB75164E9F17008004B6 /* XCNumberScanner.h */; };
+		E12AEBBC164E9F17008004B6 /* XCParagraphInfoTable.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB76164E9F17008004B6 /* XCParagraphInfoTable.h */; };
+		E12AEBBD164E9F17008004B6 /* XCParagraphMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB77164E9F17008004B6 /* XCParagraphMarker.h */; };
+		E12AEBBF164E9F17008004B6 /* XCPreprocessorItemMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB79164E9F17008004B6 /* XCPreprocessorItemMatcher.h */; };
+		E12AEBC0164E9F17008004B6 /* XCProtocolItemMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB7A164E9F17008004B6 /* XCProtocolItemMatcher.h */; };
+		E12AEBC1164E9F17008004B6 /* XCPythonScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB7B164E9F17008004B6 /* XCPythonScanner.h */; };
+		E12AEBC2164E9F17008004B6 /* XCRegExScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB7C164E9F17008004B6 /* XCRegExScanner.h */; };
+		E12AEBC3164E9F17008004B6 /* XCRuleScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB7D164E9F17008004B6 /* XCRuleScanner.h */; };
+		E12AEBC5164E9F17008004B6 /* XCScannerRule.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB7F164E9F17008004B6 /* XCScannerRule.h */; };
+		E12AEBC6164E9F17008004B6 /* XCSourceModel.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB80164E9F17008004B6 /* XCSourceModel.h */; };
+		E12AEBC7164E9F17008004B6 /* XCSourceModelItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB81164E9F17008004B6 /* XCSourceModelItem.h */; };
+		E12AEBC8164E9F17008004B6 /* XCSourceModelItemMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB82164E9F17008004B6 /* XCSourceModelItemMatcher.h */; };
+		E12AEBC9164E9F17008004B6 /* XCSourceScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB83164E9F17008004B6 /* XCSourceScanner.h */; };
+		E12AEBCA164E9F17008004B6 /* XCSourceScannerItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB84164E9F17008004B6 /* XCSourceScannerItem.h */; };
+		E12AEBCB164E9F17008004B6 /* XCSourceTokens.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB85164E9F17008004B6 /* XCSourceTokens.h */; };
+		E12AEBCC164E9F17008004B6 /* XCSyntaxTypeSpecification.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB86164E9F17008004B6 /* XCSyntaxTypeSpecification.h */; };
+		E12AEBCD164E9F17008004B6 /* XCTextAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB87164E9F17008004B6 /* XCTextAnnotation.h */; };
+		E12AEBCE164E9F17008004B6 /* XCTextAnnotationIndicatorAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB88164E9F17008004B6 /* XCTextAnnotationIndicatorAnimation.h */; };
+		E12AEBCF164E9F17008004B6 /* XCTextAnnotationTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB89164E9F17008004B6 /* XCTextAnnotationTheme.h */; };
+		E12AEBD0164E9F17008004B6 /* XCTextAnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB8A164E9F17008004B6 /* XCTextAnnotationView.h */; };
+		E12AEBD1164E9F17008004B6 /* XCTextColor.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB8B164E9F17008004B6 /* XCTextColor.h */; };
+		E12AEBD2164E9F17008004B6 /* XCTextColorPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB8C164E9F17008004B6 /* XCTextColorPreferences.h */; };
+		E12AEBD3164E9F17008004B6 /* XCTextFileLocation-DevToolsInterfaceExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB8D164E9F17008004B6 /* XCTextFileLocation-DevToolsInterfaceExtensions.h */; };
+		E12AEBD4164E9F17008004B6 /* XCTextPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB8E164E9F17008004B6 /* XCTextPreferences.h */; };
+		E12AEBD5164E9F17008004B6 /* XCTextSidebarView.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB8F164E9F17008004B6 /* XCTextSidebarView.h */; };
+		E12AEBD6164E9F17008004B6 /* XCTextStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB90164E9F17008004B6 /* XCTextStorage.h */; };
+		E12AEBD7164E9F17008004B6 /* XCTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB91164E9F17008004B6 /* XCTextView.h */; };
+		E12AEBD8164E9F17008004B6 /* XCTokenizedEditingUndoHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB92164E9F17008004B6 /* XCTokenizedEditingUndoHelper.h */; };
+		E12AEBD9164E9F17008004B6 /* XCUndoMultiEdits.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB93164E9F17008004B6 /* XCUndoMultiEdits.h */; };
+		E12AEBDA164E9F17008004B6 /* XCUndoReplaceCharacters.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB94164E9F17008004B6 /* XCUndoReplaceCharacters.h */; };
+		E12AEBDB164E9F17008004B6 /* XCUndoTyping.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB95164E9F17008004B6 /* XCUndoTyping.h */; };
+		E12AEBDC164E9F17008004B6 /* XCVariableItemMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E12AEB96164E9F17008004B6 /* XCVariableItemMatcher.h */; };
+		E12AEBDE164E9F7F008004B6 /* XCTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E12AEBDD164E9F7E008004B6 /* XCTextView.m */; };
+		E12AEBF8164EA421008004B6 /* OakFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12AEBF3164EA410008004B6 /* OakFoundation.framework */; };
+		E12AEBFA164EA5ED008004B6 /* XCFoldingTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = E12AEBF9164EA5EC008004B6 /* XCFoldingTextStorage.m */; };
+		E12AEBFC164EA695008004B6 /* XCSourceTokens.m in Sources */ = {isa = PBXBuildFile; fileRef = E12AEBFB164EA694008004B6 /* XCSourceTokens.m */; };
+		E12AEBFE164EA95D008004B6 /* XCTextColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E12AEBFD164EA95B008004B6 /* XCTextColor.m */; };
+		E12AEC00164EAA61008004B6 /* XCTextAnnotationTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = E12AEBFF164EAA5F008004B6 /* XCTextAnnotationTheme.m */; };
+		E12AEC02164EADA2008004B6 /* XCSourceScannerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E12AEC01164EADA0008004B6 /* XCSourceScannerItem.m */; };
+		E12AEC04164EB196008004B6 /* XCFold.m in Sources */ = {isa = PBXBuildFile; fileRef = E12AEC03164EB193008004B6 /* XCFold.m */; };
+		E12AEC06164ED300008004B6 /* XCTextSidebarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E12AEC05164ED2FA008004B6 /* XCTextSidebarView.m */; };
+		E12AEC08164F7FB6008004B6 /* NSMutableString-XCTextExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = E12AEC07164F7FB0008004B6 /* NSMutableString-XCTextExtras.m */; };
+		E12AEC7E16508765008004B6 /* XCColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = E12AEC7D16508765008004B6 /* XCColorTheme.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E1131B8A16509420009DA6AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1131B831650941F009DA6AA /* DevToolsFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E1CCCE9B1644ED37006696E0;
+			remoteInfo = DevToolsFoundation;
+		};
+		E1131B8C16509428009DA6AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1131B831650941F009DA6AA /* DevToolsFoundation.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E1CCCE9A1644ED37006696E0;
+			remoteInfo = DevToolsFoundation;
+		};
+		E12AEBF2164EA410008004B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E12AEBE9164EA40F008004B6 /* OakFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E1CCD12F1644F65F006696E0;
+			remoteInfo = OakFoundation;
+		};
+		E12AEBF4164EA410008004B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E12AEBE9164EA40F008004B6 /* OakFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E1B93118164A6A3200B0DE8D;
+			remoteInfo = Test;
+		};
+		E12AEBF6164EA41A008004B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E12AEBE9164EA40F008004B6 /* OakFoundation.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E1CCD12E1644F65F006696E0;
+			remoteInfo = OakFoundation;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E1131B831650941F009DA6AA /* DevToolsFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DevToolsFoundation.xcodeproj; path = ../DevToolsFoundation/DevToolsFoundation.xcodeproj; sourceTree = "<group>"; };
+		E12AEB33164E9ED5008004B6 /* XcodeEdit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XcodeEdit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E12AEB36164E9ED5008004B6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		E12AEB39164E9ED5008004B6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		E12AEB3A164E9ED5008004B6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E12AEB3B164E9ED5008004B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E12AEB3E164E9ED5008004B6 /* XcodeEdit.temp_caseinsensitive_rename-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "XcodeEdit.temp_caseinsensitive_rename-Info.plist"; sourceTree = "<group>"; };
+		E12AEB40164E9ED5008004B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E12AEB42164E9ED5008004B6 /* XcodeEdit.temp_caseinsensitive_rename-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XcodeEdit.temp_caseinsensitive_rename-Prefix.pch"; sourceTree = "<group>"; };
+		E12AEB43164E9ED5008004B6 /* XcodeEdit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XcodeEdit.h; sourceTree = "<group>"; };
+		E12AEB55164E9F17008004B6 /* NSAttributedString-XCEditAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString-XCEditAdditions.h"; sourceTree = "<group>"; };
+		E12AEB56164E9F17008004B6 /* NSCursor-XCTextExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCursor-XCTextExtras.h"; sourceTree = "<group>"; };
+		E12AEB57164E9F17008004B6 /* NSFont-XCTextColorExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFont-XCTextColorExtensions.h"; sourceTree = "<group>"; };
+		E12AEB59164E9F17008004B6 /* NSMutableString-XCTextExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString-XCTextExtras.h"; sourceTree = "<group>"; };
+		E12AEB5B164E9F17008004B6 /* NSUndoReplaceCharacters-XCUndoReplaceCharacters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUndoReplaceCharacters-XCUndoReplaceCharacters.h"; sourceTree = "<group>"; };
+		E12AEB5C164E9F17008004B6 /* NSUndoTextOperation-XCUndoTextOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUndoTextOperation-XCUndoTextOperation.h"; sourceTree = "<group>"; };
+		E12AEB5D164E9F17008004B6 /* NSUndoTyping-XCUndoTyping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUndoTyping-XCUndoTyping.h"; sourceTree = "<group>"; };
+		E12AEB5E164E9F17008004B6 /* XCAnnotatingTypesetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCAnnotatingTypesetter.h; sourceTree = "<group>"; };
+		E12AEB5F164E9F17008004B6 /* XCBlockScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCBlockScanner.h; sourceTree = "<group>"; };
+		E12AEB60164E9F17008004B6 /* XCBreakpointTextAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCBreakpointTextAnnotation.h; sourceTree = "<group>"; };
+		E12AEB61164E9F17008004B6 /* XCBreakpointTextAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCBreakpointTextAnnotationView.h; sourceTree = "<group>"; };
+		E12AEB62164E9F17008004B6 /* XCBuildMessageTextAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCBuildMessageTextAnnotation.h; sourceTree = "<group>"; };
+		E12AEB63164E9F17008004B6 /* XCBuildMessageTextAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCBuildMessageTextAnnotationView.h; sourceTree = "<group>"; };
+		E12AEB64164E9F17008004B6 /* XCCategoryItemMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCCategoryItemMatcher.h; sourceTree = "<group>"; };
+		E12AEB65164E9F17008004B6 /* XCCharStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCCharStream.h; sourceTree = "<group>"; };
+		E12AEB66164E9F17008004B6 /* XCClassItemMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCClassItemMatcher.h; sourceTree = "<group>"; };
+		E12AEB67164E9F17008004B6 /* XCColorTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCColorTheme.h; sourceTree = "<group>"; };
+		E12AEB68164E9F17008004B6 /* XCFold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFold.h; sourceTree = "<group>"; };
+		E12AEB69164E9F17008004B6 /* XCFoldingTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFoldingTextStorage.h; sourceTree = "<group>"; };
+		E12AEB6A164E9F17008004B6 /* XCFoldInlineTokenAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFoldInlineTokenAttachment.h; sourceTree = "<group>"; };
+		E12AEB6B164E9F17008004B6 /* XCFoldInlineTokenAttachmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFoldInlineTokenAttachmentCell.h; sourceTree = "<group>"; };
+		E12AEB6C164E9F17008004B6 /* XCFunctionItemMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFunctionItemMatcher.h; sourceTree = "<group>"; };
+		E12AEB6D164E9F17008004B6 /* XCHTMLEntityScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCHTMLEntityScanner.h; sourceTree = "<group>"; };
+		E12AEB6E164E9F17008004B6 /* XCHTMLScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCHTMLScanner.h; sourceTree = "<group>"; };
+		E12AEB6F164E9F17008004B6 /* XCInstructionPointerTextAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCInstructionPointerTextAnnotation.h; sourceTree = "<group>"; };
+		E12AEB70164E9F17008004B6 /* XCInstructionPointerTextAnnotationTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCInstructionPointerTextAnnotationTheme.h; sourceTree = "<group>"; };
+		E12AEB71164E9F17008004B6 /* XCKeywordScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCKeywordScanner.h; sourceTree = "<group>"; };
+		E12AEB72164E9F17008004B6 /* XCLanguageSpecification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCLanguageSpecification.h; sourceTree = "<group>"; };
+		E12AEB73164E9F17008004B6 /* XCLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCLayoutManager.h; sourceTree = "<group>"; };
+		E12AEB74164E9F17008004B6 /* XCMethodItemMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCMethodItemMatcher.h; sourceTree = "<group>"; };
+		E12AEB75164E9F17008004B6 /* XCNumberScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCNumberScanner.h; sourceTree = "<group>"; };
+		E12AEB76164E9F17008004B6 /* XCParagraphInfoTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCParagraphInfoTable.h; sourceTree = "<group>"; };
+		E12AEB77164E9F17008004B6 /* XCParagraphMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCParagraphMarker.h; sourceTree = "<group>"; };
+		E12AEB79164E9F17008004B6 /* XCPreprocessorItemMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCPreprocessorItemMatcher.h; sourceTree = "<group>"; };
+		E12AEB7A164E9F17008004B6 /* XCProtocolItemMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCProtocolItemMatcher.h; sourceTree = "<group>"; };
+		E12AEB7B164E9F17008004B6 /* XCPythonScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCPythonScanner.h; sourceTree = "<group>"; };
+		E12AEB7C164E9F17008004B6 /* XCRegExScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCRegExScanner.h; sourceTree = "<group>"; };
+		E12AEB7D164E9F17008004B6 /* XCRuleScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCRuleScanner.h; sourceTree = "<group>"; };
+		E12AEB7F164E9F17008004B6 /* XCScannerRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCScannerRule.h; sourceTree = "<group>"; };
+		E12AEB80164E9F17008004B6 /* XCSourceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSourceModel.h; sourceTree = "<group>"; };
+		E12AEB81164E9F17008004B6 /* XCSourceModelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSourceModelItem.h; sourceTree = "<group>"; };
+		E12AEB82164E9F17008004B6 /* XCSourceModelItemMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSourceModelItemMatcher.h; sourceTree = "<group>"; };
+		E12AEB83164E9F17008004B6 /* XCSourceScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSourceScanner.h; sourceTree = "<group>"; };
+		E12AEB84164E9F17008004B6 /* XCSourceScannerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSourceScannerItem.h; sourceTree = "<group>"; };
+		E12AEB85164E9F17008004B6 /* XCSourceTokens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSourceTokens.h; sourceTree = "<group>"; };
+		E12AEB86164E9F17008004B6 /* XCSyntaxTypeSpecification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSyntaxTypeSpecification.h; sourceTree = "<group>"; };
+		E12AEB87164E9F17008004B6 /* XCTextAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTextAnnotation.h; sourceTree = "<group>"; };
+		E12AEB88164E9F17008004B6 /* XCTextAnnotationIndicatorAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTextAnnotationIndicatorAnimation.h; sourceTree = "<group>"; };
+		E12AEB89164E9F17008004B6 /* XCTextAnnotationTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTextAnnotationTheme.h; sourceTree = "<group>"; };
+		E12AEB8A164E9F17008004B6 /* XCTextAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTextAnnotationView.h; sourceTree = "<group>"; };
+		E12AEB8B164E9F17008004B6 /* XCTextColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTextColor.h; sourceTree = "<group>"; };
+		E12AEB8C164E9F17008004B6 /* XCTextColorPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTextColorPreferences.h; sourceTree = "<group>"; };
+		E12AEB8D164E9F17008004B6 /* XCTextFileLocation-DevToolsInterfaceExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTextFileLocation-DevToolsInterfaceExtensions.h"; sourceTree = "<group>"; };
+		E12AEB8E164E9F17008004B6 /* XCTextPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTextPreferences.h; sourceTree = "<group>"; };
+		E12AEB8F164E9F17008004B6 /* XCTextSidebarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTextSidebarView.h; sourceTree = "<group>"; };
+		E12AEB90164E9F17008004B6 /* XCTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTextStorage.h; sourceTree = "<group>"; };
+		E12AEB91164E9F17008004B6 /* XCTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTextView.h; sourceTree = "<group>"; };
+		E12AEB92164E9F17008004B6 /* XCTokenizedEditingUndoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTokenizedEditingUndoHelper.h; sourceTree = "<group>"; };
+		E12AEB93164E9F17008004B6 /* XCUndoMultiEdits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCUndoMultiEdits.h; sourceTree = "<group>"; };
+		E12AEB94164E9F17008004B6 /* XCUndoReplaceCharacters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCUndoReplaceCharacters.h; sourceTree = "<group>"; };
+		E12AEB95164E9F17008004B6 /* XCUndoTyping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCUndoTyping.h; sourceTree = "<group>"; };
+		E12AEB96164E9F17008004B6 /* XCVariableItemMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCVariableItemMatcher.h; sourceTree = "<group>"; };
+		E12AEBDD164E9F7E008004B6 /* XCTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCTextView.m; sourceTree = "<group>"; };
+		E12AEBE9164EA40F008004B6 /* OakFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OakFoundation.xcodeproj; path = ../OakFoundation/OakFoundation.xcodeproj; sourceTree = "<group>"; };
+		E12AEBF9164EA5EC008004B6 /* XCFoldingTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCFoldingTextStorage.m; sourceTree = "<group>"; };
+		E12AEBFB164EA694008004B6 /* XCSourceTokens.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCSourceTokens.m; sourceTree = "<group>"; };
+		E12AEBFD164EA95B008004B6 /* XCTextColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCTextColor.m; sourceTree = "<group>"; };
+		E12AEBFF164EAA5F008004B6 /* XCTextAnnotationTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCTextAnnotationTheme.m; sourceTree = "<group>"; };
+		E12AEC01164EADA0008004B6 /* XCSourceScannerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCSourceScannerItem.m; sourceTree = "<group>"; };
+		E12AEC03164EB193008004B6 /* XCFold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCFold.m; sourceTree = "<group>"; };
+		E12AEC05164ED2FA008004B6 /* XCTextSidebarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCTextSidebarView.m; sourceTree = "<group>"; };
+		E12AEC07164F7FB0008004B6 /* NSMutableString-XCTextExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString-XCTextExtras.m"; sourceTree = "<group>"; };
+		E12AEC7D16508765008004B6 /* XCColorTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCColorTheme.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E12AEB2F164E9ED5008004B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1131B8E1650942F009DA6AA /* DevToolsFoundation.framework in Frameworks */,
+				E12AEBF8164EA421008004B6 /* OakFoundation.framework in Frameworks */,
+				E12AEB37164E9ED5008004B6 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E1131B841650941F009DA6AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1131B8B16509420009DA6AA /* DevToolsFoundation.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E12AEB27164E9ED5008004B6 = {
+			isa = PBXGroup;
+			children = (
+				E1131B831650941F009DA6AA /* DevToolsFoundation.xcodeproj */,
+				E12AEBE9164EA40F008004B6 /* OakFoundation.xcodeproj */,
+				E12AEB3C164E9ED5008004B6 /* XCodeEdit */,
+				E12AEB35164E9ED5008004B6 /* Frameworks */,
+				E12AEB34164E9ED5008004B6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E12AEB34164E9ED5008004B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E12AEB33164E9ED5008004B6 /* XcodeEdit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E12AEB35164E9ED5008004B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E12AEB36164E9ED5008004B6 /* Cocoa.framework */,
+				E12AEB38164E9ED5008004B6 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E12AEB38164E9ED5008004B6 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E12AEB39164E9ED5008004B6 /* AppKit.framework */,
+				E12AEB3A164E9ED5008004B6 /* CoreData.framework */,
+				E12AEB3B164E9ED5008004B6 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		E12AEB3C164E9ED5008004B6 /* XCodeEdit */ = {
+			isa = PBXGroup;
+			children = (
+				E12AEB55164E9F17008004B6 /* NSAttributedString-XCEditAdditions.h */,
+				E12AEB56164E9F17008004B6 /* NSCursor-XCTextExtras.h */,
+				E12AEB57164E9F17008004B6 /* NSFont-XCTextColorExtensions.h */,
+				E12AEB59164E9F17008004B6 /* NSMutableString-XCTextExtras.h */,
+				E12AEC07164F7FB0008004B6 /* NSMutableString-XCTextExtras.m */,
+				E12AEB5B164E9F17008004B6 /* NSUndoReplaceCharacters-XCUndoReplaceCharacters.h */,
+				E12AEB5C164E9F17008004B6 /* NSUndoTextOperation-XCUndoTextOperation.h */,
+				E12AEB5D164E9F17008004B6 /* NSUndoTyping-XCUndoTyping.h */,
+				E12AEB5E164E9F17008004B6 /* XCAnnotatingTypesetter.h */,
+				E12AEB5F164E9F17008004B6 /* XCBlockScanner.h */,
+				E12AEB60164E9F17008004B6 /* XCBreakpointTextAnnotation.h */,
+				E12AEB61164E9F17008004B6 /* XCBreakpointTextAnnotationView.h */,
+				E12AEB62164E9F17008004B6 /* XCBuildMessageTextAnnotation.h */,
+				E12AEB63164E9F17008004B6 /* XCBuildMessageTextAnnotationView.h */,
+				E12AEB64164E9F17008004B6 /* XCCategoryItemMatcher.h */,
+				E12AEB65164E9F17008004B6 /* XCCharStream.h */,
+				E12AEB66164E9F17008004B6 /* XCClassItemMatcher.h */,
+				E12AEB67164E9F17008004B6 /* XCColorTheme.h */,
+				E12AEC7D16508765008004B6 /* XCColorTheme.m */,
+				E12AEB68164E9F17008004B6 /* XCFold.h */,
+				E12AEC03164EB193008004B6 /* XCFold.m */,
+				E12AEB69164E9F17008004B6 /* XCFoldingTextStorage.h */,
+				E12AEBF9164EA5EC008004B6 /* XCFoldingTextStorage.m */,
+				E12AEB6A164E9F17008004B6 /* XCFoldInlineTokenAttachment.h */,
+				E12AEB6B164E9F17008004B6 /* XCFoldInlineTokenAttachmentCell.h */,
+				E12AEB6C164E9F17008004B6 /* XCFunctionItemMatcher.h */,
+				E12AEB6D164E9F17008004B6 /* XCHTMLEntityScanner.h */,
+				E12AEB6E164E9F17008004B6 /* XCHTMLScanner.h */,
+				E12AEB6F164E9F17008004B6 /* XCInstructionPointerTextAnnotation.h */,
+				E12AEB70164E9F17008004B6 /* XCInstructionPointerTextAnnotationTheme.h */,
+				E12AEB71164E9F17008004B6 /* XCKeywordScanner.h */,
+				E12AEB72164E9F17008004B6 /* XCLanguageSpecification.h */,
+				E12AEB73164E9F17008004B6 /* XCLayoutManager.h */,
+				E12AEB74164E9F17008004B6 /* XCMethodItemMatcher.h */,
+				E12AEB75164E9F17008004B6 /* XCNumberScanner.h */,
+				E12AEB76164E9F17008004B6 /* XCParagraphInfoTable.h */,
+				E12AEB77164E9F17008004B6 /* XCParagraphMarker.h */,
+				E12AEB79164E9F17008004B6 /* XCPreprocessorItemMatcher.h */,
+				E12AEB7A164E9F17008004B6 /* XCProtocolItemMatcher.h */,
+				E12AEB7B164E9F17008004B6 /* XCPythonScanner.h */,
+				E12AEB7C164E9F17008004B6 /* XCRegExScanner.h */,
+				E12AEB7D164E9F17008004B6 /* XCRuleScanner.h */,
+				E12AEB7F164E9F17008004B6 /* XCScannerRule.h */,
+				E12AEB80164E9F17008004B6 /* XCSourceModel.h */,
+				E12AEB81164E9F17008004B6 /* XCSourceModelItem.h */,
+				E12AEB82164E9F17008004B6 /* XCSourceModelItemMatcher.h */,
+				E12AEB83164E9F17008004B6 /* XCSourceScanner.h */,
+				E12AEB84164E9F17008004B6 /* XCSourceScannerItem.h */,
+				E12AEC01164EADA0008004B6 /* XCSourceScannerItem.m */,
+				E12AEB85164E9F17008004B6 /* XCSourceTokens.h */,
+				E12AEBFB164EA694008004B6 /* XCSourceTokens.m */,
+				E12AEB86164E9F17008004B6 /* XCSyntaxTypeSpecification.h */,
+				E12AEB87164E9F17008004B6 /* XCTextAnnotation.h */,
+				E12AEB88164E9F17008004B6 /* XCTextAnnotationIndicatorAnimation.h */,
+				E12AEB89164E9F17008004B6 /* XCTextAnnotationTheme.h */,
+				E12AEBFF164EAA5F008004B6 /* XCTextAnnotationTheme.m */,
+				E12AEB8A164E9F17008004B6 /* XCTextAnnotationView.h */,
+				E12AEB8B164E9F17008004B6 /* XCTextColor.h */,
+				E12AEBFD164EA95B008004B6 /* XCTextColor.m */,
+				E12AEB8C164E9F17008004B6 /* XCTextColorPreferences.h */,
+				E12AEB8D164E9F17008004B6 /* XCTextFileLocation-DevToolsInterfaceExtensions.h */,
+				E12AEB8E164E9F17008004B6 /* XCTextPreferences.h */,
+				E12AEB8F164E9F17008004B6 /* XCTextSidebarView.h */,
+				E12AEC05164ED2FA008004B6 /* XCTextSidebarView.m */,
+				E12AEB90164E9F17008004B6 /* XCTextStorage.h */,
+				E12AEB91164E9F17008004B6 /* XCTextView.h */,
+				E12AEBDD164E9F7E008004B6 /* XCTextView.m */,
+				E12AEB92164E9F17008004B6 /* XCTokenizedEditingUndoHelper.h */,
+				E12AEB93164E9F17008004B6 /* XCUndoMultiEdits.h */,
+				E12AEB94164E9F17008004B6 /* XCUndoReplaceCharacters.h */,
+				E12AEB95164E9F17008004B6 /* XCUndoTyping.h */,
+				E12AEB96164E9F17008004B6 /* XCVariableItemMatcher.h */,
+				E12AEB43164E9ED5008004B6 /* XcodeEdit.h */,
+				E12AEB3D164E9ED5008004B6 /* Supporting Files */,
+			);
+			path = XCodeEdit;
+			sourceTree = "<group>";
+		};
+		E12AEB3D164E9ED5008004B6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E12AEB3E164E9ED5008004B6 /* XcodeEdit.temp_caseinsensitive_rename-Info.plist */,
+				E12AEB3F164E9ED5008004B6 /* InfoPlist.strings */,
+				E12AEB42164E9ED5008004B6 /* XcodeEdit.temp_caseinsensitive_rename-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E12AEBEA164EA40F008004B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E12AEBF3164EA410008004B6 /* OakFoundation.framework */,
+				E12AEBF5164EA410008004B6 /* Test */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E12AEB30164E9ED5008004B6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1131B7F16509261009DA6AA /* XcodeEdit.h in Headers */,
+				E12AEBAD164E9F17008004B6 /* XCColorTheme.h in Headers */,
+				E12AEB9B164E9F17008004B6 /* NSAttributedString-XCEditAdditions.h in Headers */,
+				E12AEB9C164E9F17008004B6 /* NSCursor-XCTextExtras.h in Headers */,
+				E12AEB9D164E9F17008004B6 /* NSFont-XCTextColorExtensions.h in Headers */,
+				E12AEB9F164E9F17008004B6 /* NSMutableString-XCTextExtras.h in Headers */,
+				E12AEBA1164E9F17008004B6 /* NSUndoReplaceCharacters-XCUndoReplaceCharacters.h in Headers */,
+				E12AEBA2164E9F17008004B6 /* NSUndoTextOperation-XCUndoTextOperation.h in Headers */,
+				E12AEBA3164E9F17008004B6 /* NSUndoTyping-XCUndoTyping.h in Headers */,
+				E12AEBA4164E9F17008004B6 /* XCAnnotatingTypesetter.h in Headers */,
+				E12AEBA5164E9F17008004B6 /* XCBlockScanner.h in Headers */,
+				E12AEBA6164E9F17008004B6 /* XCBreakpointTextAnnotation.h in Headers */,
+				E12AEBA7164E9F17008004B6 /* XCBreakpointTextAnnotationView.h in Headers */,
+				E12AEBA8164E9F17008004B6 /* XCBuildMessageTextAnnotation.h in Headers */,
+				E12AEBA9164E9F17008004B6 /* XCBuildMessageTextAnnotationView.h in Headers */,
+				E12AEBAA164E9F17008004B6 /* XCCategoryItemMatcher.h in Headers */,
+				E12AEBAB164E9F17008004B6 /* XCCharStream.h in Headers */,
+				E12AEBAC164E9F17008004B6 /* XCClassItemMatcher.h in Headers */,
+				E12AEBAE164E9F17008004B6 /* XCFold.h in Headers */,
+				E12AEBAF164E9F17008004B6 /* XCFoldingTextStorage.h in Headers */,
+				E12AEBB0164E9F17008004B6 /* XCFoldInlineTokenAttachment.h in Headers */,
+				E12AEBB1164E9F17008004B6 /* XCFoldInlineTokenAttachmentCell.h in Headers */,
+				E12AEBB2164E9F17008004B6 /* XCFunctionItemMatcher.h in Headers */,
+				E12AEBB3164E9F17008004B6 /* XCHTMLEntityScanner.h in Headers */,
+				E12AEBB4164E9F17008004B6 /* XCHTMLScanner.h in Headers */,
+				E12AEBB5164E9F17008004B6 /* XCInstructionPointerTextAnnotation.h in Headers */,
+				E12AEBB6164E9F17008004B6 /* XCInstructionPointerTextAnnotationTheme.h in Headers */,
+				E12AEBB7164E9F17008004B6 /* XCKeywordScanner.h in Headers */,
+				E12AEBB8164E9F17008004B6 /* XCLanguageSpecification.h in Headers */,
+				E12AEBB9164E9F17008004B6 /* XCLayoutManager.h in Headers */,
+				E12AEBBA164E9F17008004B6 /* XCMethodItemMatcher.h in Headers */,
+				E12AEBBB164E9F17008004B6 /* XCNumberScanner.h in Headers */,
+				E12AEBBC164E9F17008004B6 /* XCParagraphInfoTable.h in Headers */,
+				E12AEBBD164E9F17008004B6 /* XCParagraphMarker.h in Headers */,
+				E12AEBBF164E9F17008004B6 /* XCPreprocessorItemMatcher.h in Headers */,
+				E12AEBC0164E9F17008004B6 /* XCProtocolItemMatcher.h in Headers */,
+				E12AEBC1164E9F17008004B6 /* XCPythonScanner.h in Headers */,
+				E12AEBC2164E9F17008004B6 /* XCRegExScanner.h in Headers */,
+				E12AEBC3164E9F17008004B6 /* XCRuleScanner.h in Headers */,
+				E12AEBC5164E9F17008004B6 /* XCScannerRule.h in Headers */,
+				E12AEBC6164E9F17008004B6 /* XCSourceModel.h in Headers */,
+				E12AEBC7164E9F17008004B6 /* XCSourceModelItem.h in Headers */,
+				E12AEBC8164E9F17008004B6 /* XCSourceModelItemMatcher.h in Headers */,
+				E12AEBC9164E9F17008004B6 /* XCSourceScanner.h in Headers */,
+				E12AEBCA164E9F17008004B6 /* XCSourceScannerItem.h in Headers */,
+				E12AEBCB164E9F17008004B6 /* XCSourceTokens.h in Headers */,
+				E12AEBCC164E9F17008004B6 /* XCSyntaxTypeSpecification.h in Headers */,
+				E12AEBCD164E9F17008004B6 /* XCTextAnnotation.h in Headers */,
+				E12AEBCE164E9F17008004B6 /* XCTextAnnotationIndicatorAnimation.h in Headers */,
+				E12AEBCF164E9F17008004B6 /* XCTextAnnotationTheme.h in Headers */,
+				E12AEBD0164E9F17008004B6 /* XCTextAnnotationView.h in Headers */,
+				E12AEBD1164E9F17008004B6 /* XCTextColor.h in Headers */,
+				E12AEBD2164E9F17008004B6 /* XCTextColorPreferences.h in Headers */,
+				E12AEBD3164E9F17008004B6 /* XCTextFileLocation-DevToolsInterfaceExtensions.h in Headers */,
+				E12AEBD4164E9F17008004B6 /* XCTextPreferences.h in Headers */,
+				E12AEBD5164E9F17008004B6 /* XCTextSidebarView.h in Headers */,
+				E12AEBD6164E9F17008004B6 /* XCTextStorage.h in Headers */,
+				E12AEBD7164E9F17008004B6 /* XCTextView.h in Headers */,
+				E12AEBD8164E9F17008004B6 /* XCTokenizedEditingUndoHelper.h in Headers */,
+				E12AEBD9164E9F17008004B6 /* XCUndoMultiEdits.h in Headers */,
+				E12AEBDA164E9F17008004B6 /* XCUndoReplaceCharacters.h in Headers */,
+				E12AEBDB164E9F17008004B6 /* XCUndoTyping.h in Headers */,
+				E12AEBDC164E9F17008004B6 /* XCVariableItemMatcher.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E12AEB32164E9ED5008004B6 /* XcodeEdit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E12AEB48164E9ED5008004B6 /* Build configuration list for PBXNativeTarget "XcodeEdit" */;
+			buildPhases = (
+				E12AEB2E164E9ED5008004B6 /* Sources */,
+				E12AEB2F164E9ED5008004B6 /* Frameworks */,
+				E12AEB30164E9ED5008004B6 /* Headers */,
+				E12AEB31164E9ED5008004B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1131B8D16509428009DA6AA /* PBXTargetDependency */,
+				E12AEBF7164EA41A008004B6 /* PBXTargetDependency */,
+			);
+			name = XcodeEdit;
+			productName = XCodeEdit;
+			productReference = E12AEB33164E9ED5008004B6 /* XcodeEdit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E12AEB29164E9ED5008004B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = tearsofphoenix;
+			};
+			buildConfigurationList = E12AEB2C164E9ED5008004B6 /* Build configuration list for PBXProject "XCodeEdit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E12AEB27164E9ED5008004B6;
+			productRefGroup = E12AEB34164E9ED5008004B6 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E1131B841650941F009DA6AA /* Products */;
+					ProjectRef = E1131B831650941F009DA6AA /* DevToolsFoundation.xcodeproj */;
+				},
+				{
+					ProductGroup = E12AEBEA164EA40F008004B6 /* Products */;
+					ProjectRef = E12AEBE9164EA40F008004B6 /* OakFoundation.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				E12AEB32164E9ED5008004B6 /* XcodeEdit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E1131B8B16509420009DA6AA /* DevToolsFoundation.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DevToolsFoundation.framework;
+			remoteRef = E1131B8A16509420009DA6AA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E12AEBF3164EA410008004B6 /* OakFoundation.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OakFoundation.framework;
+			remoteRef = E12AEBF2164EA410008004B6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E12AEBF5164EA410008004B6 /* Test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = Test;
+			remoteRef = E12AEBF4164EA410008004B6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E12AEB31164E9ED5008004B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E12AEB41164E9ED5008004B6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E12AEB2E164E9ED5008004B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E12AEBDE164E9F7F008004B6 /* XCTextView.m in Sources */,
+				E12AEBFA164EA5ED008004B6 /* XCFoldingTextStorage.m in Sources */,
+				E12AEBFC164EA695008004B6 /* XCSourceTokens.m in Sources */,
+				E12AEBFE164EA95D008004B6 /* XCTextColor.m in Sources */,
+				E12AEC00164EAA61008004B6 /* XCTextAnnotationTheme.m in Sources */,
+				E12AEC02164EADA2008004B6 /* XCSourceScannerItem.m in Sources */,
+				E12AEC04164EB196008004B6 /* XCFold.m in Sources */,
+				E12AEC06164ED300008004B6 /* XCTextSidebarView.m in Sources */,
+				E12AEC08164F7FB6008004B6 /* NSMutableString-XCTextExtras.m in Sources */,
+				E12AEC7E16508765008004B6 /* XCColorTheme.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E1131B8D16509428009DA6AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DevToolsFoundation;
+			targetProxy = E1131B8C16509428009DA6AA /* PBXContainerItemProxy */;
+		};
+		E12AEBF7164EA41A008004B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OakFoundation;
+			targetProxy = E12AEBF6164EA41A008004B6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E12AEB3F164E9ED5008004B6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E12AEB40164E9ED5008004B6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E12AEB46164E9ED5008004B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E12AEB47164E9ED5008004B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E12AEB49164E9ED5008004B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "XCodeEdit/XcodeEdit.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "XCodeEdit/XcodeEdit.temp_caseinsensitive_rename-Info.plist";
+				PRODUCT_NAME = XcodeEdit;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		E12AEB4A164E9ED5008004B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "XCodeEdit/XcodeEdit.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "XCodeEdit/XcodeEdit.temp_caseinsensitive_rename-Info.plist";
+				PRODUCT_NAME = XcodeEdit;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E12AEB2C164E9ED5008004B6 /* Build configuration list for PBXProject "XCodeEdit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E12AEB46164E9ED5008004B6 /* Debug */,
+				E12AEB47164E9ED5008004B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E12AEB48164E9ED5008004B6 /* Build configuration list for PBXNativeTarget "XcodeEdit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E12AEB49164E9ED5008004B6 /* Debug */,
+				E12AEB4A164E9ED5008004B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E12AEB29164E9ED5008004B6 /* Project object */;
+}

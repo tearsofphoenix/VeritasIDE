@@ -6,8 +6,6 @@
 
 #import <DevToolsCore/PBXObject.h>
 
-@class NSString;
-
 @interface PBXCodeSenseManager : PBXObject
 {
     NSString *_indexBasePath;

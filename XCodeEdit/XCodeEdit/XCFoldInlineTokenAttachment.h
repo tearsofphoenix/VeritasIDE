@@ -4,17 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import <DevToolsCore/PBXObject.h>
+#import "NSTokenAttachment.h"
 
-@class NSString;
-
-@interface PBXFileSystemLocation : PBXObject
+@interface XCFoldInlineTokenAttachment : NSTokenAttachment
 {
-    NSString *_path;
 }
-
-- (id)path;
-- (void)dealloc;
 
 @end
 

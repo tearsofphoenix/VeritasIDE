@@ -4,13 +4,11 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "PBXProjectItem.h"
-
-#import "PBXMarkerDelegateProtocol.h"
+#import <DevToolsFoundation/PBXProjectItem.h>
 
 @class PBXProject, PBXTextBookmark, XCBreakpointCondition;
 
-@interface PBXBreakpoint : PBXProjectItem <PBXMarkerDelegateProtocol>
+@interface PBXBreakpoint : PBXProjectItem
 {
     NSUInteger _changeBits;
     NSMutableArray *_actions;

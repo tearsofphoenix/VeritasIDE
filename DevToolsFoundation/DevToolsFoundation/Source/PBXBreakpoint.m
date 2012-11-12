@@ -7,6 +7,11 @@
 //
 
 #import "PBXBreakpoint.h"
+#import "PBXMarkerDelegateProtocol.h"
+
+@interface PBXBreakpoint ()<PBXMarkerDelegateProtocol>
+
+@end
 
 @implementation PBXBreakpoint
 

@@ -30,6 +30,7 @@
 		E11D1C4F163BAC7D004FCD5B /* VDEResourceService.m in Sources */ = {isa = PBXBuildFile; fileRef = E11D1C4E163BAC7D004FCD5B /* VDEResourceService.m */; };
 		E12AEAE2164D6122008004B6 /* VDETextSiderBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E12AEAE1164D6122008004B6 /* VDETextSiderBarView.m */; };
 		E12AEAE5164D65E8008004B6 /* VDERulerMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = E12AEAE4164D65E8008004B6 /* VDERulerMarker.m */; };
+		E12AEC7B16508723008004B6 /* Basic.xccolortheme in Resources */ = {isa = PBXBuildFile; fileRef = E12AEC7A16508723008004B6 /* Basic.xccolortheme */; };
 		E12EDFA8163F6A960009C048 /* VDEMainDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E12EDFA7163F6A960009C048 /* VDEMainDataSource.m */; };
 		E12EDFDA16402CA20009C048 /* icon.navigator.group.icns in Resources */ = {isa = PBXBuildFile; fileRef = E12EDFD916402CA20009C048 /* icon.navigator.group.icns */; };
 		E12EDFDD16402D870009C048 /* VXBreakPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E12EDFDC16402D860009C048 /* VXBreakPoint.m */; };
@@ -104,10 +105,16 @@
 		E1BF3C4916397F2C001570DF /* VDEProjectNavigatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF3C4716397F2C001570DF /* VDEProjectNavigatorView.m */; };
 		E1BF3C4C16397F46001570DF /* VDEProjectNavigatorPrivateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF3C4B16397F46001570DF /* VDEProjectNavigatorPrivateHandler.m */; };
 		E1BF3C4F16398F0E001570DF /* VDESourceCodeEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BF3C4E16398F0E001570DF /* VDESourceCodeEditorView.m */; };
-		E1CCCF5E1644EE0D006696E0 /* DevToolsFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CCCEBE1644ED60006696E0 /* DevToolsFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E12AEB4F164E9ED6008004B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E12AEB4B164E9ED5008004B6 /* XCodeEdit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E12AEB33164E9ED5008004B6;
+			remoteInfo = XCodeEdit;
+		};
 		E14A34D11643A70900B8EB6E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E14A34C51643A70800B8EB6E /* VeritasMachineKit.xcodeproj */;
@@ -149,20 +156,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = E1CCCF6D1644F48C006696E0;
 			remoteInfo = OakAppKit;
-		};
-		E1CCCEBD1644ED60006696E0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1CCCEB61644ED5F006696E0 /* DevToolsFoundation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E1CCCE9B1644ED37006696E0;
-			remoteInfo = DevToolsFoundation;
-		};
-		E1CCCF5C1644EE08006696E0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1CCCEB61644ED5F006696E0 /* DevToolsFoundation.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = E1CCCE9A1644ED37006696E0;
-			remoteInfo = DevToolsFoundation;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -230,6 +223,8 @@
 		E12AEAE1164D6122008004B6 /* VDETextSiderBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDETextSiderBarView.m; path = Editor/VDETextSiderBarView.m; sourceTree = "<group>"; };
 		E12AEAE3164D65E8008004B6 /* VDERulerMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDERulerMarker.h; path = Editor/VDERulerMarker.h; sourceTree = "<group>"; };
 		E12AEAE4164D65E8008004B6 /* VDERulerMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDERulerMarker.m; path = Editor/VDERulerMarker.m; sourceTree = "<group>"; };
+		E12AEB4B164E9ED5008004B6 /* XCodeEdit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XCodeEdit.xcodeproj; path = ../XCodeEdit/XCodeEdit.xcodeproj; sourceTree = "<group>"; };
+		E12AEC7A16508723008004B6 /* Basic.xccolortheme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Basic.xccolortheme; sourceTree = "<group>"; };
 		E12EDFA6163F6A960009C048 /* VDEMainDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEMainDataSource.h; sourceTree = "<group>"; };
 		E12EDFA7163F6A960009C048 /* VDEMainDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEMainDataSource.m; sourceTree = "<group>"; };
 		E12EDFD916402CA20009C048 /* icon.navigator.group.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.navigator.group.icns; sourceTree = "<group>"; };
@@ -334,7 +329,6 @@
 		E1BF3C4B16397F46001570DF /* VDEProjectNavigatorPrivateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEProjectNavigatorPrivateHandler.m; sourceTree = "<group>"; };
 		E1BF3C4D16398F0E001570DF /* VDESourceCodeEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VDESourceCodeEditorView.h; path = Editor/VDESourceCodeEditorView.h; sourceTree = "<group>"; };
 		E1BF3C4E16398F0E001570DF /* VDESourceCodeEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VDESourceCodeEditorView.m; path = Editor/VDESourceCodeEditorView.m; sourceTree = "<group>"; };
-		E1CCCEB61644ED5F006696E0 /* DevToolsFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DevToolsFoundation.xcodeproj; path = ../DevToolsFoundation/DevToolsFoundation.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,7 +337,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E161E4181646E5D500C4CBF4 /* OakAppKit.framework in Frameworks */,
-				E1CCCF5E1644EE0D006696E0 /* DevToolsFoundation.framework in Frameworks */,
 				E14A34D91643A72500B8EB6E /* VeritasMachineKit.framework in Frameworks */,
 				E1A400C016439C2000F8AE92 /* LuaKit.framework in Frameworks */,
 				E1A4FDF21643688500F8AE92 /* IOKit.framework in Frameworks */,
@@ -463,6 +456,7 @@
 		22A7B7F116392E160067B98A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E12AEC7C1650872C008004B6 /* Colortheme */,
 				E18632F8163CF9BF0027EF15 /* icons */,
 				22A7B80516392E240067B98A /* Info.plist */,
 				22A7B7F416392E160067B98A /* Credits.rtf */,
@@ -480,8 +474,8 @@
 		29B97314FDCFA39411CA2CEA /* TrackIt */ = {
 			isa = PBXGroup;
 			children = (
+				E12AEB4B164E9ED5008004B6 /* XCodeEdit.xcodeproj */,
 				E161E4081646E5C800C4CBF4 /* OakAppKit.xcodeproj */,
-				E1CCCEB61644ED5F006696E0 /* DevToolsFoundation.xcodeproj */,
 				E14A34C51643A70800B8EB6E /* VeritasMachineKit.xcodeproj */,
 				22A7B7C81639183F0067B98A /* Code */,
 				22A7B7F116392E160067B98A /* Resources */,
@@ -500,6 +494,22 @@
 				E1A4FDF11643688500F8AE92 /* IOKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E12AEB4C164E9ED5008004B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E12AEB50164E9ED6008004B6 /* XcodeEdit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E12AEC7C1650872C008004B6 /* Colortheme */ = {
+			isa = PBXGroup;
+			children = (
+				E12AEC7A16508723008004B6 /* Basic.xccolortheme */,
+			);
+			name = Colortheme;
 			sourceTree = "<group>";
 		};
 		E13F18F1163E10F8009D41A7 /* DMTabBar */ = {
@@ -707,14 +717,6 @@
 			name = Toolbar;
 			sourceTree = "<group>";
 		};
-		E1CCCEB71644ED5F006696E0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E1CCCEBE1644ED60006696E0 /* DevToolsFoundation.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -732,7 +734,6 @@
 			);
 			dependencies = (
 				E161E4171646E5CF00C4CBF4 /* PBXTargetDependency */,
-				E1CCCF5D1644EE08006696E0 /* PBXTargetDependency */,
 				E14A34D81643A71000B8EB6E /* PBXTargetDependency */,
 			);
 			name = VeritasIDE;
@@ -761,16 +762,16 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = E1CCCEB71644ED5F006696E0 /* Products */;
-					ProjectRef = E1CCCEB61644ED5F006696E0 /* DevToolsFoundation.xcodeproj */;
-				},
-				{
 					ProductGroup = E161E4091646E5C800C4CBF4 /* Products */;
 					ProjectRef = E161E4081646E5C800C4CBF4 /* OakAppKit.xcodeproj */;
 				},
 				{
 					ProductGroup = E14A34C61643A70800B8EB6E /* Products */;
 					ProjectRef = E14A34C51643A70800B8EB6E /* VeritasMachineKit.xcodeproj */;
+				},
+				{
+					ProductGroup = E12AEB4C164E9ED5008004B6 /* Products */;
+					ProjectRef = E12AEB4B164E9ED5008004B6 /* XCodeEdit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -781,6 +782,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		E12AEB50164E9ED6008004B6 /* XcodeEdit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XcodeEdit.framework;
+			remoteRef = E12AEB4F164E9ED6008004B6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		E14A34D21643A70900B8EB6E /* VeritasMachineKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -807,13 +815,6 @@
 			fileType = wrapper.framework;
 			path = OakAppKit.framework;
 			remoteRef = E161E4131646E5C900C4CBF4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E1CCCEBE1644ED60006696E0 /* DevToolsFoundation.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = DevToolsFoundation.framework;
-			remoteRef = E1CCCEBD1644ED60006696E0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -869,6 +870,7 @@
 				E16FC4B51642540000A47A8D /* source.veritasproject.icns in Resources */,
 				E16FC4B61642540000A47A8D /* source.veritas.v.icns in Resources */,
 				E1A289081642CD1F009FCA36 /* VDENewFileViewController.xib in Resources */,
+				E12AEC7B16508723008004B6 /* Basic.xccolortheme in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -936,11 +938,6 @@
 			isa = PBXTargetDependency;
 			name = OakAppKit;
 			targetProxy = E161E4161646E5CF00C4CBF4 /* PBXContainerItemProxy */;
-		};
-		E1CCCF5D1644EE08006696E0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = DevToolsFoundation;
-			targetProxy = E1CCCF5C1644EE08006696E0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

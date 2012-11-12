@@ -6,9 +6,7 @@
 
 #import <DevToolsCore/PBXIndexEntry.h>
 
-#import "PBXCompletionItem-Protocol.h"
-
-@class NSObject, NSString;
+#import <DevToolsFoundation/PBXCompletionItem.h>
 
 @interface PBXSymbol : PBXIndexEntry <PBXCompletionItem>
 {

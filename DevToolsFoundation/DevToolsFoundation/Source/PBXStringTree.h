@@ -4,34 +4,40 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
-
-@class NSMutableDictionary, NSString, PBXStringTreeNode;
+@class PBXStringTreeNode;
 
 @interface PBXStringTree : NSObject
 {
     NSString *_pathSeparator;
     PBXStringTreeNode *_rootNode;
-    BOOL _keepsNodesSorted;
-    BOOL _sortAllButTopLevel;
     NSMutableDictionary *_sortHintsForPaths;
 }
 
 - (void)removeAllNodes;
-- (void)setObject:(id)arg1 forPath:(id)arg2;
-- (id)objectForPath:(id)arg1;
-- (id)rootNode;
-- (id)pathSeparator;
-- (void)setPreferredNodesOrder:(id)arg1 forPath:(id)arg2;
-- (void)setKeepsNodesSorted:(BOOL)arg1;
-- (BOOL)keepsNodesSorted;
-- (void)setSortAllButTopLevel:(BOOL)arg1;
-- (BOOL)sortAllButTopLevel;
-- (id)_lookupNode:(id *)arg1 forPath:(id)arg2;
-- (id)description;
+
+- (void)setObject: (id)hint
+          forPath: (NSString *)path;
+
+- (id)objectForPath: (NSString *)path;
+
+- (PBXStringTreeNode *)rootNode;
+
+- (NSString *)pathSeparator;
+
+- (void)setPreferredNodesOrder: (id)arg1
+                       forPath: (NSString *)path;
+
+@property BOOL keepsNodesSorted;
+
+@property BOOL sortAllButTopLevel;
+
+- (NSString * )description;
+
 - (void)dealloc;
+
 - (id)init;
-- (id)initWithPathSeparator:(id)arg1;
+
+- (id)initWithPathSeparator: (NSString *)separator;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <DevToolsCore/PBXReference.h>
 
-@class NSDictionary, PBXContainer, PBXFileType;
+@class PBXContainer, PBXFileType;
 
 @interface PBXFileReference : PBXReference
 {

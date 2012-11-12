@@ -6,7 +6,7 @@
 
 #import <DevToolsCore/PBXContainerItem.h>
 
-@class NSString, PBXContainer, PBXObject;
+@class PBXContainer, PBXObject;
 
 @interface PBXContainerItemProxy : PBXContainerItem
 {

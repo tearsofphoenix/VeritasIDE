@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSException, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableSet, PBXCStringStorage, PBXIndexingEngine, PBXProject, PBXProjectIndexBTree, PBXProjectIndexBTreeEnumerator, PBXRecordVector;
+@class PBXCStringStorage, PBXIndexingEngine, PBXProject, PBXProjectIndexBTree, PBXProjectIndexBTreeEnumerator, PBXRecordVector;
 
 @interface PBXProjectIndex : NSObject
 {

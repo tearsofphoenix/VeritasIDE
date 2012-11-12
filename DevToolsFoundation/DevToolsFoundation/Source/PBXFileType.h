@@ -6,22 +6,37 @@
 
 #import <DevToolsCore/XCSpecification.h>
 
-@class NSArray;
-
 @interface PBXFileType : XCSpecification
 {
     NSArray *_extensions;
 }
 
-+ (id)fileTypeForPath:(id)arg1;
-+ (id)fileTypeUsingFileAttributesAtPath:(id)arg1;
-+ (id)fileTypeForPath:(id)arg1 getExtraFileProperties:(id *)arg2;
-+ (id)guessFileTypeForGenericFileAtPath:(id)arg1 withFileAttributes:(id)arg2 getExtraFileProperties:(id *)arg3;
-+ (id)fileTypeForFilenamePattern:(id)arg1 isFolder:(BOOL)arg2;
-+ (id)fileTypeMatchingPatternsForFileName:(id)arg1;
-+ (id)fileTypeForFileName:(id)arg1;
-+ (id)fileTypeForFileName:(id)arg1 posixPermissions:(NSUInteger)arg2 hfsTypeCode:(unsigned int)arg3 hfsCreatorCode:(unsigned int)arg4;
-+ (id)bestFileTypeForRepresentingFileAtPath:(id)arg1 withFileAttributes:(id)arg2 withLessSpecificFileType:(id)arg3 getExtraFileProperties:(id *)arg4;
++ (id)fileTypeForPath: (NSString *)path;
+
++ (id)fileTypeUsingFileAttributesAtPath: (NSString *)path;
+
++ (id)fileTypeForPath: (NSString *)path
+getExtraFileProperties: (id *)properties;
+
++ (id)guessFileTypeForGenericFileAtPath: (NSString *)path
+                     withFileAttributes: (NSDictionary *)attrs
+                 getExtraFileProperties: (id *)properties;
+
++ (id)fileTypeForFilenamePattern: (id)pattern
+                        isFolder: (BOOL)flag;
+
++ (id)fileTypeMatchingPatternsForFileName: (NSString *)fileName;
++ (id)fileTypeForFileName: (NSString *)fileName;
++ (id)fileTypeForFileName: (NSString *)fileName
+         posixPermissions: (NSUInteger)arg2
+              hfsTypeCode: (unsigned int)arg3
+           hfsCreatorCode: (unsigned int)arg4;
+
++ (id)bestFileTypeForRepresentingFileAtPath: (NSString *)path
+                         withFileAttributes: (NSDictionary *)attrs
+                   withLessSpecificFileType: (id)type
+                     getExtraFileProperties: (id *)properties;
+
 + (id)wrapperFolderType;
 + (id)genericFolderType;
 + (id)textFileType;
@@ -40,6 +55,7 @@
 - (id)description;
 - (id)_objectForKeyIgnoringInheritance:(id)arg1;
 - (id)fileTypePartForIdentifier:(id)arg1;
+
 - (id)subpathForWrapperPart:(int)arg1 ofPath:(id)arg2 withExtraFileProperties:(id)arg3;
 - (id)extraPropertyNames;
 - (BOOL)requiresHardTabs;
@@ -47,7 +63,9 @@
 - (id)plistStructureDefinitionIdentifier;
 - (id)xcLanguageSpecificationIdentifier;
 - (id)languageSpecificationIdentifier;
+
 - (BOOL)canSetIncludeInIndex;
+
 - (BOOL)isTransparent;
 - (BOOL)includeInIndex;
 - (BOOL)isWrapperFolder;
@@ -72,7 +90,9 @@
 - (id)hfsTypeCodes;
 - (id)extensions;
 - (void)dealloc;
-- (id)initWithPropertyListDictionary:(id)arg1 inDomain:(id)arg2;
+
+- (id)initWithPropertyListDictionary: (NSDictionary *)dict
+                            inDomain: (NSString *)domain;
 
 @end
 
