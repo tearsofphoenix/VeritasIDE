@@ -51,18 +51,41 @@ inputStream: (id)arg4
                      range:(NSRange)arg6
                 dirtyRange:(NSRange *)arg7;
 
-- (NSInteger)parseOneIncludedRule:(id)arg1 inTree:(id)arg2 withContext:(id)arg3 initialToken:(NSInteger)arg4 inputStream:(id)arg5 range:(NSRange)arg6 dirtyRange:(NSRange *)arg7 isLexing:(BOOL)arg8 reusedToken:(char *)arg9;
-- (id)nodeForThisScanner:(id)arg1 atLocation:(NSUInteger)arg2 inputStream:(id)arg3;
-- (id)nodeToReuse:(id)arg1 forScanner:(id)arg2 inputStream:(id)arg3;
-- (id)includedRules;
+- (NSInteger)parseOneIncludedRule:(id)arg1
+                           inTree:(id)arg2
+                      withContext:(id)arg3
+                     initialToken:(NSInteger)arg4
+                      inputStream:(id)arg5
+                            range:(NSRange)arg6
+                       dirtyRange:(NSRange *)arg7
+                         isLexing:(BOOL)arg8
+                      reusedToken:(char *)arg9;
+
+- (id)nodeForThisScanner: (id)arg1
+              atLocation: (NSUInteger)arg2
+             inputStream: (id)arg3;
+- (id)nodeToReuse: (id)arg1
+       forScanner: (id)arg2
+      inputStream: (id)arg3;
+
+- (NSArray *)includedRules;
+
 - (id)lexer;
+
 - (NSInteger)token;
+
 - (id)langSpec;
+
 - (NSInteger)langId;
+
 - (id)description;
+
 - (void)dealloc;
-- (id)initWithLanguageSpecification:(id)arg1;
-- (id)initWithPropertyListDictionary:(id)arg1 language:(NSInteger)arg2;
+
+- (id)initWithLanguageSpecification: (XCLanguageSpecification *)spec;
+
+- (id)initWithPropertyListDictionary: (XCLanguageSpecification *)spec
+                            language: (NSInteger)languageID;
 
 @end
 

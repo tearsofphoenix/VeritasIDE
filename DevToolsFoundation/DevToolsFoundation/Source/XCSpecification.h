@@ -96,13 +96,14 @@
 - (NSString *)identifier;
 
 - (BOOL)isMissingSpecificationProxy;
-- (id)loadedSpecification;
+- (XCSpecification *)loadedSpecification;
 - (BOOL)isNotYetLoadedSpecificationProxy;
 - (BOOL)isAbstract;
 - (BOOL)isKindOfSpecification: (id)arg1;
-- (id)subSpecifications;
-- (id)subSpecificationsInDomain: (NSString *)domain;
-- (id)superSpecification;
+- (NSSet *)subSpecifications;
+- (NSSet *)subSpecificationsInDomain: (NSString *)domain;
+- (XCSpecification *)superSpecification;
+
 - (void)dealloc;
 - (id)init;
 - (id)initAsMissingSpecificationProxyWithIdentifier: (NSString *)ID

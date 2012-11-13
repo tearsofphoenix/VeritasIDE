@@ -14,14 +14,6 @@ int main(int argc, const char * argv[])
     
     @autoreleasepool
     {
-        NSMutableIndexSet *set = [NSMutableIndexSet indexSetWithIndexesInRange: NSMakeRange(5, 10)];
-        [set addIndex: 4];
-        [set addIndex: 122];
-        
-        [set enumerateIndexesUsingBlock: (^(NSUInteger idx, BOOL *stop)
-                                          {
-                                              NSLog(@"%ld\n", idx);
-                                          })];
         
     }
     return 0;

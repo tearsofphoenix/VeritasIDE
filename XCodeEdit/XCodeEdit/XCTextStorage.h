@@ -76,60 +76,106 @@ typedef struct _XCLineOffsetTable XCLineOffsetTable;
 }
 
 + (BOOL)hasSeparateFonts;
-+ (void)setHasSeparateFonts:(BOOL)arg1;
++ (void)setHasSeparateFonts:(BOOL)flag;
+
 + (void)initialize;
-- (id)stringForItem:(id)arg1;
-- (id)foldableBlockItemForLocation:(NSUInteger)arg1;
-- (id)foldableBlockItemForLineAtLocation:(NSUInteger)arg1;
-- (id)blockItemAtLocation:(NSUInteger)arg1;
-- (id)lineStringFromBookmark:(id)arg1;
-- (id)stringFromBookmark:(id)arg1;
-- (NSRange)lineRangeForRange:(NSRange)arg1;
-- (NSRange)lineNumberRangeFromBookmark:(id)arg1;
-- (NSRange)characterRangeFromBookmark:(id)arg1;
-- (id)fullString;
-- (CGFloat)indentationForWrappedLineAtIndex:(NSUInteger)arg1;
-- (NSUInteger)leadingWhitespacePositionsForLine:(NSUInteger)arg1;
+
+- (NSString *)stringForItem: (id)item;
+
+- (id)foldableBlockItemForLocation: (NSUInteger)idx;
+- (id)foldableBlockItemForLineAtLocation: (NSUInteger)idx;
+- (id)blockItemAtLocation:(NSUInteger)idx;
+- (id)lineStringFromBookmark:(id)bookmark;
+- (id)stringFromBookmark:(id)bookmark;
+
+- (NSRange)lineRangeForRange: (NSRange)range;
+- (NSRange)lineNumberRangeFromBookmark: (id)bookmark;
+- (NSRange)characterRangeFromBookmark: (id)bookmark;
+
+- (NSString *)fullString;
+- (CGFloat)indentationForWrappedLineAtIndex: (NSUInteger)idx;
+- (NSUInteger)leadingWhitespacePositionsForLine: (NSUInteger)idx;
+
 - (BOOL)getUsesTabs;
 - (NSInteger)getIndentWidth;
 - (NSInteger)getTabWidth;
 - (BOOL)isSubWordMovement;
-- (void)setSubWordMovement:(BOOL)arg1;
-- (NSUInteger)nextWordFromIndex:(NSUInteger)arg1 forward:(BOOL)arg2;
-- (NSUInteger)xcNextWordFromIndex:(NSUInteger)arg1 forward:(BOOL)arg2;
-- (NSRange)doubleClickAtIndex:(NSUInteger)arg1 inRange:(NSRange)arg2;
-- (NSRange)rangeOfWordAtIndex:(NSUInteger)arg1;
-- (NSRange)rangeOfWordAtIndex:(NSUInteger)arg1 allowNonWords:(BOOL)arg2;
+- (void)setSubWordMovement:(BOOL)flag;
+
+- (NSUInteger)nextWordFromIndex: (NSUInteger)arg1
+                        forward: (BOOL)arg2;
+
+- (NSUInteger)xcNextWordFromIndex: (NSUInteger)arg1
+                          forward: (BOOL)arg2;
+
+- (NSRange)doubleClickAtIndex: (NSUInteger)idx
+                      inRange: (NSRange)range;
+
+- (NSRange)rangeOfWordAtIndex: (NSUInteger)idx;
+- (NSRange)rangeOfWordAtIndex: (NSUInteger)idx
+                allowNonWords: (BOOL)flag;
+
 - (id)rawMethodList;
-- (void)addEntriesFromItem:(id)arg1 toParent:(id)arg2;
-- (int)convertColorToScannerType:(NSInteger)arg1;
-- (id)fontAtCharacterIndex:(NSUInteger)arg1 inTextView:(id)arg2 effectiveRange:(NSRange *)arg3;
-- (id)colorAtCharacterIndex:(NSUInteger)arg1 inTextView:(id)arg2 effectiveRange:(NSRange *)arg3;
-- (NSInteger)colorIdAtCharacterIndex:(NSUInteger)arg1 inTextView:(id)arg2 effectiveRange:(NSRange *)arg3;
-- (id)cachedSourceModelItemAtCharacterIndex:(NSUInteger)arg1;
+- (void)addEntriesFromItem: (id)item
+                  toParent: (id)parent;
+
+- (int)convertColorToScannerType: (NSInteger)type;
+
+- (NSFont *)fontAtCharacterIndex: (NSUInteger)idx
+                      inTextView: (NSTextView *)textView
+                  effectiveRange: (NSRange *)outRange;
+
+- (NSColor *)colorAtCharacterIndex: (NSUInteger)idx
+                        inTextView: (NSTextView *)textView
+                    effectiveRange: (NSRange *)outRange;
+
+- (NSInteger)colorIdAtCharacterIndex: (NSUInteger)idx
+                          inTextView: (NSTextView *)textView
+                      effectiveRange: (NSRange *)outRange;
+
+- (id)cachedSourceModelItemAtCharacterIndex: (NSUInteger)idx;
 - (id)cachedSourceModel;
-- (id)sourceModelItemAtCharacterIndex:(NSUInteger)arg1;
+
+- (id)sourceModelItemAtCharacterIndex: (NSUInteger)idx;
 - (id)sourceModel;
-- (void)setSubclassDoesSyntaxColoring:(BOOL)arg1;
+
+- (void)setSubclassDoesSyntaxColoring: (BOOL)flag;
 - (BOOL)subclassDoesSyntaxColoring;
-- (void)setSyntaxColoringEnabled:(BOOL)arg1;
+
+- (void)setSyntaxColoringEnabled: (BOOL)flag;
 - (BOOL)syntaxColoringEnabled;
-- (id)language;
-- (void)setLanguage:(id)arg1;
-- (void)fixAttributesInRange:(NSRange)arg1;
-- (void)invalidateAttributesAndDisplayInRange:(NSRange)arg1;
-- (void)fixSyntaxColoringInRange:(NSRange)arg1;
+
+- (NSString *)language;
+- (void)setLanguage: (NSString *)arg1;
+
+- (void)fixAttributesInRange: (NSRange)range;
+
+- (void)invalidateAttributesAndDisplayInRange: (NSRange)range;
+- (void)fixSyntaxColoringInRange: (NSRange)range;
 - (BOOL)fixesAttributesLazily;
 - (CGFloat)advancementForTab;
 - (CGFloat)advancementForSpace;
 - (void)resetAdvancementForSpace;
 - (void)endEditing;
 - (void)beginEditing;
-- (id)attribute:(id)arg1 atIndex:(NSUInteger)arg2 effectiveRange:(NSRange *)arg3;
-- (void)setAttributes:(id)arg1 range:(NSRange)arg2;
-- (void)replaceCharactersInRange:(NSRange)arg1 withAttributedString:(id)arg2;
-- (void)replaceCharactersInRange:(NSRange)arg1 withString:(id)arg2;
-- (id)attribute:(id)arg1 atIndex:(NSUInteger)arg2 longestEffectiveRange:(NSRange *)arg3 inRange:(NSRange)arg4;
+- (id)attribute: (id)arg1
+        atIndex: (NSUInteger)idx
+ effectiveRange: (NSRange *)outRange;
+
+- (void)setAttributes: (NSDictionary *)attributes
+                range: (NSRange)range;
+
+- (void)replaceCharactersInRange: (NSRange)range
+            withAttributedString: (NSAttributedString *)replacement;
+
+- (void)replaceCharactersInRange: (NSRange)range
+                      withString: (NSString *)replacement;
+
+- (id)attribute: (id)arg1
+        atIndex: (NSUInteger)idx
+longestEffectiveRange: (NSRange *)outRange
+        inRange: (NSRange)range;
+
 - (id)attributesAtIndex:(NSUInteger)arg1 longestEffectiveRange:(NSRange *)arg2 inRange:(NSRange)arg3;
 - (id)attributedSubstringFromRange:(NSRange)arg1;
 - (id)attributesAtIndex:(NSUInteger)arg1 effectiveRange:(NSRange *)arg2;
@@ -169,7 +215,7 @@ typedef struct _XCLineOffsetTable XCLineOffsetTable;
 - (void)addFoldingStorage:(id)arg1;
 - (id)_contents;
 - (void)setOwnedMutableAttributedString:(id)arg1;
-- (void)finalize;
+
 - (void)dealloc;
 - (id)initWithOwnedMutableAttributedString:(id)arg1;
 - (id)initWithAttributedString:(id)arg1;

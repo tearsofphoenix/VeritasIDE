@@ -9,6 +9,7 @@
 #import "VDESourceCodeEditorView.h"
 #import "VDESourceCodeEditorViewPrivateHandler.h"
 #import <OakFoundation/OakFoundation.h>
+#import <XCodeEdit/XCodeEdit.h>
 
 @interface VDESourceCodeEditorView ()<NSTextStorageDelegate>
 {

@@ -14,3 +14,4 @@
 #import <DevToolsFoundation/PBXFileType.h>
 #import <DevToolsFoundation/PBXFileTypePart.h>
 #import <DevToolsFoundation/XCSpecification.h>
+#import <DevToolsFoundation/TSPropertyListDictionary.h>

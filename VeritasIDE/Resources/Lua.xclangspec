@@ -1,0 +1,231 @@
+(
+	{
+		Identifier = "xcode.lang.comment.headerdoc";
+		BasedOn = "xcode.lang.comment";
+		Syntax = {
+			Start = "/*!";
+			End = "*/";
+			Foldable = YES;
+			IncludeRules = (
+				"xcode.lang.comment.headerdoc.keywords",
+				"xcode.lang.url",
+				"xcode.lang.url.mail",
+				"xcode.lang.comment.mark",
+			);
+			Type = "xcode.syntax.comment.doc";
+		};
+	},
+	{
+		Identifier = "xcode.lang.lua.identifier";
+		Syntax = {
+			StartChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_";
+			Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_";
+			Words = (
+                local,
+                function,
+				break,
+				continue,
+				do,
+				else,
+				for,
+				if,
+				return,
+				while,
+				false,
+				nil,
+				true,
+			);
+			Type = "xcode.syntax.keyword";
+			AltType = "xcode.syntax.identifier";
+		};
+	},
+	{
+		Identifier = "xcode.lang.lua.interestingOperators";
+		Syntax = {
+			Words = (
+				"...",
+				".",
+				":",
+			);
+			Type = "xcode.syntax.plain";
+		};
+	},
+	{
+		Identifier = "xcode.lang.lua";
+		Description = "lua Coloring";
+		IncludeInMenu = YES;
+		BasedOn = "xcode.lang.simpleColoring";
+		Name = C;
+		Syntax = {
+			Tokenizer = "xcode.lang.lua.lexer";
+			IncludeRules = (
+				"xcode.lang.lua.function.declaration",
+				"xcode.lang.lua.function.knr",
+				"xcode.lang.lua.function",
+				"xcode.lang.lua.block.toplevel",
+				"xcode.lang.lua.bracketexpr",
+				"xcode.lang.lua.parenexpr",
+				"xcode.lang.lua.initializer",
+			);
+			Type = "xcode.syntax.plain";
+		};
+	},
+	{
+		Identifier = "xcode.lang.lua.block.toplevel";
+		BasedOn = "xcode.lang.lua.block";
+		Syntax = {
+			Tokenizer = "xcode.lang.lua.lexer";
+			Start = "{";
+			End = "}";
+			Foldable = YES;
+			IncludeRules = (
+				"xcode.lang.lua.function.declaration",
+				"xcode.lang.lua.function",
+				"xcode.lang.lua.block",
+				"xcode.lang.lua.bracketexpr",
+				"xcode.lang.lua.parenexpr",
+				"xcode.lang.lua.initializer",
+			);
+			Type = "xcode.syntax.plain";
+		};
+	},
+	{
+		Identifier = "xcode.lang.lua.lexer";
+		Syntax = {
+			IncludeRules = (
+				"xcode.lang.comment.headerdoc",
+				"xcode.lang.comment",
+				"xcode.lang.comment.singleline",
+				"xcode.lang.lua.preprocessor",
+				"xcode.lang.string",
+				"xcode.lang.character",
+				"xcode.lang.completionplaceholder",
+				"xcode.lang.lua.attribute",
+				"xcode.lang.lua.identifier",
+				"xcode.lang.number",
+				"xcode.lang.lua.interestingOperators",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.lua.function.declaration";
+		Syntax = {
+			Tokenizer = "xcode.lang.lua.lexer";
+			Rules = (
+				"xcode.lang.lua.function.declarator",
+				"xcode.lang.lua.identifier?",
+				";",
+			);
+			Type = "xcode.syntax.declaration.c.function";
+		};
+	},
+	{
+		Identifier = "xcode.lang.lua.function";
+		Syntax = {
+			Tokenizer = "xcode.lang.lua.lexer";
+			Rules = (
+				"xcode.lang.lua.function.declarator",
+				"xcode.lang.lua.block",
+			);
+			Type = "xcode.syntax.definition.c.function";
+		};
+	},
+	{
+		Identifier = "xcode.lang.lua.function.knr";
+		Syntax = {
+			Tokenizer = "xcode.lang.lua.lexer";
+			Rules = (
+				"xcode.lang.lua.function.declarator",
+				"xcode.lang.lua.identifier",
+				"xcode.lang.lua.knrargs+",
+				"xcode.lang.lua.block",
+			);
+			Type = "xcode.syntax.definition.c.function";
+		};
+	},
+	{
+		Identifier = "xcode.lang.lua.knrargs";
+		Syntax = {
+			Tokenizer = "xcode.lang.lua.lexer";
+			Rules = (
+				"xcode.lang.lua.identifier|*|,*",
+				"xcode.lang.lua.parenexpr*",
+				"xcode.lang.lua.bracketexpr*",
+				";",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.lua.function.declarator";
+		Syntax = {
+			Tokenizer = "xcode.lang.lua.lexer";
+			Rules = (
+				"xcode.lang.lua.function.name",
+				"xcode.lang.lua.parenexpr",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.lua.function.name";
+		Syntax = {
+			Tokenizer = "xcode.lang.lua.lexer";
+			Rules = (
+				"xcode.lang.lua.identifier",
+			);
+			Type = "xcode.syntax.name.partial";
+		};
+	},
+	{
+		Identifier = "xcode.lang.lua.block";
+		Syntax = {
+			Tokenizer = "xcode.lang.lua.lexer";
+			Start = "{";
+			End = "}";
+			Foldable = YES;
+			Recursive = YES;
+			IncludeRules = (
+				"xcode.lang.lua.bracketexpr",
+				"xcode.lang.lua.parenexpr",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.lua.parenexpr";
+		Syntax = {
+			Tokenizer = "xcode.lang.lua.lexer";
+			Start = "(";
+			End = ")";
+			Recursive = YES;
+			IncludeRules = (
+				"xcode.lang.lua.block",
+				"xcode.lang.lua.bracketexpr",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.lua.bracketexpr";
+		Syntax = {
+			Tokenizer = "xcode.lang.lua.lexer";
+			Start = "[";
+			End = "]";
+			Recursive = YES;
+			IncludeRules = (
+				"xcode.lang.lua.parenexpr",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.lua.initializer";
+		Syntax = {
+			Tokenizer = "xcode.lang.lua.lexer";
+			Start = "=";
+			End = ";";
+			Recursive = NO;
+			IncludeRules = (
+				"xcode.lang.lua.block",
+				"xcode.lang.lua.parenexpr",
+				"xcode.lang.lua.bracketexpr",
+			);
+		};
+	},
+)

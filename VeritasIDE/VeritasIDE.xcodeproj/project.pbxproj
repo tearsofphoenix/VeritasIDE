@@ -46,6 +46,9 @@
 		E14B706716421C1300BCCDB4 /* NSMutableArray+BlockExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E14B706616421C1300BCCDB4 /* NSMutableArray+BlockExtension.m */; };
 		E14B706A16421C5900BCCDB4 /* NSMutableDictionary+BlockExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E14B706916421C5900BCCDB4 /* NSMutableDictionary+BlockExtension.m */; };
 		E14B7071164237D900BCCDB4 /* VDEDebugService.m in Sources */ = {isa = PBXBuildFile; fileRef = E14B7070164237D900BCCDB4 /* VDEDebugService.m */; };
+		E1602F5C16514F90009729DE /* C.xclangspec in Resources */ = {isa = PBXBuildFile; fileRef = E1602F5B16514F90009729DE /* C.xclangspec */; };
+		E1602F5F16514FCB009729DE /* Lua.xclangspec in Resources */ = {isa = PBXBuildFile; fileRef = E1602F5D16514FCB009729DE /* Lua.xclangspec */; };
+		E1602F6016514FCB009729DE /* Veritas.xclangspec in Resources */ = {isa = PBXBuildFile; fileRef = E1602F5E16514FCB009729DE /* Veritas.xclangspec */; };
 		E161E4181646E5D500C4CBF4 /* OakAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E161E4141646E5C900C4CBF4 /* OakAppKit.framework */; };
 		E16FC4AD164252E200A47A8D /* Selene.icns in Resources */ = {isa = PBXBuildFile; fileRef = E16FC4AC164252E200A47A8D /* Selene.icns */; };
 		E16FC4B41642540000A47A8D /* source.veritas.lua.icns in Resources */ = {isa = PBXBuildFile; fileRef = E16FC4B01642540000A47A8D /* source.veritas.lua.icns */; };
@@ -142,6 +145,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = E14A34DE1643A77F00B8EB6E;
 			remoteInfo = VeritasMahineIOSDemo;
+		};
+		E1602EE01650D560009729DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E12AEB4B164E9ED5008004B6 /* XCodeEdit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E12AEB32164E9ED5008004B6;
+			remoteInfo = XcodeEdit;
 		};
 		E161E4131646E5C900C4CBF4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -251,6 +261,9 @@
 		E14B706B16421CC000BCCDB4 /* VDEFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VDEFoundation.h; sourceTree = "<group>"; };
 		E14B706F164237D900BCCDB4 /* VDEDebugService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDEDebugService.h; sourceTree = "<group>"; };
 		E14B7070164237D900BCCDB4 /* VDEDebugService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDEDebugService.m; sourceTree = "<group>"; };
+		E1602F5B16514F90009729DE /* C.xclangspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xclangspec; path = C.xclangspec; sourceTree = "<group>"; };
+		E1602F5D16514FCB009729DE /* Lua.xclangspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xclangspec; path = Lua.xclangspec; sourceTree = "<group>"; };
+		E1602F5E16514FCB009729DE /* Veritas.xclangspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xclangspec; path = Veritas.xclangspec; sourceTree = "<group>"; };
 		E161E4081646E5C800C4CBF4 /* OakAppKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OakAppKit.xcodeproj; path = ../OakAppKit/OakAppKit.xcodeproj; sourceTree = "<group>"; };
 		E16FC49816423F1700A47A8D /* VDEServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VDEServices.h; path = Service/VDEServices.h; sourceTree = "<group>"; };
 		E16FC4AC164252E200A47A8D /* Selene.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Selene.icns; sourceTree = "<group>"; };
@@ -456,6 +469,7 @@
 		22A7B7F116392E160067B98A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E1602F5A16514F7D009729DE /* LanguageSpecification */,
 				E12AEC7C1650872C008004B6 /* Colortheme */,
 				E18632F8163CF9BF0027EF15 /* icons */,
 				22A7B80516392E240067B98A /* Info.plist */,
@@ -531,6 +545,16 @@
 				E14A35641643AA2900B8EB6E /* VeritasMahineIOSDemo.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E1602F5A16514F7D009729DE /* LanguageSpecification */ = {
+			isa = PBXGroup;
+			children = (
+				E1602F5D16514FCB009729DE /* Lua.xclangspec */,
+				E1602F5E16514FCB009729DE /* Veritas.xclangspec */,
+				E1602F5B16514F90009729DE /* C.xclangspec */,
+			);
+			name = LanguageSpecification;
 			sourceTree = "<group>";
 		};
 		E161E4091646E5C800C4CBF4 /* Products */ = {
@@ -733,6 +757,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E1602EE11650D560009729DE /* PBXTargetDependency */,
 				E161E4171646E5CF00C4CBF4 /* PBXTargetDependency */,
 				E14A34D81643A71000B8EB6E /* PBXTargetDependency */,
 			);
@@ -871,6 +896,9 @@
 				E16FC4B61642540000A47A8D /* source.veritas.v.icns in Resources */,
 				E1A289081642CD1F009FCA36 /* VDENewFileViewController.xib in Resources */,
 				E12AEC7B16508723008004B6 /* Basic.xccolortheme in Resources */,
+				E1602F5C16514F90009729DE /* C.xclangspec in Resources */,
+				E1602F5F16514FCB009729DE /* Lua.xclangspec in Resources */,
+				E1602F6016514FCB009729DE /* Veritas.xclangspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -933,6 +961,11 @@
 			isa = PBXTargetDependency;
 			name = VeritasMachineKit;
 			targetProxy = E14A34D71643A71000B8EB6E /* PBXContainerItemProxy */;
+		};
+		E1602EE11650D560009729DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XcodeEdit;
+			targetProxy = E1602EE01650D560009729DE /* PBXContainerItemProxy */;
 		};
 		E161E4171646E5CF00C4CBF4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

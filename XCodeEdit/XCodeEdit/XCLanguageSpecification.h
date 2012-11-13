@@ -4,7 +4,53 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "XCSpecification.h"
+#import <DevToolsFoundation/XCSpecification.h>
+
+enum
+{
+    XCLanguageAda,
+    XCLanguageARMAsm,
+    XCLanguageC,
+    XCLanguageCPP,
+    XCLanguagecsh,
+    XCLanguageCSS,
+    XCLanguageD,
+    XCLanguageDTrace,
+    XCLanguageDylan,
+    XCLanguageFortran,
+    XCLanguageGLSL,
+    XCLanguageHTML,
+    XCLanguageIntelAsm,
+    XCLanguageInterfacer,
+    XCLanguageJam,
+    XCLanguageJava,
+    XCLanguageJavaScript,
+    XCLanguagellvm,
+    XCLanguageLua,
+    XCLanguageMake,
+    XCLanguageman,
+    XCLanguageNQC,
+    XCLanguageObjectiveC,
+    XCLanguageObjectiveCPP,
+    XCLanguageOpenCL,
+    XCLanguagePascal,
+    XCLanguagePerl,
+    XCLanguagePHP,
+    XCLanguageplist,
+    XCLanguagePPCAsm,
+    XCLanguagePython,
+    XCLanguageRez,
+    XCLanguageRuby,
+    XCLanguagesh,
+    XCLanguageVeritas,
+    XCLanguagexcconfig,
+    XCLanguagexclangspec,
+    XCLanguagexcsynspec,
+    XCLanguagexctxtmacro,
+    XCLanguageXML,
+};
+
+typedef NSInteger XCLanguageIDType;
 
 @class TSPropertyListDictionary, XCSourceScanner;
 
@@ -17,22 +63,23 @@
     TSPropertyListDictionary *_syntaxRules;
 }
 
-+ (id)_identifierForUniqueId:(NSInteger)arg1;
++ (id)_identifierForUniqueId: (NSInteger)arg1;
 + (NSInteger)_uniqIdForIdentifier:(id)arg1;
 + (id)specificationRegistryName;
 + (id)specificationTypePathExtensions;
 + (id)localizedSpecificationTypeName;
 + (id)specificationType;
 + (Class)specificationTypeBaseClass;
-- (id)availableKeywords;
-- (id)lexerKeywords;
-- (id)syntaxRules;
-- (id)scanner;
+- (NSSet *)availableKeywords;
+- (NSSet *)lexerKeywords;
+- (NSSet *)syntaxRules;
+- (XCSourceScanner *)scanner;
 - (BOOL)includeInMenu;
 - (NSInteger)uniqueId;
-- (id)name;
+- (NSString *)name;
 - (void)dealloc;
-- (id)initWithPropertyListDictionary:(id)arg1 inDomain:(id)arg2;
+- (id)initWithPropertyListDictionary: (NSDictionary *)dict
+                            inDomain: (NSString *)domain;
 
 @end
 

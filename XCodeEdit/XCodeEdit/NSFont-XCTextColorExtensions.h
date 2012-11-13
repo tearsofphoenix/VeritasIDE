@@ -7,9 +7,10 @@
 
 @interface NSFont (XCTextColorExtensions)
 
-+ (id)xcFontWithName: (NSString *)name
-                size: (CGFloat)size;
-+ (id)xcDefaultFont;
++ (NSFont *)xcFontWithName: (NSString *)name
+                      size: (CGFloat)size;
+
++ (NSFont *)xcDefaultFont;
 
 - (CGSize)defaultAdvancement;
 

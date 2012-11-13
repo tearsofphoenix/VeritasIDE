@@ -4,13 +4,17 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSUndoReplaceCharacters.h"
-
 @interface NSUndoReplaceCharacters (XCUndoReplaceCharacters)
+
 + (id)allocWithZone:(NSZone *)arg1;
+
 - (id)attributedString;
+
 - (void)setAttributedString:(id)arg1;
+
 - (NSRange)replacementRange;
+
 - (void)setReplacementRange:(NSRange)arg1;
+
 @end
 

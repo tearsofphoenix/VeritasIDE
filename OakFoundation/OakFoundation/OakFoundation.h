@@ -3,6 +3,7 @@
 #import <OakFoundation/NSString+Additions.h>
 #import <OakFoundation/NSDate+Additions.h>
 #import <OakFoundation/NSDictionary+KeyPathSupport.h>
+#import <OakFoundation/NSMutableAttributedString+Convinient.h>
 #import <OakFoundation/NSTask+Executecommand.h>
 
 #import <OakFoundation/OakAttributedString.h>

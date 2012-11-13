@@ -13,7 +13,7 @@
 		E1131B9516509E4E009DA6AA /* PBXStringTree.m in Sources */ = {isa = PBXBuildFile; fileRef = E1131B9416509E4E009DA6AA /* PBXStringTree.m */; };
 		E1602E961650A3A3009729DE /* PBXFileType.m in Sources */ = {isa = PBXBuildFile; fileRef = E1602E951650A3A3009729DE /* PBXFileType.m */; };
 		E1602E991650A4E6009729DE /* PBXFileTypePart.m in Sources */ = {isa = PBXBuildFile; fileRef = E1602E981650A4E6009729DE /* PBXFileTypePart.m */; };
-		E1602EA01650BBD1009729DE /* TSPropertyListDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = E1602E9E1650BBCD009729DE /* TSPropertyListDictionary.h */; };
+		E1602EA01650BBD1009729DE /* TSPropertyListDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = E1602E9E1650BBCD009729DE /* TSPropertyListDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1602EA11650BBD1009729DE /* TSPropertyListDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = E1602E9F1650BBCF009729DE /* TSPropertyListDictionary.m */; };
 		E1602EA31650C447009729DE /* PBXBuildMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E1602EA21650C446009729DE /* PBXBuildMessage.m */; };
 		E1CCCE9F1644ED37006696E0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1CCCE9E1644ED37006696E0 /* Cocoa.framework */; };
@@ -27,11 +27,11 @@
 		E1CCCF141644EDAB006696E0 /* PBXCodeCompletion.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEC61644EDAB006696E0 /* PBXCodeCompletion.h */; };
 		E1CCCF151644EDAB006696E0 /* PBXCodeSenseManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEC71644EDAB006696E0 /* PBXCodeSenseManager.h */; };
 		E1CCCF161644EDAB006696E0 /* PBXCompletionItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEC81644EDAB006696E0 /* PBXCompletionItem.h */; };
-		E1CCCF171644EDAB006696E0 /* PBXContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEC91644EDAB006696E0 /* PBXContainer.h */; };
-		E1CCCF181644EDAB006696E0 /* PBXContainerItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCECA1644EDAB006696E0 /* PBXContainerItem.h */; };
+		E1CCCF171644EDAB006696E0 /* PBXContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEC91644EDAB006696E0 /* PBXContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1CCCF181644EDAB006696E0 /* PBXContainerItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCECA1644EDAB006696E0 /* PBXContainerItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCCF191644EDAB006696E0 /* PBXContainerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCCECB1644EDAB006696E0 /* PBXContainerItem.m */; };
-		E1CCCF1A1644EDAB006696E0 /* PBXContainerItemChangeNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCECC1644EDAB006696E0 /* PBXContainerItemChangeNotification.h */; };
-		E1CCCF1B1644EDAB006696E0 /* PBXContainerItemProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCECD1644EDAB006696E0 /* PBXContainerItemProxy.h */; };
+		E1CCCF1A1644EDAB006696E0 /* PBXContainerItemChangeNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCECC1644EDAB006696E0 /* PBXContainerItemChangeNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1CCCF1B1644EDAB006696E0 /* PBXContainerItemProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCECD1644EDAB006696E0 /* PBXContainerItemProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCCF1C1644EDAB006696E0 /* PBXCSourceScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCECE1644EDAB006696E0 /* PBXCSourceScanner.h */; };
 		E1CCCF1D1644EDAB006696E0 /* PBXCStringPool.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCECF1644EDAB006696E0 /* PBXCStringPool.h */; };
 		E1CCCF1E1644EDAB006696E0 /* PBXCStringStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCED01644EDAB006696E0 /* PBXCStringStorage.h */; };
@@ -43,9 +43,9 @@
 		E1CCCF251644EDAB006696E0 /* PBXFileTypePart.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCED71644EDAB006696E0 /* PBXFileTypePart.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCCF261644EDAB006696E0 /* PBXFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCED81644EDAB006696E0 /* PBXFolder.h */; };
 		E1CCCF281644EDAB006696E0 /* PBXFunctionSymbol.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEDA1644EDAB006696E0 /* PBXFunctionSymbol.h */; };
-		E1CCCF291644EDAB006696E0 /* PBXGlobalID.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEDB1644EDAB006696E0 /* PBXGlobalID.h */; };
+		E1CCCF291644EDAB006696E0 /* PBXGlobalID.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEDB1644EDAB006696E0 /* PBXGlobalID.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCCF2A1644EDAB006696E0 /* PBXGlobalID.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCCEDC1644EDAB006696E0 /* PBXGlobalID.m */; };
-		E1CCCF2B1644EDAB006696E0 /* PBXGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEDD1644EDAB006696E0 /* PBXGroup.h */; };
+		E1CCCF2B1644EDAB006696E0 /* PBXGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEDD1644EDAB006696E0 /* PBXGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCCF2C1644EDAB006696E0 /* PBXGroupEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEDE1644EDAB006696E0 /* PBXGroupEnumerator.h */; };
 		E1CCCF2D1644EDAB006696E0 /* PBXHeaderFileSearchContext.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEDF1644EDAB006696E0 /* PBXHeaderFileSearchContext.h */; };
 		E1CCCF2E1644EDAB006696E0 /* PBXHeaderMap.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEE01644EDAB006696E0 /* PBXHeaderMap.h */; };
@@ -59,15 +59,15 @@
 		E1CCCF361644EDAB006696E0 /* PBXLogOutputString.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEE81644EDAB006696E0 /* PBXLogOutputString.h */; };
 		E1CCCF371644EDAB006696E0 /* PBXMarkerDelegateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEE91644EDAB006696E0 /* PBXMarkerDelegateProtocol.h */; };
 		E1CCCF381644EDAB006696E0 /* PBXMemberContainerSymbol.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEEA1644EDAB006696E0 /* PBXMemberContainerSymbol.h */; };
-		E1CCCF391644EDAB006696E0 /* PBXObject.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEEB1644EDAB006696E0 /* PBXObject.h */; };
+		E1CCCF391644EDAB006696E0 /* PBXObject.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEEB1644EDAB006696E0 /* PBXObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCCF3A1644EDAB006696E0 /* PBXObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCCEEC1644EDAB006696E0 /* PBXObject.m */; };
-		E1CCCF3B1644EDAB006696E0 /* PBXProject.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEED1644EDAB006696E0 /* PBXProject.h */; };
+		E1CCCF3B1644EDAB006696E0 /* PBXProject.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEED1644EDAB006696E0 /* PBXProject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCCF3C1644EDAB006696E0 /* PBXProjectIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEEE1644EDAB006696E0 /* PBXProjectIndex.h */; };
 		E1CCCF3D1644EDAB006696E0 /* PBXProjectItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEEF1644EDAB006696E0 /* PBXProjectItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCCF3E1644EDAB006696E0 /* PBXProjectItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CCCEF01644EDAB006696E0 /* PBXProjectItem.m */; };
 		E1CCCF3F1644EDAB006696E0 /* PBXProjectRenameFileCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEF11644EDAB006696E0 /* PBXProjectRenameFileCallback.h */; };
 		E1CCCF401644EDAB006696E0 /* PBXRecordVector.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEF21644EDAB006696E0 /* PBXRecordVector.h */; };
-		E1CCCF411644EDAB006696E0 /* PBXReference.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEF31644EDAB006696E0 /* PBXReference.h */; };
+		E1CCCF411644EDAB006696E0 /* PBXReference.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEF31644EDAB006696E0 /* PBXReference.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1CCCF421644EDAB006696E0 /* PBXReferenceProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEF41644EDAB006696E0 /* PBXReferenceProxy.h */; };
 		E1CCCF431644EDAB006696E0 /* PBXScannerItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEF51644EDAB006696E0 /* PBXScannerItem.h */; };
 		E1CCCF441644EDAB006696E0 /* PBXShellScriptBuildPhase.h in Headers */ = {isa = PBXBuildFile; fileRef = E1CCCEF61644EDAB006696E0 /* PBXShellScriptBuildPhase.h */; };
@@ -330,9 +330,9 @@
 				E1CCCF0B1644EDAB006696E0 /* PBXTypeDescriptor.h */,
 				E1CCCF0C1644EDAB006696E0 /* PBXVariantGroup.h */,
 				E1CCCEAB1644ED38006696E0 /* DevToolsFoundation.h */,
-				E1CCCEA51644ED37006696E0 /* Supporting Files */,
 				E1602E9E1650BBCD009729DE /* TSPropertyListDictionary.h */,
 				E1602E9F1650BBCF009729DE /* TSPropertyListDictionary.m */,
+				E1CCCEA51644ED37006696E0 /* Supporting Files */,
 			);
 			path = DevToolsFoundation;
 			sourceTree = "<group>";
@@ -354,6 +354,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1602EA01650BBD1009729DE /* TSPropertyListDictionary.h in Headers */,
+				E1CCCF1B1644EDAB006696E0 /* PBXContainerItemProxy.h in Headers */,
+				E1CCCF1A1644EDAB006696E0 /* PBXContainerItemChangeNotification.h in Headers */,
+				E1CCCF171644EDAB006696E0 /* PBXContainer.h in Headers */,
+				E1CCCF181644EDAB006696E0 /* PBXContainerItem.h in Headers */,
+				E1CCCF411644EDAB006696E0 /* PBXReference.h in Headers */,
+				E1CCCF391644EDAB006696E0 /* PBXObject.h in Headers */,
+				E1CCCF3B1644EDAB006696E0 /* PBXProject.h in Headers */,
+				E1CCCF291644EDAB006696E0 /* PBXGlobalID.h in Headers */,
+				E1CCCF2B1644EDAB006696E0 /* PBXGroup.h in Headers */,
 				E1CCCF131644EDAB006696E0 /* PBXChangeNotification.h in Headers */,
 				E1CCCF121644EDAB006696E0 /* PBXBuildMessage.h in Headers */,
 				E1CCCF0F1644EDAB006696E0 /* PBXBreakpoint.h in Headers */,
@@ -366,10 +376,6 @@
 				E1CCCF141644EDAB006696E0 /* PBXCodeCompletion.h in Headers */,
 				E1CCCF151644EDAB006696E0 /* PBXCodeSenseManager.h in Headers */,
 				E1CCCF161644EDAB006696E0 /* PBXCompletionItem.h in Headers */,
-				E1CCCF171644EDAB006696E0 /* PBXContainer.h in Headers */,
-				E1CCCF181644EDAB006696E0 /* PBXContainerItem.h in Headers */,
-				E1CCCF1A1644EDAB006696E0 /* PBXContainerItemChangeNotification.h in Headers */,
-				E1CCCF1B1644EDAB006696E0 /* PBXContainerItemProxy.h in Headers */,
 				E1CCCF1C1644EDAB006696E0 /* PBXCSourceScanner.h in Headers */,
 				E1CCCF1D1644EDAB006696E0 /* PBXCStringPool.h in Headers */,
 				E1CCCF1E1644EDAB006696E0 /* PBXCStringStorage.h in Headers */,
@@ -379,8 +385,6 @@
 				E1CCCF221644EDAB006696E0 /* PBXFileReference.h in Headers */,
 				E1CCCF261644EDAB006696E0 /* PBXFolder.h in Headers */,
 				E1CCCF281644EDAB006696E0 /* PBXFunctionSymbol.h in Headers */,
-				E1CCCF291644EDAB006696E0 /* PBXGlobalID.h in Headers */,
-				E1CCCF2B1644EDAB006696E0 /* PBXGroup.h in Headers */,
 				E1CCCF2C1644EDAB006696E0 /* PBXGroupEnumerator.h in Headers */,
 				E1CCCF2D1644EDAB006696E0 /* PBXHeaderFileSearchContext.h in Headers */,
 				E1CCCF2E1644EDAB006696E0 /* PBXHeaderMap.h in Headers */,
@@ -393,12 +397,9 @@
 				E1CCCF361644EDAB006696E0 /* PBXLogOutputString.h in Headers */,
 				E1CCCF371644EDAB006696E0 /* PBXMarkerDelegateProtocol.h in Headers */,
 				E1CCCF381644EDAB006696E0 /* PBXMemberContainerSymbol.h in Headers */,
-				E1CCCF391644EDAB006696E0 /* PBXObject.h in Headers */,
-				E1CCCF3B1644EDAB006696E0 /* PBXProject.h in Headers */,
 				E1CCCF3C1644EDAB006696E0 /* PBXProjectIndex.h in Headers */,
 				E1CCCF3F1644EDAB006696E0 /* PBXProjectRenameFileCallback.h in Headers */,
 				E1CCCF401644EDAB006696E0 /* PBXRecordVector.h in Headers */,
-				E1CCCF411644EDAB006696E0 /* PBXReference.h in Headers */,
 				E1CCCF421644EDAB006696E0 /* PBXReferenceProxy.h in Headers */,
 				E1CCCF431644EDAB006696E0 /* PBXScannerItem.h in Headers */,
 				E1CCCF441644EDAB006696E0 /* PBXShellScriptBuildPhase.h in Headers */,
@@ -422,7 +423,6 @@
 				E1CCCF581644EDAB006696E0 /* PBXTSStreamConsuming-Protocol.h in Headers */,
 				E1CCCF591644EDAB006696E0 /* PBXTypeDescriptor.h in Headers */,
 				E1CCCF5A1644EDAB006696E0 /* PBXVariantGroup.h in Headers */,
-				E1602EA01650BBD1009729DE /* TSPropertyListDictionary.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
