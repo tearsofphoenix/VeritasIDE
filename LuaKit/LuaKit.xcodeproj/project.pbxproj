@@ -420,9 +420,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		E1A4FE891643959600F8AE92 /* LuaKit */ = {
+		E1A4FE891643959600F8AE92 /* LuaKit-Mac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E1A4FE9F1643959600F8AE92 /* Build configuration list for PBXNativeTarget "LuaKit" */;
+			buildConfigurationList = E1A4FE9F1643959600F8AE92 /* Build configuration list for PBXNativeTarget "LuaKit-Mac" */;
 			buildPhases = (
 				E1A4FE851643959600F8AE92 /* Sources */,
 				E1A4FE861643959600F8AE92 /* Frameworks */,
@@ -433,14 +433,14 @@
 			);
 			dependencies = (
 			);
-			name = LuaKit;
+			name = "LuaKit-Mac";
 			productName = LuaKit;
 			productReference = E1A4FE8A1643959600F8AE92 /* LuaKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E1A4FEA61643961600F8AE92 /* LuaKitiOS */ = {
+		E1A4FEA61643961600F8AE92 /* LuaKit-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E1A4FEB51643961600F8AE92 /* Build configuration list for PBXNativeTarget "LuaKitiOS" */;
+			buildConfigurationList = E1A4FEB51643961600F8AE92 /* Build configuration list for PBXNativeTarget "LuaKit-iOS" */;
 			buildPhases = (
 				E1A4FEA21643961600F8AE92 /* Sources */,
 				E1A4FEA31643961600F8AE92 /* Frameworks */,
@@ -451,7 +451,7 @@
 			);
 			dependencies = (
 			);
-			name = LuaKitiOS;
+			name = "LuaKit-iOS";
 			productName = LuaKitiOS;
 			productReference = E1A4FEA71643961600F8AE92 /* LuaKit.framework */;
 			productType = "com.apple.product-type.framework";
@@ -477,8 +477,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E1A4FE891643959600F8AE92 /* LuaKit */,
-				E1A4FEA61643961600F8AE92 /* LuaKitiOS */,
+				E1A4FE891643959600F8AE92 /* LuaKit-Mac */,
+				E1A4FEA61643961600F8AE92 /* LuaKit-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -651,7 +651,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "LuaKit/LuaKit-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LuaKit;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -670,7 +670,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "LuaKit/LuaKit-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LuaKit;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -684,7 +684,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "LuaKitiOS/LuaKitiOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				INSTALL_PATH = "@executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = LuaKit;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = framework;
@@ -700,7 +701,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "LuaKitiOS/LuaKitiOS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				INSTALL_PATH = "@executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = LuaKit;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -720,7 +722,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E1A4FE9F1643959600F8AE92 /* Build configuration list for PBXNativeTarget "LuaKit" */ = {
+		E1A4FE9F1643959600F8AE92 /* Build configuration list for PBXNativeTarget "LuaKit-Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E1A4FEA01643959600F8AE92 /* Debug */,
@@ -729,7 +731,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E1A4FEB51643961600F8AE92 /* Build configuration list for PBXNativeTarget "LuaKitiOS" */ = {
+		E1A4FEB51643961600F8AE92 /* Build configuration list for PBXNativeTarget "LuaKit-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E1A4FEB61643961600F8AE92 /* Debug */,

@@ -7,10 +7,10 @@
 //;
 
 
-#include "LuaObjCBase.h"
+#include "VMKBase.h"
 
-__BEGIN_DECLS
+VMK_EXTERN_C_BEGIN
 
-LUAMOD_API int LuaObjCOpenNSString(struct lua_State *L);
+LUAMOD_API int VMKOpenNSString(struct lua_State *L);
 
-__END_DECLS
+VMK_EXTERN__C_END
