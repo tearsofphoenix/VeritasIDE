@@ -367,8 +367,7 @@ static void __luaClass_IMP_preprocess(lua_State **returnedLuaState, id obj, SEL 
         
     }else
     {
-        NSLog(@"call stack:%@", [NSThread callStackSymbols]);
-        [obj doesNotRecognizeSelector: sel];
+        luaL_error(luaState, "fail to find @property IMP for : %s", (const char*)sel);
     }
 }
 
@@ -415,6 +414,7 @@ static CGFloat __luaClass_IMP_float_return(id obj, SEL sel, ...)
     return lua_tonumber(L, -1);
 }
 
+///TODO
 static void __luaClass_IMP_struct_return(id obj, SEL sel, ...)
 {
     __LuaClassPreprocess(obj, sel, L);
@@ -435,10 +435,10 @@ static void __luaClass_IMP_struct_return(id obj, SEL sel, ...)
         method = class_getInstanceMethod(objClass, sel);
     }
     
-    char* returnType = method_copyReturnType(method);
+//    char* returnType = method_copyReturnType(method);
     
-    NSUInteger size;
-    NSGetSizeAndAlignment(returnType, &size, NULL);
+//    NSUInteger size;
+//    NSGetSizeAndAlignment(returnType, &size, NULL);
     
     //free(returnType);
     

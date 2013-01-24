@@ -26,9 +26,9 @@
 
 #import "LuaNSRange.h"
 
-#import "VBridgeService.h"
+#import "VMKBridgeService.h"
 
-#import "LuaBridgeFunctor.h"
+#import "VMKBridgeFunctor.h"
 
 #import "VMKObject.h"
 
@@ -42,12 +42,8 @@
 static CFMutableDictionaryRef __LuaObjC_clouserBlockDictionary = NULL;
 
 static inline void VMKBlockSupportInitialize(void)
-{
-    
-    __LuaObjC_clouserBlockDictionary = CFDictionaryCreateMutable(CFAllocatorGetDefault(),
-                                                                 1024,
-                                                                 &kCFTypeDictionaryKeyCallBacks,
-                                                                 NULL);
+{    
+    __LuaObjC_clouserBlockDictionary = CFDictionaryCreateMutable(NULL, 1024, &kCFTypeDictionaryKeyCallBacks, NULL);
 }
 
 static inline void luaObjC_addClosureIDForBlock(LuaClosureType clouserID, id block)
@@ -304,7 +300,7 @@ static int luaObjC_import_file(lua_State *L)
 {
     const char *name = lua_tostring(L, 1);
     
-    VSC(VBridgeServiceIdentifier, VBridgeServiceImportFrameworkAction, nil, @[ @( name ) ]);
+    [[VMKBridgeService sharedService] importFramework: @(name)];
     
     lua_getfield(L, LUA_REGISTRYINDEX, "require");
     
@@ -332,10 +328,8 @@ static int luaObjC_resolveName(lua_State *L)
     {
         //this maybe a function, such as glEnable(...)
         //
-        VSC(VBridgeServiceIdentifier,
-            VBridgeServiceResolveNameIntoStateAction,
-            nil,
-            @[ @(name), [NSValue valueWithPointer: L] ]);
+        [[VMKBridgeService sharedService] resolveName: @(name)
+                                          intoState: L];
     }
     
     return 1;
@@ -480,18 +474,22 @@ static int luaObjC_createLiteralArray(lua_State *L)
 {
     int count = lua_gettop(L);
     
-    NSMutableArray *array = [[[NSMutableArray alloc] init] autorelease];
+    CFMutableArrayRef array = CFArrayCreateMutable(NULL, 0, &kCFTypeArrayCallBacks);
     
     for (int iLooper = 1; iLooper < count + 1; ++iLooper)
     {
-        [array addObject: VMKCheckObject(L, iLooper)];
+        CFArrayAppendValue(array, VMKCheckObject(L, iLooper));
     }
     
-    NSArray *value = [NSArray arrayWithArray: array];
+    CFArrayRef value = CFArrayCreateCopy(CFGetAllocator(array), array);
+    
+    CFRelease(array);
     
     CFSetAddValue(_LuaObjCLiteralStorage, value);
     
-    VMKPushObject(L, value, true, false);
+    CFMakeCollectable(value);
+    
+    VMKPushObject(L, (id)value, true, false);
     
     return 1;
 }
@@ -501,37 +499,37 @@ static int luaObjC_createLiteralDictionary(lua_State *L)
     int count = lua_gettop(L);
     int halfIndex = count / 2;
     
-    NSMutableArray *keys = [[NSMutableArray alloc] initWithCapacity: halfIndex];
-    NSMutableArray *values = [[NSMutableArray alloc] initWithCapacity: halfIndex];
-    
+    CFMutableDictionaryRef dict = CFDictionaryCreateMutable(NULL, halfIndex, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+
     for (int iLooper = 1; iLooper < halfIndex + 1; ++iLooper)
     {
-        [keys addObject: VMKCheckObject(L, iLooper)];
-        [values addObject: VMKCheckObject(L, halfIndex + iLooper)];
+        CFDictionaryAddValue(dict, VMKCheckObject(L, iLooper), VMKCheckObject(L, halfIndex + iLooper));
     }
     
+    CFDictionaryRef result = CFDictionaryCreateCopy(CFGetAllocator(dict), dict);
     
-    NSDictionary *dict = [[NSDictionary alloc] initWithObjects: values
-                                                       forKeys: keys];
-    CFSetAddValue(_LuaObjCLiteralStorage, dict);
+    CFRelease(dict);
     
-    [dict release];
+    CFSetAddValue(_LuaObjCLiteralStorage, result);
     
-    [keys release];
-    [values release];
-    
-    VMKPushObject(L, dict, true, false);
+    CFMakeCollectable(result);
+
+    VMKPushObject(L, (id)result, true, false);
     
     return 1;
 }
 
 static inline int luaObjC_createConstantNumber(lua_State *L)
 {
-    NSNumber *number = [[NSNumber alloc] initWithDouble: lua_tonumber(L, 1)];
-    CFSetAddValue(_LuaObjCLiteralStorage, number);
-    [number release];
+    lua_Number value = lua_tonumber(L, 1);
     
-    VMKPushObject(L, number, true, false);
+    CFNumberRef number = CFNumberCreate(NULL, kCFNumberDoubleType, &value);
+    
+    CFSetAddValue(_LuaObjCLiteralStorage, number);
+    
+    CFMakeCollectable(number);
+    
+    VMKPushObject(L, (id)number, true, false);
     
     return 1;
 }
@@ -585,7 +583,7 @@ int VMKOpenFoundationSupport(lua_State *L)
 {
     if (!_LuaObjCLiteralStorage)
     {
-        _LuaObjCLiteralStorage = CFSetCreateMutable(CFAllocatorGetDefault(), 64, &kCFTypeSetCallBacks);
+        _LuaObjCLiteralStorage = CFSetCreateMutable(NULL, 64, &kCFTypeSetCallBacks);
     }
     
     VMKClassInitialize(L);

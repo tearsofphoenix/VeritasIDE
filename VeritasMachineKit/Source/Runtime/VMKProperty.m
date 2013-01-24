@@ -284,15 +284,27 @@ static void LuaIMPAddPropertyToClassOrigin(const char* className, const char* at
         }
     }
     
-    if(!class_addMethod(theClass, selectorOfGet, getterIMP, [[NSString stringWithFormat: @"%s@:", typeEncoding] UTF8String]))
+    int length = strlen(typeEncoding) + MAX(strlen("@:"), strlen("v@:")) + 1;
+    char *fullEncodingString = calloc(length, sizeof(char));
+    strcpy(fullEncodingString, typeEncoding);
+    strcat(fullEncodingString, "@:");
+    
+    if(!class_addMethod(theClass, selectorOfGet, getterIMP, fullEncodingString))
     {
         printf("Failed add Property Getter:%s to Class:%s OK!\n", (const char*)selectorOfGet, className);
     }
     
-    if(!class_addMethod(theClass, selectorOfSet, setterIMP, [[NSString stringWithFormat: @"v@:%s", typeEncoding] UTF8String]))
+    memset(fullEncodingString, '\0', sizeof(char) * length);
+    
+    strcpy(fullEncodingString, "v@:");
+    strcat(fullEncodingString, typeEncoding);
+    
+    if(!class_addMethod(theClass, selectorOfSet, setterIMP, fullEncodingString))
     {
         printf("Failed add Property Setter:%s to Class:%s OK!\n", (const char*)selectorOfSet, className);
     }
+    
+    free(fullEncodingString);
     
     NSMutableDictionary *setters = objc_getAssociatedObject(theClass, &__LuaObjC_KeyForSetterProperties);
     if (!setters)
