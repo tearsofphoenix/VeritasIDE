@@ -7,6 +7,7 @@
 //
 
 #import "XCLanguageSpecification.h"
+#import "XCSourceScanner.h"
 
 static NSArray *s_XCLanguageIDs = nil;
 
@@ -114,29 +115,47 @@ static NSArray *s_XCLanguageIDs = nil;
 {
     
 }
+
 - (XCSourceScanner *)scanner
 {
+    if (!_scanner)
+    {
+        _scanner = [[_scannerClass alloc] initWithLanguageSpecification: self];
+    }
     
+    return _scanner;
 }
 - (BOOL)includeInMenu
 {
     
 }
+
 - (NSInteger)uniqueId
 {
     
 }
+
 - (NSString *)name
 {
     
 }
+
 - (void)dealloc
 {
     
+    [super dealloc];
 }
+
 - (id)initWithPropertyListDictionary: (NSDictionary *)dict
                             inDomain: (NSString *)domain
 {
+    if ((self = [super initWithPropertyListDictionary: dict
+                                             inDomain: domain]))
+    {
+        
+    }
     
+    return self;
 }
+
 @end

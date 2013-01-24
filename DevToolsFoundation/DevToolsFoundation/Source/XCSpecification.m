@@ -385,7 +385,14 @@ fromDomainPrefixedIdentifier: (NSString *)domainPrefix
 {
     if ((self = [super init]))
     {
+        NSString *_identifier;
+        XCSpecification *_superSpecification;
+        NSDictionary *_properties;
+        NSDictionary *_localizationDictionary;
         
+        NSBundle *_bundle;
+        NSString *_domain;
+
     }
     
     return self;

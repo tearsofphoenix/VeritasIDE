@@ -1390,6 +1390,7 @@
 				E14A34FA1643A77F00B8EB6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E1A400491643996C00F8AE92 /* Build configuration list for PBXNativeTarget "VeritasMachineKit" */ = {
 			isa = XCConfigurationList;
