@@ -485,7 +485,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = tearsofphoenix;
 			};
-			buildConfigurationList = E12AEB2C164E9ED5008004B6 /* Build configuration list for PBXProject "XCodeEdit" */;
+			buildConfigurationList = E12AEB2C164E9ED5008004B6 /* Build configuration list for PBXProject "XcodeEdit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -685,7 +685,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E12AEB2C164E9ED5008004B6 /* Build configuration list for PBXProject "XCodeEdit" */ = {
+		E12AEB2C164E9ED5008004B6 /* Build configuration list for PBXProject "XcodeEdit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E12AEB46164E9ED5008004B6 /* Debug */,

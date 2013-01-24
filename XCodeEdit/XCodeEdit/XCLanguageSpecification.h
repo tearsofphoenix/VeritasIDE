@@ -63,21 +63,26 @@ typedef NSInteger XCLanguageIDType;
     TSPropertyListDictionary *_syntaxRules;
 }
 
-+ (id)_identifierForUniqueId: (NSInteger)arg1;
-+ (NSInteger)_uniqIdForIdentifier:(id)arg1;
 + (id)specificationRegistryName;
 + (id)specificationTypePathExtensions;
 + (id)localizedSpecificationTypeName;
 + (id)specificationType;
 + (Class)specificationTypeBaseClass;
+
 - (NSSet *)availableKeywords;
 - (NSSet *)lexerKeywords;
 - (NSSet *)syntaxRules;
+
 - (XCSourceScanner *)scanner;
+
 - (BOOL)includeInMenu;
+
 - (NSInteger)uniqueId;
+
 - (NSString *)name;
+
 - (void)dealloc;
+
 - (id)initWithPropertyListDictionary: (NSDictionary *)dict
                             inDomain: (NSString *)domain;
 
