@@ -7,15 +7,11 @@
 //
 
 #import "VMKClass.h"
-
 #import "VMKAuxiliary.h"
-
 #import "VMKRuntime.h"
-
 #import "LuaCGGeometry.h"
-
 #import "VMKObject.h"
-
+#include "VMKInternal.h"
 #import <objc/runtime.h>
 
 #pragma mark - type encoding support
@@ -25,7 +21,7 @@ static Boolean LuaInternalCStringEqual(const void *value1, const void *value2)
     const char *str1 = value1;
     const char *str2 = value2;
     
-    if(!strcmp(str1, str2))
+    if(VMKCStringEqual(str1, str2))
     {
         return YES;
     }
@@ -38,7 +34,7 @@ static void LuaInternalFreeCallback(CFAllocatorRef allocator, const void *value)
     free((void *)value);
 }
 
-static CFDictionaryKeyCallBacks kVMKCFTypeDictionaryKeyCallBacks =
+CFDictionaryKeyCallBacks kVMKCStringDictionaryKeyCallBacks =
 {
     .equal = LuaInternalCStringEqual,
     .release = LuaInternalFreeCallback,
@@ -84,7 +80,7 @@ static inline void _LuaObjC_initTypeEncodingDictionary(CFMutableDictionaryRef di
 
 static inline void VMKTypeEncodingInitialize(void)
 {
-    __sVMKTypeEncodingDictionary = CFDictionaryCreateMutable(NULL, 32, &kVMKCFTypeDictionaryKeyCallBacks, &kVMKCFTypeDictionaryValueCallbacks);
+    __sVMKTypeEncodingDictionary = CFDictionaryCreateMutable(NULL, 32, &kVMKCStringDictionaryKeyCallBacks, &kVMKCFTypeDictionaryValueCallbacks);
     _LuaObjC_initTypeEncodingDictionary(__sVMKTypeEncodingDictionary);
     
 }
@@ -126,7 +122,7 @@ static char __LuaObjC_KeyForClassMethods;
 
 static inline void _luaClassAttachDictionaryToClass(Class theClass, const void *key)
 {
-    CFMutableDictionaryRef classMethods = CFDictionaryCreateMutable(NULL, 16, &kVMKCFTypeDictionaryKeyCallBacks, NULL);
+    CFMutableDictionaryRef classMethods = CFDictionaryCreateMutable(NULL, 16, &kVMKCStringDictionaryKeyCallBacks, NULL);
     
     objc_setAssociatedObject(theClass, key, (id)classMethods, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
@@ -159,7 +155,7 @@ Class LuaInternalGetClass(const char *className)
 
 int VMKClassInitialize(lua_State *L)
 {
-    __LuaObjC_ClassDictionary = CFDictionaryCreateMutable(NULL, 1024, &kVMKCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+    __LuaObjC_ClassDictionary = CFDictionaryCreateMutable(NULL, 1024, &kVMKCStringDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
     return 1;
 }
 

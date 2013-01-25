@@ -13,6 +13,8 @@
 
 VMK_EXTERN_C_BEGIN
 
+#define VMKPushSelector(L, selector) lua_pushstring((L), (const char*)(selector))
+
 VMK_EXPORT const char * kVMKNSObjectMetaTableName;
 
 VMK_EXPORT const char * kVMKClassMetaTableName;
@@ -25,7 +27,6 @@ VMK_EXPORT const char* VMKCheckString(struct lua_State *L, int index);
 
 VMK_EXPORT CFIndex VMKCheckInteger(struct lua_State *L, int index);
 
-#define VMKPushSelector(L, selector) lua_pushstring((L), (const char*)(selector))
 
 
 VMK_EXPORT void VMKLoadGlobalFunctionsWithLength(struct lua_State *L, const struct luaL_Reg *functions, CFIndex count);

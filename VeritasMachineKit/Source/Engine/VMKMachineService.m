@@ -8,25 +8,20 @@
 
 #import "VMKMachineService.h"
 
-//#import "lualib.h"
-
 #import "VMKClass.h"
-
 #import "VMKRuntime.h"
 
 #if TARGET_OS_EMBEDDED || TARGET_OS_IPHONE
-
 #import "LuaUIKit.h"
-
 #endif
 
 #import <LuaKit/LuaKit.h>
 
 #import "VMKLibraryInformation.h"
-
 #import "VMKAuxiliary.h"
 #import "VMKBridgeService.h"
 #import "VMKParser.h"
+#include "VMKInternal.h"
 #import "NSString+VMKIndex.h"
 #import "NSData+Base64.h"
 #import <pthread.h>
@@ -137,12 +132,16 @@ static LuaStateRef _luaEngine_createLuaState(void)
 static int _luaEngine_compileTimeInteraction(lua_State *L)
 {
     const char *message = lua_tostring(L, 2);
-    if (!strcmp(message, "import"))
+    if (VMKCStringEqual(message, "import"))
     {
-        NSString *frameworkName = @( lua_tostring(L, 3) );
-        frameworkName = [frameworkName substringWithRange: NSMakeRange(1, [frameworkName length] - 2)];
+        CFStringRef str = CFStringCreateWithCString(NULL, lua_tostring(L, 3), kCFStringEncodingUTF8);
+
+        CFStringRef frameworkName = CFStringCreateWithSubstring(NULL, str, CFRangeMake(1, CFStringGetLength(str) - 2));
         
-        [[VMKBridgeService sharedService] importFramework: frameworkName];
+        [[VMKBridgeService sharedService] importFramework: (NSString *)frameworkName];
+        
+        CFRelease(str);
+        CFRelease(frameworkName);
     }
     
     return 0;

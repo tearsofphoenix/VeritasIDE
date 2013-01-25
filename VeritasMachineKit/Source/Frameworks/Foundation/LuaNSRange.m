@@ -9,6 +9,7 @@
 
 #include "VMKAuxiliary.h"
 #include "VMKFrameworkFunctions.h"
+#include "VMKInternal.h"
 
 int VMKPushNSRange(lua_State *L, NSRange r)
 {
@@ -87,12 +88,12 @@ static int lua_NSRangeIndex(lua_State *L)
 {
     NSRange *r = luaL_checkudata(L, 1, LUA_NSRange_METANAME);
     const char *fieldName = lua_tostring(L, 2);
-    if (!strcmp(fieldName, "location"))
+    if (VMKCStringEqual(fieldName, "location"))
     {
         lua_pushnumber(L, r->location);
         return 1;
         
-    }else if (!strcmp(fieldName, "length"))
+    }else if (VMKCStringEqual(fieldName, "length"))
     {
         lua_pushnumber(L, r->length);
         return 1;
@@ -104,11 +105,11 @@ static int lua_NSRangeNewIndex(lua_State *L)
 {
     NSRange *r = luaL_checkudata(L, 1, LUA_NSRange_METANAME);
     const char *fieldName = lua_tostring(L, 2);
-    if (!strcmp(fieldName, "location"))
+    if (VMKCStringEqual(fieldName, "location"))
     {
         r->location = lua_tointeger(L, 3);
         
-    }else if (!strcmp(fieldName, "length"))
+    }else if (VMKCStringEqual(fieldName, "length"))
     {
         r->length = lua_tointeger(L, 3);
     }
