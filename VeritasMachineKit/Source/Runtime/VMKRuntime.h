@@ -13,6 +13,8 @@
 
 VMK_EXTERN_C_BEGIN
 
+#define LUA_NSLIBNAME       "NS"
+
 enum
 {
     VMKInvalidClouserID = -1,
@@ -22,10 +24,8 @@ typedef int LuaClosureType;
 
 VMK_EXPORT LuaClosureType LuaInternalGetClosureIDOfBlock(id block);
 
-#define LUA_NSLIBNAME       "NS"    
+VMK_EXPORT int VMKOpenFoundationSupport(VMKLuaStateRef state);
 
-LUAMOD_API int VMKOpenFoundationSupport(struct lua_State *L);
-
-VMK_EXTERN__C_END
+VMK_EXTERN_C_END
 
 #endif

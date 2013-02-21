@@ -8,7 +8,6 @@
 #include "LuaCGGeometry.h"
 #include "VMKAuxiliary.h"
 #include "VMKFrameworkFunctions.h"
-#include "VMKInternal.h"
 
 int VMKPushCGPoint(lua_State *L, CGPoint p)
 {
@@ -76,11 +75,11 @@ static int lua_CGRectIndex(lua_State *L)
 {
     CGRect *r = lua_touserdata(L, 1);
     const char *fieldName = lua_tostring(L, 2);
-    if (VMKCStringEqual(fieldName, "origin"))
+    if (!strcmp(fieldName, "origin"))
     {
         VMKPushCGPoint(L, r->origin);
         return 1;
-    }else if (VMKCStringEqual(fieldName, "size"))
+    }else if (!strcmp(fieldName, "size"))
     {
         VMKPushCGSize(L, r->size);
         return 1;
@@ -95,11 +94,11 @@ static int lua_CGRectNewIndex(lua_State *L)
 {
     CGRect *r = lua_touserdata(L, 1);
     const char *fieldName = lua_tostring(L, 2);
-    if (VMKCStringEqual(fieldName, "origin"))
+    if (!strcmp(fieldName, "origin"))
     {
         r->origin = *(CGPoint *)lua_touserdata(L, 3);
 
-    }else if (VMKCStringEqual(fieldName, "size"))
+    }else if (!strcmp(fieldName, "size"))
     {
         r->size = *(CGSize *)lua_touserdata(L, 3);
     }
@@ -121,11 +120,11 @@ static int lua_CGPointIndex(lua_State *L)
 {
     CGPoint *p = lua_touserdata(L, 1);
     const char *fieldName = lua_tostring(L, 2);
-    if (VMKCStringEqual(fieldName, "x"))
+    if (!strcmp(fieldName, "x"))
     {
         lua_pushnumber(L, p->x);
         return 1;
-    }else if (VMKCStringEqual(fieldName, "y"))
+    }else if (!strcmp(fieldName, "y"))
     {
         lua_pushnumber(L, p->y);
         return 1;
@@ -149,11 +148,11 @@ static int lua_CGPointNewIndex(lua_State *L)
 {
     CGPoint *p = lua_touserdata(L, 1);
     const char *fieldName = lua_tostring(L, 2);
-    if (VMKCStringEqual(fieldName, "x"))
+    if (!strcmp(fieldName, "x"))
     {
         p->x = lua_tonumber(L, 3);
 
-    }else if (VMKCStringEqual(fieldName, "y"))
+    }else if (!strcmp(fieldName, "y"))
     {
         p->y = lua_tonumber(L, 3);
     }
@@ -164,11 +163,11 @@ static int lua_CGSizeIndex(lua_State *L)
 {
     CGSize *s = lua_touserdata(L, 1);
     const char *fieldName = lua_tostring(L, 2);
-    if (VMKCStringEqual(fieldName, "width"))
+    if (!strcmp(fieldName, "width"))
     {
         lua_pushnumber(L, s->width);
         return 1;
-    }else if (VMKCStringEqual(fieldName, "height"))
+    }else if (!strcmp(fieldName, "height"))
     {
         lua_pushnumber(L, s->height);
         return 1;
@@ -180,11 +179,11 @@ static int lua_CGSizeNewIndex(lua_State *L)
 {
     CGSize *s = lua_touserdata(L, 1);
     const char *fieldName = lua_tostring(L, 2);
-    if (VMKCStringEqual(fieldName, "width"))
+    if (!strcmp(fieldName, "width"))
     {
         s->width = lua_tonumber(L, 3);
         
-    }else if (VMKCStringEqual(fieldName, "height"))
+    }else if (!strcmp(fieldName, "height"))
     {
         s->height = lua_tonumber(L, 3);
     }

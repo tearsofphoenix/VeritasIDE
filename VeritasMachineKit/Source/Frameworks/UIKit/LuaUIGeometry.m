@@ -9,7 +9,6 @@
 #include "VMKAuxiliary.h"
 #include "LuaCGGeometry.h"
 #include "VMKFrameworkFunctions.h"
-#include "VMKInternal.h"
 #include <UIKit/UIGeometry.h>
 
 int VMKPushUIEdgeInsets(lua_State *L, UIEdgeInsets edgeInsets)
@@ -89,19 +88,19 @@ static int _luaUIEdgeInsetIndex(lua_State *L)
 {
     UIEdgeInsets *obj = luaL_checkudata(L, 1, LUA_UIEdgeInsets_METANAME);
     const char *fieldName = lua_tostring(L, 2);
-    if (VMKCStringEqual(fieldName, "top"))
+    if (!strcmp(fieldName, "top"))
     {
         lua_pushnumber(L, obj->top);
         return 1;
-    }else if (VMKCStringEqual(fieldName, "bottom"))
+    }else if (!strcmp(fieldName, "bottom"))
     {
         lua_pushnumber(L, obj->bottom);
         return 1;
-    }else if (VMKCStringEqual(fieldName, "left"))
+    }else if (!strcmp(fieldName, "left"))
     {
         lua_pushnumber(L, obj->left);
         return 1;
-    }else if (VMKCStringEqual(fieldName, "right"))
+    }else if (!strcmp(fieldName, "right"))
     {
         lua_pushnumber(L, obj->right);
         return 1;
@@ -114,19 +113,19 @@ static int _luaUIEdgeInsetNewIndex(lua_State *L)
 {
     UIEdgeInsets *obj = luaL_checkudata(L, 1, LUA_UIEdgeInsets_METANAME);
     const char *fieldName = lua_tostring(L, 2);
-    if (VMKCStringEqual(fieldName, "top"))
+    if (!strcmp(fieldName, "top"))
     {
         obj->top = lua_tonumber(L, 3);
 
-    }else if (VMKCStringEqual(fieldName, "bottom"))
+    }else if (!strcmp(fieldName, "bottom"))
     {
         obj->bottom = lua_tonumber(L, 3);
 
-    }else if (VMKCStringEqual(fieldName, "left"))
+    }else if (!strcmp(fieldName, "left"))
     {
         obj->left = lua_tonumber(L, 3);
 
-    }else if (VMKCStringEqual(fieldName, "right"))
+    }else if (!strcmp(fieldName, "right"))
     {
         obj->right = lua_tonumber(L, 3);
     }
@@ -147,12 +146,12 @@ static int _luaUIGeometryUIOffsetIndex(lua_State *L)
 {
     UIOffset *o = luaL_checkudata(L, 1, LUA_UIOffset_METANAME);
     const char *fieldName = lua_tostring(L, 2);
-    if (VMKCStringEqual(fieldName, "vertical"))
+    if (!strcmp(fieldName, "vertical"))
     {
         lua_pushnumber(L, o->vertical);
         return 1;
         
-    }else if (VMKCStringEqual(fieldName, "horizontal"))
+    }else if (!strcmp(fieldName, "horizontal"))
     {
         lua_pushnumber(L, o->horizontal);
         return 1;
@@ -165,11 +164,11 @@ static int _luaUIGeometryUIOffsetNewIndex(lua_State *L)
 {
     UIOffset *o = luaL_checkudata(L, 1, LUA_UIOffset_METANAME);
     const char *fieldName = lua_tostring(L, 2);
-    if (VMKCStringEqual(fieldName, "vertical"))
+    if (!strcmp(fieldName, "vertical"))
     {
         o->vertical = lua_tonumber(L, 3);
         
-    }else if (VMKCStringEqual(fieldName, "horizontal"))
+    }else if (!strcmp(fieldName, "horizontal"))
     {
         o->horizontal = lua_tonumber(L, 3);
     }

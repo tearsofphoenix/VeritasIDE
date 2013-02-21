@@ -9,34 +9,33 @@
 #include "VMKAuxiliary.h"
 #include "LuaCGGeometry.h"
 #include "VMKFrameworkFunctions.h"
-#include "VMKInternal.h"
 #include <string.h>
 
 static int lua_CGAffineTransformIndex(lua_State *L)
 {
     CGAffineTransform *t = luaL_checkudata(L, 1, LUA_CGAffineTransform_METANAME);
     const char *fieldName = lua_tostring(L, 2);
-    if (VMKCStringEqual(fieldName, "a"))
+    if (!strcmp(fieldName, "a"))
     {
         lua_pushnumber(L, t->a);
         return 1;
-    }else if (VMKCStringEqual(fieldName, "b"))
+    }else if (!strcmp(fieldName, "b"))
     {
         lua_pushnumber(L, t->b);
         return 1;
-    }else if (VMKCStringEqual(fieldName, "c"))
+    }else if (!strcmp(fieldName, "c"))
     {
         lua_pushnumber(L, t->c);
         return 1;
-    }else if (VMKCStringEqual(fieldName, "d"))
+    }else if (!strcmp(fieldName, "d"))
     {
         lua_pushnumber(L, t->d);
         return 1;
-    }else if (VMKCStringEqual(fieldName, "tx"))
+    }else if (!strcmp(fieldName, "tx"))
     {
         lua_pushnumber(L, t->tx);
         return 1;
-    }else if (VMKCStringEqual(fieldName, "ty"))
+    }else if (!strcmp(fieldName, "ty"))
     {
         lua_pushnumber(L, t->ty);
         return 1;
@@ -49,23 +48,23 @@ static int lua_CGAffineTransformNewIndex(lua_State *L)
 {
     CGAffineTransform *t = luaL_checkudata(L, 1, LUA_CGAffineTransform_METANAME);
     const char *fieldName = lua_tostring(L, 2);
-    if (VMKCStringEqual(fieldName, "a"))
+    if (!strcmp(fieldName, "a"))
     {
         t->a = lua_tonumber(L, 3);
         
-    }else if (VMKCStringEqual(fieldName, "b"))
+    }else if (!strcmp(fieldName, "b"))
     {
         t->b = lua_tonumber(L, 3);
-    }else if (VMKCStringEqual(fieldName, "c"))
+    }else if (!strcmp(fieldName, "c"))
     {
         t->c = lua_tonumber(L, 3);
-    }else if (VMKCStringEqual(fieldName, "d"))
+    }else if (!strcmp(fieldName, "d"))
     {
         t->d = lua_tonumber(L, 3);
-    }else if (VMKCStringEqual(fieldName, "tx"))
+    }else if (!strcmp(fieldName, "tx"))
     {
         t->tx = lua_tonumber(L, 3);
-    }else if (VMKCStringEqual(fieldName, "ty"))
+    }else if (!strcmp(fieldName, "ty"))
     {
         t->ty = lua_tonumber(L, 3);
     }

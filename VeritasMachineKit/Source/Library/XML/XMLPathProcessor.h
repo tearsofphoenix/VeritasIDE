@@ -1,24 +1,21 @@
+#import <Foundation/Foundation.h>
 
-#ifndef __VMK_VMKXMLPATHPROCESSOR__
-#define __VMK_VMKXMLPATHPROCESSOR__ 1
-
-#include "XMLDocument.h"
+#import "XMLDocument.h"
 
 #include <libxml/xpath.h>
 
-typedef struct __VMKXMLPathProcessor *VMKXMLPathProcessorRef;
+@interface XMLPathProcessor : NSObject 
+{
+    
+}
 
-CFTypeID VMKXMLPathProcessorGetTypeID(void);
+@property (nonatomic, readonly) xmlXPathContextPtr rawXMLPathContext;
 
+- (XMLPathProcessor *)initWithNamespaces: (NSDictionary *)namespaces
+                              inDocument: (XMLDocument *)document;
 
-xmlXPathContextPtr VMKXMLPathProcessorGetRawXMLPathContext(VMKXMLPathProcessorRef processor);
+- (void)registerNamespace: (NSString *)theNamespace withPrefix: (NSString *)prefix;
 
-VMKXMLPathProcessorRef VMKXMLPathProcessorCreate(CFDictionaryRef namespaces, VMKXMLDocumentRef document);
+- (NSArray *)evaluateExpression: (NSString *)expression;
 
-void VMKXMLPathProcessorRegisterNamespace(VMKXMLPathProcessorRef processord,
-                                          const char *theNamespace,
-                                          const char *prefix);
-
-CFArrayRef VMKXMLPathProcessorEvaluateExpression(VMKXMLPathProcessorRef processor, const char *expression);
-
-#endif
+@end

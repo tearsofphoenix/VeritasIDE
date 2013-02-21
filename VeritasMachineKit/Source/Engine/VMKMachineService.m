@@ -7,7 +7,6 @@
 //
 
 #import "VMKMachineService.h"
-
 #import "VMKClass.h"
 #import "VMKRuntime.h"
 
@@ -15,15 +14,13 @@
 #import "LuaUIKit.h"
 #endif
 
-#import <LuaKit/LuaKit.h>
-
 #import "VMKLibraryInformation.h"
 #import "VMKAuxiliary.h"
 #import "VMKBridgeService.h"
 #import "VMKParser.h"
-#include "VMKInternal.h"
 #import "NSString+VMKIndex.h"
 #import "NSData+Base64.h"
+#import <LuaKit/LuaKit.h>
 #import <pthread.h>
 
 extern int lua_dumpSourceCode(lua_State* L, const char *sourceCode, const char* outputPath);
@@ -132,16 +129,12 @@ static LuaStateRef _luaEngine_createLuaState(void)
 static int _luaEngine_compileTimeInteraction(lua_State *L)
 {
     const char *message = lua_tostring(L, 2);
-    if (VMKCStringEqual(message, "import"))
+    if (!strcmp(message, "import"))
     {
-        CFStringRef str = CFStringCreateWithCString(NULL, lua_tostring(L, 3), kCFStringEncodingUTF8);
-
-        CFStringRef frameworkName = CFStringCreateWithSubstring(NULL, str, CFRangeMake(1, CFStringGetLength(str) - 2));
+        NSString *frameworkName = @( lua_tostring(L, 3) );
+        frameworkName = [frameworkName substringWithRange: NSMakeRange(1, [frameworkName length] - 2)];
         
-        [[VMKBridgeService sharedService] importFramework: (NSString *)frameworkName];
-        
-        CFRelease(str);
-        CFRelease(frameworkName);
+        [[VMKBridgeService sharedService] importFramework: frameworkName];
     }
     
     return 0;

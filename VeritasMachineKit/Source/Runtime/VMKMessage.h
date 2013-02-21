@@ -18,7 +18,7 @@ VMK_EXTERN_C_BEGIN
 
 #define VMKArgumentStart (3)
 
-typedef int (* VMKAcceleratorIMP)(id obj, SEL sel, struct lua_State *L);
+typedef int (* VMKAcceleratorIMP)(id obj, SEL sel, VMKLuaStateRef state);
 
 VMK_EXPORT void VMKRegisterAccelerator(Class theClass, SEL selector, VMKAcceleratorIMP imp);
 
@@ -30,10 +30,10 @@ VMK_EXPORT VMKAcceleratorIMP VMKGetRegisterIMPOfSelector(Class theClass, SEL sel
  *   used to construct the veritas virtual machine.
  */
 
-VMK_EXPORT int VMKMessageSend(struct lua_State *L);
+VMK_EXPORT int VMKMessageSend(VMKLuaStateRef state);
 
-VMK_EXPORT int VMKMessageSendSuper(struct lua_State *L);
+VMK_EXPORT int VMKMessageSendSuper(VMKLuaStateRef state);
 
-VMK_EXTERN__C_END
+VMK_EXTERN_C_END
 
 #endif
