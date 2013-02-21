@@ -158,6 +158,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		22C68D2E16D5ADEA006C47F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1D62E6216AE20A800DE39BF /* LuaKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E1A4FEA61643961600F8AE92;
+			remoteInfo = "LuaKit-iOS";
+		};
 		E14A34FD1643A7BA00B8EB6E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 34E8A16714D24C82000F9EB1 /* Project object */;
@@ -194,6 +201,19 @@
 			remoteInfo = "LuaKit-iOS";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		22C68D3016D5AE3C006C47F7 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E14A34C31643A64F00B8EB6E /* libffi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libffi.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libffi.dylib; sourceTree = DEVELOPER_DIR; };
@@ -855,10 +875,12 @@
 				E14A34DA1643A77F00B8EB6E /* Sources */,
 				E14A34DB1643A77F00B8EB6E /* Frameworks */,
 				E14A34DC1643A77F00B8EB6E /* Resources */,
+				22C68D3016D5AE3C006C47F7 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				22C68D2F16D5ADEA006C47F7 /* PBXTargetDependency */,
 				E14A34FE1643A7BA00B8EB6E /* PBXTargetDependency */,
 			);
 			name = VeritasMahineIOSDemo;
@@ -1114,6 +1136,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		22C68D2F16D5ADEA006C47F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "LuaKit-iOS";
+			targetProxy = 22C68D2E16D5ADEA006C47F7 /* PBXContainerItemProxy */;
+		};
 		E14A34FE1643A7BA00B8EB6E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E1A4005316439A1C00F8AE92 /* VeritasMachineKit-iOS */;
@@ -1194,6 +1221,7 @@
 		E14A34F91643A77F00B8EB6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1212,6 +1240,7 @@
 		E14A34FA1643A77F00B8EB6E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1292,6 +1321,7 @@
 		E1A4006216439A1D00F8AE92 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1322,6 +1352,7 @@
 		E1A4006316439A1D00F8AE92 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;

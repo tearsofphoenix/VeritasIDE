@@ -124,7 +124,7 @@ static pthread_mutex_t __VMKRuntimePoolLock;
 struct __VMKObject
 {
     id _obj;
-    lua_State *_luaState;
+    VMKLuaStateRef _luaState;
 };
 
 VMKObjectRef VMKObjectCreate(VMKLuaStateRef state, id rawObject, Boolean isClass)
