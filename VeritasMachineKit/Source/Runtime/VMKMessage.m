@@ -7,14 +7,12 @@
 //
 
 #import "VMKObject.h"
-
 #import "VMKMessage.h"
 
-#import "LuaCGGeometry.h"
-
 #import "VMKAuxiliary.h"
-
 #import "VMKStructs.h"
+
+#import "LuaCGGeometry.h"
 
 #import <objc/message.h>
 

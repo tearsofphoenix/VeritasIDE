@@ -7,7 +7,6 @@
 //
 
 #import "VMKAuxiliary.h"
-
 #import "VMKObject.h"
 
 const char * kVMKNSObjectMetaTableName = "com.veritas.vm.meta.NSObject";

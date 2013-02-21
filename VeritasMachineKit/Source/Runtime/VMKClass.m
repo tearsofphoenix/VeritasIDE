@@ -7,14 +7,12 @@
 //
 
 #import "VMKClass.h"
+#import "VMKObject.h"
 
 #import "VMKAuxiliary.h"
-
 #import "VMKRuntime.h"
 
 #import "LuaCGGeometry.h"
-
-#import "VMKObject.h"
 
 #import <objc/runtime.h>
 
