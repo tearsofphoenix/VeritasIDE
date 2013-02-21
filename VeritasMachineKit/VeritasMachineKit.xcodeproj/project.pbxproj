@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2208703F16D5EAAD00C05335 /* VMKFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2208703D16D5EAAD00C05335 /* VMKFunctions.h */; };
+		2208704016D5EAAD00C05335 /* VMKFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2208703E16D5EAAD00C05335 /* VMKFunctions.m */; };
 		22C68D3116D5AEC9006C47F7 /* LuaKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E1D62E6D16AE20A900DE39BF /* LuaKit.framework */; };
 		22C68D3216D5AEC9006C47F7 /* VeritasMachineKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E1A4005416439A1D00F8AE92 /* VeritasMachineKit.framework */; };
 		E14A34E11643A77F00B8EB6E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14A34E01643A77F00B8EB6E /* UIKit.framework */; };
@@ -157,6 +159,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2208703D16D5EAAD00C05335 /* VMKFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMKFunctions.h; sourceTree = "<group>"; };
+		2208703E16D5EAAD00C05335 /* VMKFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMKFunctions.m; sourceTree = "<group>"; };
 		E14A34C31643A64F00B8EB6E /* libffi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libffi.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libffi.dylib; sourceTree = DEVELOPER_DIR; };
 		E14A34DE1643A77F00B8EB6E /* VeritasMahineIOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VeritasMahineIOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E14A34E01643A77F00B8EB6E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -446,6 +450,8 @@
 				E1A400211643993300F8AE92 /* VMKProperty.m */,
 				E1A400221643993300F8AE92 /* VMKRuntime.h */,
 				E1A400231643993300F8AE92 /* VMKRuntime.m */,
+				2208703D16D5EAAD00C05335 /* VMKFunctions.h */,
+				2208703E16D5EAAD00C05335 /* VMKFunctions.m */,
 			);
 			path = Runtime;
 			sourceTree = "<group>";
@@ -767,6 +773,7 @@
 				E1A400B816439B6900F8AE92 /* VMKMessage.h in Headers */,
 				E1AB5B1416AD1277005F4E41 /* VMKClass.h in Headers */,
 				E172CF6B16B19DF800B5E035 /* CFRuntime.h in Headers */,
+				2208703F16D5EAAD00C05335 /* VMKFunctions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -964,6 +971,7 @@
 				E1A400B116439B4600F8AE92 /* VMKMessage.m in Sources */,
 				E1A400B216439B4600F8AE92 /* VMKProperty.m in Sources */,
 				E1A400B316439B4600F8AE92 /* VMKRuntime.m in Sources */,
+				2208704016D5EAAD00C05335 /* VMKFunctions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
