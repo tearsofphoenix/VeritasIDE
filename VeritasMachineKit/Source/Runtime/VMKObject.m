@@ -19,25 +19,29 @@
 
 #pragma mark - Object observer
 
-static CFSetCallBacks __VMKRuntimePoolCallBacks;
-
-static CFMutableSetRef __VMKRuntimePool = NULL;
-static pthread_mutex_t __VMKRuntimePoolLock;
-
-#pragma mark - object api
-
 struct __VMKObject
 {
     id _obj;
     VMKLuaStateRef _luaState;
+    
+#if VMK_DEBUG
+    Boolean _isClass;
+    const char *_className;
+#endif
+    
 };
 
 VMKObjectRef VMKObjectCreate(VMKLuaStateRef state, id rawObject, Boolean isClass)
 {
-    VMKObjectRef objRef = lua_newuserdata(state, sizeof(struct __VMKObject));
+    VMKObjectRef objRef = lua_newuserdata(state, sizeof *objRef );
     
     objRef->_luaState = state;
     objRef->_obj = rawObject;
+    
+#if VMK_DEBUG
+    objRef->_isClass = isClass;
+    objRef->_className = object_getClassName(rawObject);
+#endif
     
     if (isClass)
     {
@@ -52,16 +56,6 @@ VMKObjectRef VMKObjectCreate(VMKLuaStateRef state, id rawObject, Boolean isClass
     return objRef;
 }
 
-void VMKObjectStoreInPool(VMKLuaStateRef state, id obj)
-{
-    pthread_mutex_lock(&__VMKRuntimePoolLock);
-    
-    CFSetAddValue(__VMKRuntimePool, obj);
-    
-    pthread_mutex_unlock(&__VMKRuntimePoolLock);
-    
-}
-
 id VMKObjectGetObject(VMKObjectRef ref)
 {
     if (ref)
@@ -72,8 +66,9 @@ id VMKObjectGetObject(VMKObjectRef ref)
 }
 
 #pragma mark - meta methods of object observer
-
-static int luaObjC_description(VMKLuaStateRef state)
+// `__tostring'
+//
+static int _VMKObjectDescription(VMKLuaStateRef state)
 {
     VMKObjectRef obj = lua_touserdata(state, 1);
     NSString *description = [VMKObjectGetObject(obj) description];
@@ -82,16 +77,20 @@ static int luaObjC_description(VMKLuaStateRef state)
     return 1;
 }
 
-static int luaObjC_isEqual(VMKLuaStateRef state)
+// `__eq'
+//
+static int _VMKObjectIsEqual(VMKLuaStateRef state)
 {
     id obj1 = VMKCheckObject(state, 1);
     id obj2 = VMKCheckObject(state, 2);
-    lua_pushboolean(state, [obj1 isEqual: obj2]);
+    lua_pushboolean(state, CFEqual(obj1, obj2));
     
     return 1;
 }
 
-static int luaObjC_indexCollection(VMKLuaStateRef state)
+// `__index'
+//
+static int _VMKObjectIndex(VMKLuaStateRef state)
 {
     id obj = VMKCheckObject(state, 1);
     
@@ -108,7 +107,9 @@ static int luaObjC_indexCollection(VMKLuaStateRef state)
     }
 }
 
-static int luaObjC_addObjectToCollection(VMKLuaStateRef state)
+// `__newindex'
+//
+static int _VMKObjectNewIndex(VMKLuaStateRef state)
 {
     id obj = VMKCheckObject(state, 1);
     
@@ -124,7 +125,9 @@ static int luaObjC_addObjectToCollection(VMKLuaStateRef state)
     }
 }
 
-static int luaObjC_getLengthOfObject(VMKLuaStateRef state)
+// `__len'
+//
+static int _VMKObjectGetLength(VMKLuaStateRef state)
 {
     id obj = VMKCheckObject(state, 1);
     
@@ -139,17 +142,23 @@ static int luaObjC_getLengthOfObject(VMKLuaStateRef state)
     }
 }
 
-static int luaObjC_unionCollection(VMKLuaStateRef state)
+// `__add'
+//
+static int _VMKObjectUnion(VMKLuaStateRef state)
 {
     return 1;
 }
 
-static int luaObjC_subtractCollection(VMKLuaStateRef state)
+// `__sub'
+//
+static int _VMKObjectSubtract(VMKLuaStateRef state)
 {
     return 1;
 }
 
-static int luaObjC_concatCollection(VMKLuaStateRef state)
+// `__concat'
+//
+static int _VMKObjectConcat(VMKLuaStateRef state)
 {
     id obj = VMKCheckObject(state, 1);
     
@@ -181,7 +190,9 @@ static Boolean VMKIsKindOfClass(id obj, Class theClass)
     return FALSE;
 }
 
-static int luaObjC_callBlockObject(VMKLuaStateRef state)
+// `__call'
+//
+static int _VMKObjectCall(VMKLuaStateRef state)
 {
     //include the block
     //
@@ -252,19 +263,18 @@ static int luaObjC_callBlockObject(VMKLuaStateRef state)
     return returnCount;
 }
 
-static int luaObjC_garbageCollection(VMKLuaStateRef state)
+// `__gc'
+//
+static int _VMKObjectGarbageCollection(VMKLuaStateRef state)
 {
     VMKObjectRef objRef = lua_touserdata(state, 1);
         
     if (objRef)
     {
-        const void *obj = objRef->_obj;
-        
-        pthread_mutex_lock(&__VMKRuntimePoolLock);
-                
-        CFSetRemoveValue(__VMKRuntimePool, obj);
-        
-        pthread_mutex_unlock(&__VMKRuntimePoolLock);
+#if VMK_DEBUG
+        //id obj = objRef->_obj;
+        //NSLog(@"gc object: %p className: %s isClass: %s\n", obj, objRef->_className, objRef->_isClass ? "YES" : "NO");
+#endif
     }
     
     return 0;
@@ -272,24 +282,24 @@ static int luaObjC_garbageCollection(VMKLuaStateRef state)
 
 static const luaL_Reg LuaNS_ObjectMethods[] =
 {
-    {"__tostring", luaObjC_description},
-    {"__gc", luaObjC_garbageCollection},
-    {"__index", luaObjC_indexCollection},
-    {"__newindex", luaObjC_addObjectToCollection},
-    {"__len", luaObjC_getLengthOfObject},
-    {"__eq", luaObjC_isEqual},
-    {"__add", luaObjC_unionCollection},
-    {"__sub", luaObjC_subtractCollection},
-    {"__concat", luaObjC_concatCollection},
-    {"__call", luaObjC_callBlockObject},
+    {"__tostring", _VMKObjectDescription},
+    {"__gc", _VMKObjectGarbageCollection},
+    {"__index", _VMKObjectIndex},
+    {"__newindex", _VMKObjectNewIndex},
+    {"__len", _VMKObjectGetLength},
+    {"__eq", _VMKObjectIsEqual},
+    {"__add", _VMKObjectUnion},
+    {"__sub", _VMKObjectSubtract},
+    {"__concat", _VMKObjectConcat},
+    {"__call", _VMKObjectCall},
     
     {NULL, NULL}
 };
 
 static const luaL_Reg LuaNS_ClassMethods[] =
 {
-    {"__tostring", luaObjC_description},
-    {"__eq", luaObjC_isEqual},
+    {"__tostring", _VMKObjectDescription},
+    {"__eq", _VMKObjectIsEqual},
     
     {NULL, NULL}
 };
@@ -297,30 +307,18 @@ static const luaL_Reg LuaNS_ClassMethods[] =
 
 int VMKOpenNSObjectExtensionSupport(VMKLuaStateRef state)
 {
-    if (!__VMKRuntimePool)
-    {
-        __VMKRuntimePoolCallBacks = kCFTypeSetCallBacks;
-        __VMKRuntimePoolCallBacks.equal = NULL;
-        __VMKRuntimePoolCallBacks.hash = NULL;
-        
-        __VMKRuntimePool = CFSetCreateMutable(NULL, 4096, &__VMKRuntimePoolCallBacks);
-        
-        pthread_mutexattr_t attr;
-        pthread_mutexattr_init(&attr);
-        pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
-        
-        pthread_mutex_init(&__VMKRuntimePoolLock, &attr);
-        
-        pthread_mutexattr_destroy(&attr);
-        
+    if (!sNSBlockClass)
+    {        
         sNSBlockClass = objc_getClass("NSBlock");
     }
     
+    VMKTypeEncodingInitialize();
+    
     VMKOpenNSFunctions(state);
     
-    VMKLoadCreateMetatable(state, kVMKNSObjectMetaTableName, LuaNS_ObjectMethods);
+    VMKCreateMetatable(state, kVMKNSObjectMetaTableName, LuaNS_ObjectMethods);
     
-    VMKLoadCreateMetatable(state, kVMKClassMetaTableName, LuaNS_ClassMethods);
+    VMKCreateMetatable(state, kVMKClassMetaTableName, LuaNS_ClassMethods);
     
     return 0;
 }

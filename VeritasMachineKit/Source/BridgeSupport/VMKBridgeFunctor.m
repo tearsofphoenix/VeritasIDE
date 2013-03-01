@@ -188,7 +188,7 @@ static const luaL_Reg __LuaObjCBridgeSupportMetaMethods[] =
 int LuaInternalOpenBridgeFunctorSupport(VMKLuaStateRef state)
 {
     luaL_newlib(state, __LuaObjCBridgeSupportFunctions);
-    VMKLoadCreateMetatable(state, VMKBridgeFuncotrMetaName, __LuaObjCBridgeSupportMetaMethods);
+    VMKCreateMetatable(state, VMKBridgeFuncotrMetaName, __LuaObjCBridgeSupportMetaMethods);
     return 1;
 }
 
@@ -355,12 +355,12 @@ void VMKInvoke(VMKLuaStateRef state, VMKBridgeFuncotrRef ref)
             }
             case _C_CLASS:
             {
-                VMKPushObject(state, *(id *)ref->_returnValue, true, true);
+                VMKPushObject(state, *(id *)ref->_returnValue, true);
                 break;
             }
             case _C_ID:
             {
-                VMKPushObject(state, *(id *)ref->_returnValue, true, false);
+                VMKPushObject(state, *(id *)ref->_returnValue, false);
                 break;
             }
             case _C_PTR:

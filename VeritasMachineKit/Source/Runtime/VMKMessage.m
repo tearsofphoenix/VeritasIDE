@@ -84,7 +84,7 @@ static const char* LuaInternalJumpoverEncodingDecorator(const char* charLooper)
 //
 static int VMKAcceleratorForNoArgument(VMKLuaStateRef state, const char* returnType,
                                     IMP impRef, id obj, SEL selector)
-{
+{    
     returnType = LuaInternalJumpoverEncodingDecorator(returnType);
     switch (*returnType)
     {
@@ -120,7 +120,7 @@ static int VMKAcceleratorForNoArgument(VMKLuaStateRef state, const char* returnT
         case _C_CLASS:
         {
             id result = impRef(obj, selector);
-            VMKPushObject(state, result, true, true);
+            VMKPushObject(state, result, true);
             return 1;
         }
         case _C_ID:
@@ -130,11 +130,11 @@ static int VMKAcceleratorForNoArgument(VMKLuaStateRef state, const char* returnT
             if (sel_isEqual(selector, @selector(alloc)))
             {
                 
-                VMKPushObject(state, result, false, false);
+                VMKPushObject(state, result, false);
                 
             }else
             {
-                VMKPushObject(state, result, true, false);
+                VMKPushObject(state, result, false);
             }
             
             return 1;
@@ -222,12 +222,6 @@ static const char* LuaInternalGetCurrentLineSource(lua_Debug *ar)
 }
 
 #pragma mark - message send routine implementation
-
-@interface NSInvocation (PrivateMethodsExpose)
-
-- (void)invokeSuper;
-
-@end
 
 static int _luaObjC_objc_messageSendGeneral(VMKLuaStateRef state, BOOL isToSelfClass)
 {
@@ -397,7 +391,9 @@ static int _luaObjC_objc_messageSendGeneral(VMKLuaStateRef state, BOOL isToSelfC
             [invokation invoke];
         }else
         {
-            [invokation invokeSuper];
+            //as `invokeSuper' is private
+            //
+            objc_msgSend(invokation, @selector(invokeSuper));
         }
         
         switch (*returnType)
@@ -440,7 +436,7 @@ static int _luaObjC_objc_messageSendGeneral(VMKLuaStateRef state, BOOL isToSelfC
                 id obj = nil;
                 [invokation getReturnValue: &obj];
                 
-                VMKPushObject(state, obj, true, true);
+                VMKPushObject(state, obj, true);
                 
                 return 1;
 
@@ -450,7 +446,7 @@ static int _luaObjC_objc_messageSendGeneral(VMKLuaStateRef state, BOOL isToSelfC
                 id obj = nil;
                 [invokation getReturnValue: &obj];
                
-                VMKPushObject(state, obj, true, false);
+                VMKPushObject(state, obj, false);
                 
                 return 1;
             }

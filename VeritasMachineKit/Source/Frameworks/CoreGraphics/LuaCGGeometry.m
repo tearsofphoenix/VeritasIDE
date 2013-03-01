@@ -7,7 +7,6 @@
 //
 #include "LuaCGGeometry.h"
 #include "VMKAuxiliary.h"
-#include "VMKFrameworkFunctions.h"
 
 int VMKPushCGPoint(lua_State *L, CGPoint p)
 {
@@ -85,7 +84,8 @@ static int lua_CGRectIndex(lua_State *L)
         return 1;
     }else
     {
-        luaL_error(L, "Unknow field: %s of datatype (CGRect)", fieldName);
+        printf("Unknow field: %s of datatype (CGRect)", fieldName);
+        lua_error(L);
     }
     return 0;
 }
@@ -507,7 +507,7 @@ static const luaL_Reg __luaCGRectAPIs[] =
 
 static const luaL_Reg __lua_CGRectMetaMethods[] =
 {
-    {"__gc", LuaInternalStructGarbageCollection},
+    //{"__gc", }, no need gc
     {"__index", lua_CGRectIndex},
     {"__newindex", lua_CGRectNewIndex},
     {"__tostring", lua_CGRectToString},
@@ -516,7 +516,7 @@ static const luaL_Reg __lua_CGRectMetaMethods[] =
 
 static const luaL_Reg __lua_CGPointMetaMethods[] =
 {
-    {"__gc", LuaInternalStructGarbageCollection},
+    //{"__gc", }, no need gc
     {"__index", lua_CGPointIndex},
     {"__newindex", lua_CGPointNewIndex},
     {"__tostring", lua_CGPointToString},
@@ -526,7 +526,7 @@ static const luaL_Reg __lua_CGPointMetaMethods[] =
 
 static const luaL_Reg __lua_CGSizeMetaMethods[] =
 {
-    {"__gc", LuaInternalStructGarbageCollection},
+    //{"__gc", }, no need gc
     {"__index", lua_CGSizeIndex},
     {"__newindex", lua_CGSizeNewIndex},
     {"__tostring", lua_CGSizeToString},
@@ -536,11 +536,11 @@ static const luaL_Reg __lua_CGSizeMetaMethods[] =
 
 int VMKOpenCGGeometry(lua_State *L)
 {
-    VMKLoadCreateMetatable(L, LUA_CGRect_METANAME, __lua_CGRectMetaMethods);
+    VMKCreateMetatable(L, LUA_CGRect_METANAME, __lua_CGRectMetaMethods);
 
-    VMKLoadCreateMetatable(L, LUA_CGPoint_METANAME, __lua_CGPointMetaMethods);
+    VMKCreateMetatable(L, LUA_CGPoint_METANAME, __lua_CGPointMetaMethods);
 
-    VMKLoadCreateMetatable(L, LUA_CGSize_METANAME, __lua_CGSizeMetaMethods);
+    VMKCreateMetatable(L, LUA_CGSize_METANAME, __lua_CGSizeMetaMethods);
 
     VMKLoadGlobalFunctions(L, __luaCGPointAPIs);
     

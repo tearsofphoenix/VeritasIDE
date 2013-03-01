@@ -6,9 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 #include "LuaNSRange.h"
-
 #include "VMKAuxiliary.h"
-#include "VMKFrameworkFunctions.h"
 
 int VMKPushNSRange(lua_State *L, NSRange r)
 {
@@ -72,7 +70,7 @@ static int lua_NSUnionRange(lua_State *L)
 static int lua_NSStringFromRange(lua_State *L)
 {
     NSRange *range = luaL_checkudata(L, 1, LUA_NSRange_METANAME);
-    VMKPushObject(L, NSStringFromRange(*range), true, false);
+    VMKPushObject(L, NSStringFromRange(*range), false);
     return 1;
 }
 
@@ -117,7 +115,7 @@ static int lua_NSRangeNewIndex(lua_State *L)
 
 static const luaL_Reg __luaNSRangeMetaMethods[] =
 {
-    {"__gc", LuaInternalStructGarbageCollection},
+    //{"__gc", }, no need gc
     {"__index", lua_NSRangeIndex},
     {"__newindex", lua_NSRangeNewIndex},
     {NULL, NULL},
@@ -137,7 +135,7 @@ static const luaL_Reg __luaNSRangeAPIs[] = {
 
 int VMKOpenNSRange(lua_State *L)
 {
-    VMKLoadCreateMetatable(L, LUA_NSRange_METANAME, __luaNSRangeMetaMethods);
+    VMKCreateMetatable(L, LUA_NSRange_METANAME, __luaNSRangeMetaMethods);
 
     VMKLoadGlobalFunctions(L, __luaNSRangeAPIs);
     

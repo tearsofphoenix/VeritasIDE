@@ -19,7 +19,7 @@ VMK_EXPORT const char * kVMKClassMetaTableName;
 
 VMK_EXPORT id VMKCheckObject(VMKLuaStateRef state, int index);
 
-VMK_EXPORT int VMKPushObject(VMKLuaStateRef state, id obj, bool shouldStoreInPool, bool isClass);
+VMK_EXPORT int VMKPushObject(VMKLuaStateRef state, id obj, bool isClass);
 
 VMK_EXPORT const char* VMKCheckString(VMKLuaStateRef state, int index);
 
@@ -32,7 +32,7 @@ VMK_EXPORT void VMKLoadGlobalFunctionsWithLength(VMKLuaStateRef state, const str
 
 VMK_EXPORT void VMKLoadGlobalFunctions(VMKLuaStateRef state, const struct luaL_Reg *functions);
 
-VMK_EXPORT void VMKLoadCreateMetatable(VMKLuaStateRef state, const char *name, const struct luaL_Reg *methods);
+VMK_EXPORT void VMKCreateMetatable(VMKLuaStateRef state, const char *name, const struct luaL_Reg *methods);
 
 VMK_EXPORT const char *VMKCopyUTF8StringFromString(CFStringRef str);
 

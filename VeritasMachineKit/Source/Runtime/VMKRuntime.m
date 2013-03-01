@@ -86,14 +86,14 @@ static int luaObjC_createClassWithSuperClass(VMKLuaStateRef state)
     if (registeredClass)
     {
         printf("Has Registerd:%s superClass:%s\n", newClassName, superClassName);
-        VMKPushObject(state, registeredClass, true, true);
+        VMKPushObject(state, registeredClass, true);
         
     }else
     {
         Class theNewClass = objc_allocateClassPair(superClass, newClassName, 0);
         
         LuaInternalAllocateClass(state, theNewClass, newClassName);
-        VMKPushObject(state, theNewClass, true, true);
+        VMKPushObject(state, theNewClass, true);
     }
     return 1;
 }
@@ -260,14 +260,14 @@ static int luaObjC_createBlockObject(VMKLuaStateRef state)
     
     luaObjC_addClosureIDForBlock(clouserID, block);
     
-    VMKPushObject(state, block, true, false);
+    VMKPushObject(state, block, false);
     
     return 1;
 }
 
 static int luaObjC_registerClassPair(VMKLuaStateRef state)
 {
-    const char* className = VMKCheckString(state, 1);
+    const char* className = lua_tostring(state, 1);
     
     Class theClass = LuaInternalGetClass(className);
     
@@ -316,7 +316,7 @@ static int luaObjC_resolveName(VMKLuaStateRef state)
     
     if (theClass)
     {
-        VMKPushObject(state, theClass, false, true);
+        VMKPushObject(state, theClass, true);
         
     }else
     {
@@ -462,8 +462,6 @@ static int luaObjC_objc_NSFastEnumerate(VMKLuaStateRef state)
 
 #pragma mark - literal object support, i.e. @{}, @[], @1
 
-static CFMutableSetRef _LuaObjCLiteralStorage = NULL;
-
 static int luaObjC_createLiteralArray(VMKLuaStateRef state)
 {
     int count = lua_gettop(state);
@@ -479,12 +477,10 @@ static int luaObjC_createLiteralArray(VMKLuaStateRef state)
     
     CFRelease(array);
     
-    CFSetAddValue(_LuaObjCLiteralStorage, value);
+    VMKPushObject(state, (id)value, false);
     
-    CFRelease(value);
-    
-    VMKPushObject(state, (id)value, true, false);
-    
+    [(id) value autorelease];
+
     return 1;
 }
 
@@ -504,12 +500,10 @@ static int luaObjC_createLiteralDictionary(VMKLuaStateRef state)
     
     CFRelease(dict);
     
-    CFSetAddValue(_LuaObjCLiteralStorage, result);
-    
-    CFRelease(result);
-    
-    VMKPushObject(state, (id)result, true, false);
-    
+    VMKPushObject(state, (id)result, false);
+
+    [(id)result autorelease];
+
     return 1;
 }
 
@@ -519,15 +513,23 @@ static inline int luaObjC_createConstantNumber(VMKLuaStateRef state)
     
     CFNumberRef number = CFNumberCreate(NULL, kCFNumberDoubleType, &value);
     
-    CFSetAddValue(_LuaObjCLiteralStorage, number);
+    VMKPushObject(state, (id)number, false);
     
-    CFRelease(number);
-    
-    VMKPushObject(state, (id)number, true, false);
-    
+    [(id)number autorelease];
+
     return 1;
 }
 
+static int lua_NSConstantStringCreate(VMKLuaStateRef L)
+{
+    const char* str = lua_tostring(L, 1);
+    
+    CFStringRef constantString =  CFStringCreateWithCString(NULL, str, kCFStringEncodingUTF8);
+    VMKPushObject(L, (id)constantString, false);
+    [(id)constantString autorelease];
+    
+    return 1;
+}
 
 static const luaL_Reg luaObjC_runtimeFunctions[] =
 {
@@ -556,7 +558,8 @@ static const luaL_Reg luaObjC_runtimeFunctions[] =
     {"objc_createLiteralDictionary", luaObjC_createLiteralDictionary},
     
     {"__NSConstantNumber", luaObjC_createConstantNumber},
-    
+    {"__NSConstantString", lua_NSConstantStringCreate},
+
     {NULL, NULL}
 };
 
@@ -574,12 +577,7 @@ static int _luaObjC_openRuntimeSupport(VMKLuaStateRef state)
 }
 
 int VMKOpenFoundationSupport(VMKLuaStateRef state)
-{
-    if (!_LuaObjCLiteralStorage)
-    {
-        _LuaObjCLiteralStorage = CFSetCreateMutable(NULL, 64, &kCFTypeSetCallBacks);
-    }
-    
+{    
     VMKClassInitialize(state);
     
     VMKLoadGlobalFunctions(state, luaObjC_runtimeFunctions);

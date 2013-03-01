@@ -86,16 +86,11 @@ const char* VMKCheckString(VMKLuaStateRef state, int index)
     }
 }
 
-int VMKPushObject(VMKLuaStateRef state, id nsObject, bool shouldStoreInPool, bool isClass)
+int VMKPushObject(VMKLuaStateRef state, id nsObject, bool isClass)
 {
     if (nsObject)
     {
         VMKObjectCreate(state, nsObject, isClass);
-        
-        if (shouldStoreInPool)
-        {
-            VMKObjectStoreInPool(state, nsObject);
-        }
         
     }else
     {
@@ -135,7 +130,7 @@ void VMKLoadGlobalFunctionsWithLength(VMKLuaStateRef state, const luaL_Reg funct
     }
 }
 
-void VMKLoadCreateMetatable(VMKLuaStateRef state, const char *name, const luaL_Reg methods[])
+void VMKCreateMetatable(VMKLuaStateRef state, const char *name, const luaL_Reg methods[])
 {
     luaL_newmetatable(state, name);
     lua_pushvalue(state, -1);  /* push metatable */

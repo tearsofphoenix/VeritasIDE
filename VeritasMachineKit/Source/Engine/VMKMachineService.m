@@ -18,8 +18,11 @@
 #import "VMKAuxiliary.h"
 #import "VMKBridgeService.h"
 #import "VMKParser.h"
+
 #import "NSString+VMKIndex.h"
 #import "NSData+Base64.h"
+#import "VMKDebugServer.h"
+
 #import <LuaKit/LuaKit.h>
 
 extern int lua_dumpSourceCode(VMKLuaStateRef state, const char *sourceCode, const char* outputPath);
@@ -38,7 +41,7 @@ struct __VMKMachineAttributes
     VMKLuaStateRef luaState;
     VMKLuaStateRef parserState;
     dispatch_queue_t garbageCollectionQueue;
-    dispatch_source_t garbageCollectTimer;    
+    dispatch_source_t garbageCollectTimer;
 };
 
 typedef struct __VMKMachineAttributes *VMKMachineAttributesRef;
@@ -59,7 +62,8 @@ typedef struct __VMKMachineAttributes *VMKMachineAttributesRef;
 
 static int luaObjC_objc_UUIDString(VMKLuaStateRef state)
 {
-    NSString *uuidString = [[NSString UUID] stringByReplacingOccurrencesOfString: @"-" withString: @"_"];
+    NSString *uuidString = [[NSString UUID] stringByReplacingOccurrencesOfString: @"-"
+                                                                      withString: @"_"];
     lua_pushstring(state, [uuidString UTF8String]);
     return 1;
 }
@@ -154,7 +158,7 @@ static void VMKMachine_initialize(VMKMachineService *self)
     //initialize the internal
     //
     VMKMachineAttributesRef internal = calloc(1, sizeof(struct __VMKMachineAttributes));
-        
+    
     //init parser state
     //
     VMKLuaStateRef parserStateRef = _luaEngine_createLuaState();
@@ -169,9 +173,9 @@ static void VMKMachine_initialize(VMKMachineService *self)
     VMKLuaStateRef luaStateRef = _luaEngine_createLuaState();
     
     VMKLibraryInformationRegisterToState(libs, VMKMachineUIKitSupport, luaStateRef);
-    
+        
     internal->luaState = luaStateRef;
-    
+        
 #if 0
     NSString *sourceCode = [[NSString alloc] initWithData: [NSData dataFromBase64String: kLuaObjCParserString]
                                                  encoding: NSUTF8StringEncoding];
@@ -190,25 +194,6 @@ static void VMKMachine_initialize(VMKMachineService *self)
     
     [sourceCode release];
     
-    /*
-    dispatch_queue_t garbageQueue = dispatch_queue_create(VMKMachineGarbageCollectionQueueIdentifier, DISPATCH_QUEUE_SERIAL);
-    internal->garbageCollectionQueue = garbageQueue;
-    
-    dispatch_source_t garbageCollectTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, garbageQueue);
-    internal->garbageCollectTimer = garbageCollectTimer;
-    
-    NSTimeInterval collectInterval = VMKMachineGarbageCollectInterval * NSEC_PER_SEC;
-    
-    dispatch_source_set_timer(garbageCollectTimer, dispatch_time(DISPATCH_TIME_NOW, collectInterval), collectInterval, 0);
-    dispatch_source_set_event_handler(garbageCollectTimer,
-                                      (^
-                                       {
-                                           pthread_mutex_lock(&internal->lock);
-                                           lua_gc(luaStateRef, LUA_GCCOLLECT, 0);
-                                           pthread_mutex_unlock(&internal->lock);
-                                           
-                                       }));*/
-    
     self->_internal = internal;
 }
 
@@ -219,6 +204,13 @@ static VMKMachineService *sSharedService = nil;
     if (!sSharedService)
     {
         sSharedService = [[self alloc] init];
+        
+        VMKDebugServer *debugServer = [VMKDebugServer sharedServer];
+        [debugServer setState: sSharedService->_internal->luaState];
+        
+        [sSharedService setDebugServer: debugServer];
+        
+        [debugServer start];
     }
     
     return sSharedService;
@@ -228,6 +220,15 @@ static VMKMachineService *sSharedService = nil;
 {
     if ((self = [super init]))
     {
+//        NSData *data = [[NSData alloc] initWithContentsOfFile: [[NSBundle bundleForClass: [self class]] pathForResource: @"jquery-min"
+//                                                                                                                 ofType: @"js"]];
+//        NSLog(@"%@", [data base64EncodedString]);
+//        
+//        NSData *data = [[NSData alloc] initWithContentsOfFile: [[NSBundle bundleForClass: [self class]] pathForResource: @"websocketclient"
+//                                                                                                         ofType: @"html"]];
+//
+//        NSLog(@"%@", [data base64EncodedString]);
+
         VMKMachine_initialize(self);
         
         [NSTimer scheduledTimerWithTimeInterval: VMKMachineGarbageCollectInterval
@@ -285,18 +286,11 @@ static void VMKMachineServiceParseSourceCode(VMKMachineService *self, NSString *
         //
         if (callback)
         {
-            callback( @[ @YES, @(ret) ] );
+            callback( @[ @(ret) ] );
         }
     }else
     {
-        if (callback)
-        {
-            callback(@[ @NO, @( lua_tostring(luaStateRef, 1) ) ]);
-            
-        }else
-        {
-            lua_error(luaStateRef);
-        }
+        lua_error(luaStateRef);
     }
 }
 
@@ -321,19 +315,11 @@ static void VMKMachineServiceParseSourceCode(VMKMachineService *self, NSString *
                                      sourceCode,
                                      (^(NSArray *callbackArguments)
                                       {
-                                          NSNumber *success = [callbackArguments objectAtIndex: 0];
-                                          NSString *arg = [callbackArguments objectAtIndex: 1];
+                                          NSString *arg = [callbackArguments objectAtIndex: 0];
                                           
-                                          if ([success boolValue])
-                                          {
-                                              VMKLuaStateRef luaStateRef = _internal->parserState;
-                                              
-                                              lua_dumpSourceCode(luaStateRef, [arg UTF8String], [filePath UTF8String]);
-                                              
-                                          }else
-                                          {
-                                              NSLog(@"in func: %s error: %@", __func__, arg);
-                                          }
+                                          VMKLuaStateRef luaStateRef = _internal->parserState;
+                                          
+                                          lua_dumpSourceCode(luaStateRef, [arg UTF8String], [filePath UTF8String]);
                                       }));
 }
 
@@ -347,20 +333,12 @@ static void VMKMachineServiceParseSourceCode(VMKMachineService *self, NSString *
                                          sourceCodeLooper,
                                          (^(NSArray *callbackArguments)
                                           {
-                                              NSNumber *success = [callbackArguments objectAtIndex: 0];
-                                              NSString *arg = [callbackArguments objectAtIndex: 1];
+                                              NSString *arg = [callbackArguments objectAtIndex: 0];
                                               
-                                              if ([success boolValue])
+                                              if(luaL_dostring(luaStateRef, [arg UTF8String]) != LUA_OK)
                                               {
-                                                  if(luaL_dostring(luaStateRef, [arg UTF8String]) != LUA_OK)
-                                                  {
-                                                      lua_error(luaStateRef);
-                                                      return ;
-                                                  }
-                                                  
-                                              }else
-                                              {
-                                                  NSLog(@"in func: %s error: %@", __func__, arg);
+                                                  lua_error(luaStateRef);
+                                                  return ;
                                               }
                                           }));
     }
@@ -387,20 +365,6 @@ static void VMKMachineServiceParseSourceCode(VMKMachineService *self, NSString *
 {
     VMKLuaStateRef luaStateRef = _internal->luaState;
     lua_Integer status;
-    
-    if ([sourceCode hasSuffix: @".v"])
-    {
-        //is a path infact
-        NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: sourceCode];
-        NSError *error = nil;
-        sourceCode = [NSString stringWithContentsOfFile: filePath
-                                               encoding: NSUTF8StringEncoding
-                                                  error: &error];
-        if (error)
-        {
-            NSLog(@"in function: %s line: %d error: %@", __PRETTY_FUNCTION__, __LINE__, error);
-        }
-    }
     
     if (sourceCode)
     {
@@ -486,20 +450,11 @@ static void VMKMachineServiceParseSourceCode(VMKMachineService *self, NSString *
         VMKMachineServiceParseSourceCode(self, sourceCode,
                                          (^(NSArray *callbackArguments)
                                           {
+                                              NSString *arg = [callbackArguments objectAtIndex: 0];
                                               
-                                              NSNumber *success = [callbackArguments objectAtIndex: 0];
-                                              NSString *arg = [callbackArguments objectAtIndex: 1];
-                                              
-                                              if ([success boolValue])
+                                              if (luaL_dostring(luaStateRef, [arg UTF8String]) != LUA_OK)
                                               {
-                                                  
-                                                  if (luaL_dostring(luaStateRef, [arg UTF8String]) != LUA_OK)
-                                                  {
-                                                      lua_error(luaStateRef);
-                                                  }
-                                              }else
-                                              {
-                                                  
+                                                  lua_error(luaStateRef);
                                               }
                                           }));
     }
