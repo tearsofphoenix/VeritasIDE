@@ -14,6 +14,23 @@
 
 #define VMKDebugCommandHandlerNameInLuaState "com.veritas.lua.debug.command.handler"
 
+static NSDictionary *sCommandDict = nil;
+
+static NSString *LongCommandStringForShot(NSString *shortCommand)
+{
+    if (!sCommandDict)
+    {
+        sCommandDict = [@{
+                        @"bs" : VMKDebugCommandBreakpointSet,
+                        @"bd" : VMKDebugCommandBreakpointDelete,
+                        @"bl" : VMKDebugCommandBreakpointList,
+                        @"bt" : VMKDebugCommandBackTrace,
+                        } retain];
+    }
+    
+    return [sCommandDict objectForKey: shortCommand];
+}
+
 @implementation VMKDebugCommandHandler
 
 static void _VMKLuaHook(lua_State *L, lua_Debug *ar)
@@ -60,22 +77,41 @@ static void _VMKLuaHook(lua_State *L, lua_Debug *ar)
                         if (breakpoint)
                         {
                             [handler _sendMessage: @"Found a breakpoint"];
+                            
+                            [[handler delegate] commandHandler: handler
+                                         wantToPauseForCommand: VMKDebugCommandExecutionOver
+                                                     arguments: nil];
                         }
                     }
                     
                 }else if (CFEqual(VMKDebugCommandExecutionFinish, currentCommand))
                 {
-                    //prompt(L, ar);
+                    [[handler delegate] commandHandler: handler
+                                wantToResumeForCommand: VMKDebugCommandExecutionFinish
+                                             arguments: nil];
                 }
-                
+            }else
+            {
+                VMKDebugBreakpoint *breakpoint = CFDictionaryGetValue(handler->_breakpointHandlers, (const void *)ar->currentline);
+                if (breakpoint)
+                {
+                    [handler _sendMessage: @"Found a breakpoint"];
+                    
+                    [[handler delegate] commandHandler: handler
+                                 wantToPauseForCommand: VMKDebugCommandExecutionOver
+                                             arguments: nil];
+                }
             }
+            
             break;
         }
+            
         case LUA_HOOKCALL:
         {
             handler->_executionLevel++;
             break;
         }
+            
         case LUA_HOOKRET:
         case LUA_HOOKTAILCALL:
         {
@@ -110,7 +146,7 @@ static NSString *_VMKBacktraceStack(VMKDebugCommandHandler *handler, NSString *c
     struct lua_Debug ar;
     int i = 0;
     
-    NSMutableString *content = [NSMutableString string];
+    NSMutableString *content = [NSMutableString stringWithString: @""];
     
     while (lua_getstack(state, i, &ar))
     {
@@ -233,8 +269,50 @@ static NSString *_VMKFinishExecution(VMKDebugCommandHandler *handler, NSString *
     return @"OK";
 }
 
+static NSString *_VMKQueryMessage(VMKDebugCommandHandler *handler, NSString *commandString, NSDictionary *arguments)
+{
+    NSMutableArray *messages = handler->_messages;
+    NSString *message = nil;
+    NSInteger count = [messages count];
+    
+    if (count > 0)
+    {
+        message = [messages objectAtIndex: 0];
+        
+        [messages setArray: [messages subarrayWithRange: NSMakeRange(1, count - 1)]];
+    }
+    
+    return message;
+}
+
+static NSString *_VMKHelpMessage(VMKDebugCommandHandler *handler, NSString *commandString, NSDictionary *arguments)
+{
+    return @"Veritas Machine Kit Debugger\n"
+    "supported command\n"
+    "\n"
+    "1.run                launch the process\n"
+    "2.backtrace          show backtrace infomation\n"
+    "3.breakpoint-set     bs for short, set a breakpoint\n"
+    "4.breakpoint-delete  bd for short, delete a breakpoint\n"
+    "5.breakpoint-list    bl for short, list breakpoints\n"
+    "6.step               step in a function\n"
+    "7.over               step over a function\n"
+    "8.finish             finish a function call and return\n"
+    "9.message            query current message from debug server\n"
+    "10.help              show help message\n";
+}
+
+static NSString *_VMKConnectToServer(VMKDebugCommandHandler *handler, NSString *commandString, NSDictionary *arguments)
+{
+    return @"OK";
+}
+
 - (void)_registerSupportedCommands
 {
+    //connect to server
+    [self registerProcessor: _VMKConnectToServer
+             forCommandName: VMKDebugCommandConnect];
+    
     [self registerProcessor: _VMKLaunchApplication
              forCommandName: VMKDebugCommandLaunch];
     
@@ -262,11 +340,19 @@ static NSString *_VMKFinishExecution(VMKDebugCommandHandler *handler, NSString *
     
     [self registerProcessor: _VMKFinishExecution
              forCommandName: VMKDebugCommandExecutionFinish];
+    
+    //message
+    [self registerProcessor: _VMKQueryMessage
+             forCommandName: VMKDebugCommandQueryMessage];
+    
+    //help
+    [self registerProcessor: _VMKHelpMessage
+             forCommandName: VMKDebugCommandHelp];
 }
 
 - (void)_terminateDebug
 {
-    cleanSocket(_socket);
+    
 }
 
 - (id)init
@@ -276,7 +362,8 @@ static NSString *_VMKFinishExecution(VMKDebugCommandHandler *handler, NSString *
         _supportedCommands = CFDictionaryCreateMutable(NULL, 0, &kCFTypeDictionaryKeyCallBacks, NULL);
         _breakpointHandlers = CFDictionaryCreateMutable(NULL, 0, NULL, &kCFTypeDictionaryValueCallBacks);
         _userCommandQueue = [[NSMutableArray alloc] init];
-        _socket = -1;
+        
+        _messages = [[NSMutableArray alloc] init];
         
         [self _registerSupportedCommands];
     }
@@ -319,45 +406,68 @@ static NSString *_VMKFinishExecution(VMKDebugCommandHandler *handler, NSString *
 
 - (void)_sendMessage: (NSString *)message
 {
-    if (_socket != -1)
-    {
-        [self writeText: message
-               toSocket: _socket];
-    }
+    [_messages addObject: message];
 }
 
-- (BOOL)handleRequest: (NSString *)url
-          withHeaders: (NSDictionary *)headers
-                query: (NSDictionary *)query
-              address: (NSString *)address
+- (BOOL)handleRequest: (NSDictionary *)parameters
              onSocket: (int)socket
 {
-    _socket = socket;
     
-    if([self writeText: @"HTTP/1.0 200 OK\r\n\r\n"
-              toSocket: socket])
+    NSString *commandString = [parameters objectForKey: VMKDebugCommandKey];
+    
+    if (commandString)
     {
-        NSString *commandString = [query objectForKey: @"command"];
+        VMKDebugCommandProcessor processor = CFDictionaryGetValue(_supportedCommands, commandString);
         
-        if (commandString)
+        if (!processor)
         {
-            VMKDebugCommandProcessor processor = CFDictionaryGetValue(_supportedCommands, commandString);
+            //may be a short command
+            //
+            commandString = LongCommandStringForShot(commandString);
             
-            if (processor)
+            if (commandString)
             {
-                [self writeText: processor(self, commandString, query)
-                       toSocket: socket] ;
-            }else
-            {
-                [self writeText: [NSString stringWithFormat: @"%@    Unsurpported command: %@", stringFromCurrentTime(), commandString]
-                       toSocket: socket] ;
+                processor = CFDictionaryGetValue(_supportedCommands, commandString);
             }
-            
-            NSLog(@"%@", commandString);
         }
+    
+        NSString *str = nil;
+        
+        if (processor)
+        {
+            str = processor(self, commandString, parameters);
+            
+        }else
+        {
+            str = [NSString stringWithFormat: @"%@    Unsurpported command: %@",
+                               stringFromCurrentTime(),
+                   commandString ?: [parameters objectForKey: VMKDebugCommandKey]];
+        }
+        
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        
+        [dict setObject: str
+                 forKey: VMKDebugCommandMessageKey];
+        
+        NSError *error = nil;
+        NSData *data = [NSPropertyListSerialization dataWithPropertyList: dict
+                                                                  format: NSPropertyListXMLFormat_v1_0
+                                                                 options: NSPropertyListImmutable
+                                                                   error: &error];
+        if (error)
+        {
+            NSLog(@"%@", error);
+        }else
+        {
+            [self writeData: data
+                   toSocket: socket];
+        }
+        
+        [dict release];
     }
     
     return YES;
 }
+
 
 @end

@@ -99,7 +99,7 @@
                  forKey: VMKDebugBreakpointLineKey];
     }
     
-    [info setObject: @(_autoContinueAfterEvaluating)
+    [info setObject: _autoContinueAfterEvaluating ? @"YES" : @"NO"
              forKey: VMKDebugBreakpointAutoContinueKey];
 
     [info setObject: @(_ignoreTimesBeforeStopping)
@@ -117,7 +117,7 @@
                  forKey: VMKDebugBreakpointConditionBlockKey];
     }
     
-    [info setObject: @(_disabled)
+    [info setObject: _disabled ? @"YES" : @"NO"
              forKey: VMKDebugBreakpointDisableKey];
     
     return [info description];

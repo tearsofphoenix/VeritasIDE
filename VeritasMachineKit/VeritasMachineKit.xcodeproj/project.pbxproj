@@ -73,11 +73,6 @@
 		E16E320116DEEF75004F2D8D /* VMKDebugServer.m in Sources */ = {isa = PBXBuildFile; fileRef = E16E31FF16DEEF75004F2D8D /* VMKDebugServer.m */; };
 		E16E320D16DEF6EF004F2D8D /* VMKDebugRequestHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E16E320B16DEF6EF004F2D8D /* VMKDebugRequestHandler.h */; };
 		E16E320E16DEF6EF004F2D8D /* VMKDebugRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E16E320C16DEF6EF004F2D8D /* VMKDebugRequestHandler.m */; };
-		E16E321416DF026D004F2D8D /* HVBase64StaticFile.h in Headers */ = {isa = PBXBuildFile; fileRef = E16E320F16DF026D004F2D8D /* HVBase64StaticFile.h */; };
-		E16E321516DF026D004F2D8D /* HVBase64StaticFile.m in Sources */ = {isa = PBXBuildFile; fileRef = E16E321016DF026D004F2D8D /* HVBase64StaticFile.m */; };
-		E16E321716DF026D004F2D8D /* websocketclient.html in Resources */ = {isa = PBXBuildFile; fileRef = E16E321316DF026D004F2D8D /* websocketclient.html */; };
-		E16E321916DF03E0004F2D8D /* VMKDebugServerBase64String.h in Headers */ = {isa = PBXBuildFile; fileRef = E16E321816DF03E0004F2D8D /* VMKDebugServerBase64String.h */; };
-		E16E321B16DF0526004F2D8D /* jquery-min.js in Resources */ = {isa = PBXBuildFile; fileRef = E16E321216DF026D004F2D8D /* jquery-min.js */; };
 		E16E321E16DF210C004F2D8D /* VMKDebugCommandHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E16E321C16DF210B004F2D8D /* VMKDebugCommandHandler.h */; };
 		E16E321F16DF210C004F2D8D /* VMKDebugCommandHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E16E321D16DF210C004F2D8D /* VMKDebugCommandHandler.m */; };
 		E16E322216DF2163004F2D8D /* VMKDebugFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = E16E322016DF2162004F2D8D /* VMKDebugFunctions.h */; };
@@ -130,8 +125,6 @@
 		E1AB5B1416AD1277005F4E41 /* VMKClass.h in Headers */ = {isa = PBXBuildFile; fileRef = E1AB5B1216AD1276005F4E41 /* VMKClass.h */; };
 		E1D571FA16D6F91000A255DC /* VMKPrivateFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = E1D571F916D6F91000A255DC /* VMKPrivateFunctions.h */; };
 		E1D62E7216AE20C400DE39BF /* LuaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D62E6D16AE20A900DE39BF /* LuaKit.framework */; };
-		E1FFFF3916E02D0900A40FAE /* VMKDebugCommandLaunchHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E1FFFF3716E02D0900A40FAE /* VMKDebugCommandLaunchHandler.h */; };
-		E1FFFF3A16E02D0900A40FAE /* VMKDebugCommandLaunchHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FFFF3816E02D0900A40FAE /* VMKDebugCommandLaunchHandler.m */; };
 		E1FFFF3D16E06FF100A40FAE /* VMKDebugBreakpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = E1FFFF3B16E06FF100A40FAE /* VMKDebugBreakpoint.h */; };
 		E1FFFF3E16E06FF100A40FAE /* VMKDebugBreakpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FFFF3C16E06FF100A40FAE /* VMKDebugBreakpoint.m */; };
 /* End PBXBuildFile section */
@@ -216,12 +209,6 @@
 		E16E31FF16DEEF75004F2D8D /* VMKDebugServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMKDebugServer.m; sourceTree = "<group>"; };
 		E16E320B16DEF6EF004F2D8D /* VMKDebugRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMKDebugRequestHandler.h; sourceTree = "<group>"; };
 		E16E320C16DEF6EF004F2D8D /* VMKDebugRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMKDebugRequestHandler.m; sourceTree = "<group>"; };
-		E16E320F16DF026D004F2D8D /* HVBase64StaticFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVBase64StaticFile.h; sourceTree = "<group>"; };
-		E16E321016DF026D004F2D8D /* HVBase64StaticFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVBase64StaticFile.m; sourceTree = "<group>"; };
-		E16E321216DF026D004F2D8D /* jquery-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-min.js"; sourceTree = "<group>"; };
-		E16E321316DF026D004F2D8D /* websocketclient.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = websocketclient.html; sourceTree = "<group>"; };
-		E16E321816DF03E0004F2D8D /* VMKDebugServerBase64String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMKDebugServerBase64String.h; sourceTree = "<group>"; };
-		E16E321A16DF0405004F2D8D /* VMKJqueryMinBase64String.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VMKJqueryMinBase64String.h; sourceTree = "<group>"; };
 		E16E321C16DF210B004F2D8D /* VMKDebugCommandHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMKDebugCommandHandler.h; sourceTree = "<group>"; };
 		E16E321D16DF210C004F2D8D /* VMKDebugCommandHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMKDebugCommandHandler.m; sourceTree = "<group>"; };
 		E16E322016DF2162004F2D8D /* VMKDebugFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMKDebugFunctions.h; sourceTree = "<group>"; };
@@ -370,8 +357,6 @@
 		E1AB5B1216AD1276005F4E41 /* VMKClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMKClass.h; sourceTree = "<group>"; };
 		E1D571F916D6F91000A255DC /* VMKPrivateFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMKPrivateFunctions.h; sourceTree = "<group>"; };
 		E1D62E6216AE20A800DE39BF /* LuaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LuaKit.xcodeproj; path = LuaKit/LuaKit.xcodeproj; sourceTree = "<group>"; };
-		E1FFFF3716E02D0900A40FAE /* VMKDebugCommandLaunchHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMKDebugCommandLaunchHandler.h; sourceTree = "<group>"; };
-		E1FFFF3816E02D0900A40FAE /* VMKDebugCommandLaunchHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMKDebugCommandLaunchHandler.m; sourceTree = "<group>"; };
 		E1FFFF3B16E06FF100A40FAE /* VMKDebugBreakpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VMKDebugBreakpoint.h; sourceTree = "<group>"; };
 		E1FFFF3C16E06FF100A40FAE /* VMKDebugBreakpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VMKDebugBreakpoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -437,21 +422,14 @@
 		E123A5BD16DDE255009FD464 /* Server */ = {
 			isa = PBXGroup;
 			children = (
-				E16E321116DF026D004F2D8D /* Server */,
 				E16E320B16DEF6EF004F2D8D /* VMKDebugRequestHandler.h */,
 				E16E320C16DEF6EF004F2D8D /* VMKDebugRequestHandler.m */,
 				E16E31FE16DEEF75004F2D8D /* VMKDebugServer.h */,
 				E16E31FF16DEEF75004F2D8D /* VMKDebugServer.m */,
-				E16E320F16DF026D004F2D8D /* HVBase64StaticFile.h */,
-				E16E321016DF026D004F2D8D /* HVBase64StaticFile.m */,
-				E16E321816DF03E0004F2D8D /* VMKDebugServerBase64String.h */,
-				E16E321A16DF0405004F2D8D /* VMKJqueryMinBase64String.h */,
 				E16E321C16DF210B004F2D8D /* VMKDebugCommandHandler.h */,
 				E16E321D16DF210C004F2D8D /* VMKDebugCommandHandler.m */,
 				E16E322016DF2162004F2D8D /* VMKDebugFunctions.h */,
 				E16E322116DF2163004F2D8D /* VMKDebugFunctions.m */,
-				E1FFFF3716E02D0900A40FAE /* VMKDebugCommandLaunchHandler.h */,
-				E1FFFF3816E02D0900A40FAE /* VMKDebugCommandLaunchHandler.m */,
 				E1FFFF3B16E06FF100A40FAE /* VMKDebugBreakpoint.h */,
 				E1FFFF3C16E06FF100A40FAE /* VMKDebugBreakpoint.m */,
 			);
@@ -478,15 +456,6 @@
 				E14A34F61643A77F00B8EB6E /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E16E321116DF026D004F2D8D /* Server */ = {
-			isa = PBXGroup;
-			children = (
-				E16E321216DF026D004F2D8D /* jquery-min.js */,
-				E16E321316DF026D004F2D8D /* websocketclient.html */,
-			);
-			path = Server;
 			sourceTree = "<group>";
 		};
 		E1A39FBA16DC3A79000F8CEC /* VeritasMachineKitTest */ = {
@@ -906,11 +875,8 @@
 				E1D571FA16D6F91000A255DC /* VMKPrivateFunctions.h in Headers */,
 				E16E320016DEEF75004F2D8D /* VMKDebugServer.h in Headers */,
 				E16E320D16DEF6EF004F2D8D /* VMKDebugRequestHandler.h in Headers */,
-				E16E321416DF026D004F2D8D /* HVBase64StaticFile.h in Headers */,
-				E16E321916DF03E0004F2D8D /* VMKDebugServerBase64String.h in Headers */,
 				E16E321E16DF210C004F2D8D /* VMKDebugCommandHandler.h in Headers */,
 				E16E322216DF2163004F2D8D /* VMKDebugFunctions.h in Headers */,
-				E1FFFF3916E02D0900A40FAE /* VMKDebugCommandLaunchHandler.h in Headers */,
 				E1FFFF3D16E06FF100A40FAE /* VMKDebugBreakpoint.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1045,7 +1011,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E16E321B16DF0526004F2D8D /* jquery-min.js in Resources */,
 				E14A35521643A8BF00B8EB6E /* LuaCParser.lua in Resources */,
 				E14A35531643A8BF00B8EB6E /* VMKParser.lua in Resources */,
 				E14A352A1643A8B100B8EB6E /* Accelerate.bridgesupport in Resources */,
@@ -1088,7 +1053,6 @@
 				E14A354F1643A8B100B8EB6E /* SystemConfiguration.bridgesupport in Resources */,
 				E14A35501643A8B100B8EB6E /* Twitter.bridgesupport in Resources */,
 				E14A35511643A8B100B8EB6E /* UIKit.bridgesupport in Resources */,
-				E16E321716DF026D004F2D8D /* websocketclient.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1165,10 +1129,8 @@
 				2208704016D5EAAD00C05335 /* VMKFunctions.m in Sources */,
 				E16E320116DEEF75004F2D8D /* VMKDebugServer.m in Sources */,
 				E16E320E16DEF6EF004F2D8D /* VMKDebugRequestHandler.m in Sources */,
-				E16E321516DF026D004F2D8D /* HVBase64StaticFile.m in Sources */,
 				E16E321F16DF210C004F2D8D /* VMKDebugCommandHandler.m in Sources */,
 				E16E322316DF2163004F2D8D /* VMKDebugFunctions.m in Sources */,
-				E1FFFF3A16E02D0900A40FAE /* VMKDebugCommandLaunchHandler.m in Sources */,
 				E1FFFF3E16E06FF100A40FAE /* VMKDebugBreakpoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

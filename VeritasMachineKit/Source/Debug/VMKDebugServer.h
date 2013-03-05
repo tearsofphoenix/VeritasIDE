@@ -7,7 +7,7 @@
 #import <Foundation/Foundation.h>
 #import "VMKMachineService.h"
 
-@protocol HVRequestHandler;
+@class VMKDebugCommandHandler;
 
 @interface VMKDebugServer : NSObject<VMKDebugServer>
 {
@@ -15,17 +15,13 @@
     int _listenSocket;
     BOOL _done;
     BOOL _canLauch;
-    NSMutableDictionary *_handlers;
+    BOOL _pausingForCommand;
+    
+    VMKDebugCommandHandler *_handler;
 }
 
 @property (nonatomic, assign) VMKLuaStateRef state;
 
 + (VMKDebugServer *)sharedServer;
-
-- (void)registerHandler: (id<HVRequestHandler>)handler
-           forURLScheme: (NSString *)url;
-
-- (void)registerHandler: (id<HVRequestHandler>)handler
-          forURLSchemes: (NSArray *)urls;
 
 @end
